@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>家の修繕費用の計算</title>
+<meta name="description" content="外壁塗装など、家の修繕費用の目安を、見積書と同じ並びで計算します。数字はすべて公開資料から取り、出典を載せています。">
+<meta name="theme-color" content="#13203a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231450d8'/%3E%3Cpath d='M32 12 54 30H48V52H16V30H10Z' fill='%23fff'/%3E%3Crect x='26' y='36' width='12' height='16' fill='%231450d8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=M+PLUS+Rounded+1c:wght@800&display=swap">
+<style>
+:root {
+  --paper: #eef2f6; --sheet: #ffffff; --ink: #13203a; --sub: #56637b; --rule: #d3dae4; --blue: #1450d8;
+  --f-body: "BIZ UDPGothic", "Hiragino Sans", "Yu Gothic", sans-serif;
+  --f-disp: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Hiragino Sans", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --paper: #0d1422; --sheet: #151f33; --ink: #e9eef7; --sub: #a1adc4; --rule: #2b3852; --blue: #7aa2ff; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --paper: #0d1422; --sheet: #151f33; --ink: #e9eef7; --sub: #a1adc4; --rule: #2b3852; --blue: #7aa2ff; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 17px; line-height: 1.8; padding-inline: 16px; padding-block: 40px 56px; }
+.wrap { max-width: 640px; margin: 0 auto; }
+h1 { font-family: var(--f-disp); font-weight: 800; font-size: clamp(28px, 7vw, 40px); line-height: 1.35; margin: 0 0 12px; text-wrap: balance; }
+.nw { display: inline-block; }
+p { margin: 0 0 12px; }
+.sub { color: var(--sub); font-size: 15px; }
+ul { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 12px; }
+a.card { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 18px 20px; background: var(--sheet); border: 2px solid var(--blue); border-radius: 10px; color: var(--ink); text-decoration: none; }
+a.card b { font-family: var(--f-disp); font-weight: 800; font-size: 22px; }
+a.card span { color: var(--blue); font-weight: 700; white-space: nowrap; }
+a.card:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.soon { display: flex; justify-content: space-between; padding: 16px 20px; border: 2px dashed var(--rule); border-radius: 10px; color: var(--sub); }
+footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: 13.5px; color: var(--sub); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1><span class="nw">家の修繕費用を、</span><span class="nw">見積書の並びで計算する</span></h1>
+  <p>YouTubeの動画と同じ単価表で、自分の家の目安を出せます。数字はすべて公開されている資料から取り、出典を載せています。</p>
+  <p class="sub">塗装業者・工事会社ではない立場で作っています。入力した内容は、どこにも送られません。</p>
+  <ul>
+    <li><a class="card" href="gaiheki/"><b>外壁塗装</b><span>計算する →</span></a></li>
+    <li class="soon"><span>屋根</span><span>準備中</span></li>
+  </ul>
+  <footer>金額は公開されている資料から計算した目安です。実際の金額は、家の傷み具合・地域・業者によって変わります。</footer>
+</div>
+</body>
+</html>
