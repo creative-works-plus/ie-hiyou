@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>手口の記録｜見積書のお姉さん</title>
+<meta name="description" content="外壁・屋根・給湯器・シロアリ・トイレ・お風呂で実際にあった手口を、国民生活センターや消費者庁、自治体の公表資料から1つずつ記録しました。業者の最初のひと言、実際の数字、防ぎ方まで。">
+<meta name="theme-color" content="#1f2d55">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="見積書のお姉さん">
+<meta property="og:title" content="手口の記録｜見積書のお姉さん">
+<meta property="og:description" content="外壁・屋根・給湯器・シロアリ・トイレ・お風呂で実際にあった手口を、国民生活センターや消費者庁、自治体の公表資料から1つずつ記録しました。業者の最初のひと言、実際の数字、防ぎ方まで。">
+<meta property="og:image" content="https://creative-works-plus.github.io/ie-hiyou/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../img/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=BIZ+UDPMincho:wght@700&family=M+PLUS+Rounded+1c:wght@800&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<script src="../assets/site.js" defer></script>
+<style>
+/* 手口の記録：このページだけの見た目（色は site.css の変数だけ） */
+.tq-intro { display: grid; gap: 12px; margin: 0 0 24px; }
+@media (min-width: 860px) { .tq-intro { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); align-items: stretch; } }
+.tq-stat { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); box-shadow: var(--shadow); padding: 18px 20px; margin: 0; }
+.tq-stat__n { display: block; font-family: var(--f-disp); font-weight: 800; font-size: clamp(30px, 8vw, 40px); line-height: 1.2; color: var(--red-ink); font-variant-numeric: tabular-nums; margin: 4px 0; }
+.tq-stat small { display: block; color: var(--sub); font-size: 13.5px; }
+.tq-notes { margin: 0; padding: 16px 18px 16px 34px; background: var(--tint); border-radius: var(--radius); font-size: 14.5px; color: var(--sub); }
+.tq-notes li + li { margin-top: 4px; }
+
+.tq-ctrl { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); padding: 16px; display: grid; gap: 14px; }
+@media (min-width: 860px) { .tq-ctrl { grid-template-columns: minmax(0, 1fr) auto; align-items: end; } }
+.tq-ctrl__h { font-size: 13px; font-weight: 700; color: var(--sub); margin: 0 0 8px; letter-spacing: .04em; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; min-height: 42px; padding: 0 14px; border-radius: 999px; border: 1.5px solid var(--rule); background: var(--paper); color: var(--ink); font: 700 15px var(--f-body); cursor: pointer; }
+.chip:hover { border-color: var(--ink); }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--sheet); }
+.chip__n { font-weight: 400; font-size: 13px; opacity: .8; font-variant-numeric: tabular-nums; }
+.seg { display: inline-flex; border: 1.5px solid var(--rule); border-radius: 999px; padding: 3px; background: var(--paper); }
+.seg button { min-height: 38px; padding: 0 14px; border: 0; border-radius: 999px; background: transparent; color: var(--sub); font: 700 14.5px var(--f-body); cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--sheet); color: var(--ink); box-shadow: var(--shadow); }
+.tq-count { margin: 14px 0 0; font-size: 14px; color: var(--sub); }
+
+.tq-list { display: grid; gap: 16px; }
+.tq-gh { display: flex; align-items: center; gap: 14px; margin-top: 26px; scroll-margin-top: 76px; }
+.tq-gh img { width: 112px; height: auto; aspect-ratio: 16 / 9; border-radius: 8px; border: 1px solid var(--rule); flex: none; display: block; }
+.tq-gh h2 { font-size: clamp(21px, 4.8vw, 28px); }
+.tq-gh__k { margin: 0 0 2px; font-size: 13px; font-weight: 700; color: var(--blue); letter-spacing: .06em; }
+.tq-gh__l { margin: 4px 0 0; font-size: 14px; }
+.tq-gh__s { margin: 4px 0 0; font-size: 14px; color: var(--sub); }
+.tq-gh--start { padding-left: 14px; border-left: 5px solid var(--blue); }
+.tq-sep { color: var(--sub); margin: 0 .35em; }
+
+.tq { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px; min-width: 0; scroll-margin-top: 76px; }
+@media (min-width: 760px) { .tq { padding: 26px 28px; } }
+.tq[hidden], .tq-gh[hidden] { display: none; }
+.tq-tags { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 12px; }
+.tq-kind { background: var(--yellow); color: #14213d; }
+.tq-start { background: var(--blue-soft); color: var(--ink); }
+.tq-ep { font-size: 12.5px; font-weight: 700; color: var(--sub); margin-left: 2px; }
+.tq-q { font-size: clamp(19px, 4.6vw, 25px); line-height: 1.55; }
+.tq-who { margin: 10px 0 18px; font-size: 14px; color: var(--sub); }
+.tq h4 { font-family: var(--f-body); font-size: 13.5px; font-weight: 700; color: var(--sub); letter-spacing: .06em; margin: 0 0 6px; }
+.tq-body { display: grid; gap: 18px; }
+@media (min-width: 860px) { .tq-body { grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 28px; } }
+.tq-what p { margin: 0; }
+.tq-nums { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.tq-nums li { background: var(--tint); border-radius: var(--radius-s); padding: 10px 12px; font-size: 14px; line-height: 1.6; color: var(--sub); }
+.tq-nums b { display: block; font-family: var(--f-disp); font-weight: 800; font-size: 20px; line-height: 1.35; color: var(--ink); font-variant-numeric: tabular-nums; }
+.tq-meta { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--rule); display: grid; gap: 10px; font-size: 13.5px; }
+.tq-src ul { margin: 0; padding-left: 1.2em; color: var(--sub); }
+.tq-src a { color: var(--sub); }
+.tq-rel { margin: 0; color: var(--sub); }
+.tq-rel a, .tq-gh__l a { display: inline-block; }
+.tq-rel__h { font-weight: 700; letter-spacing: .06em; margin-right: .8em; }
+.tq-fix { margin-top: 16px; background: var(--blue-soft); border-left: 5px solid var(--blue); border-radius: var(--radius-s); padding: 14px 16px; }
+.tq-fix h4 { color: var(--blue); font-size: 15px; }
+.tq-fix ul { margin: 0; padding-left: 1.2em; }
+.tq-fix li + li { margin-top: 4px; }
+.tq-empty { margin: 24px 0 0; color: var(--sub); }
+
+.tq-cta { display: grid; grid-template-columns: minmax(0, 1fr) 96px; gap: 8px 16px; align-items: end; margin-top: 48px; padding: 24px 20px 0; border-radius: var(--radius); border: 2px solid var(--red); background: var(--red-soft); color: var(--ink); text-decoration: none; overflow: hidden; }
+@media (min-width: 760px) { .tq-cta { grid-template-columns: minmax(0, 1fr) 150px; padding: 32px 36px 0; } }
+.tq-cta__t { padding-bottom: 24px; }
+.tq-cta__k { display: block; font-size: 13.5px; font-weight: 700; color: var(--red-ink); letter-spacing: .06em; }
+.tq-cta__h { display: block; font-family: var(--f-disp); font-weight: 800; font-size: clamp(28px, 7.4vw, 44px); line-height: 1.25; color: var(--red-ink); margin: 6px 0 10px; }
+.tq-cta__p { display: block; color: var(--ink); max-width: 30em; }
+.tq-cta__b { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; min-height: 52px; padding: 0 24px; border-radius: 999px; background: var(--red); color: var(--sheet); font-weight: 700; }
+.tq-cta:hover .tq-cta__b { filter: brightness(1.06); }
+.tq-cta img { width: 100%; height: auto; display: block; align-self: end; }
+@media (max-width: 559px) { .tq-cta { grid-template-columns: minmax(0, 1fr); } .tq-cta img { display: none; } }
+.tq-foot { margin-top: 20px; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へ</a>
+<header class="site-h">
+  <div class="wrap site-h__in">
+    <a class="logo" href="../"><img src="../img/face.webp" alt="" width="36" height="36">見積書のお姉さん</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"><span class="menu-btn__bars" aria-hidden="true"></span>メニュー</button>
+    <nav id="site-nav" class="site-nav" aria-label="サイトの中">
+      <a href="../#keisan">計算する</a>
+      <a href="../douga/">動画</a>
+      <a href="../teguchi/" aria-current="page">手口の記録</a>
+      <a href="../kotoba/">言葉の辞典</a>
+      <a class="nav-warn" href="../houmon/">業者が来たら</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap page-h">
+    <p class="crumb"><a href="../">トップ</a> ／ 手口の記録</p>
+    <h1>手口の記録</h1>
+    <p class="lead">6本の動画で紹介した、国や自治体、公的な相談窓口が公表している実際の手口を、1つずつ記録しました。見出しは、業者が実際に言った言葉です。</p>
+  </div>
+  <div class="wrap">
+    <div class="tq-intro">
+      <p class="tq-stat">点検をきっかけに契約させる「点検商法」の相談は、全国で2025年度に<span class="tq-stat__n">1万9,696件</span><small>2023年度の約1.6倍です（<a href="https://www.kokusen.go.jp/soudan_topics/data/reformtenken.html" target="_blank" rel="noopener">国民生活センター</a>）。屋根だけでなく、給湯器なども含みます。</small></p>
+      <ul class="tq-notes">
+        <li>どれも、国や自治体、公的な相談窓口が公表している事例です。事業者の名前は書いていません。</li>
+        <li>金額は「契約した金額」「見積もりの金額」「払った金額」を分けて書いています。</li>
+        <li>どのカードも、最後は「こうすれば防げる」です。</li>
+      </ul>
+    </div>
+
+    <div class="tq-ctrl" id="tq-ctrl" hidden>
+      <div>
+        <p class="tq-ctrl__h" id="kind-h">工事の種類でしぼる</p>
+        <div class="chips" role="group" aria-labelledby="kind-h">
+          <button class="chip" type="button" data-kind="all" aria-pressed="true">すべて<span class="chip__n">22</span></button><button class="chip" type="button" data-kind="gaiheki" aria-pressed="false">外壁<span class="chip__n">2</span></button><button class="chip" type="button" data-kind="yane" aria-pressed="false">屋根<span class="chip__n">6</span></button><button class="chip" type="button" data-kind="kyuto" aria-pressed="false">給湯器<span class="chip__n">4</span></button><button class="chip" type="button" data-kind="shiroari" aria-pressed="false">シロアリ<span class="chip__n">4</span></button><button class="chip" type="button" data-kind="toilet" aria-pressed="false">トイレ・水回り<span class="chip__n">4</span></button><button class="chip" type="button" data-kind="furo" aria-pressed="false">お風呂<span class="chip__n">4</span></button>
+        </div>
+      </div>
+      <div>
+        <p class="tq-ctrl__h" id="mode-h">並べ方</p>
+        <div class="seg" role="group" aria-labelledby="mode-h">
+          <button type="button" data-mode="ep" aria-pressed="true">動画の順</button>
+          <button type="button" data-mode="start" aria-pressed="false">始まり方でまとめる</button>
+        </div>
+      </div>
+    </div>
+    <p class="tq-count" id="tq-count" aria-live="polite">22件</p>
+
+    <div class="tq-list" id="tq-list">
+    <div class="tq-gh" id="ep01" data-ep="01">
+      <img src="../img/thumbs/01.webp" width="640" height="360" alt="" loading="lazy" decoding="async">
+      <div><p class="tq-gh__k">動画01</p><h2>外壁塗装30坪</h2><p class="tq-gh__l"><a href="../douga/01/">文字で読む</a><span class="tq-sep" aria-hidden="true">／</span><a href="../gaiheki/">費用を計算する</a></p></div>
+    </div>
+    <article class="tq" id="t01-1" data-ep="01" data-kind="yane gaiheki" data-start="houmon">
+      <div class="tq-tags"><span class="tag tq-kind">屋根</span><span class="tag tq-kind">外壁</span><span class="tag tq-start">突然の訪問</span><span class="tq-ep">動画01</span></div>
+      <h3 class="tq-q"><span class="nw">「近くで工事をしている者です。</span><span class="nw">お宅の瓦が、</span><span class="nw">ずれているのが見えましたよ」</span></h3>
+      <p class="tq-who">国民生活センターが公表した相談の事例</p>
+      <div class="tq-body">
+        <div class="tq-what"><h4>何が起きたか</h4><p>業者は「近くで工事をしている者です」「工事のあいさつに来ました」と言って訪ねてきます。最近は「近所をドローンで撮っていたら、お宅の屋根が傷んでいるのが見えた」という言い方もあります。屋根に上がって写真を撮り、「このままだと雨漏りする」「今なら資材があるので割引する」と、その場で契約を迫ります。50代の女性は、約100万円の契約をしたあとで調べてみると、応急処置のような工事でした。70代の男性は、写真を見せられて約250万円の契約。あとでよく見ると、本当に自分の家の屋根の写真なのか疑わしく、ほかの会社の見積もりより高かったそうです。</p></div>
+        <div class="tq-num"><h4>実際の数字</h4><ul class="tq-nums"><li><b>約100万円</b>50代の女性が契約した金額</li><li><b>約250万円</b>70代の男性が契約した金額</li><li><b>923件 → 2,885件</b>屋根工事の点検商法の相談。2018年度から2022年度の4年で約3倍</li><li><b>8割</b>その相談のうち、60歳以上の方に関するもの</li></ul></div>
+      </div>
+      <div class="tq-meta">
+        <div class="tq-src"><h4>出典</h4><ul><li><a href="https://www.kokusen.go.jp/news/data/n-20231011_1.html" target="_blank" rel="noopener">国民生活センター「屋根工事の点検商法のトラブルが増えています」（2023年10月11日）</a></li></ul></div>
+        <p class="tq-rel"><span class="tq-rel__h">関連</span><a href="../douga/01/">動画01を文字で読む</a><span class="tq-sep" aria-hidden="true">／</span><a href="../gaiheki/">外壁塗装の費用を計算する</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#tenken">言葉「点検商法」</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#coolingoff">言葉「クーリング・オフ」</a></p>
+      </div>
+      <div class="tq-fix"><h4>こうすれば防げる</h4><ul><li>突然来た業者には、無料でも点検させない。</li><li>屋根は、住んでいる人からは見えません。写真を見せられたら、自分の家の写真か、落ち着いて確かめる。</li><li>訪問販売で契約してしまったら、契約書を受け取った日から8日以内なら<span class="nw">クーリング・オフ</span>ができます。書面か、メールで伝えます。</li></ul></div>
+    </article>
+    <article class="tq" id="t01-2" data-ep="01" data-kind="yane gaiheki" data-start="houmon">
+      <div class="tq-tags"><span class="tag tq-kind">屋根</span><span class="tag tq-kind">外壁</span><span class="tag tq-start">突然の訪問</span><span class="tq-ep">動画01</span></div>
+      <h3 class="tq-q"><span class="nw">「外壁にもひびがある」</span></h3>
+      <p class="tq-who">国民生活センターが公表した相談の事例</p>
+      <div class="tq-body">
+        <div class="tq-what"><h4>何が起きたか</h4><p>屋根の無料点検をきっかけに、屋根の工事を頼んだあとのことです。「外壁にもひびがある」と言われ、そのあと屋根裏の吹き付け、床の補強、床下の換気扇と、次々に契約しました。払ったお金は、合わせて500万円以上になりました。半年後、外壁に新しいひびが出たので保証での修理を頼むと、「都合がつかない」と言われ続け、最後は連絡がつかなくなりました。</p></div>
+        <div class="tq-num"><h4>実際の数字</h4><ul class="tq-nums"><li><b>500万円以上</b>次々に契約して、合わせて払った金額</li></ul></div>
+      </div>
+      <div class="tq-meta">
+        <div class="tq-src"><h4>出典</h4><ul><li><a href="https://www.kokusen.go.jp/news/data/n-20231011_1.html" target="_blank" rel="noopener">国民生活センター「屋根工事の点検商法のトラブルが増えています」（2023年10月11日）</a></li></ul></div>
+        <p class="tq-rel"><span class="tq-rel__h">関連</span><a href="../douga/01/">動画01を文字で読む</a><span class="tq-sep" aria-hidden="true">／</span><a href="../gaiheki/">外壁塗装の費用を計算する</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#kankisen">言葉「床下換気扇」</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#aimitsumori">言葉「相見積もり」</a></p>
+      </div>
+      <div class="tq-fix"><h4>こうすれば防げる</h4><ul><li>1つ頼んだあとに別の工事を勧められても、その場で決めない。</li><li>ほかの会社にも見積もりを頼んで、比べる。</li><li>見積書にわからない所があれば納得いくまで確かめ、はっきり答えない業者とは契約しない（<span class="nw">国民生活センター</span>の呼びかけ）。</li></ul></div>
+    </article>
+    <article class="tq" id="t01-3" data-ep="01" data-kind="yane" data-start="denwa">
+      <div class="tq-tags"><span class="tag tq-kind">屋根</span><span class="tag tq-start">突然の電話</span><span class="tq-ep">動画01</span></div>
+      <h3 class="tq-q"><span class="nw">「保険金で修繕できる」</span></h3>
+      <p class="tq-who">国民生活センターが公表した相談の事例</p>
+      <div class="tq-body">
+        <div class="tq-what"><h4>何が起きたか</h4><p>台風のあと雨漏りしていた家に、こう電話があり、業者は約400万円の見積もりを出しました。保険の申請は業者がすべて行い、「自分たちのことは保険会社に言わないでほしい」と口止めしたそうです。保険会社の鑑定人（かんていにん）が家を見ると、見積もりの全額は出ないとのことでした。そこで書類を見返すと、「工事をしない場合は、違約金として保険金の5割を払う」と書いてありました。</p></div>
+        <div class="tq-num"><h4>実際の数字</h4><ul class="tq-nums"><li><b>約400万円</b>業者が出した見積もり</li><li><b>保険金の5割</b>工事をしない場合の違約金として、書類に書いてあった額</li></ul></div>
+      </div>
+      <div class="tq-meta">
+        <div class="tq-src"><h4>出典</h4><ul><li><a href="https://www.kokusen.go.jp/news/data/n-20201001_1.html" target="_blank" rel="noopener">国民生活センター「『保険金を使って自己負担なく住宅修理ができる』と勧誘されてもすぐに契約しないようにしましょう！」（2020年10月1日）</a></li><li><a href="https://www.kokusen.go.jp/news/data/n-20231011_1.html" target="_blank" rel="noopener">国民生活センター「屋根工事の点検商法のトラブルが増えています」（2023年10月11日）</a></li></ul></div>
+        <p class="tq-rel"><span class="tq-rel__h">関連</span><a href="../douga/01/">動画01を文字で読む</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#hotline">言葉「消費者ホットライン188」</a></p>
+      </div>
+      <div class="tq-fix"><h4>こうすれば防げる</h4><ul><li>「火災保険で、自己負担なく直せます」と言われても、すぐに契約しない。</li><li>古くなって傷んだだけの所は、そもそも保険の対象ではありません。うその理由で保険金を請求すると、保険金を返すよう求められたり、詐欺罪に問われたりするおそれもあります。</li><li>困ったときは、<span class="nw">消費者ホットライン</span><span class="nw">「188（いやや）」</span>へ。</li></ul></div>
+    </article>
+    <div class="tq-gh" id="ep02" data-ep="02">
+      <img src="../img/thumbs/02.webp" width="640" height="360" alt="" loading="lazy" decoding="async">
+      <div><p class="tq-gh__k">動画02</p><h2>屋根30坪</h2><p class="tq-gh__l"><a href="../douga/02/">文字で読む</a><span class="tq-sep" aria-hidden="true">／</span><a href="../yane/">費用を計算する</a></p></div>
+    </div>
+    <article class="tq" id="t02-1" data-ep="02" data-kind="yane" data-start="houmon">
+      <div class="tq-tags"><span class="tag tq-kind">屋根</span><span class="tag tq-start">突然の訪問</span><span class="tq-ep">動画02</span></div>
+      <h3 class="tq-q"><span class="nw">「無料で屋根を点検する」</span></h3>
+      <p class="tq-who">大阪府高槻市（たかつきし）の消費生活センターに寄せられた相談</p>
+      <div class="tq-body">
+        <div class="tq-what"><h4>何が起きたか</h4><p>突然来た業者の、この一言から始まりました。お願いしたあとで、写真を見せながら「屋根の板金（ばんきん）が、ずれているようだ」と言われ、60代の女性は不安になって、150万円の屋根の塗装工事を契約しました。契約のあと、近所の工務店に「業者を屋根に登らせたのがよくなかった」と言われ、<span class="nw">クーリング・オフ</span>を伝えて、業者も了承したそうです。見せられたスマホの画面はひび割れていて、本当に自分の家の屋根か、あやしいといいます。</p></div>
+        <div class="tq-num"><h4>実際の数字</h4><ul class="tq-nums"><li><b>150万円</b>屋根の塗装工事の契約の金額（そのあと<span class="nw">クーリング・オフ</span>）</li></ul></div>
+      </div>
+      <div class="tq-meta">
+        <div class="tq-src"><h4>出典</h4><ul><li><a href="https://www.city.takatsuki.osaka.jp/soshiki/21/5230.html" target="_blank" rel="noopener">大阪府高槻市「無料点検のはずが高額な工事に！」</a></li></ul></div>
+        <p class="tq-rel"><span class="tq-rel__h">関連</span><a href="../douga/02/">動画02を文字で読む</a><span class="tq-sep" aria-hidden="true">／</span><a href="../yane/">屋根の費用を計算する</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#munebankin">言葉「棟板金」</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#coolingoff">言葉「クーリング・オフ」</a></p>
+      </div>
+      <div class="tq-fix"><h4>こうすれば防げる</h4><ul><li>突然来た業者には、無料でも点検させない（高槻市の呼びかけ）。</li><li>契約してしまったら、契約書を受け取った日から8日以内なら<span class="nw">クーリング・オフ</span>ができます。書面か、メールで伝えて、控えを残しておきます。</li></ul></div>
+    </article>
+    <article class="tq" id="t02-2" data-ep="02" data-kind="yane" data-start="houmon">
+      <div class="tq-tags"><span class="tag tq-kind">屋根</span><span class="tag tq-start">突然の訪問</span><span class="tq-ep">動画02</span></div>
+      <h3 class="tq-q"><span class="nw">「工事をしていたところから、</span><span class="nw">あなたの家の屋根が見えた。</span><span class="nw">屋根の突起の部分が、</span><span class="nw">はずれている」</span></h3>
+      <p class="tq-who">東京都が2025年6月に、12か月の業務停止を命じた事業者の例</p>
+      <div class="tq-body">
+        <div class="tq-what"><h4>何が起きたか</h4><p>この業者は、こう声をかけていました。別の家では、屋根の画像を見せて「たまたま近所に工事に来ていたので、車に道具や材料とかはそろっているのですぐに直せる」。その場で契約になり、すぐに修理をしました。また別の家では、契約したその日に「午後にやっちゃいます」と、1時間くらいで工事を終え、続けて屋根裏の補強も勧めています。東京都は、<span class="nw">クーリング・オフ</span>の期間のうちに工事を終わらせて、契約をやめたいと言い出しにくくさせていた、と認めています。</p></div>
+        <div class="tq-num"><h4>実際の数字</h4><ul class="tq-nums"><li><b>37件</b>東京都に寄せられた、この業者の相談（2年間）</li><li><b>約138万円</b>平均の契約金額。屋根だけでなく屋根裏の工事なども含む</li><li><b>約820万円</b>いちばん高い契約。これも屋根裏の工事なども含む</li></ul></div>
+      </div>
+      <div class="tq-meta">
+        <div class="tq-src"><h4>出典</h4><ul><li><a href="https://www.shouhiseikatu.metro.tokyo.lg.jp/torihiki/shobun/shobun250626.html" target="_blank" rel="noopener">東京都 行政処分の公表（2025年6月）</a></li><li><a href="https://www.no-trouble.caa.go.jp/what/doortodoorsales/" target="_blank" rel="noopener">消費者庁 特定商取引法ガイド「訪問販売」</a></li></ul></div>
+        <p class="tq-rel"><span class="tq-rel__h">関連</span><a href="../douga/02/">動画02を文字で読む</a><span class="tq-sep" aria-hidden="true">／</span><a href="../yane/">屋根の費用を計算する</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#coolingoff">言葉「クーリング・オフ」</a></p>
+      </div>
+      <div class="tq-fix"><h4>こうすれば防げる</h4><ul><li>工事が終わっていても、8日以内なら、<span class="nw">クーリング・オフ</span>で代金を払う必要はなく、元に戻すことも無償で求められます（消費者庁）。</li><li>業者がうそを言っていた場合などは、8日を過ぎてもやめられることがあります。</li><li>困ったときは、<span class="nw">消費者ホットライン</span><span class="nw">「188（いやや）」</span>へ。</li></ul></div>
+    </article>
+    <article class="tq" id="t02-3" data-ep="02" data-kind="yane" data-start="houmon">
+      <div class="tq-tags"><span class="tag tq-kind">屋根</span><span class="tag tq-start">突然の訪問</span><span class="tq-ep">動画02</span></div>
+      <h3 class="tq-q"><span class="nw">「近所で工事をしており、</span><span class="nw">防水のシンナーの臭いで苦情が入ったので、</span><span class="nw">近所に聞いて調べさせてもらっています」</span></h3>
+      <p class="tq-who">東京都が2024年に業務停止を命じた事業者の例</p>
+      <div class="tq-body">
+        <div class="tq-what"><h4>何が起きたか</h4><p>業者は、こう言って訪ねてきました。屋根の画像だという写真を見せて、「台風とか風が来たらめくれちゃうから、今のうちに早く応急処置しておいた方が良いですよ」。でも東京都の調べでは、その家の屋根に、著しい（いちじるしい）不具合はありませんでした。契約書には、工事の単価も、材料の名前も、支払いの方法も書いてありませんでした。</p></div>
+        <div class="tq-num"><h4>実際の数字</h4><ul class="tq-nums"><li><b>23件</b>この業者への相談</li><li><b>約107万円</b>平均の契約額</li></ul></div>
+      </div>
+      <div class="tq-meta">
+        <div class="tq-src"><h4>出典</h4><ul><li><a href="https://www.shouhiseikatu.metro.tokyo.lg.jp/torihiki/shobun/shobun240729.html" target="_blank" rel="noopener">東京都 行政処分の公表（2024年）</a></li></ul></div>
+        <p class="tq-rel"><span class="tq-rel__h">関連</span><a href="../douga/02/">動画02を文字で読む</a><span class="tq-sep" aria-hidden="true">／</span><a href="../yane/">屋根の費用を計算する</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#isshiki">言葉「一式」</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#roofing">言葉「ルーフィング（防水シート）」</a></p>
+      </div>
+      <div class="tq-fix"><h4>こうすれば防げる</h4><ul><li>突然来た業者には、無料でも点検させない。</li><li>契約書に、工事の中身と単価、材料の名前、支払いの方法が書いてあるかを見る。</li><li>「一式」で済ませていないか。屋根材のメーカー名と品番、防水シートの種類まで書いてあるかを見る。</li></ul></div>
+    </article>
+    <div class="tq-gh" id="ep03" data-ep="03">
+      <img src="../img/thumbs/03.webp" width="640" height="360" alt="" loading="lazy" decoding="async">
+      <div><p class="tq-gh__k">動画03</p><h2>給湯器の交換</h2><p class="tq-gh__l"><a href="../douga/">動画の一覧（近日公開）</a></p></div>
+    </div>
+    <article class="tq" id="t03-0" data-ep="03" data-kind="kyuto" data-start="denwa">
+      <div class="tq-tags"><span class="tag tq-kind">給湯器</span><span class="tag tq-start">突然の電話</span><span class="tq-ep">動画03</span></div>
+      <h3 class="tq-q"><span class="nw">「ガス器具の点検を行います。</span><span class="nw">敷地内に立ち入るので、</span><span class="nw">在宅していてほしい」</span></h3>
+      <p class="tq-who">国民生活センターが紹介している相談</p>
+      <div class="tq-body">
+        <div class="tq-what"><h4>何が起きたか</h4><p>ある日、家にこんな電話がかかってきました。80代の男性は、いつも契約しているガス会社からの電話だと思いました。来た業者に「古くて年数が経っているし、落ち葉も入っている。危ないです」と言われ、交換費用30万円ほどで契約しました。契約書を見て、県外の知らない業者だと分かりました。ガス会社は「交換の時期ではなく、費用も高額」と話しています。</p></div>
+        <div class="tq-num"><h4>実際の数字</h4><ul class="tq-nums"><li><b>30万円ほど</b>この男性が契約した交換費用</li><li><b>1,099件</b>給湯器の点検をきっかけにした相談（全国・2023年度の12月まで）。前の年の同じ時期の約3倍</li><li><b>7割以上</b>その相談のうち、70歳以上の方</li><li><b>約45万円</b>契約した金額の平均</li><li><b>26件</b>金額がわかった469件のうち、100万円以上の契約</li></ul></div>
+      </div>
+      <div class="tq-meta">
+        <div class="tq-src"><h4>出典</h4><ul><li><a href="https://www.kokusen.go.jp/news/data/n-20240221_1.html" target="_blank" rel="noopener">国民生活センター「給湯器の点検にご注意ください」（2024年2月21日）</a></li></ul></div>
+        <p class="tq-rel"><span class="tq-rel__h">関連</span><a href="../douga/">動画03（近日公開）</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#tenken">言葉「点検商法」</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#coolingoff">言葉「クーリング・オフ」</a></p>
+      </div>
+      <div class="tq-fix"><h4>こうすれば防げる</h4><ul><li>点検を持ちかけてくる業者には、無料と言われても、安易に点検させない。</li><li>点検は、契約しているガス会社や給湯器のメーカーに、自分から頼む。来てしまったら、<span class="nw">インターホン越し</span>に断る。</li><li>電話で約束を取ってから来る業者も、訪問販売にあたります。契約書を受け取った日から8日以内なら<span class="nw">クーリング・オフ</span>。書面か、メールで伝えます。</li></ul></div>
+    </article>
+    <article class="tq" id="t03-1" data-ep="03" data-kind="kyuto" data-start="denwa">
+      <div class="tq-tags"><span class="tag tq-kind">給湯器</span><span class="tag tq-start">突然の電話</span><span class="tq-ep">動画03</span></div>
+      <h3 class="tq-q"><span class="nw">「風呂のガス器具が、</span><span class="nw">10年の法定点検を過ぎているので、</span><span class="nw">至急、</span><span class="nw">点検の必要がある」</span></h3>
+      <p class="tq-who">東京都が2025年に業務停止を命じた事業者の例</p>
+      <div class="tq-body">
+        <div class="tq-what"><h4>何が起きたか</h4><p>始まりは、こんな電話でした。でも、ガスの給湯器は、いまは法定点検の対象ではありません。翌日、業者は会社名を名乗らずに「給湯器の点検に来ました」と訪ねてきて、給湯器のふたを開け、測定器のようなもので測って、「一酸化炭素が基準の3倍を超えている。すでに不完全燃焼を起こしている」。メーカーと提携していると言い、残りの台数が少ないと急がせて、家族が書類に署名しました。あとで来たガス会社の担当者は、「一酸化炭素の数値が大きくなったとしても、そのために外に置いてあるのだから問題ない」と話しています。</p></div>
+        <div class="tq-num"><h4>実際の数字</h4><ul class="tq-nums"><li><b>約35万円</b>東京都に寄せられた、この業者の相談の契約の平均</li><li><b>185万円</b>いちばん高い契約。給湯器1台の値段ではありません</li></ul></div>
+      </div>
+      <div class="tq-meta">
+        <div class="tq-src"><h4>出典</h4><ul><li><a href="https://www.shouhiseikatu.metro.tokyo.lg.jp/torihiki/shobun/shobun250808.html" target="_blank" rel="noopener">東京都 行政処分の公表（2025年8月8日）</a></li><li><a href="https://www.kokusen.go.jp/news/data/n-20240221_1.html" target="_blank" rel="noopener">国民生活センター「給湯器の点検にご注意ください」（2024年2月21日）</a></li></ul></div>
+        <p class="tq-rel"><span class="tq-rel__h">関連</span><a href="../douga/">動画03（近日公開）</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#tenken">言葉「点検商法」</a></p>
+      </div>
+      <div class="tq-fix"><h4>こうすれば防げる</h4><ul><li>「法定点検」「メーカーと提携」と言われても、その場で点検させない。点検は、契約しているガス会社や給湯器のメーカーに、自分から頼む。</li><li>「残りの台数が少ない」と急がされても、その場で決めない。</li><li>困ったときは、<span class="nw">消費者ホットライン</span><span class="nw">「188（いやや）」</span>へ。</li></ul></div>
+    </article>
+    <article class="tq" id="t03-2" data-ep="03" data-kind="kyuto" data-start="houmon">
+      <div class="tq-tags"><span class="tag tq-kind">給湯器</span><span class="tag tq-start">突然の訪問</span><span class="tq-ep">動画03</span></div>
+      <h3 class="tq-q"><span class="nw">「点検は無料だから」</span><span class="nw">「外から見るだけですから」</span></h3>
+      <p class="tq-who">東京都が2026年に業務停止を命じた事業者の例</p>
+      <div class="tq-body">
+        <div class="tq-what"><h4>何が起きたか</h4><p>断っても、こう言って点検しようとしました。そして「法律が変わって、ガス給湯器メーカーから何年かに一度の検査が必要になった」。値段の話になると「今なら10万円で下取りする」。実際には、引き取った給湯器はスクラップに出していました。東京都によると、書面の本体の欄にメーカーの定価を書いて、そこから「下取り」などの値引きを見せていました。<span class="nw">クーリング・オフ</span>を申し出ると、「給湯器を既に発注したから<span class="nw">クーリング・オフ</span>はできない」。東京都は、これを事実と違うことを告げる「不実告知（ふじつこくち）」だと認めています。</p></div>
+        <div class="tq-num"><h4>実際の数字</h4><ul class="tq-nums"><li><b>約25万円</b>契約の平均</li><li><b>10万円</b>「今なら」と言われた下取りの額。実際はスクラップに出していた</li><li><b>0円</b>「工事、撤去、7年保証も全て0円です」と言っていた。工事は、5万円ほどかかる作業</li></ul></div>
+      </div>
+      <div class="tq-meta">
+        <div class="tq-src"><h4>出典</h4><ul><li><a href="https://www.shouhiseikatu.metro.tokyo.lg.jp/torihiki/shobun/shobun260401.html" target="_blank" rel="noopener">東京都 行政処分の公表（2026年4月1日）</a></li></ul></div>
+        <p class="tq-rel"><span class="tq-rel__h">関連</span><a href="../douga/">動画03（近日公開）</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#nebiki">言葉「その場の値引き」</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#coolingoff">言葉「クーリング・オフ」</a></p>
+      </div>
+      <div class="tq-fix"><h4>こうすれば防げる</h4><ul><li>「もう発注した」と言われても、あきらめない。契約書を受け取った日から8日以内なら、<span class="nw">クーリング・オフ</span>で無条件で契約をやめられます。</li><li>本体が定価の何割引きかを見る。定価を書いて「下取り」や「今なら」で安く見せる形に気をつける。</li><li>「0円」の行があったら、その分がどこに入っているのかを聞く。</li></ul></div>
+    </article>
+    <article class="tq" id="t03-3" data-ep="03" data-kind="kyuto" data-start="ato">
+      <div class="tq-tags"><span class="tag tq-kind">給湯器</span><span class="tag tq-start">工事のあとに、次の工事</span><span class="tq-ep">動画03</span></div>
+      <h3 class="tq-q"><span class="nw">「配水管が古くなっているので、</span><span class="nw">すぐに工事が必要だ。</span><span class="nw">」</span></h3>
+      <p class="tq-who">愛知県が2025年に指示を出した事業者の例</p>
+      <div class="tq-body">
+        <div class="tq-what"><h4>何が起きたか</h4><p>給湯器を交換した数日後、蛇口の水漏れを見てもらおうと電話をすると、こう言われました。断っても勧められ、お湯の管の工事も契約しました。契約書は「前の給湯器交換の書類にあわせる」と言われ、実際とは違う日付でした。</p></div>
+        <div class="tq-num"><h4>実際の数字</h4><ul class="tq-nums"><li><b>約70万円</b>この業者の契約金額の平均</li></ul></div>
+      </div>
+      <div class="tq-meta">
+        <div class="tq-src"><h4>出典</h4><ul><li><a href="https://www.pref.aichi.jp/press-release/tokusyouhou20251009.html" target="_blank" rel="noopener">愛知県 報道発表（2025年10月9日）</a></li></ul></div>
+        <p class="tq-rel"><span class="tq-rel__h">関連</span><a href="../douga/">動画03（近日公開）</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#coolingoff">言葉「クーリング・オフ」</a></p>
+      </div>
+      <div class="tq-fix"><h4>こうすれば防げる</h4><ul><li>「古くなっている」と年数を持ち出されても、その場で決めない。</li><li>契約書を受け取った日から8日以内なら<span class="nw">クーリング・オフ</span>ができます。書面か、メールで伝えます。</li><li>困ったときは、<span class="nw">消費者ホットライン</span><span class="nw">「188（いやや）」</span>へ。</li></ul></div>
+    </article>
+    <div class="tq-gh" id="ep04" data-ep="04">
+      <img src="../img/thumbs/04.webp" width="640" height="360" alt="" loading="lazy" decoding="async">
+      <div><p class="tq-gh__k">動画04</p><h2>シロアリ駆除30坪</h2><p class="tq-gh__l"><a href="../douga/">動画の一覧（近日公開）</a></p></div>
+    </div>
+    <article class="tq" id="t04-1" data-ep="04" data-kind="shiroari" data-start="houmon">
+      <div class="tq-tags"><span class="tag tq-kind">シロアリ</span><span class="tag tq-start">突然の訪問</span><span class="tq-ep">動画04</span></div>
+      <h3 class="tq-q"><span class="nw">「排水管の点検させてください。</span><span class="nw">今、</span><span class="nw">近所を回っているのですが、</span><span class="nw">どうですか」</span></h3>
+      <p class="tq-who">香川県が業務停止命令を出した事業者の例（令和3年3月の相談）</p>
+      <div class="tq-body">
+        <div class="tq-what"><h4>何が起きたか</h4><p>業者は排水管を掃除したあと、「サービスで接着する」と言って、5日後の集金のときに床下へ入りました。出てくると、スマートフォンの画像を3枚見せて「これは白蟻が通った跡である」「400万円から500万円くらいかかります」。信じられずにいると「これ、見てください。今日の日付と時間ですよ」と言い、440万円の見積もりを出しました。翌朝、住人が自分で床下に入ってみると、写真のような場所も、水漏れの跡も、どこにも見当たりませんでした。契約書を受け取る前に、息子さんの助言で<span class="nw">消費生活センター</span>に相談しています。</p></div>
+        <div class="tq-num"><h4>実際の数字</h4><ul class="tq-nums"><li><b>440万円</b>出された見積もり。契約も支払いもしていない</li><li><b>12件</b>この業者について香川県に寄せられた相談</li><li><b>平均230万円・最高886万円</b>その相談の契約金額</li><li><b>80.3歳</b>契約した人の平均年齢</li></ul></div>
+      </div>
+      <div class="tq-meta">
+        <div class="tq-src"><h4>出典</h4><ul><li><a href="https://www.pref.kagawa.lg.jp/documents/5566/20210915.pdf" target="_blank" rel="noopener">香川県 発表資料（2021年9月15日・PDF）</a></li></ul></div>
+        <p class="tq-rel"><span class="tq-rel__h">関連</span><a href="../douga/">動画04（近日公開）</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#bougi">言葉「防蟻」</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#tenken">言葉「点検商法」</a></p>
+      </div>
+      <div class="tq-fix"><h4>こうすれば防げる</h4><ul><li>突然来た業者には、無料でも点検させない。</li><li>写真を見せられたら、自分の家の写真か、落ち着いて確かめる。業者のほうから「今日の日付ですよ」と見せてくることもあるので、気になるなら別の業者さんにも見てもらう。</li><li>この方のように、契約する前に家族や<span class="nw">消費生活センター</span>に相談する。</li></ul></div>
+    </article>
+    <article class="tq" id="t04-2" data-ep="04" data-kind="shiroari" data-start="houmon">
+      <div class="tq-tags"><span class="tag tq-kind">シロアリ</span><span class="tag tq-start">突然の訪問</span><span class="tq-ep">動画04</span></div>
+      <h3 class="tq-q"><span class="nw">「無料点検するので床下を見せてほしい」</span></h3>
+      <p class="tq-who">国民生活センターの資料にある相談（2017年）</p>
+      <div class="tq-body">
+        <div class="tq-what"><h4>何が起きたか</h4><p>60代の女性の家に、こう言って訪ねてきたのが始まりです。後日、床下に入った業者に「換気口の木枠が水漏れで腐っている。このままにしておくと大工事をしなければいけなくなる」と言われ、木の補強や防虫防蟻（ぼうぎ）処理などで約15万円の契約をしました。工事の日には「床下全面に調湿剤（ちょうしつざい）をまいた方がよい」と、新たに約85万円。そのあと水道管、トイレと続き、総額は約175万円になりました。</p></div>
+        <div class="tq-num"><h4>実際の数字</h4><ul class="tq-nums"><li><b>約15万円</b>最初の契約</li><li><b>約85万円</b>工事の日に足された、調湿剤の契約</li><li><b>約175万円</b>水道管・トイレまで続いた総額</li><li><b>約52万円</b>点検商法で契約したシロアリ駆除の平均額（<span class="nw">国民生活センター</span>の2017年度までの集計）</li></ul></div>
+      </div>
+      <div class="tq-meta">
+        <div class="tq-src"><h4>出典</h4><ul><li><a href="https://www.kokusen.go.jp/pdf/n-20180301_1.pdf" target="_blank" rel="noopener">国民生活センター「『大雪で歪んだ』などと自宅の不具合を指摘して不安をあおる『点検商法』」（2018年3月1日・PDF）</a></li></ul></div>
+        <p class="tq-rel"><span class="tq-rel__h">関連</span><a href="../douga/">動画04（近日公開）</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#bougi">言葉「防蟻」</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#isshiki">言葉「一式」</a></p>
+      </div>
+      <div class="tq-fix"><h4>こうすれば防げる</h4><ul><li>工事の日に別の工事を足されても、その場で決めない。<span class="nw">国民生活センター</span>の資料で一級建築士は、シロアリのあとに調湿材を売り込むのは「古くからの点検商法」のパターンだと指摘しています。</li><li>訪問販売の契約書に「床下工事一式」とだけ書くのは、特定商取引法の違反です。何平方メートル、何か所で計算したのかを書いてもらう。</li></ul></div>
+    </article>
+    <article class="tq" id="t04-3" data-ep="04" data-kind="shiroari" data-start="houmon">
+      <div class="tq-tags"><span class="tag tq-kind">シロアリ</span><span class="tag tq-start">突然の訪問</span><span class="tq-ep">動画04</span></div>
+      <h3 class="tq-q"><span class="nw">「お宅から羽アリが飛んできているとクレームが出ているので点検に来た」</span></h3>
+      <p class="tq-who">長野県上田市が紹介している相談</p>
+      <div class="tq-body">
+        <div class="tq-what"><h4>何が起きたか</h4><p>業者は、近所から苦情が出ていると言って訪ねてきました。しつこく何度もシロアリ駆除を勧められ、高齢の一人暮らしで怖かったので、帰ってもらうために契約しました。作業の前に代金を払うよう言われ、現金で約50万円を払っています。</p></div>
+        <div class="tq-num"><h4>実際の数字</h4><ul class="tq-nums"><li><b>約50万円</b>作業の前に、現金で払った金額</li></ul></div>
+      </div>
+      <div class="tq-meta">
+        <div class="tq-src"><h4>出典</h4><ul><li><a href="https://www.city.ueda.nagano.jp/soshiki/shohiseikatu/41247.html" target="_blank" rel="noopener">長野県上田市「点検のはずが…強引なシロアリ駆除サービスの勧誘」</a></li></ul></div>
+        <p class="tq-rel"><span class="tq-rel__h">関連</span><a href="../douga/">動画04（近日公開）</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#tenken">言葉「点検商法」</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#hotline">言葉「消費者ホットライン188」</a></p>
+      </div>
+      <div class="tq-fix"><h4>こうすれば防げる</h4><ul><li>シロアリに限らず、屋根、床下、排水管など、無料で点検させてほしいと訪ねてくる業者には対応しない（上田市の呼びかけ）。</li><li>その場ですぐに決めず、周りの人に相談する。</li><li>困ったときは、<span class="nw">消費者ホットライン</span><span class="nw">「188（いやや）」</span>へ。</li></ul></div>
+    </article>
+    <article class="tq" id="t04-4" data-ep="04" data-kind="shiroari" data-start="houmon">
+      <div class="tq-tags"><span class="tag tq-kind">シロアリ</span><span class="tag tq-start">突然の訪問</span><span class="tq-ep">動画04</span></div>
+      <h3 class="tq-q"><span class="nw">「金額は30万だが、</span><span class="nw">今すぐ契約して、</span><span class="nw">今すぐ1回目の消毒をすれば26万円にする」</span></h3>
+      <p class="tq-who">国民生活センターの資料にある相談（2017年）</p>
+      <div class="tq-body">
+        <div class="tq-what"><h4>何が起きたか</h4><p>40代の女性は、訪ねてきた業者に「床下の消毒をしないか」と勧められ、約3,000円と安かったので頼みました。業者は床下にもぐったあと、「大変なことになっている」と言って床下の写真をモニターに映し、「ゴキブリ駆除の消毒と、白アリ予防の消毒をした方がよい」。さらにこの一言で、そのまま契約しました。あとで考えると、値段も高く、映っていたのが本当に自分の家の床下なのかも、疑問に思えてきたそうです。</p></div>
+        <div class="tq-num"><h4>実際の数字</h4><ul class="tq-nums"><li><b>約3,000円</b>最初に頼んだ床下の消毒</li><li><b>30万 → 26万円</b>「今すぐ」なら、と言われた値引き</li></ul></div>
+      </div>
+      <div class="tq-meta">
+        <div class="tq-src"><h4>出典</h4><ul><li><a href="https://www.kokusen.go.jp/pdf/n-20180301_1.pdf" target="_blank" rel="noopener">国民生活センター「『大雪で歪んだ』などと自宅の不具合を指摘して不安をあおる『点検商法』」（2018年3月1日・PDF）</a></li></ul></div>
+        <p class="tq-rel"><span class="tq-rel__h">関連</span><a href="../douga/">動画04（近日公開）</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#nebiki">言葉「その場の値引き」</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#bougi">言葉「防蟻」</a></p>
+      </div>
+      <div class="tq-fix"><h4>こうすれば防げる</h4><ul><li>今すぐ契約すれば安くする、と言われても、その場で決めない。</li><li>見せられた写真や映像が自分の家のものか、落ち着いて確かめる。</li><li>訪問販売で契約してしまったら、契約書を受け取った日から8日以内なら<span class="nw">クーリング・オフ</span>ができます。書面か、メールで伝えます。</li></ul></div>
+    </article>
+    <div class="tq-gh" id="ep05" data-ep="05">
+      <img src="../img/thumbs/05.webp" width="640" height="360" alt="" loading="lazy" decoding="async">
+      <div><p class="tq-gh__k">動画05</p><h2>トイレのつまり修理</h2><p class="tq-gh__l"><a href="../douga/">動画の一覧（近日公開）</a></p></div>
+    </div>
+    <article class="tq" id="t05-1" data-ep="05" data-kind="toilet" data-start="kokoku">
+      <div class="tq-tags"><span class="tag tq-kind">トイレ・水回り</span><span class="tag tq-start">広告やチラシを見て、自分で呼んだ</span><span class="tq-ep">動画05</span></div>
+      <h3 class="tq-q"><span class="nw">「勝手に自分で直そうとすると、</span><span class="nw">逆に詰まるので、</span><span class="nw">しないように」</span></h3>
+      <p class="tq-who">国民生活センターに寄せられた相談</p>
+      <div class="tq-body">
+        <div class="tq-what"><h4>何が起きたか</h4><p>夜、マンションのトイレがつまり、40代の女性は「料金390円から」というネット広告の業者に電話をしました。そのあと作業員から言われたのが、この言葉です。作業員2人が高圧ポンプで10分ほど作業しても直らず、「便器を外して排水管を確認する。3万円かかる」。次に「通貫（つうかん）作業が必要で、20万円前後かかる」、さらに「詰まり再発防止のため、薬剤と特殊な機械による清掃で、15万円かかる」。作業は全部で30分ほど。最後に約55万円の契約書を渡され、「現金で支払えば50万円に値引く」と言われて、ATMでお金を下ろし、その場で払ったそうです。</p></div>
+        <div class="tq-num"><h4>実際の数字</h4><ul class="tq-nums"><li><b>390円から</b>ネット広告に書いてあった料金</li><li><b>約55万円</b>最後に渡された契約書の金額</li><li><b>約7万円</b>公開されている数字で、家の外の管の高圧洗浄まで入れた請求の平均（比較サイトの請求書137枚から）</li><li><b>1,158件 → 2,600件</b>トイレ修理の相談。2019年度から2020年度の1年で2倍以上。平均の契約額は約14万円</li></ul></div>
+      </div>
+      <div class="tq-meta">
+        <div class="tq-src"><h4>出典</h4><ul><li><a href="https://www.kokusen.go.jp/pdf/n-20211007_2.pdf" target="_blank" rel="noopener">国民生活センター「水回り修理『950円〜』のはずが…数十万円の高額請求に！」（2021年10月7日・PDF）</a></li><li><a href="https://www.cao.go.jp/consumer/iinkai/2025/453/doc/20250218_shiryou1-1.pdf" target="_blank" rel="noopener">国民生活センター 消費者委員会への資料（2025年2月18日・PDF）</a></li></ul></div>
+        <p class="tq-rel"><span class="tq-rel__h">関連</span><a href="../douga/">動画05（近日公開）</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#shucchou">言葉「出張費・基本料金」</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#kouatsu">言葉「高圧洗浄」</a></p>
+      </div>
+      <div class="tq-fix"><h4>こうすれば防げる</h4><ul><li>広告の金額をうのみにしない。おかしいと思ったら、作業を断る。納得できなければ、その場では払わない（<span class="nw">国民生活センター</span>の呼びかけ）。</li><li>途中で「もっと大きな作業が必要」と言われたら、いったん手を止めてもらい、説明を聞いてから決める。</li><li>安い修理代を見て呼んだのに、高額な工事を勧められて契約した場合は、<span class="nw">クーリング・オフ</span>が通常どおり認められます（消費者庁）。</li></ul></div>
+    </article>
+    <article class="tq" id="t05-2" data-ep="05" data-kind="toilet" data-start="kokoku">
+      <div class="tq-tags"><span class="tag tq-kind">トイレ・水回り</span><span class="tag tq-start">広告やチラシを見て、自分で呼んだ</span><span class="tq-ep">動画05</span></div>
+      <h3 class="tq-q"><span class="nw">「このトイレは、</span><span class="nw">10年以上前のトイレで、</span><span class="nw">製造中止になっています」</span></h3>
+      <p class="tq-who">消費者庁が2021年に業務停止命令を出した事業者の例</p>
+      <div class="tq-body">
+        <div class="tq-what"><h4>何が起きたか</h4><p>見積もり無料と、数千円の料金の広告を見て、トイレの水のつまりで業者を呼んだ人に、従業員はこう言いました。続けて「部品は製造終了していて、在庫もないので、修理はできません。トイレ一式を全部交換するしかないですね」。勧めたのは、30万円以上の交換工事です。ところが消費者庁の認定では、部品の製造は終わっておらず、一式を取り替える必要も、必ずしもありませんでした。</p></div>
+        <div class="tq-num"><h4>実際の数字</h4><ul class="tq-nums"><li><b>30万円以上</b>勧められた交換工事</li><li><b>10年・15年</b>あるトイレのメーカーが、修理用の部品を持っておく期間。生産が終わってから10年、水を流すための部品は15年</li></ul></div>
+      </div>
+      <div class="tq-meta">
+        <div class="tq-src"><h4>出典</h4><ul><li><a href="https://www.caa.go.jp/notice/assets/consumer_transaction_cms203_210831_01.pdf" target="_blank" rel="noopener">消費者庁 処分の公表資料（2021年8月31日・PDF）</a></li></ul></div>
+        <p class="tq-rel"><span class="tq-rel__h">関連</span><a href="../douga/">動画05（近日公開）</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#shitei">言葉「指定給水装置工事事業者」</a></p>
+      </div>
+      <div class="tq-fix"><h4>こうすれば防げる</h4><ul><li>「部品が無いので全部交換」と言われても、その場で決めずに、品番を控えて、メーカーに問い合わせる。</li><li>業者さんには「部品は、本当にもう無いんですか。品番を教えてください」と聞いてみる。</li><li>交換は、つまりが直ってから決めても間に合います。</li></ul></div>
+    </article>
+    <article class="tq" id="t05-3" data-ep="05" data-kind="toilet" data-start="kokoku">
+      <div class="tq-tags"><span class="tag tq-kind">トイレ・水回り</span><span class="tag tq-start">広告やチラシを見て、自分で呼んだ</span><span class="tq-ep">動画05</span></div>
+      <h3 class="tq-q"><span class="nw">「大体3千円からで、</span><span class="nw">見てみないとわからないけど、</span><span class="nw">大きな作業にならなければ、</span><span class="nw">そんなに高くはならないと思うんだよね」</span></h3>
+      <p class="tq-who">東京都が2026年3月に業務停止命令を出した事業者の例</p>
+      <div class="tq-body">
+        <div class="tq-what"><h4>何が起きたか</h4><p>水回りがつまった人が、サイトを見て電話をすると、こう言われました。高くても3万円くらいだろうと思って来てもらい、請求された額を払いました。あとで<span class="nw">クーリング・オフ</span>を伝えても、「サービスしているので、引くところがない」。返ってきたのは、半分にも満たない額でした。</p></div>
+        <div class="tq-num"><h4>実際の数字</h4><ul class="tq-nums"><li><b>約15万3千円</b>この事業者の、都内の相談の平均の契約額</li></ul></div>
+      </div>
+      <div class="tq-meta">
+        <div class="tq-src"><h4>出典</h4><ul><li><a href="https://www.shouhiseikatu.metro.tokyo.lg.jp/torihiki/shobun/shobun260331.html" target="_blank" rel="noopener">東京都 行政処分の公表（2026年3月31日）</a></li></ul></div>
+        <p class="tq-rel"><span class="tq-rel__h">関連</span><a href="../douga/">動画05（近日公開）</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#shucchou">言葉「出張費・基本料金」</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#coolingoff">言葉「クーリング・オフ」</a></p>
+      </div>
+      <div class="tq-fix"><h4>こうすれば防げる</h4><ul><li>「〇〇円から」の「から」に気をつける。電話の段階で、どんな作業になりそうか、だいたいいくらかを聞く。</li><li>作業の前に、見積書をもらう。作業ごとの金額、ワイヤーの1メートルあたりの単価、部品の名前が書いてあるかが目安です。</li><li><span class="nw">クーリング・オフ</span>を伝えても話が進まないときは、<span class="nw">消費者ホットライン</span><span class="nw">「188（いやや）」</span>へ。</li></ul></div>
+    </article>
+    <article class="tq" id="t05-4" data-ep="05" data-kind="toilet" data-start="kokoku">
+      <div class="tq-tags"><span class="tag tq-kind">トイレ・水回り</span><span class="tag tq-start">広告やチラシを見て、自分で呼んだ</span><span class="tq-ep">動画05</span></div>
+      <h3 class="tq-q"><span class="nw">「見積もり・出張無料」</span></h3>
+      <p class="tq-who">国民生活センターが消費者委員会に出した資料にある相談</p>
+      <div class="tq-body">
+        <div class="tq-what"><h4>何が起きたか</h4><p>水漏れで困っていた70代の女性が、こう書かれたポスティングのチラシを見て、業者を呼びました。業者は蛇口を外して、50万円の見積書を出しました。断ると、「蛇口取り外し料金約2万円を支払ってほしい」と求められました。</p></div>
+        <div class="tq-num"><h4>実際の数字</h4><ul class="tq-nums"><li><b>50万円</b>出された見積書</li><li><b>約2万円</b>断ったら求められた、蛇口を外した代金</li></ul></div>
+      </div>
+      <div class="tq-meta">
+        <div class="tq-src"><h4>出典</h4><ul><li><a href="https://www.cao.go.jp/consumer/iinkai/2025/453/doc/20250218_shiryou1-1.pdf" target="_blank" rel="noopener">国民生活センター 消費者委員会への資料（2025年2月18日・PDF）</a></li></ul></div>
+        <p class="tq-rel"><span class="tq-rel__h">関連</span><a href="../douga/">動画05（近日公開）</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#shucchou">言葉「出張費・基本料金」</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#shitei">言葉「指定給水装置工事事業者」</a></p>
+      </div>
+      <div class="tq-fix"><h4>こうすれば防げる</h4><ul><li>呼ぶ前に、出張費と、見積もりだけで断った場合の料金はいくらかを聞いておく。</li><li>困ってから探すと急いでしまいます。つまる前、壊れる前に、頼む先を調べておく。</li></ul></div>
+    </article>
+    <div class="tq-gh" id="ep06" data-ep="06">
+      <img src="../img/thumbs/06.webp" width="640" height="360" alt="" loading="lazy" decoding="async">
+      <div><p class="tq-gh__k">動画06</p><h2>お風呂の交換</h2><p class="tq-gh__l"><a href="../douga/">動画の一覧（近日公開）</a></p></div>
+    </div>
+    <article class="tq" id="t06-1" data-ep="06" data-kind="furo" data-start="houmon">
+      <div class="tq-tags"><span class="tag tq-kind">お風呂</span><span class="tag tq-start">突然の訪問</span><span class="tq-ep">動画06</span></div>
+      <h3 class="tq-q"><span class="nw">「浴室塗装の点検をさせてください。</span><span class="nw">キャンペーンにつき、</span><span class="nw">無料で行います」</span></h3>
+      <p class="tq-who">消費者庁が公表している相談の事例</p>
+      <div class="tq-body">
+        <div class="tq-what"><h4>何が起きたか</h4><p>一人で暮らすおばあさんの家に見知らぬ業者が来て、点検のあと「見えない場所が湿気で腐り始めています」「家全体が潰れてしまいますよ」と言いました。おばあさんは、お風呂の改修と屋根裏の補強工事で総額125万円の契約をして、その日のうちに全額を払いました。数日後にはもう工事が始まり、家族が同業の知人に聞くと、工事の必要はなく、金額も相場の半分くらいだ、と言われたそうです。8日以内だったので<span class="nw">クーリング・オフ</span>を伝えようとすると、「もう工事が始まっている。今さら<span class="nw">クーリング・オフ</span>できない」と強い口調で言われました。</p></div>
+        <div class="tq-num"><h4>実際の数字</h4><ul class="tq-nums"><li><b>125万円</b>お風呂の改修と屋根裏の補強工事の総額。その日のうちに全額を払った</li></ul></div>
+      </div>
+      <div class="tq-meta">
+        <div class="tq-src"><h4>出典</h4><ul><li><a href="https://www.no-trouble.caa.go.jp/case/doortodoorsales/case03.html" target="_blank" rel="noopener">消費者庁 特定商取引法ガイド 事例紹介「訪問販売でリフォーム工事の契約をさせられた」</a></li></ul></div>
+        <p class="tq-rel"><span class="tq-rel__h">関連</span><a href="../douga/">動画06（近日公開）</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#coolingoff">言葉「クーリング・オフ」</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#souba">言葉「相場」</a></p>
+      </div>
+      <div class="tq-fix"><h4>こうすれば防げる</h4><ul><li><span class="nw">クーリング・オフ</span>を妨げられた場合は、できる期間が延びます（消費者庁）。「もう工事が始まっている」と言われても、あきらめない。</li><li>契約を勧める目的を隠して「点検」と言って上がり込み、勧誘すること自体が、法律違反です。</li><li>その値段が適正か、市価やほかの会社の値段と比べてみる（消費者庁）。</li></ul></div>
+    </article>
+    <article class="tq" id="t06-2" data-ep="06" data-kind="furo" data-start="houmon">
+      <div class="tq-tags"><span class="tag tq-kind">お風呂</span><span class="tag tq-start">突然の訪問</span><span class="tq-ep">動画06</span></div>
+      <h3 class="tq-q"><span class="nw">「浴室から排水が漏れている。</span><span class="nw">早急に浴室のリフォームをしないと家が傾く」</span></h3>
+      <p class="tq-who">千葉県が2021年に業務停止を命じた事業者の例</p>
+      <div class="tq-body">
+        <div class="tq-what"><h4>何が起きたか</h4><p>無料の点検のあと、別の営業員が来て、こう言いました。別の家では、国家資格を持った先生が今日来ている、と言って、入れ替わりで来た人が「家が倒壊する可能性がある」と続けました。千葉県は、「家が傾く」といった説明を、事実と違うことを言って不安をあおったもの、と認めています。</p></div>
+        <div class="tq-num"><h4>実際の数字</h4><ul class="tq-nums"><li><b>40件</b>県内の消費生活相談窓口に寄せられた相談</li><li><b>71歳</b>契約した人の平均年齢</li><li><b>約204万円</b>平均の契約額。梁（はり）の補強やトイレも含み、お風呂だけの金額ではない</li><li><b>458万円</b>いちばん高い契約</li></ul></div>
+      </div>
+      <div class="tq-meta">
+        <div class="tq-src"><h4>出典</h4><ul><li><a href="https://www.pref.chiba.lg.jp/seikouan/press/2021/r0306jigyousya-syobun.html" target="_blank" rel="noopener">千葉県 報道発表（2021年6月11日）</a></li></ul></div>
+        <p class="tq-rel"><span class="tq-rel__h">関連</span><a href="../douga/">動画06（近日公開）</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#tenken">言葉「点検商法」</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#coolingoff">言葉「クーリング・オフ」</a></p>
+      </div>
+      <div class="tq-fix"><h4>こうすれば防げる</h4><ul><li>「家が傾く」「倒壊する」と言われても、その場で決めない。床下や壁の中のように、自分では確かめられない所を突いてくるのが共通点です。</li><li>一人で判断せず、家族や近所の人に相談する（消費者庁）。</li><li>訪問販売で契約してしまったら、契約書を受け取った日から8日以内なら<span class="nw">クーリング・オフ</span>ができます。書面か、メールで伝えます。</li></ul></div>
+    </article>
+    <article class="tq" id="t06-3" data-ep="06" data-kind="furo" data-start="houmon">
+      <div class="tq-tags"><span class="tag tq-kind">お風呂</span><span class="tag tq-start">突然の訪問</span><span class="tq-ep">動画06</span></div>
+      <h3 class="tq-q"><span class="nw">「年度末で実績をあげなければならないので、</span><span class="nw">300万円を260万円にする」</span></h3>
+      <p class="tq-who">住まいの相談窓口「住まいるダイヤル」が公開している相談（2000年）</p>
+      <div class="tq-body">
+        <div class="tq-what"><h4>何が起きたか</h4><p>今から26年前と古い相談ですが、お風呂だけの工事の事例です。飛び込みの営業マンが、お風呂を外から見て、水漏れで土台と柱が腐っている、と指摘しました。そして、この一言とともに、すぐに契約を、と言われ、そのまま契約してしまいました。窓口は、何社かから見積もりを取って比べてから決めたほうがよかった、と答えています。</p></div>
+        <div class="tq-num"><h4>実際の数字</h4><ul class="tq-nums"><li><b>300万円 → 260万円</b>年度末を理由に、すぐの契約を迫った値引き</li></ul></div>
+      </div>
+      <div class="tq-meta">
+        <div class="tq-src"><h4>出典</h4><ul><li><a href="https://www.chord.or.jp/case/detail/detail_6260.html" target="_blank" rel="noopener">住まいるダイヤル 相談事例「浴室リフォームの訪問販売」</a></li></ul></div>
+        <p class="tq-rel"><span class="tq-rel__h">関連</span><a href="../douga/">動画06（近日公開）</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#nebiki">言葉「その場の値引き」</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#aimitsumori">言葉「相見積もり」</a></p>
+      </div>
+      <div class="tq-fix"><h4>こうすれば防げる</h4><ul><li>何社かから見積もりを取って、比べてから決める（<span class="nw">住まいるダイヤル</span>の回答）。</li><li>値引きの大きさで決めない。定価と値引き後の金額が書いてあるか、値引きが大きすぎないかを見る。</li><li>見積書の見方に迷ったら、<span class="nw">住まいるダイヤル</span>でも相談を受けています。</li></ul></div>
+    </article>
+    <article class="tq" id="t06-4" data-ep="06" data-kind="furo" data-start="houmon">
+      <div class="tq-tags"><span class="tag tq-kind">お風呂</span><span class="tag tq-start">突然の訪問</span><span class="tq-ep">動画06</span></div>
+      <h3 class="tq-q"><span class="nw">「介護保険を使って無料で住宅改修ができる」</span></h3>
+      <p class="tq-who">大阪市の区役所が2026年7月に呼びかけた事案</p>
+      <div class="tq-body">
+        <div class="tq-what"><h4>何が起きたか</h4><p>「区役所の紹介で」「介護保険を使って無料で住宅改修ができる」と偽って訪ね、無断で要介護認定の申請をしたうえで、不要な改修を強いる事案があった、と区役所が呼びかけています。区役所は「無料で住宅改修はできません」と書いています。不要な工事をしてしまうと、将来本当に必要になったときに、介護保険で工事ができなくなる場合がある、とも書いています。</p></div>
+        <div class="tq-num"><h4>実際の数字</h4><ul class="tq-nums"><li><b>1人20万円</b>介護保険の住宅改修の上限。自己負担は1割から3割</li></ul></div>
+      </div>
+      <div class="tq-meta">
+        <div class="tq-src"><h4>出典</h4><ul><li><a href="https://www.city.osaka.lg.jp/higashiyodogawa/page/0000443175.html" target="_blank" rel="noopener">大阪市東淀川区役所「介護保険の住宅改修」のお知らせ</a></li></ul></div>
+        <p class="tq-rel"><span class="tq-rel__h">関連</span><a href="../douga/">動画06（近日公開）</a><span class="tq-sep" aria-hidden="true">／</span><a href="../kotoba/#hotline">言葉「消費者ホットライン188」</a></p>
+      </div>
+      <div class="tq-fix"><h4>こうすれば防げる</h4><ul><li>介護保険の住宅改修は、要支援や要介護の認定を受けた人が、手すりや段差をなくす工事などに使えるものです。工事の前に申請が要ります。</li><li>「無料で改修」は、できません。</li><li>困ったときは、<span class="nw">消費者ホットライン</span><span class="nw">「188（いやや）」</span>へ。</li></ul></div>
+    </article>
+    </div>
+    <p class="tq-empty" id="tq-empty" hidden>この条件の手口は、まだ記録していません。</p>
+
+    <a class="tq-cta" href="../houmon/">
+      <span class="tq-cta__t">
+        <span class="tq-cta__k">手口を読んだら、次はこれ</span>
+        <span class="tq-cta__h"><span class="nw">業者が来たら、</span><span class="nw">まずこれ</span></span>
+        <span class="tq-cta__p">身を守る方法を3つにしぼった1ページです。A4で印刷して、電話のそばに貼っておけます。家族にも送れます。</span>
+        <span class="tq-cta__b">ページを開く <span aria-hidden="true">→</span></span>
+      </span>
+      <img src="../img/chara.webp" width="720" height="992" alt="" loading="lazy" decoding="async">
+    </a>
+    <p class="note tq-foot">数字は、動画の台本と同じ公表資料から取っています。出典は、それぞれのカードに載せています。事例は公表された当時のもので、いまの状況とは違うことがあります。</p>
+  </div>
+</main>
+
+<footer class="site-f">
+  <div class="wrap">
+    <a class="logo" href="../"><img src="../img/face.webp" alt="" width="36" height="36">見積書のお姉さん</a>
+    <p class="site-f__about">家の修理・リフォームの見積書を、公開されている資料の単価から1行ずつ読み解くYouTubeチャンネルです。工事を請け負う業者ではありません。</p>
+    <div class="sns">
+      <a href="https://www.youtube.com/@mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#ff0033" d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81z"/><path fill="#fff" d="M9.55 15.57V8.43L15.82 12z"/></svg>YouTube</a>
+      <a href="https://www.instagram.com/mitsumori_onee/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+      <a href="https://x.com/mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</a>
+    </div>
+    <nav class="site-f__nav" aria-label="サイトの案内">
+      <a href="../#keisan">計算する</a>
+      <a href="../douga/">動画</a>
+      <a href="../teguchi/">手口の記録</a>
+      <a href="../kotoba/">言葉の辞典</a>
+      <a href="../houmon/">業者が来たら</a>
+      <a href="../about/">このサイトについて</a>
+      <a href="../privacy/">プライバシーポリシー</a>
+      <a href="../contact/">お問い合わせ</a>
+    </nav>
+    <p class="site-f__fine">金額はすべて、公開されている資料の単価から計算した目安です。実際の金額は家ごとに変わります。</p>
+    <p class="site-f__fine">© 2026 見積書のお姉さん</p>
+  </div>
+</footer>
+<script>
+// 工事の種類でしぼる・始まり方でまとめる（表示を切り替えるだけ。入力した値は送らない）
+(() => {
+  const list = document.getElementById('tq-list');
+  if (!list) return;
+  const cards = [...list.querySelectorAll('.tq')];
+  const epHeads = [...list.querySelectorAll('.tq-gh[data-ep]')];
+  const starts = [["houmon","突然の訪問","「近くで工事をしている」「無料で点検します」と、玄関に来る"],["denwa","突然の電話","点検や保険の話で電話をかけてきて、そのあと家に来る"],["kokoku","広告やチラシを見て、自分で呼んだ","安い金額を見て呼んだら、来てから作業や金額が増えていく"],["ato","工事のあとに、次の工事","給湯器を替えた数日後、別の工事を勧められる"]];
+  const startHeads = starts.map(([k, t, s]) => {
+    const d = document.createElement('div');
+    d.className = 'tq-gh tq-gh--start';
+    d.id = 'start-' + k;
+    d.dataset.start = k;
+    const w = document.createElement('div');
+    const p = document.createElement('p'); p.className = 'tq-gh__k'; p.textContent = '始まり方';
+    const h = document.createElement('h2'); h.textContent = t;
+    const q = document.createElement('p'); q.className = 'tq-gh__s'; q.textContent = s;
+    w.append(p, h, q); d.append(w);
+    return d;
+  });
+  const count = document.getElementById('tq-count');
+  const empty = document.getElementById('tq-empty');
+  const kindBtns = [...document.querySelectorAll('.chip[data-kind]')];
+  const modeBtns = [...document.querySelectorAll('.seg button[data-mode]')];
+  let kind = 'all', mode = 'ep';
+  const shows = c => kind === 'all' || c.dataset.kind.split(' ').includes(kind);
+
+  function render() {
+    const frag = document.createDocumentFragment();
+    if (mode === 'ep') {
+      epHeads.forEach(h => { frag.append(h); cards.filter(c => c.dataset.ep === h.dataset.ep).forEach(c => frag.append(c)); });
+    } else {
+      startHeads.forEach(h => { frag.append(h); cards.filter(c => c.dataset.start === h.dataset.start).forEach(c => frag.append(c)); });
+    }
+    list.replaceChildren(frag);
+    let n = 0;
+    cards.forEach(c => { const on = shows(c); c.hidden = !on; if (on) n++; });
+    epHeads.forEach(h => { h.hidden = !cards.some(c => c.dataset.ep === h.dataset.ep && shows(c)); });
+    startHeads.forEach(h => { h.hidden = !cards.some(c => c.dataset.start === h.dataset.start && shows(c)); });
+    count.textContent = n + '件を表示しています';
+    empty.hidden = n > 0;
+    kindBtns.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.kind === kind)));
+    modeBtns.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === mode)));
+  }
+  kindBtns.forEach(b => b.addEventListener('click', () => { kind = b.dataset.kind; render(); }));
+  modeBtns.forEach(b => b.addEventListener('click', () => { mode = b.dataset.mode; render(); }));
+  // ほかのページから #k-yane のように来たら、その工事でしぼって開く
+  const m = location.hash.match(/^#k-([a-z]+)$/);
+  if (m && kindBtns.some(b => b.dataset.kind === m[1])) kind = m[1];
+  document.getElementById('tq-ctrl').hidden = false;
+  render();
+})();
+</script>
+</body>
+</html>

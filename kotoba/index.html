@@ -1,0 +1,1334 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>見積書の言葉の辞典｜見積書のお姉さん</title>
+<meta name="description" content="見積書に出てくる言葉（足場・一式・諸経費・号数・防蟻・クーリング・オフなど）を、ひとことの意味、見積書での書かれ方、相場の目安で引ける辞典。数字は公開資料の単価から。">
+<meta name="theme-color" content="#1f2d55">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="見積書のお姉さん">
+<meta property="og:title" content="見積書の言葉の辞典｜見積書のお姉さん">
+<meta property="og:description" content="見積書に出てくる言葉（足場・一式・諸経費・号数・防蟻・クーリング・オフなど）を、ひとことの意味、見積書での書かれ方、相場の目安で引ける辞典。数字は公開資料の単価から。">
+<meta property="og:image" content="https://creative-works-plus.github.io/ie-hiyou/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../img/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=BIZ+UDPMincho:wght@700&family=M+PLUS+Rounded+1c:wght@800&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<script src="../assets/site.js" defer></script>
+<style>
+/* 言葉の辞典：色は site.css の変数だけ */
+.kt-tools { margin: 0 0 8px; }
+.kt-search { position: relative; }
+.kt-search label { display: block; font-weight: 700; font-size: 14px; margin: 0 0 6px; }
+.kt-search input { -webkit-appearance: none; appearance: none; width: 100%; height: 52px; padding: 0 16px 0 46px; border: 1.5px solid var(--rule); border-radius: 999px; background: var(--sheet); color: var(--ink); font: 16px var(--f-body); }
+.kt-search input::placeholder { color: var(--sub); opacity: 1; }
+.kt-search input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-soft); }
+.kt-search svg { position: absolute; left: 17px; bottom: 16px; width: 20px; height: 20px; color: var(--sub); pointer-events: none; }
+.kt-chips { display: flex; gap: 8px; overflow-x: auto; margin: 12px -16px 0; padding: 2px 16px 6px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.kt-chips::-webkit-scrollbar { display: none; }
+.kt-chip { flex: none; display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 15px; border-radius: 999px; border: 1px solid var(--rule); background: var(--sheet); color: var(--ink); font: 700 14px var(--f-body); cursor: pointer; white-space: nowrap; }
+.kt-chip span { font-weight: 400; font-size: 12.5px; color: var(--sub); }
+@media (hover: hover) { .kt-chip:hover { border-color: var(--ink); } .term__copy:hover { color: var(--ink); border-color: var(--ink); } }
+.kt-chip[aria-pressed="true"] { background: var(--blue); border-color: var(--blue); color: var(--blue-ink); }
+.kt-chip[aria-pressed="true"] span { color: inherit; opacity: .8; }
+.kt-status { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; margin: 10px 0 0; font-size: 13.5px; color: var(--sub); }
+.kt-status p { margin: 0; }
+.kt-empty { margin: 20px 0 0; }
+.kt-empty button { margin-top: 10px; }
+.kt-sec { padding-top: 32px; }
+.kt-sec h2 { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 12px; font-size: clamp(21px, 4.6vw, 27px); margin: 0 0 14px; padding-bottom: 10px; border-bottom: 2px solid var(--ink); }
+.kt-sec h2 small { font: 700 13.5px var(--f-body); color: var(--sub); letter-spacing: 0; }
+.kt-grid { display: grid; gap: 14px; align-items: start; }
+@media (min-width: 760px) { .kt-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; } }
+.term[hidden], .kt-sec[hidden] { display: none; }
+.term { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); padding: 18px 18px 16px; box-shadow: var(--shadow); min-width: 0; }
+.term__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.term__ttl { min-width: 0; }
+.term__name { font-size: 22px; line-height: 1.4; }
+.term__pen { background-image: linear-gradient(transparent 56%, var(--marker) 56%); background-repeat: no-repeat; background-size: 0% 100%; background-position: left center; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.term__yomi { margin: 2px 0 0; font-size: 13px; color: var(--sub); }
+.term__copy { flex: none; display: inline-flex; align-items: center; gap: 5px; height: 32px; margin-top: 1px; padding: 0 11px 0 9px; border: 1px solid var(--rule); border-radius: 999px; background: var(--paper); color: var(--sub); font: 700 12px var(--f-body); cursor: pointer; white-space: nowrap; }
+.term__copy svg { width: 14px; height: 14px; flex: none; }
+.term__copy.is-done { color: var(--blue); border-color: var(--blue); background: var(--blue-soft); }
+.term__short { margin: 12px 0 0; font-weight: 700; font-size: 16.5px; line-height: 1.75; }
+.term__lbl { display: block; font-size: 12px; font-weight: 700; color: var(--sub); letter-spacing: .04em; margin-bottom: 2px; }
+.term__sec { margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--rule); }
+.term__sec h4 { margin: 0 0 6px; font: 700 13px var(--f-body); color: var(--blue); letter-spacing: .04em; }
+.term__sec p { margin: 0 0 .55em; }
+.term__sec p:last-child { margin-bottom: 0; }
+.term__sec ul { margin: 0 0 6px; padding-left: 1.25em; }
+.term__sec li { margin: 0 0 4px; }
+.term__sec li::marker { color: var(--sub); }
+.term__sec--care h4 { color: var(--red-ink); }
+.term__sec .src { font-size: 12.5px; line-height: 1.6; margin-top: 6px; }
+.mitsu { background: var(--paper); border: 1px solid var(--rule); border-radius: var(--radius-s); padding: 4px 12px; font-size: 14.5px; }
+.mitsu__row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 6px 0; border-bottom: 1px dotted var(--rule); }
+.mitsu__row:last-child { border-bottom: 0; }
+.mitsu__row span:first-child { min-width: 0; }
+.mitsu__row span:last-child { flex: none; white-space: nowrap; color: var(--sub); font-variant-numeric: tabular-nums; }
+.term__rel { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; margin-top: 14px; }
+.term__rel b { font-size: 12.5px; color: var(--sub); margin-right: 2px; }
+.term__rel a { display: inline-flex; align-items: center; min-height: 32px; padding: 0 12px; border-radius: 999px; background: var(--blue-soft); color: var(--blue); text-decoration: none; font-weight: 700; font-size: 13.5px; line-height: 1.4; }
+.term__rel a:hover { text-decoration: underline; }
+.term__rel a.ext::after { content: "→"; margin-left: 5px; font-weight: 400; }
+.kt-about { margin-top: 40px; }
+.kt-about h2 { font-size: 19px; margin-bottom: 8px; }
+.kt-about p:last-child { margin-bottom: 0; }
+.kt-live { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+/* #ashiba などで開いたとき：蛍光ペンを一度だけ引いて消す */
+.term.is-hit { animation: kt-glow 2.6s ease-out; }
+.term.is-hit .term__pen { animation: kt-pen 2.6s ease-in-out; }
+@keyframes kt-pen {
+  0% { background-size: 0% 100%; background-position: left center; }
+  18% { background-size: 100% 100%; background-position: left center; }
+  72% { background-size: 100% 100%; background-position: right center; }
+  100% { background-size: 0% 100%; background-position: right center; }
+}
+@keyframes kt-glow {
+  0%, 30% { border-color: var(--yellow); box-shadow: 0 0 0 3px var(--marker), var(--shadow); }
+  100% { border-color: var(--rule); box-shadow: var(--shadow); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .term.is-hit .term__pen { animation: none; background-size: 100% 100%; }
+}
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "DefinedTermSet",
+ "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/",
+ "name": "見積書の言葉の辞典",
+ "description": "家の修理・リフォームの見積書に出てくる言葉を、ひとことの意味・見積書での書かれ方・相場の目安で引ける辞典。",
+ "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/",
+ "inLanguage": "ja",
+ "hasDefinedTerm": [
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#souba",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#souba",
+   "termCode": "souba",
+   "name": "相場",
+   "alternateName": "そうば",
+   "description": "同じ工事を頼んだときに、多くの業者や資料が出している値段の、だいたいの幅のことです。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#aimitsumori",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#aimitsumori",
+   "termCode": "aimitsumori",
+   "name": "相見積もり",
+   "alternateName": "あいみつもり",
+   "description": "同じ工事の見積もりを、2社以上から取って比べることです。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#isshiki",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#isshiki",
+   "termCode": "isshiki",
+   "name": "一式",
+   "alternateName": "いっしき",
+   "description": "数量や単価を書かずに、ひとまとめの金額で書く書き方です。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#shokeihi",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#shokeihi",
+   "termCode": "shokeihi",
+   "name": "諸経費",
+   "alternateName": "しょけいひ",
+   "description": "工事の行に入らない、現場の管理や運搬などのお金をまとめた行です。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#heibei",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#heibei",
+   "termCode": "heibei",
+   "name": "㎡単価（平米単価）",
+   "alternateName": "へいべいたんか",
+   "description": "1平方メートル（1㎡）あたりの値段のことです。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#tsubo",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#tsubo",
+   "termCode": "tsubo",
+   "name": "坪・延床面積",
+   "alternateName": "つぼ・のべゆかめんせき",
+   "description": "坪は広さの単位で、1坪は約3.3㎡です。延床面積は、各階の床の広さを足したものです。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#shobun",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#shobun",
+   "termCode": "shobun",
+   "name": "撤去・処分費",
+   "alternateName": "てっきょ・しょぶんひ",
+   "description": "古い設備や材料を外して、運び出し、処分するためのお金です。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#shucchou",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#shucchou",
+   "termCode": "shucchou",
+   "name": "出張費・基本料金",
+   "alternateName": "しゅっちょうひ・きほんりょうきん",
+   "description": "業者が家まで来て、様子を見て判断するまでにかかるお金です。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#teika",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#teika",
+   "termCode": "teika",
+   "name": "定価（メーカー希望小売価格）",
+   "alternateName": "ていか",
+   "description": "メーカーが決めている「希望の売り値」です。実際の売り値は、そこから大きく値引きされていることが多い値段です。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#ashiba",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#ashiba",
+   "termCode": "ashiba",
+   "name": "足場",
+   "alternateName": "あしば",
+   "description": "高い所で安全に作業するために、家のまわりに組む鉄の骨組みです。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#mesh",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#mesh",
+   "termCode": "mesh",
+   "name": "飛散防止メッシュ",
+   "alternateName": "ひさんぼうしメッシュ",
+   "description": "塗料やほこりが近所に飛ばないように、足場に張る網のシートです。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#kouatsu",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#kouatsu",
+   "termCode": "kouatsu",
+   "name": "高圧洗浄",
+   "alternateName": "こうあつせんじょう",
+   "description": "強い水圧の水で、壁や屋根の汚れ・コケを落とす作業です。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#youjou",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#youjou",
+   "termCode": "youjou",
+   "name": "養生",
+   "alternateName": "ようじょう",
+   "description": "塗らない所や傷をつけたくない所を、ビニールやシートで覆って守る作業です。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#sandonuri",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#sandonuri",
+   "termCode": "sandonuri",
+   "name": "下塗り・中塗り・上塗り",
+   "alternateName": "したぬり・なかぬり・うわぬり",
+   "description": "塗装を3回に分けて塗る工程の名前です。下塗りで壁と塗料をなじませ、中塗りと上塗りで色と守りの膜を作ります。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#toryou",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#toryou",
+   "termCode": "toryou",
+   "name": "塗料のグレード（シリコン・フッ素など）",
+   "alternateName": "とりょうのグレード",
+   "description": "塗料の種類と性能の段のことです。高い塗料ほど、長くもつとされています。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#shiiringu",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#shiiringu",
+   "termCode": "shiiringu",
+   "name": "シーリング（打ち替え・増し打ち）",
+   "alternateName": "シーリング（うちかえ・ましうち）",
+   "description": "サイディングの板と板のすき間を埋めている、ゴムのような部分のことです。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#futaibu",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#futaibu",
+   "termCode": "futaibu",
+   "name": "付帯部",
+   "alternateName": "ふたいぶ",
+   "description": "雨どい、破風（はふ）、軒天（のきてん）など、外壁以外の細かい部分のことです。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#tosoumenseki",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#tosoumenseki",
+   "termCode": "tosoumenseki",
+   "name": "塗装面積",
+   "alternateName": "とそうめんせき",
+   "description": "実際に塗料を塗る壁の面積のことです。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#cover",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#cover",
+   "termCode": "cover",
+   "name": "カバー工法",
+   "alternateName": "カバーこうほう",
+   "description": "今の屋根をはがさずに、その上に新しい屋根を重ねる工事です。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#fukikae",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#fukikae",
+   "termCode": "fukikae",
+   "name": "葺き替え",
+   "alternateName": "ふきかえ",
+   "description": "今の屋根材をはがして、新しい屋根に取り替える工事です。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#roofing",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#roofing",
+   "termCode": "roofing",
+   "name": "ルーフィング（防水シート）",
+   "alternateName": "ルーフィング",
+   "description": "屋根材の下に敷く、雨水を止めるためのシートです。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#munebankin",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#munebankin",
+   "termCode": "munebankin",
+   "name": "棟板金",
+   "alternateName": "むねばんきん",
+   "description": "屋根のてっぺんを包んでいる、金属のカバーです。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#kouhai",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#kouhai",
+   "termCode": "kouhai",
+   "name": "勾配（寸）",
+   "alternateName": "こうばい（すん）",
+   "description": "屋根の傾きの大きさのことで、「4寸（よんすん）」のように寸で表します。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#galva",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#galva",
+   "termCode": "galva",
+   "name": "ガルバリウム鋼板",
+   "alternateName": "ガルバリウムこうはん",
+   "description": "さびにくくした、薄い金属の板です。カバー工法や葺き替えで屋根材として使われます。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#asbestos",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#asbestos",
+   "termCode": "asbestos",
+   "name": "アスベスト（石綿）",
+   "alternateName": "アスベスト（いしわた）",
+   "description": "昔の建材に使われていた鉱物の繊維です。飛び散ったものを吸い込むと健康に害があるとされ、工事で扱うときには対策が要ります。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#engiri",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#engiri",
+   "termCode": "engiri",
+   "name": "縁切り",
+   "alternateName": "えんぎり",
+   "description": "スレート屋根を塗るときに、屋根材の重なりのすき間が塗料でふさがらないようにする作業です。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#gousu",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#gousu",
+   "termCode": "gousu",
+   "name": "号数（給湯器）",
+   "alternateName": "ごうすう",
+   "description": "給湯器が1分間に出せるお湯の量を表す数字です。号数が大きいほど、一度にたくさんのお湯を出せます。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#ecojozu",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#ecojozu",
+   "termCode": "ecojozu",
+   "name": "エコジョーズ",
+   "alternateName": "えこじょーず",
+   "description": "排気の熱も使ってお湯を温める、省エネ型のガス給湯器です。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#drain",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#drain",
+   "termCode": "drain",
+   "name": "ドレン排水工事",
+   "alternateName": "ドレンはいすいこうじ",
+   "description": "エコジョーズから出る水を流すための管を付ける工事です。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#ecocute",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#ecocute",
+   "termCode": "ecocute",
+   "name": "エコキュート",
+   "alternateName": "えこきゅーと",
+   "description": "電気を使って空気の熱でお湯をわかし、タンクにためておく給湯器です。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#bougi",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#bougi",
+   "termCode": "bougi",
+   "name": "防蟻（シロアリの薬剤処理）",
+   "alternateName": "ぼうぎ",
+   "description": "シロアリを防ぐために、床下の木や土に薬をまく処理です。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#bait",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#bait",
+   "termCode": "bait",
+   "name": "ベイト工法",
+   "alternateName": "ベイトこうほう",
+   "description": "エサの入った筒を家のまわりの土に埋め、それを食べたシロアリが巣に持ち帰ることで、巣ごと駆除する方法です。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#senkou",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#senkou",
+   "termCode": "senkou",
+   "name": "穿孔注入",
+   "alternateName": "せんこうちゅうにゅう",
+   "description": "コンクリートに小さな穴をあけて、その下に薬を流し込む作業です。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#kankisen",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#kankisen",
+   "termCode": "kankisen",
+   "name": "床下換気扇",
+   "alternateName": "ゆかしたかんきせん",
+   "description": "床下の湿気を外に出すために、基礎まわりに付ける換気扇です。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#shitei",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#shitei",
+   "termCode": "shitei",
+   "name": "指定給水装置工事事業者",
+   "alternateName": "していきゅうすいそうちこうじじぎょうしゃ",
+   "description": "水道の側の工事をしてよい、と水道局が指定した業者のことです。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#lowpump",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#lowpump",
+   "termCode": "lowpump",
+   "name": "ローポンプ",
+   "alternateName": "ろーぽんぷ",
+   "description": "ラバーカップを強力にしたような、トイレのつまりを押し流したり吸い出したりする道具です。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#toraa",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#toraa",
+   "termCode": "toraa",
+   "name": "トーラー（ワイヤー）",
+   "alternateName": "とーらー",
+   "description": "先にワイヤーの付いた道具で、管の中のつまりを崩す作業です。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#dacchaku",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#dacchaku",
+   "termCode": "dacchaku",
+   "name": "便器の脱着",
+   "alternateName": "べんきのだっちゃく",
+   "description": "便器を床から外して、付け直す作業です。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#unitbath",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#unitbath",
+   "termCode": "unitbath",
+   "name": "ユニットバス",
+   "alternateName": "ゆにっとばす",
+   "description": "床や壁、浴槽を工場で作って、現場で組み立てるお風呂です。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#zairai",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#zairai",
+   "termCode": "zairai",
+   "name": "在来浴室",
+   "alternateName": "ざいらいよくしつ",
+   "description": "タイル張りなど、現場で壁や床を作ったお風呂のことです。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#kaigo",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#kaigo",
+   "termCode": "kaigo",
+   "name": "介護保険の住宅改修",
+   "alternateName": "かいごほけんのじゅうたくかいしゅう",
+   "description": "要支援や要介護の認定を受けた人が、手すりや段差の解消などの工事に介護保険を使える仕組みです。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#tenken",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#tenken",
+   "termCode": "tenken",
+   "name": "点検商法",
+   "alternateName": "てんけんしょうほう",
+   "description": "「無料で点検します」と家に来て、点検のあとで不安をあおり、工事や商品の契約をさせる手口のことです。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#coolingoff",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#coolingoff",
+   "termCode": "coolingoff",
+   "name": "クーリング・オフ",
+   "alternateName": "くーりんぐ・おふ",
+   "description": "訪問販売などで契約しても、決められた期間の中なら、無条件で契約をやめられる手続きです。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#hotline",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#hotline",
+   "termCode": "hotline",
+   "name": "消費者ホットライン188",
+   "alternateName": "しょうひしゃホットライン（いやや）",
+   "description": "「188（いやや）」に電話すると、近くの消費生活センターなどの相談窓口につながる番号です。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#nebiki",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#nebiki",
+   "termCode": "nebiki",
+   "name": "その場の値引き",
+   "alternateName": "そのばのねびき",
+   "description": "「今日決めれば安くする」と、その場で大きな値引きを持ちかけることです。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  },
+  {
+   "@type": "DefinedTerm",
+   "@id": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#fujitsu",
+   "url": "https://creative-works-plus.github.io/ie-hiyou/kotoba/#fujitsu",
+   "termCode": "fujitsu",
+   "name": "不実告知",
+   "alternateName": "ふじつこくち",
+   "description": "契約を勧めるときに、事実と違うことを告げることです。特定商取引法で禁止されています。",
+   "inDefinedTermSet": "https://creative-works-plus.github.io/ie-hiyou/kotoba/"
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へ</a>
+<header class="site-h">
+  <div class="wrap site-h__in">
+    <a class="logo" href="../"><img src="../img/face.webp" alt="" width="36" height="36">見積書のお姉さん</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"><span class="menu-btn__bars" aria-hidden="true"></span>メニュー</button>
+    <nav id="site-nav" class="site-nav" aria-label="サイトの中">
+      <a href="../#keisan">計算する</a>
+      <a href="../douga/">動画</a>
+      <a href="../teguchi/">手口の記録</a>
+      <a href="../kotoba/" aria-current="page">言葉の辞典</a>
+      <a class="nav-warn" href="../houmon/">業者が来たら</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap page-h">
+    <p class="crumb"><a href="../">トップ</a> ／ 見積書の言葉の辞典</p>
+    <h1>見積書の言葉の辞典</h1>
+    <p class="lead">見積書に出てくる言葉を、ひとことの意味と、見積書での書かれ方、<span class="nw">相場の目安で</span>引ける辞典です。数字は、各回の見積書を作るときに集めた公開資料の単価表から引いています。</p>
+  </div>
+  <div class="wrap">
+    <div class="kt-tools">
+      <div class="kt-search">
+        <label for="kt-q">言葉をさがす</label>
+        <input id="kt-q" type="search" placeholder="例：あしば、一式、号数" autocomplete="off" enterkeyhint="search">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>
+      </div>
+      <div class="kt-chips" role="group" aria-label="分類で絞り込む">
+        <button class="kt-chip" type="button" data-cat="all" aria-pressed="true">すべて<span>46</span></button><button class="kt-chip" type="button" data-cat="kihon" aria-pressed="false">共通<span>9</span></button><button class="kt-chip" type="button" data-cat="gaiheki" aria-pressed="false">外壁<span>9</span></button><button class="kt-chip" type="button" data-cat="yane" aria-pressed="false">屋根<span>8</span></button><button class="kt-chip" type="button" data-cat="kyuto" aria-pressed="false">給湯器<span>4</span></button><button class="kt-chip" type="button" data-cat="shiroari" aria-pressed="false">シロアリ<span>4</span></button><button class="kt-chip" type="button" data-cat="toire" aria-pressed="false">トイレ<span>4</span></button><button class="kt-chip" type="button" data-cat="furo" aria-pressed="false">お風呂<span>3</span></button><button class="kt-chip" type="button" data-cat="keiyaku" aria-pressed="false">契約とトラブル<span>5</span></button>
+      </div>
+      <div class="kt-status"><p id="kt-count" aria-live="polite">全46語</p><p>見出しの「リンクをコピー」で、その言葉へのリンクを送れます。</p></div>
+      <div id="kt-empty" class="kt-empty note" hidden>
+        <p>見つかりませんでした。ひらがなや、短い言葉でもさがせます。</p>
+        <button id="kt-reset" class="btn btn-ghost" type="button">すべての言葉を見る</button>
+      </div>
+    </div>
+<section class="kt-sec" id="bunrui-kihon" data-cat="kihon" aria-labelledby="h-kihon">
+<h2 id="h-kihon">共通<small>見積書の読み方</small></h2>
+<div class="kt-grid">
+<article class="term" id="souba" data-cat="kihon">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">相場</span></span></h3>
+<p class="term__yomi">そうば</p></div>
+<button class="term__copy" type="button" data-id="souba" aria-label="「相場」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>同じ工事を頼んだときに、多くの業者や資料が出している値段の、だいたいの幅のことです。</p>
+<div class="term__sec"><h4>くわしく</h4><p>相場は1つの金額ではなく、「1㎡あたり600円から1,200円」のような幅で表されます。見積もりサイト、工事会社、メーカーなど、書き手によって幅が違うこともあります。</p><p>この辞典では、各回の見積書を作るときに集めた公開資料の単価を並べて、その幅を「相場」と呼んでいます。</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>合計だけで決めずに、どの行が幅のどこにいるかで見てください。</p><p>ネットの相場の数字には、税込みか税抜きかが書かれていないものもあります。比べるときは、そこをそろえてください。</p><p class="src">出典：01 外壁塗装30坪・04 シロアリ駆除30坪の台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#aimitsumori">相見積もり</a><a href="#heibei">㎡単価（平米単価）</a><a href="#isshiki">一式</a><a class="ext" href="../gaiheki/">外壁塗装の費用を計算する</a><a class="ext" href="../yane/">屋根の費用を計算する</a></div>
+</article>
+<article class="term" id="aimitsumori" data-cat="kihon">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">相見積もり</span></span></h3>
+<p class="term__yomi">あいみつもり</p></div>
+<button class="term__copy" type="button" data-id="aimitsumori" aria-label="「相見積もり」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>同じ工事の見積もりを、2社以上から取って比べることです。</p>
+<div class="term__sec"><h4>くわしく</h4><p>金額だけでなく、面積や長さの数量、使う材料の名前、行の分け方まで並べて比べられます。</p><p>1社だけ面積が極端に大きい、といった違いも、並べると見つけやすくなります。</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>住まいの相談窓口「住まいるダイヤル」が公開している相談では、「今なら300万円を260万円にする」と言われてその場で契約した人に、窓口は、何社かから見積もりを取って比べてから決めたほうがよかった、と答えています。</p><p>屋根の面積をくらべるために、自分で屋根に上がって測るのは、危ないのでやめてください。</p><p class="src">出典：06 お風呂の交換・02 屋根30坪の台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#souba">相場</a><a href="#tosoumenseki">塗装面積</a><a href="#nebiki">その場の値引き</a></div>
+</article>
+<article class="term" id="isshiki" data-cat="kihon">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">一式</span></span></h3>
+<p class="term__yomi">いっしき</p></div>
+<button class="term__copy" type="button" data-id="isshiki" aria-label="「一式」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>数量や単価を書かずに、ひとまとめの金額で書く書き方です。</p>
+<div class="term__sec"><h4>くわしく</h4><p>養生や諸経費、お風呂の工事のように、一式で書かれることが多い行もあります。</p><p>一方で、足場や外壁の面積、雨どいの長さのように、測ればわかる所まで一式になっていたら、何㎡・何mで計算したのかを聞くことができます。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>付帯部塗装</span><span>1式</span></div><div class="mitsu__row"><span>浴室改修工事</span><span>1式</span></div><div class="mitsu__row"><span>床下工事</span><span>1式</span></div></div></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>国民生活センターの資料では、訪問販売の契約書に「床下工事一式」とだけ書くのは、特定商取引法の違反になる、と説明しています。</p><p>屋根の工事会社は、「屋根カバー工法一式、80万円」のような見積もりには注意、と書いています。お風呂でも、工事が「一式35万1千円」とだけ書かれた事例で、相談窓口は内訳の確認が必要としています。</p><p>給湯器では、「一式」や「標準工事」に撤去や部材が込みかどうかは、会社によって違います。「工事当日に5万円以上追加された」というトラブルも挙がっています。</p><p class="src">出典：01・02・03・04・06 の台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#shokeihi">諸経費</a><a href="#futaibu">付帯部</a><a href="#cover">カバー工法</a><a href="#unitbath">ユニットバス</a></div>
+</article>
+<article class="term" id="shokeihi" data-cat="kihon">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">諸経費</span></span></h3>
+<p class="term__yomi">しょけいひ</p></div>
+<button class="term__copy" type="button" data-id="shokeihi" aria-label="「諸経費」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>工事の行に入らない、現場の管理や運搬などのお金をまとめた行です。</p>
+<div class="term__sec"><h4>くわしく</h4><p>「工事金額の○%」のように、小計に率をかけて書かれることが多い行です。屋根の資料では、中身を「現場管理費、運搬費など」と説明しています。</p><p>給湯器のように金額で書く会社もあれば、トイレのつまり修理のように、諸経費の行が無い請求書もあります。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>諸経費</span><span>○%</span></div><div class="mitsu__row"><span>諸経費（運搬費・見積り費用等）</span><span>1式</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安</h4><ul><li>外壁塗装：工事金額の5〜15%</li><li>屋根工事：工事費の5〜10%</li><li>お風呂の交換：「10%程度が多い」と書く個人のサイトがある一方、公開されている見積書2枚では6.7%と7.6%</li><li>給湯器の交換：諸経費3,000円という工事会社の例</li></ul><p class="src">出典：01 外壁塗装30坪の単価表（外壁塗装110番・ヌリカエ）／02 屋根30坪の単価表（外壁塗装の窓口）／06 お風呂の交換の単価表／03 給湯器の交換の単価表（SKG）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>同じ諸経費でも、小計全体にかける書き方と、人件費の合計にかける書き方があります。何にかけた何%なのかを確かめると、ほかの見積書と比べやすくなります。</p><p class="src">出典：02 屋根30坪の単価表</p></div>
+<div class="term__rel"><b>関連</b><a href="#isshiki">一式</a><a href="#souba">相場</a><a class="ext" href="../gaiheki/">外壁塗装の費用を計算する</a></div>
+</article>
+<article class="term" id="heibei" data-cat="kihon">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">㎡単価</span><span class="nw">（平米単価）</span></span></h3>
+<p class="term__yomi">へいべいたんか</p></div>
+<button class="term__copy" type="button" data-id="heibei" aria-label="「㎡単価（平米単価）」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>1平方メートル（1㎡）あたりの値段のことです。</p>
+<div class="term__sec"><h4>くわしく</h4><p>外壁や屋根の見積書は、多くの行が「面積 × ㎡単価」で書かれます。</p><p>㎡単価が相場の幅の中でも、面積が大きすぎれば合計は高くなります。だから、単価と面積を一緒に見ます。シーリングや板金のように長さで数える行は「1mあたり」の単価になります。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>高圧洗浄</span><span>○○㎡ × ○○円</span></div><div class="mitsu__row"><span>シーリング打ち替え</span><span>○○m × ○○円</span></div></div></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>塗料の単価には、「中塗り・上塗り」だけの単価と、下塗りまで含めた単価があります。どこまでを含めた単価なのかで、値段の見え方が変わります。</p><p class="src">出典：01 外壁塗装30坪の単価表</p></div>
+<div class="term__rel"><b>関連</b><a href="#tosoumenseki">塗装面積</a><a href="#tsubo">坪・延床面積</a><a href="#sandonuri">下塗り・中塗り・上塗り</a></div>
+</article>
+<article class="term" id="tsubo" data-cat="kihon">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">坪・</span><span class="nw">延床面積</span></span></h3>
+<p class="term__yomi"><span class="nw">つぼ・</span><span class="nw">のべゆかめんせき</span></p></div>
+<button class="term__copy" type="button" data-id="tsubo" aria-label="「坪・延床面積」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>坪は広さの単位で、1坪は約3.3㎡です。延床面積は、各階の床の広さを足したものです。</p>
+<div class="term__sec"><h4>くわしく</h4><p>延べ床30坪の家は、約99㎡です。</p><p>ただし外壁・屋根・シロアリの見積書では、延べ床そのものではなく、延べ床から出した別の面積を使います。外壁は延べ床に1.2をかけた塗る面積（約120㎡）、シロアリは1階の床の面積（総2階なら約50㎡）です。</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>「30坪で19万円から25万円くらい」のように書いているページの「30坪」が、1階が30坪の家、つまり総2階なら延べ床60坪の家のことがあります。延べ床30坪の家に、そのまま当てないでください。</p><p>シロアリの工事を延べ床の99㎡で計算されると、薬剤処理の行は約2倍の17万8,200円になります。</p><p class="src">出典：01 外壁塗装30坪・04 シロアリ駆除30坪の単価表と台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#tosoumenseki">塗装面積</a><a href="#bougi">防蟻（シロアリの薬剤処理）</a><a href="#heibei">㎡単価（平米単価）</a><a class="ext" href="../gaiheki/">外壁塗装の費用を計算する</a></div>
+</article>
+<article class="term" id="shobun" data-cat="kihon">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">撤去・</span><span class="nw">処分費</span></span></h3>
+<p class="term__yomi"><span class="nw">てっきょ・</span><span class="nw">しょぶんひ</span></p></div>
+<button class="term__copy" type="button" data-id="shobun" aria-label="「撤去・処分費」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>古い設備や材料を外して、運び出し、処分するためのお金です。</p>
+<div class="term__sec"><h4>くわしく</h4><p>給湯器やお風呂の交換、屋根の葺き替えのように、今あるものを外す工事で出てくる行です。</p><p>「撤去」と「処分」を分けて書く会社も、まとめて1行にする会社もあります。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>既存給湯器 撤去・処分</span><span>1式</span></div><div class="mitsu__row"><span>既存ユニットバス 解体・撤去</span><span>1式</span></div><div class="mitsu__row"><span>既存スレート 撤去処分</span><span>○○㎡</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安</h4><ul><li>給湯器：撤去と処分で6,000円（撤去4,000円＋処分2,000円の工事会社の例）。別の見積もりサイトでは、撤去5,000〜15,000円＋処分3,000〜8,000円</li><li>お風呂：解体・撤去が5万〜15万円、処分が2万〜5万円</li><li>屋根の葺き替え：スレートの撤去と処分が1㎡あたり3,000円</li></ul><p class="src">出典：03 給湯器の交換の単価表（SKG・ミツモア）／06 お風呂の交換の単価表（リフォームガイド・ハピすむ）／02 屋根30坪の単価表（テイガク）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>給湯器の「標準工事」に撤去・処分が込みか別かは、会社によって違います。標準工事の範囲は、書面でもらってください。</p><p class="src">出典：03 給湯器の交換の台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#fukikae">葺き替え</a><a href="#unitbath">ユニットバス</a><a href="#gousu">号数（給湯器）</a><a href="#isshiki">一式</a></div>
+</article>
+<article class="term" id="shucchou" data-cat="kihon">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">出張費・</span><span class="nw">基本料金</span></span></h3>
+<p class="term__yomi"><span class="nw">しゅっちょうひ・</span><span class="nw">きほんりょうきん</span></p></div>
+<button class="term__copy" type="button" data-id="shucchou" aria-label="「出張費・基本料金」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>業者が家まで来て、様子を見て判断するまでにかかるお金です。</p>
+<div class="term__sec"><h4>くわしく</h4><p>トイレのつまりのような修理では、基本料金（出張と点検のお金）、出張費、見積もり、作業料、部品代、夜間の加算と、行が分かれていることが多いです。</p><p>給湯器の交換のような工事では、出張費が工事費の中に含まれている料金表もあります。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>基本料金</span><span>○○円</span></div><div class="mitsu__row"><span>出張費</span><span>0円</span></div><div class="mitsu__row"><span>夜間割増</span><span>○○円</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安</h4><ul><li>基本料金：無料から8,000円くらいまで</li><li>出張費：0円の業者もあれば、2,000円から5,000円くらい取る業者も</li><li>夜間の加算：0円から1万5千円くらい</li><li>給湯器の修理だけで呼ぶ場合の出張費：2,000〜3,000円</li></ul><p class="src">出典：05 トイレのつまり修理の単価表と台本（修理業者・比較サイトの料金表）／03 給湯器の交換の単価表（ミツモア）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>「〇〇円から」の「から」に気をつけてください。東京都の下水道局は、これを「から料金」と呼んで注意しています。広告に「500円から」とあったらいくらになると思うかを聞いた調査では、答えの真ん中は3,000円でした。</p><p>「見積もり無料」のチラシで呼んだのに、断ったら蛇口を外した代金として約2万円を求められた、という相談もあります。断ったらいくらかかるかは、呼ぶ前に聞いておきます。</p><p class="src">出典：05 トイレのつまり修理の台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#lowpump">ローポンプ</a><a href="#shitei">指定給水装置工事事業者</a><a href="#nebiki">その場の値引き</a></div>
+</article>
+<article class="term" id="teika" data-cat="kihon">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">定価</span><span class="nw">（メーカー</span><span class="nw">希望小売価格）</span></span></h3>
+<p class="term__yomi">ていか</p></div>
+<button class="term__copy" type="button" data-id="teika" aria-label="「定価（メーカー希望小売価格）」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>メーカーが決めている「希望の売り値」です。実際の売り値は、そこから大きく値引きされていることが多い値段です。</p>
+<div class="term__sec"><h4>くわしく</h4><p>給湯器やユニットバスの見積書では、本体の行が「定価の○%引き」で書かれることがあります。</p><p>給湯器の例では、定価が税抜き42万9千円の本体を、ガス会社が72パーセント引きの12万120円で売っていました。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>給湯器本体（型番）</span><span>定価 ○○円</span></div><div class="mitsu__row"><span>値引き</span><span>−○○円</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安</h4><ul><li>給湯器の本体：販売店で、定価のおよそ6割〜8割引き</li><li>ユニットバスの本体：「定価の40%から60%引きが一般的」と書く紹介サイトがあり、公開されている実際の見積書では60%引きと65%引き</li></ul><p class="src">出典：03 給湯器の交換の単価表と台本（東京ガスほか）／06 お風呂の交換の単価表と台本（リフォームガイド・公開されている見積書）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>定価で書かれた本体の金額は、販売価格の3倍以上になることがあります。東京都が業務停止を命じた業者の例では、書面の本体の欄に定価を書いて、そこから「下取り」などの値引きを見せていました。</p><p>定価を書いたうえで、8割を超える「お得意様特別値引き」をしていた見積書の事例もあります。相談窓口は、定価と仕入れ値の差を「値引き」と呼んでお得に見せることがよくある、と書いています。</p><p class="src">出典：03 給湯器の交換・06 お風呂の交換の台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#nebiki">その場の値引き</a><a href="#gousu">号数（給湯器）</a><a href="#unitbath">ユニットバス</a></div>
+</article>
+</div>
+</section>
+<section class="kt-sec" id="bunrui-gaiheki" data-cat="gaiheki" aria-labelledby="h-gaiheki">
+<h2 id="h-gaiheki">外壁<small>外壁塗装の見積書に出てくる言葉</small></h2>
+<div class="kt-grid">
+<article class="term" id="ashiba" data-cat="gaiheki">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">足場</span></span></h3>
+<p class="term__yomi">あしば</p></div>
+<button class="term__copy" type="button" data-id="ashiba" aria-label="「足場」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>高い所で安全に作業するために、家のまわりに組む鉄の骨組みです。</p>
+<div class="term__sec"><h4>くわしく</h4><p>外壁でも屋根でも、2階建てなら足場は欠かせません。</p><p>見積書では、足場を組む面の広さ（架面積）の㎡数で書かれます。30坪の2階建てなら、およそ220㎡で計算しました。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>足場架設（架面積）</span><span>○○㎡ × ○○円</span></div><div class="mitsu__row"><span>飛散防止メッシュシート</span><span>○○㎡ × ○○円</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安</h4><ul><li>1㎡あたり600〜1,200円</li><li>30坪の2階建て（220㎡）なら13万2千円から26万4千円。足場だけで13万円ほど変わります</li><li>1本目の見積書は1㎡あたり700円で、15万4千円</li></ul><p class="src">出典：01 外壁塗装30坪の単価表と台本（gaiheki--tosou・塗装源・外壁塗装の窓口・くらしのマーケット）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>「足場代無料」と言われたら、そのぶん、ほかの行に上乗せされていないかを見てください。足場だけで15万円ほどかかります。</p><p>外壁と屋根を別々に頼むと、足場を2回組むことになります。外壁塗装と屋根の塗装を別々に頼むと約166万円、一緒に頼めば約144万円で、差は約22万円でした。</p><p class="src">出典：01 外壁塗装30坪・02 屋根30坪の台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#mesh">飛散防止メッシュ</a><a href="#tosoumenseki">塗装面積</a><a class="ext" href="../gaiheki/">外壁塗装の費用を計算する</a><a class="ext" href="../yane/">屋根の費用を計算する</a><a class="ext" href="../douga/01/">動画01 外壁塗装30坪（文字版）</a></div>
+</article>
+<article class="term" id="mesh" data-cat="gaiheki">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">飛散防止</span><span class="nw">メッシュ</span></span></h3>
+<p class="term__yomi"><span class="nw">ひさんぼうし</span><span class="nw">メッシュ</span></p></div>
+<button class="term__copy" type="button" data-id="mesh" aria-label="「飛散防止メッシュ」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>塗料やほこりが近所に飛ばないように、足場に張る網のシートです。</p>
+<div class="term__sec"><h4>くわしく</h4><p>足場と同じ面積で数えることが多い行です。屋根だけの工事でも、足場を組めば一緒に張ります。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>飛散防止メッシュシート</span><span>○○㎡ × ○○円</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安</h4><ul><li>1㎡あたり100〜300円</li><li>1本目の見積書は1㎡あたり150円で、3万3千円</li></ul><p class="src">出典：01 外壁塗装30坪の単価表と台本（外壁塗装110番・塗装源・外壁塗装の窓口・ヌリカエ）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>屋根の会社には、足場の単価に「メッシュ込み」と書くところもあります。足場とメッシュが別の行か、足場に含まれているかを見てから比べてください。</p><p class="src">出典：02 屋根30坪の単価表</p></div>
+<div class="term__rel"><b>関連</b><a href="#ashiba">足場</a><a class="ext" href="../gaiheki/">外壁塗装の費用を計算する</a></div>
+</article>
+<article class="term" id="kouatsu" data-cat="gaiheki">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">高圧洗浄</span></span></h3>
+<p class="term__yomi">こうあつせんじょう</p></div>
+<button class="term__copy" type="button" data-id="kouatsu" aria-label="「高圧洗浄」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>強い水圧の水で、壁や屋根の汚れ・コケを落とす作業です。</p>
+<div class="term__sec"><h4>くわしく</h4><p>塗装の見積書では、塗る前の行として入り、塗る面積（㎡）で数えます。</p><p>トイレのつまり修理では、家の外の排水管を水圧で洗う作業も「高圧洗浄」と呼ばれます。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>高圧洗浄</span><span>○○㎡ × ○○円</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安</h4><ul><li>外壁：1㎡あたり100〜450円（1本目の見積書は200円で2万4千円）</li><li>屋根：1㎡あたり100〜400円</li><li>トイレの排水管の高圧洗浄：作業料4万円で、請求は税込み6万1,600円になる計算</li></ul><p class="src">出典：01 外壁塗装30坪の単価表（外壁塗装110番・アステックペイント・くらしのマーケット）／02 屋根30坪の単価表（ヌリカエ・外壁塗装の窓口・テイガク）／05 トイレのつまり修理の台本</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>トイレで高圧洗浄やワイヤーを勧められたら、「何メートルで、1メートルいくらですか」と聞いてみてください。</p><p class="src">出典：05 トイレのつまり修理の台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#youjou">養生</a><a href="#sandonuri">下塗り・中塗り・上塗り</a><a href="#toraa">トーラー（ワイヤー）</a><a class="ext" href="../gaiheki/">外壁塗装の費用を計算する</a></div>
+</article>
+<article class="term" id="youjou" data-cat="gaiheki">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">養生</span></span></h3>
+<p class="term__yomi">ようじょう</p></div>
+<button class="term__copy" type="button" data-id="youjou" aria-label="「養生」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>塗らない所や傷をつけたくない所を、ビニールやシートで覆って守る作業です。</p>
+<div class="term__sec"><h4>くわしく</h4><p>外壁塗装では、窓や玄関など、塗らない所を覆います。</p><p>お風呂の交換では、廊下や脱衣所を傷から守る作業を指します。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>養生</span><span>○○㎡ × ○○円</span></div><div class="mitsu__row"><span>養生</span><span>1式</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安</h4><ul><li>外壁塗装：1㎡あたり250〜500円（1本目の見積書は300円で3万6千円）</li><li>お風呂の交換：1万〜3万円</li></ul><p class="src">出典：01 外壁塗装30坪の単価表（外壁塗装エージェント・塗装源・外壁塗装の窓口・アステックペイント）／06 お風呂の交換の単価表（リフォームガイド）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>同じ養生でも、塗る面積で数える書き方と、足場と同じ面積で数える書き方があります。面積が違えば金額も変わるので、何の面積かを確かめます。</p><p class="src">出典：02 屋根30坪の単価表</p></div>
+<div class="term__rel"><b>関連</b><a href="#kouatsu">高圧洗浄</a><a href="#ashiba">足場</a><a href="#unitbath">ユニットバス</a></div>
+</article>
+<article class="term" id="sandonuri" data-cat="gaiheki">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">下塗り・</span><span class="nw">中塗り・</span><span class="nw">上塗り</span></span></h3>
+<p class="term__yomi"><span class="nw">したぬり・</span><span class="nw">なかぬり・</span><span class="nw">うわぬり</span></p></div>
+<button class="term__copy" type="button" data-id="sandonuri" aria-label="「下塗り・中塗り・上塗り」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>塗装を3回に分けて塗る工程の名前です。下塗りで壁と塗料をなじませ、中塗りと上塗りで色と守りの膜を作ります。</p>
+<div class="term__sec"><h4>くわしく</h4><p>下塗り、中塗り、上塗りの3回が基本です。メーカーが言う「もつ年数」も、3回塗ることが前提です。</p><p>見積書では、下塗りと「中塗り・上塗り」を分けて書くことが多く、1本目の見積書では合わせて1㎡あたり2,900円でした。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>下塗り（塗料の商品名）</span><span>○○㎡ × ○○円</span></div><div class="mitsu__row"><span>中塗り・上塗り（塗料の商品名）</span><span>○○㎡ × ○○円</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安</h4><ul><li>外壁：下塗り 1㎡あたり600〜1,000円、中塗り・上塗り（シリコン・2回分）1,900〜2,600円</li><li>屋根：下塗り 1㎡あたり640〜1,100円、中塗り・上塗り（シリコン・2回分）1,920〜3,000円</li></ul><p class="src">出典：01 外壁塗装30坪の単価表（ミツモア）／02 屋根30坪の単価表（ヌリカエ・テイガク）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>見積書に塗る回数が書いていなければ、確認してください。</p><p>業者さんには、「下塗り、中塗り、上塗り、それぞれ何という塗料を使いますか」と聞いてみてください。</p><p class="src">出典：01 外壁塗装30坪の台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#toryou">塗料のグレード（シリコン・フッ素など）</a><a href="#tosoumenseki">塗装面積</a><a href="#engiri">縁切り</a><a class="ext" href="../gaiheki/">外壁塗装の費用を計算する</a></div>
+</article>
+<article class="term" id="toryou" data-cat="gaiheki">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">塗料のグレード</span><span class="nw">（シリコン・</span><span class="nw">フッ素など）</span></span></h3>
+<p class="term__yomi">とりょうのグレード</p></div>
+<button class="term__copy" type="button" data-id="toryou" aria-label="「塗料のグレード（シリコン・フッ素など）」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>塗料の種類と性能の段のことです。高い塗料ほど、長くもつとされています。</p>
+<div class="term__sec"><h4>くわしく</h4><p>外壁の塗料には、シリコン、フッ素、無機（むき）などの段があります。</p><p>塗料を変えたとき、見積書の中で変わるのは塗装の行だけです。足場も、洗浄も、シーリングも、金額は同じです。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>中塗り・上塗り（シリコン・商品名）</span><span>○○㎡ × ○○円</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安（中塗り・上塗りの1㎡あたり）</h4><ul><li>シリコン：2,300〜3,500円・もつのは10〜15年 → 30坪の見積書で約111万円、1年あたり約8万9千円</li><li>フッ素：3,500〜5,000円・15〜20年 → 約130万円、1年あたり約7万4千円</li><li>無機：4,000〜5,500円・20〜25年 → 約137万円、1年あたり約6万1千円</li></ul><p class="src">出典：01 外壁塗装30坪の単価表と台本（アステックペイント）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>もつ年数は、あくまで目安です。シリコンだけでも、出典によって7年から16年まで書き方が分かれています。</p><p>あと何年その家に住むかでも変わります。10年のうちに建て替えや住み替えを考えているなら、長くもつ塗料の元は取れません。</p><p class="src">出典：01 外壁塗装30坪の台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#sandonuri">下塗り・中塗り・上塗り</a><a href="#shiiringu">シーリング（打ち替え・増し打ち）</a><a class="ext" href="../gaiheki/">外壁塗装の費用を計算する</a><a class="ext" href="../douga/01/">動画01 外壁塗装30坪（文字版）</a></div>
+</article>
+<article class="term" id="shiiringu" data-cat="gaiheki">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">シーリング</span><span class="nw">（打ち替え・</span><span class="nw">増し打ち）</span></span></h3>
+<p class="term__yomi"><span class="nw">シーリング</span><span class="nw">（うちかえ・</span><span class="nw">ましうち）</span></p></div>
+<button class="term__copy" type="button" data-id="shiiringu" aria-label="「シーリング（打ち替え・増し打ち）」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>サイディングの板と板のすき間を埋めている、ゴムのような部分のことです。</p>
+<div class="term__sec"><h4>くわしく</h4><p>古いシーリングをはがして新しく入れ直すのが「打ち替え」、今あるものの上から足すのが「増し打ち」です。</p><p>長さ（m）で数えます。30坪の家ではおよそ220mになり、1本目の見積書では塗装の次に大きな行でした。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>シーリング打ち替え</span><span>○○m × ○○円</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安</h4><ul><li>打ち替え：1mあたり700〜1,500円</li><li>増し打ち：1mあたり500〜1,000円</li><li>30坪のシーリングの長さ：真ん中の値で220m（150〜380mの幅）。220mなら15万4千円から33万円</li></ul><p class="src">出典：01 外壁塗装30坪の単価表と台本（iis・外壁塗装の窓口・外壁塗装エージェント・塗装源・アステックペイント・ヌリカエ）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>継ぎ目の少ない外壁なら、この行はぐっと小さくなります。</p><p>業者さんには、「この塗料は何年もちますか。継ぎ目のシーリングも、同じくらいもちますか」と聞いてみてください。</p><p class="src">出典：01 外壁塗装30坪の台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#toryou">塗料のグレード（シリコン・フッ素など）</a><a href="#heibei">㎡単価（平米単価）</a><a class="ext" href="../gaiheki/">外壁塗装の費用を計算する</a></div>
+</article>
+<article class="term" id="futaibu" data-cat="gaiheki">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">付帯部</span></span></h3>
+<p class="term__yomi">ふたいぶ</p></div>
+<button class="term__copy" type="button" data-id="futaibu" aria-label="「付帯部」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>雨どい、破風（はふ）、軒天（のきてん）など、外壁以外の細かい部分のことです。</p>
+<div class="term__sec"><h4>くわしく</h4><p>外壁塗装の見積書では、付帯部の塗装が別の行になります。</p><p>1本目の見積書では、長さの公開データが見つからなかったので、見積もりサイトの真ん中の金額を置いて、一式12万円にしました。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>付帯部塗装（雨樋・破風・軒天）</span><span>1式</span></div><div class="mitsu__row"><span>雨樋</span><span>○○m × ○○円</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安</h4><ul><li>総額で10万〜20万円。ヌリカエの40件の真ん中の値は約12万円</li></ul><p class="src">出典：01 外壁塗装30坪の単価表（イマガワペイント・ヌリカエ）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>本物の見積書なら、雨どい何メートル、破風何メートルと、分けて書いてもらうのが理想です。</p><p>外壁と屋根を同時に頼むときは、付帯部が両方の見積書に入って二重になっていないかを見てください。</p><p class="src">出典：01 外壁塗装30坪の台本・02 屋根30坪の単価表</p></div>
+<div class="term__rel"><b>関連</b><a href="#isshiki">一式</a><a class="ext" href="../gaiheki/">外壁塗装の費用を計算する</a></div>
+</article>
+<article class="term" id="tosoumenseki" data-cat="gaiheki">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">塗装面積</span></span></h3>
+<p class="term__yomi">とそうめんせき</p></div>
+<button class="term__copy" type="button" data-id="tosoumenseki" aria-label="「塗装面積」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>実際に塗料を塗る壁の面積のことです。</p>
+<div class="term__sec"><h4>くわしく</h4><p>外壁の塗装面積は、延べ床面積に1.2をかけて出すのが一般的な目安で、30坪（約99㎡）なら約120㎡になります。</p><p>かける数字は1.2から1.4くらいまで幅があり、家の形によって約120㎡から140㎡まで変わります。20㎡違うと、塗装の行だけで約6万円変わります。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>外壁 下塗り</span><span>○○㎡</span></div><div class="mitsu__row"><span>外壁 中塗り・上塗り</span><span>○○㎡</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>数字の目安</h4><ul><li>塗る面積 ＝ 延べ床 × 1.2〜1.4</li></ul><p class="src">出典：01 外壁塗装30坪の単価表と台本</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>何社か見積もりを取ったときに、1社だけ面積が極端に大きければ、理由を聞きましょう。</p><p>業者さんには、「外壁は、何平方メートルで計算しましたか」と聞いてみてください。</p><p class="src">出典：01 外壁塗装30坪の台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#tsubo">坪・延床面積</a><a href="#heibei">㎡単価（平米単価）</a><a href="#aimitsumori">相見積もり</a><a class="ext" href="../gaiheki/">外壁塗装の費用を計算する</a></div>
+</article>
+</div>
+</section>
+<section class="kt-sec" id="bunrui-yane" data-cat="yane" aria-labelledby="h-yane">
+<h2 id="h-yane">屋根<small>屋根の塗装・カバー工法・葺き替え</small></h2>
+<div class="kt-grid">
+<article class="term" id="cover" data-cat="yane">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">カバー工法</span></span></h3>
+<p class="term__yomi">カバーこうほう</p></div>
+<button class="term__copy" type="button" data-id="cover" aria-label="「カバー工法」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>今の屋根をはがさずに、その上に新しい屋根を重ねる工事です。</p>
+<div class="term__sec"><h4>くわしく</h4><p>防水シートのルーフィングを敷き、ガルバリウム鋼板などの金属の屋根を重ねます。</p><p>塗り直す見積書と比べると、塗装の行が消えて、ルーフィング・屋根材・板金の行が入ります。足場とメッシュはそのままです。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>ルーフィング</span><span>○○㎡ × ○○円</span></div><div class="mitsu__row"><span>屋根材（商品名・品番）</span><span>○○㎡ × ○○円</span></div><div class="mitsu__row"><span>棟板金</span><span>○○m × ○○円</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安</h4><ul><li>2本目の見積書（30坪）で税込み約92万円</li><li>千葉の塗装会社の30坪の内訳では、税込みで約89万7千円から102万5千円</li><li>屋根の寿命が延びる年数「プラス25年」で割ると、1年あたり約3万7千円</li></ul><p class="src">出典：02 屋根30坪の単価表と台本（テイガク・シャイン）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>下地の板が腐っている屋根や、すでに一度重ねた屋根には、カバー工法はできません。</p><p>「屋根カバー工法一式、80万円」のような見積もりには注意、と工事会社が書いています。屋根材のメーカー名と品番、防水シートの種類、留めるビスがステンレスか鉄かまで書いてあるかを見てください。</p><p>アスベストのある屋根のカバー工法は、閉じ込めるので飛び散る心配が少ない、と書く会社も、できないことがある、と書くサイトもあります。</p><p class="src">出典：02 屋根30坪の台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#fukikae">葺き替え</a><a href="#roofing">ルーフィング（防水シート）</a><a href="#galva">ガルバリウム鋼板</a><a href="#asbestos">アスベスト（石綿）</a><a class="ext" href="../yane/">屋根の費用を計算する</a><a class="ext" href="../douga/02/">動画02 屋根30坪（文字版）</a></div>
+</article>
+<article class="term" id="fukikae" data-cat="yane">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">葺き替え</span></span></h3>
+<p class="term__yomi">ふきかえ</p></div>
+<button class="term__copy" type="button" data-id="fukikae" aria-label="「葺き替え」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>今の屋根材をはがして、新しい屋根に取り替える工事です。</p>
+<div class="term__sec"><h4>くわしく</h4><p>カバー工法の行に、古い屋根材の撤去・処分と、下地の板を新しく張る行が加わります。</p><p>2本目の見積書（30坪）では税込みで約139万円、アスベストがあれば約154万円でした。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>既存屋根材 撤去処分</span><span>○○㎡ × ○○円</span></div><div class="mitsu__row"><span>野地板 増し張り</span><span>○○㎡ × ○○円</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安</h4><ul><li>スレートの撤去と処分：1㎡あたり3,000円</li><li>下地の板（野地板）の増し張り：1㎡あたり2,900円</li><li>アスベストがあれば、1㎡あたりプラス1,800円</li><li>屋根の寿命が延びる年数「プラス40年」で割ると、1年あたり約3万5千円</li></ul><p class="src">出典：02 屋根30坪の単価表と台本（テイガク。撤去と増し張りの単価は出典が1つ）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>「プラス25年」「プラス40年」と書いているのは、その工事を請け負う屋根の会社です。年数は目安として見てください。</p><p class="src">出典：02 屋根30坪の台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#cover">カバー工法</a><a href="#asbestos">アスベスト（石綿）</a><a href="#shobun">撤去・処分費</a><a href="#roofing">ルーフィング（防水シート）</a><a class="ext" href="../yane/">屋根の費用を計算する</a></div>
+</article>
+<article class="term" id="roofing" data-cat="yane">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">ルーフィング</span><span class="nw">（防水シート）</span></span></h3>
+<p class="term__yomi">ルーフィング</p></div>
+<button class="term__copy" type="button" data-id="roofing" aria-label="「ルーフィング（防水シート）」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>屋根材の下に敷く、雨水を止めるためのシートです。</p>
+<div class="term__sec"><h4>くわしく</h4><p>カバー工法でも葺き替えでも新しく敷く行で、面積（㎡）で数えます。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>ルーフィング（商品名）</span><span>○○㎡ × ○○円</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安</h4><ul><li>1㎡あたり800〜1,300円</li><li>2本目の見積書は1㎡あたり1,000円で、7万円</li></ul><p class="src">出典：02 屋根30坪の単価表と台本（テイガク・シャイン）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>極端に安い見積もりは、防水シートのグレードが低かったり、必要な下地の処理や補強を省いていたりするおそれがある、と塗装会社が書いています。</p><p>業者さんには、「屋根材と防水シートは、何という商品を使いますか」と聞いてみてください。</p><p class="src">出典：02 屋根30坪の台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#cover">カバー工法</a><a href="#fukikae">葺き替え</a><a href="#galva">ガルバリウム鋼板</a></div>
+</article>
+<article class="term" id="munebankin" data-cat="yane">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">棟板金</span></span></h3>
+<p class="term__yomi">むねばんきん</p></div>
+<button class="term__copy" type="button" data-id="munebankin" aria-label="「棟板金」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>屋根のてっぺんを包んでいる、金属のカバーです。</p>
+<div class="term__sec"><h4>くわしく</h4><p>屋根を塗り直すときは、棟板金の釘を打ち直してすき間を埋める「下地調整」の行が入ることがあります。</p><p>カバー工法や葺き替えでは新しく付け替えるので、長さ（m）で数えます。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>下地調整（棟板金 釘打ち・コーキング）</span><span>1式</span></div><div class="mitsu__row"><span>棟板金</span><span>○○m × ○○円</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安</h4><ul><li>塗り直すときの下地調整：一式3万円の見積もり例</li><li>カバー工法の棟板金（下地こみ）：1mあたり3,500円</li><li>塗装と一緒に棟板金を交換する場合：1mあたり5,000〜7,000円</li></ul><p class="src">出典：02 屋根30坪の単価表（ヌリカエ・シャイン・テイガク）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>四方に傾いた「寄棟（よせむね）」の屋根は板金が長くなり、カバー工法で約5万円上がります。</p><p class="src">出典：02 屋根30坪の台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#cover">カバー工法</a><a href="#kouhai">勾配（寸）</a><a class="ext" href="../yane/">屋根の費用を計算する</a></div>
+</article>
+<article class="term" id="kouhai" data-cat="yane">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">勾配（寸）</span></span></h3>
+<p class="term__yomi"><span class="nw">こうばい</span><span class="nw">（すん）</span></p></div>
+<button class="term__copy" type="button" data-id="kouhai" aria-label="「勾配（寸）」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>屋根の傾きの大きさのことで、「4寸（よんすん）」のように寸で表します。</p>
+<div class="term__sec"><h4>くわしく</h4><p>屋根は傾いているぶん、真上から見た面積より広くなります。</p><p>住宅に多い4寸なら1.077倍、急な5寸なら1.118倍です。2本目の見積書では、4寸で約70㎡、5寸なら約71㎡になりました。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>屋根面積</span><span>○○㎡（○寸勾配）</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>数字の目安（傾きでかける数）</h4><ul><li>3寸：1.044倍／4寸：1.077倍／5寸：1.118倍</li></ul><p class="src">出典：02 屋根30坪の単価表（ひおき）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>屋根の面積は、何社か見積もりを取って、かけ離れていないかを比べます。自分で屋根に上がって測るのは、危ないのでやめてください。</p><p>業者さんには、「屋根は、何平方メートルで計算しましたか。傾きは何寸ですか」と聞いてみてください。</p><p class="src">出典：02 屋根30坪の台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#tosoumenseki">塗装面積</a><a href="#aimitsumori">相見積もり</a><a class="ext" href="../yane/">屋根の費用を計算する</a></div>
+</article>
+<article class="term" id="galva" data-cat="yane">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">ガルバリウム</span><span class="nw">鋼板</span></span></h3>
+<p class="term__yomi"><span class="nw">ガルバリウム</span><span class="nw">こうはん</span></p></div>
+<button class="term__copy" type="button" data-id="galva" aria-label="「ガルバリウム鋼板」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>さびにくくした、薄い金属の板です。カバー工法や葺き替えで屋根材として使われます。</p>
+<div class="term__sec"><h4>くわしく</h4><p>見積書では、材料と工事をまとめて、1㎡あたりの単価で書かれることが多い行です。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>屋根材 ガルバリウム鋼板（商品名・品番）</span><span>○○㎡ × ○○円</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安</h4><ul><li>材料と工事こみで、1㎡あたり5,400〜6,900円</li><li>2本目の見積書は1㎡あたり6,000円で、42万円</li></ul><p class="src">出典：02 屋根30坪の単価表と台本（シャイン・テイガク）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>もつ年数は書き手で違い、同じガルバリウム鋼板でも、20年から35年と書く会社も、30年から40年と書く会社もあります。</p><p>材料だけの単価を書いて、工事費は別、とする会社もあります。単価に工事が含まれているかを確かめてください。</p><p class="src">出典：02 屋根30坪の単価表と台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#cover">カバー工法</a><a href="#fukikae">葺き替え</a><a href="#roofing">ルーフィング（防水シート）</a></div>
+</article>
+<article class="term" id="asbestos" data-cat="yane">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">アスベスト</span><span class="nw">（石綿）</span></span></h3>
+<p class="term__yomi"><span class="nw">アスベスト</span><span class="nw">（いしわた）</span></p></div>
+<button class="term__copy" type="button" data-id="asbestos" aria-label="「アスベスト（石綿）」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>昔の建材に使われていた鉱物の繊維です。飛び散ったものを吸い込むと健康に害があるとされ、工事で扱うときには対策が要ります。</p>
+<div class="term__sec"><h4>くわしく</h4><p>国の資料では、屋根のスレートに入っていたのは、2004年ごろまでに作られたものです。</p><p>屋根をはがす前には、資格のある人による事前調査が法律で義務になっていて、入っていれば飛び散らない対策が要ります。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>アスベスト事前調査</span><span>1式</span></div><div class="mitsu__row"><span>アスベスト加算</span><span>○○㎡ × ○○円</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安</h4><ul><li>葺き替えで1㎡あたりプラス1,800円。30坪の見積書なら約15万円上がります</li><li>20万円から25万円、と書く屋根工事会社もあります</li></ul><p class="src">出典：02 屋根30坪の単価表と台本（テイガク・ゼファン）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>アスベストのある屋根のカバー工法は、閉じ込めるので飛び散る心配が少ない、と書く会社も、できないことがある、と書くサイトもあります。業者さんに確かめてください。</p><p>「アスベストは入っていますか。事前調査の結果を見せてもらえますか」と聞いてみてください。</p><p class="src">出典：02 屋根30坪の台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#fukikae">葺き替え</a><a href="#cover">カバー工法</a><a class="ext" href="../yane/">屋根の費用を計算する</a></div>
+</article>
+<article class="term" id="engiri" data-cat="yane">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">縁切り</span></span></h3>
+<p class="term__yomi">えんぎり</p></div>
+<button class="term__copy" type="button" data-id="engiri" aria-label="「縁切り」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>スレート屋根を塗るときに、屋根材の重なりのすき間が塗料でふさがらないようにする作業です。</p>
+<div class="term__sec"><h4>くわしく</h4><p>スレートの重なりのすき間は、雨水の逃げ道です。タスペーサーという部品を差し込んで、すき間を残します。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>縁切り（タスペーサー）</span><span>○○㎡ × ○○円</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安</h4><ul><li>1㎡あたり300〜800円</li><li>2本目の見積書は1㎡あたり350円で、2万4,500円</li></ul><p class="src">出典：02 屋根30坪の単価表と台本（テイガク・ヌリカエ・外壁塗装の窓口）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>1個いくらで単価を書く資料もあります。比べるときは、㎡か個かの単位をそろえてください。</p><p>業者さんには、「塗装なら、縁切りはしますか」と聞いてみてください。</p><p class="src">出典：02 屋根30坪の単価表と台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#sandonuri">下塗り・中塗り・上塗り</a><a class="ext" href="../yane/">屋根の費用を計算する</a></div>
+</article>
+</div>
+</section>
+<section class="kt-sec" id="bunrui-kyuto" data-cat="kyuto" aria-labelledby="h-kyuto">
+<h2 id="h-kyuto">給湯器<small>給湯器の交換</small></h2>
+<div class="kt-grid">
+<article class="term" id="gousu" data-cat="kyuto">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">号数</span><span class="nw">（給湯器）</span></span></h3>
+<p class="term__yomi">ごうすう</p></div>
+<button class="term__copy" type="button" data-id="gousu" aria-label="「号数（給湯器）」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>給湯器が1分間に出せるお湯の量を表す数字です。号数が大きいほど、一度にたくさんのお湯を出せます。</p>
+<div class="term__sec"><h4>くわしく</h4><p>東京ガスの目安は、1人暮らしで16号、2人で20号、4人で24号です。</p><p>3本目の見積書（エコジョーズ・24号・オート）は税込み22万6,182円で、20号にすると約1万円、16号なら約1万8千円安くなりました。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>ガス給湯器（型番）24号 オート</span><span>1台</span></div></div></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>東京ガスは、今と同じ号数での交換をすすめています。下げると、お湯の出が悪くなることがあるからです。</p><p>号数、オートかフルオートか、エコジョーズかは、型番でわかります。型番が無いと、ほかの店と比べられません。</p><p class="src">出典：03 給湯器の交換の単価表と台本（東京ガス）</p></div>
+<div class="term__rel"><b>関連</b><a href="#ecojozu">エコジョーズ</a><a href="#teika">定価（メーカー希望小売価格）</a><a href="#drain">ドレン排水工事</a></div>
+</article>
+<article class="term" id="ecojozu" data-cat="kyuto">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">エコジョーズ</span></span></h3>
+<p class="term__yomi">えこじょーず</p></div>
+<button class="term__copy" type="button" data-id="ecojozu" aria-label="「エコジョーズ」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>排気の熱も使ってお湯を温める、省エネ型のガス給湯器です。</p>
+<div class="term__sec"><h4>くわしく</h4><p>排気の熱を使うときに水が出るので、その水を流す「ドレン排水工事」の行が加わります。</p><p>従来型にすると、3本目の見積書の総額は2万5,707円安くなります。ただ、エコジョーズはガス代が下がります。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>給湯器本体（エコジョーズ・型番）</span><span>1台</span></div><div class="mitsu__row"><span>ドレン排水工事</span><span>1式</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>ガス代の節約の目安（東京ガスの試算・都市ガス）</h4><ul><li>1か月あたり：4人以上の家族で673円、2人で407円、1人で244円</li><li>10年で割って1年あたりにすると、4人家族ならエコジョーズのほうが1年に約5,500円安く、1人暮らしでは、ほとんど差がありません</li></ul><p class="src">出典：03 給湯器の交換の単価表と台本（東京ガス）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>ガス代の節約は、使う量しだいです。1人暮らしで、あと何年も住まないなら、従来型のほうが安く済むこともあります。</p><p class="src">出典：03 給湯器の交換の台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#drain">ドレン排水工事</a><a href="#gousu">号数（給湯器）</a><a href="#ecocute">エコキュート</a></div>
+</article>
+<article class="term" id="drain" data-cat="kyuto">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">ドレン</span><span class="nw">排水工事</span></span></h3>
+<p class="term__yomi"><span class="nw">ドレン</span><span class="nw">はいすいこうじ</span></p></div>
+<button class="term__copy" type="button" data-id="drain" aria-label="「ドレン排水工事」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>エコジョーズから出る水を流すための管を付ける工事です。</p>
+<div class="term__sec"><h4>くわしく</h4><p>従来型の給湯器には無い行です。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>ドレン排水工事</span><span>1式</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安</h4><ul><li>1万2千円。「約1万円程度」と書く会社もあります</li></ul><p class="src">出典：03 給湯器の交換の単価表と台本（SKG・ミズテック）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>ダスキンが、工事の当日に追加になりやすいものとして挙げている工事です。</p><p>業者さんには、「今と同じ号数ですか。ドレンの水は、どこに流しますか」と聞いてみてください。</p><p class="src">出典：03 給湯器の交換の単価表と台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#ecojozu">エコジョーズ</a><a href="#isshiki">一式</a></div>
+</article>
+<article class="term" id="ecocute" data-cat="kyuto">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">エコキュート</span></span></h3>
+<p class="term__yomi">えこきゅーと</p></div>
+<button class="term__copy" type="button" data-id="ecocute" aria-label="「エコキュート」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>電気を使って空気の熱でお湯をわかし、タンクにためておく給湯器です。</p>
+<div class="term__sec"><h4>くわしく</h4><p>ガスではなく電気でお湯をわかします。光熱費は下がりますが、補助金や電気の料金プランで損得が入れ替わるので、ガスの給湯器とどちらが得とは言い切れません。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>エコキュート本体（容量・型番）</span><span>1台</span></div><div class="mitsu__row"><span>基礎・配管・電気工事</span><span>1式</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安</h4><ul><li>交換の総額：40万〜65万円程度（平均46.2万円）</li><li>国の補助金（給湯省エネ2026事業）：最大12万円/台。機種の性能で変わります</li></ul><p class="src">出典：03 給湯器の交換の単価表（リショップナビ・三菱電機）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>エコキュートも、寿命の目安は10年とされています。ただ、10年は目安で、10年で必ず壊れるわけではありません。</p><p class="src">出典：03 給湯器の交換の単価表と台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#ecojozu">エコジョーズ</a><a href="#gousu">号数（給湯器）</a></div>
+</article>
+</div>
+</section>
+<section class="kt-sec" id="bunrui-shiroari" data-cat="shiroari" aria-labelledby="h-shiroari">
+<h2 id="h-shiroari">シロアリ<small>シロアリの予防と駆除</small></h2>
+<div class="kt-grid">
+<article class="term" id="bougi" data-cat="shiroari">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">防蟻</span><span class="nw">（シロアリの</span><span class="nw">薬剤処理）</span></span></h3>
+<p class="term__yomi">ぼうぎ</p></div>
+<button class="term__copy" type="button" data-id="bougi" aria-label="「防蟻（シロアリの薬剤処理）」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>シロアリを防ぐために、床下の木や土に薬をまく処理です。</p>
+<div class="term__sec"><h4>くわしく</h4><p>床下の土台や柱に薬を吹き付ける「木部処理」と、床下の土に薬をまく「土壌処理」。この2つをまとめて、1㎡の値段で書くのが一般的です。</p><p>面積は延べ床ではなく、1階の床の面積を使います。薬をまくのは床下だからです。</p><p>国の建築の決まりでも、家を建てるときは、柱や土台の地面から1メートル以内に、腐らない処理と、必要に応じてシロアリを防ぐ処理をするよう定められています。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>防蟻処理（木部・土壌）</span><span>○○㎡ × ○○円</span></div><div class="mitsu__row"><span>保証（○年）</span><span>0円</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安</h4><ul><li>1㎡あたり税抜きで約1,570〜2,250円（税込み1,725〜2,475円）</li><li>4本目の見積書（30坪・総2階・1階の床50㎡）は税込み11万9,900円</li></ul><p class="src">出典：04 シロアリ駆除30坪の単価表と台本（シェアリングテクノロジー・ダスキンなど6件）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>延べ床の99㎡で計算されると、薬剤処理の行は約2倍、17万8,200円になります。1階の床面積で計算されているかを見てください。</p><p>日本しろあり対策協会は、認定する薬剤の効き目を5年としています。ただ、5年を過ぎたからといってすぐに被害が出るわけではない、とも書いています。</p><p class="src">出典：04 シロアリ駆除30坪の台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#bait">ベイト工法</a><a href="#senkou">穿孔注入</a><a href="#kankisen">床下換気扇</a><a href="#tsubo">坪・延床面積</a></div>
+</article>
+<article class="term" id="bait" data-cat="shiroari">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">ベイト工法</span></span></h3>
+<p class="term__yomi">ベイトこうほう</p></div>
+<button class="term__copy" type="button" data-id="bait" aria-label="「ベイト工法」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>エサの入った筒を家のまわりの土に埋め、それを食べたシロアリが巣に持ち帰ることで、巣ごと駆除する方法です。</p>
+<div class="term__sec"><h4>くわしく</h4><p>床下に薬をまく「バリア工法」とは別の方法です。</p><p>値段は床の広さではなく、家のまわりの長さで決める業者が多く、毎年、管理料がかかります。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>ベイト工法 初回（ステーション設置）</span><span>外周○○m</span></div><div class="mitsu__row"><span>管理料</span><span>○○円/年</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安（ダスキンの料金・家のまわり約31mで計算）</h4><ul><li>最初の年が税込み17万1,864円、2年目からは毎年4万9,104円</li><li>5年で比べると、バリア工法の約3倍</li></ul><p class="src">出典：04 シロアリ駆除30坪の単価表と台本（ダスキン）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>巣がなくなるまで、およそ2か月から1年かかる、とベイト剤を扱う会社は書いています。</p><p>管理料の取り方は、業者によってばらばらです。「最初にいくら、そのあと毎年いくら」を、バリア工法と並べて聞いてみてください。</p><p class="src">出典：04 シロアリ駆除30坪の単価表と台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#bougi">防蟻（シロアリの薬剤処理）</a></div>
+</article>
+<article class="term" id="senkou" data-cat="shiroari">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">穿孔注入</span></span></h3>
+<p class="term__yomi">せんこうちゅうにゅう</p></div>
+<button class="term__copy" type="button" data-id="senkou" aria-label="「穿孔注入」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>コンクリートに小さな穴をあけて、その下に薬を流し込む作業です。</p>
+<div class="term__sec"><h4>くわしく</h4><p>玄関や浴室のまわりは、下がコンクリートで固められていて、床下から薬が届きません。そこでドリルで小さな穴をあけて、薬を流し込みます。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>玄関土間 穿孔注入</span><span>1か所</span></div><div class="mitsu__row"><span>浴室まわり 穿孔注入</span><span>1か所</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安</h4><ul><li>4本目の見積書では、玄関が1か所7,000円、浴室まわりが1か所1万2千円</li></ul><p class="src">出典：04 シロアリ駆除30坪の単価表と台本（外構ドクター・シェアリングテクノロジー）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>この2つを1㎡の単価に含めている業者もあり、その場合は別の行が無くて当然です。</p><p class="src">出典：04 シロアリ駆除30坪の台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#bougi">防蟻（シロアリの薬剤処理）</a></div>
+</article>
+<article class="term" id="kankisen" data-cat="shiroari">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">床下換気扇</span></span></h3>
+<p class="term__yomi">ゆかしたかんきせん</p></div>
+<button class="term__copy" type="button" data-id="kankisen" aria-label="「床下換気扇」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>床下の湿気を外に出すために、基礎まわりに付ける換気扇です。</p>
+<div class="term__sec"><h4>くわしく</h4><p>シロアリの工事のあとに、追加で勧められることがある工事です。床下にまいて湿気を吸わせる「調湿材（ちょうしつざい）」と一緒に勧められることもあります。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>床下換気扇</span><span>○台</span></div><div class="mitsu__row"><span>調湿材</span><span>○○㎡ × ○○円</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安</h4><ul><li>床下換気扇：1台平均5万2千円</li><li>調湿材：平均の単価で、50㎡なら13万5,850円</li></ul><p class="src">出典：04 シロアリ駆除30坪の単価表と台本（シェアリングテクノロジー）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>必要な家もあります。ただ、国民生活センターの資料で一級建築士は、シロアリのあとに調湿材を売り込むのは「古くからの点検商法」のパターンだと指摘しています。</p><p>同じ資料では、点検商法で契約した床下換気扇の平均の金額は504,037円でした（2007〜2017年度）。</p><p class="src">出典：04 シロアリ駆除30坪の単価表と台本（国民生活センター）</p></div>
+<div class="term__rel"><b>関連</b><a href="#bougi">防蟻（シロアリの薬剤処理）</a><a href="#tenken">点検商法</a><a class="ext" href="../teguchi/">手口の記録</a></div>
+</article>
+</div>
+</section>
+<section class="kt-sec" id="bunrui-toire" data-cat="toire" aria-labelledby="h-toire">
+<h2 id="h-toire">トイレ<small>トイレのつまり修理</small></h2>
+<div class="kt-grid">
+<article class="term" id="shitei" data-cat="toire">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">指定給水装置</span><span class="nw">工事事業者</span></span></h3>
+<p class="term__yomi"><span class="nw">していきゅうすいそうち</span><span class="nw">こうじじぎょうしゃ</span></p></div>
+<button class="term__copy" type="button" data-id="shitei" aria-label="「指定給水装置工事事業者」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>水道の側の工事をしてよい、と水道局が指定した業者のことです。</p>
+<div class="term__sec"><h4>くわしく</h4><p>水漏れなど水道の側の修理は、この業者が行うことになっています。</p><p>トイレのつまりのような、水を流す側（排水）には、別に「指定排水設備工事事業者」があります。東京23区なら、東京都下水道局のページで検索できます。ほかの地域でも、お住まいの市区町村のサイトで、この名前を検索してみてください。</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>国民生活センターは、水道局が指定した業者について、指定されているからといって、信用を保証するものではない、とも書いています。名簿は出発点の1つです。</p><p>トラブルにあった人の約6割が、その日のうちに業者に連絡していました。つまる前に、頼む先を調べて、家族で共有しておきます。</p><p class="src">出典：05 トイレのつまり修理の単価表と台本（国民生活センター・東京都下水道局・消費者委員会）</p></div>
+<div class="term__rel"><b>関連</b><a href="#shucchou">出張費・基本料金</a><a href="#lowpump">ローポンプ</a><a href="#hotline">消費者ホットライン188</a></div>
+</article>
+<article class="term" id="lowpump" data-cat="toire">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">ローポンプ</span></span></h3>
+<p class="term__yomi">ろーぽんぷ</p></div>
+<button class="term__copy" type="button" data-id="lowpump" aria-label="「ローポンプ」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>ラバーカップを強力にしたような、トイレのつまりを押し流したり吸い出したりする道具です。</p>
+<div class="term__sec"><h4>くわしく</h4><p>トイレのつまりで、最初に使われることが多い道具です。ローポンプで抜けなければワイヤー、それでも駄目なら便器を外す、という順番で道具が変わり、作業料の行が変わります。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>作業料（ローポンプ）</span><span>○○円</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安</h4><ul><li>作業料：6,000円から2万円くらい</li><li>5本目の請求書（夜・ローポンプで直った）は作業料8,000円で、合計は税込み1万7,600円</li><li>比較サイトの口コミ2,111件でも、修理業者の自社870件でも、いちばん多い請求は1万円から2万円</li></ul><p class="src">出典：05 トイレのつまり修理の単価表と台本（修理業者の料金表・セーフリー）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>業者さんには、「どの道具を使う見込みで、それぞれいくらですか」と聞いてみてください。</p><p class="src">出典：05 トイレのつまり修理の台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#toraa">トーラー（ワイヤー）</a><a href="#dacchaku">便器の脱着</a><a href="#shucchou">出張費・基本料金</a></div>
+</article>
+<article class="term" id="toraa" data-cat="toire">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">トーラー</span><span class="nw">（ワイヤー）</span></span></h3>
+<p class="term__yomi">とーらー</p></div>
+<button class="term__copy" type="button" data-id="toraa" aria-label="「トーラー（ワイヤー）」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>先にワイヤーの付いた道具で、管の中のつまりを崩す作業です。</p>
+<div class="term__sec"><h4>くわしく</h4><p>ローポンプで直らないときに使われることが多い作業です。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>トーラー作業</span><span>○m</span></div><div class="mitsu__row"><span>作業料</span><span>○○円</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安</h4><ul><li>5本目の請求書に作業料2万円を足すと、税込み3万9,600円</li><li>比較サイトが請求書137枚から出した平均では、ワイヤーを使ったつまりで約4万1千円</li></ul><p class="src">出典：05 トイレのつまり修理の単価表と台本（修理業者の料金表・セーフリー）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>東京都が業務停止命令を出した事業者の契約書には、作業ごとの金額も、ワイヤーの1メートルあたりの単価も、書いてありませんでした。</p><p>「ワイヤーや高圧洗浄は、何メートルで、1メートルいくらですか」と聞いてみてください。</p><p class="src">出典：05 トイレのつまり修理の台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#lowpump">ローポンプ</a><a href="#dacchaku">便器の脱着</a><a href="#kouatsu">高圧洗浄</a></div>
+</article>
+<article class="term" id="dacchaku" data-cat="toire">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">便器の脱着</span></span></h3>
+<p class="term__yomi">べんきのだっちゃく</p></div>
+<button class="term__copy" type="button" data-id="dacchaku" aria-label="「便器の脱着」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>便器を床から外して、付け直す作業です。</p>
+<div class="term__sec"><h4>くわしく</h4><p>おむつやスマートフォンなど、水に溶けないものを落としたときに必要になりやすい作業です。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>便器脱着</span><span>1式</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安</h4><ul><li>幅は1万〜5万円</li><li>5本目の請求書に便器の脱着3万円を足すと、税込み5万600円</li></ul><p class="src">出典：05 トイレのつまり修理の単価表と台本（修理業者の料金表）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>国民生活センターの事例では、「便器を外して排水管を確認する。3万円かかる」のあとに、「通貫作業が必要で、20万円前後」「清掃で15万円」と作業が足され、約55万円の契約書を渡されました。</p><p>公開されている数字では、家の外の管の高圧洗浄まで入れても、請求の平均は約7万円です。</p><p class="src">出典：05 トイレのつまり修理の台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#lowpump">ローポンプ</a><a href="#toraa">トーラー（ワイヤー）</a><a href="#nebiki">その場の値引き</a><a class="ext" href="../teguchi/">手口の記録</a></div>
+</article>
+</div>
+</section>
+<section class="kt-sec" id="bunrui-furo" data-cat="furo" aria-labelledby="h-furo">
+<h2 id="h-furo">お風呂<small>お風呂の交換</small></h2>
+<div class="kt-grid">
+<article class="term" id="unitbath" data-cat="furo">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">ユニットバス</span></span></h3>
+<p class="term__yomi">ゆにっとばす</p></div>
+<button class="term__copy" type="button" data-id="unitbath" aria-label="「ユニットバス」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>床や壁、浴槽を工場で作って、現場で組み立てるお風呂です。</p>
+<div class="term__sec"><h4>くわしく</h4><p>大きさは内側の寸法で呼ばれ、「1616（いちろく・いちろく）」は内側が1.6メートル四方の、1坪タイプです。</p><p>お風呂の見積書は、面積ではなく、ほとんどの行が「1式」で書かれます。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>ユニットバス本体（商品名 1616）</span><span>1式</span></div><div class="mitsu__row"><span>解体・撤去／処分</span><span>1式</span></div><div class="mitsu__row"><span>給排水・電気・組立</span><span>1式</span></div><div class="mitsu__row"><span>ドア枠・袖壁</span><span>1式</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安</h4><ul><li>ユニットバスからユニットバスへの交換：60万〜120万円</li><li>工事費（解体・組立・給排水・電気・ドア枠）：25万〜35万円前後</li><li>6本目の見積書（1坪・中級）は税込み97万1,495円</li><li>TOTOは、ユニットバスを使う期間の目安を20年としています</li></ul><p class="src">出典：06 お風呂の交換の単価表と台本（リショップナビ・リフォームガイド・TOTO）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>業者さんには、「本体の型番と、定価と、値引きのあとの金額を教えてください」「工事費を、解体、処分、給排水、電気、組立、ドア枠に分けて書いてもらえますか」と聞いてみてください。</p><p>表紙と中の明細で会社の名前が違った事例もあります。責任を持つのがどちらか、確かめてください。</p><p class="src">出典：06 お風呂の交換の台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#zairai">在来浴室</a><a href="#teika">定価（メーカー希望小売価格）</a><a href="#shobun">撤去・処分費</a><a href="#kaigo">介護保険の住宅改修</a></div>
+</article>
+<article class="term" id="zairai" data-cat="furo">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">在来浴室</span></span></h3>
+<p class="term__yomi">ざいらいよくしつ</p></div>
+<button class="term__copy" type="button" data-id="zairai" aria-label="「在来浴室」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>タイル張りなど、現場で壁や床を作ったお風呂のことです。</p>
+<div class="term__sec"><h4>くわしく</h4><p>在来の浴室からユニットバスに替えるときは、タイルとその下を壊す手間が増えます。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>在来浴室 解体（タイル・下地モルタル）</span><span>1式</span></div></div></div>
+<div class="term__sec term__sec--souba"><h4>相場の目安</h4><ul><li>在来からユニットバス：80万〜150万円（ユニットバスからなら60万〜120万円）</li><li>ユニットバスからより10万円から20万円以上高くなる、と書く紹介サイトもあります</li></ul><p class="src">出典：06 お風呂の交換の単価表と台本（リショップナビ・ハピすむ）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>土台の腐れは、壊してみるまで分かりません。下地の補修が要れば5万円から15万円ほど追加、という紹介サイトがあります。</p><p>「壊して土台が傷んでいたら、いくら追加ですか。工事を進める前に連絡をもらえますか」と、先に聞いておけます。</p><p class="src">出典：06 お風呂の交換の台本（リフォームガイド）</p></div>
+<div class="term__rel"><b>関連</b><a href="#unitbath">ユニットバス</a></div>
+</article>
+<article class="term" id="kaigo" data-cat="furo">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">介護保険の</span><span class="nw">住宅改修</span></span></h3>
+<p class="term__yomi"><span class="nw">かいごほけんの</span><span class="nw">じゅうたくかいしゅう</span></p></div>
+<button class="term__copy" type="button" data-id="kaigo" aria-label="「介護保険の住宅改修」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>要支援や要介護の認定を受けた人が、手すりや段差の解消などの工事に介護保険を使える仕組みです。</p>
+<div class="term__sec"><h4>くわしく</h4><p>手すり、段差をなくす、すべりにくい床にする、引き戸にする、といった工事に使えます。</p><p>上限は1人20万円で、自己負担は1割から3割。工事の前に申請が要ります。</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>お風呂を丸ごと替える費用が、全部出るわけではありません。</p><p>大阪市の区役所は2026年7月、「介護保険を使って無料で住宅改修ができる」と訪ねてくる事案があった、と呼びかけています。無料で改修は、できません。</p><p class="src">出典：06 お風呂の交換の単価表と台本（厚生労働省・大阪市）</p></div>
+<div class="term__rel"><b>関連</b><a href="#unitbath">ユニットバス</a><a href="#tenken">点検商法</a></div>
+</article>
+</div>
+</section>
+<section class="kt-sec" id="bunrui-keiyaku" data-cat="keiyaku" aria-labelledby="h-keiyaku">
+<h2 id="h-keiyaku">契約とトラブル<small>訪問販売・点検商法から身を守る</small></h2>
+<div class="kt-grid">
+<article class="term" id="tenken" data-cat="keiyaku">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">点検商法</span></span></h3>
+<p class="term__yomi">てんけんしょうほう</p></div>
+<button class="term__copy" type="button" data-id="tenken" aria-label="「点検商法」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>「無料で点検します」と家に来て、点検のあとで不安をあおり、工事や商品の契約をさせる手口のことです。</p>
+<div class="term__sec"><h4>くわしく</h4><p>屋根、床下、給湯器、お風呂など、住んでいる人が自分では確かめられない所を突いてきます。</p><p>契約や勧誘という目的を隠して「点検」と言って上がり込み、勧誘すること自体が、法律違反です。</p></div>
+<div class="term__sec term__sec--souba"><h4>数字で見ると</h4><ul><li>点検商法の相談は、屋根や給湯器なども合わせて、2025年度で1万9,696件</li><li>屋根工事の点検商法の相談：2018年度の923件から、2022年度には2,885件</li><li>給湯器の点検をきっかけにした相談：2023年度は12月までに1,099件で、前の年の同じ時期の約3倍</li></ul><p class="src">出典：01 外壁塗装30坪・03 給湯器の交換の単価表と台本（国民生活センター）</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>突然来た業者には、無料でも点検させない、と国民生活センターは呼びかけています。点検は、契約しているガス会社やメーカーに、自分から頼みます。</p><p>写真を見せられたら、自分の家の写真か、落ち着いて確かめてください。気になるなら、別の業者さんにも見てもらいます。</p><p class="src">出典：01・03・04・06 の台本（国民生活センター・消費者庁）</p></div>
+<div class="term__rel"><b>関連</b><a href="#coolingoff">クーリング・オフ</a><a href="#hotline">消費者ホットライン188</a><a href="#nebiki">その場の値引き</a><a href="#fujitsu">不実告知</a><a class="ext" href="../teguchi/">手口の記録</a><a class="ext" href="../houmon/">業者が来たら、まずこれ</a></div>
+</article>
+<article class="term" id="coolingoff" data-cat="keiyaku">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">クーリング・オフ</span></span></h3>
+<p class="term__yomi">くーりんぐ・おふ</p></div>
+<button class="term__copy" type="button" data-id="coolingoff" aria-label="「クーリング・オフ」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>訪問販売などで契約しても、決められた期間の中なら、無条件で契約をやめられる手続きです。</p>
+<div class="term__sec"><h4>くわしく</h4><p>訪問販売で契約してしまったら、契約書を受け取った日から8日以内なら、クーリング・オフができます。書面か、メールで伝えます。</p><p>工事が終わったあとでも、クーリング・オフをすれば代金を払う必要はありません。電話で約束を取ってから来る業者も、訪問販売にあたります。</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>「もう発注した」「もう工事が始まっている」と言われても、あきらめないでください。消費者庁は、こうしてクーリング・オフを妨げられた場合は、できる期間が延びると説明しています。</p><p>自分で業者を呼んだ場合は、認められないことがあります。ただし消費者庁は、安い修理代を見て呼んだのに、高額な工事を勧められて契約した場合は、通常どおり認められる、としています。</p><p class="src">出典：01〜06 の台本（国民生活センター・消費者庁）</p></div>
+<div class="term__rel"><b>関連</b><a href="#hotline">消費者ホットライン188</a><a href="#fujitsu">不実告知</a><a href="#tenken">点検商法</a><a class="ext" href="../teguchi/">手口の記録</a><a class="ext" href="../houmon/">業者が来たら、まずこれ</a></div>
+</article>
+<article class="term" id="hotline" data-cat="keiyaku">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">消費者</span><span class="nw">ホットライン</span><span class="nw">188</span></span></h3>
+<p class="term__yomi"><span class="nw">しょうひしゃ</span><span class="nw">ホットライン</span><span class="nw">（いやや）</span></p></div>
+<button class="term__copy" type="button" data-id="hotline" aria-label="「消費者ホットライン188」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>「188（いやや）」に電話すると、近くの消費生活センターなどの相談窓口につながる番号です。</p>
+<div class="term__sec"><h4>くわしく</h4><p>契約してしまったときや、クーリング・オフを断られたときなど、困ったとき・迷ったときの相談先として、国民生活センターや消費者庁が案内しています。</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>リフォームの見積書の見方に迷ったら、住まいの相談窓口「住まいるダイヤル」（0570-016-100）でも相談を受けています。</p><p class="src">出典：01〜06 の台本・01 外壁塗装30坪の単価表（国民生活センター・消費者庁・住まいるダイヤル）</p></div>
+<div class="term__rel"><b>関連</b><a href="#coolingoff">クーリング・オフ</a><a href="#tenken">点検商法</a><a class="ext" href="../houmon/">業者が来たら、まずこれ</a></div>
+</article>
+<article class="term" id="nebiki" data-cat="keiyaku">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">その場の値引き</span></span></h3>
+<p class="term__yomi">そのばのねびき</p></div>
+<button class="term__copy" type="button" data-id="nebiki" aria-label="「その場の値引き」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>「今日決めれば安くする」と、その場で大きな値引きを持ちかけることです。</p>
+<div class="term__sec"><h4>くわしく</h4><p>公的な機関が公表している手口の事例では、その場で決めさせるための言葉として、値引きがくり返し出てきます。</p><p>「年度末で実績をあげなければならないので、300万円を260万円にする」「金額は30万だが、今すぐ契約すれば26万円にする」「現金で支払えば50万円に値引く」「今なら10万円で下取りする」。</p></div>
+<div class="term__sec"><h4>見積書ではこう書かれる</h4><div class="mitsu" role="group" aria-label="見積書の書き方の例"><div class="mitsu__row"><span>出精値引き</span><span>−○○円</span></div><div class="mitsu__row"><span>下取り</span><span>−○○円</span></div></div></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>相談窓口は、定価と仕入れ値の差を「値引き」と呼んでお得に見せることがよくある、と書いています。</p><p>「現金なら値引く」と言われても、その場では払わないでください。値引きの大きさではなく、行ごとの金額を相場と比べます。</p><p class="src">出典：03・04・05・06 の台本</p></div>
+<div class="term__rel"><b>関連</b><a href="#teika">定価（メーカー希望小売価格）</a><a href="#aimitsumori">相見積もり</a><a href="#tenken">点検商法</a><a class="ext" href="../teguchi/">手口の記録</a></div>
+</article>
+<article class="term" id="fujitsu" data-cat="keiyaku">
+<div class="term__top"><div class="term__ttl">
+<h3 class="term__name"><span class="term__pen"><span class="nw">不実告知</span></span></h3>
+<p class="term__yomi">ふじつこくち</p></div>
+<button class="term__copy" type="button" data-id="fujitsu" aria-label="「不実告知」へのリンクをコピー"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span class="term__copy-t">リンクをコピー</span></button></div>
+<p class="term__short"><span class="term__lbl">ひとことで</span>契約を勧めるときに、事実と違うことを告げることです。特定商取引法で禁止されています。</p>
+<div class="term__sec"><h4>くわしく</h4><p>給湯器の手口では、クーリング・オフを申し出た人に「給湯器を既に発注したからクーリング・オフはできない」と言った業者を、東京都が不実告知と認めました。</p><p>お風呂の手口では、「早急に浴室のリフォームをしないと家が傾く」という説明を、千葉県が事実と違うことを言って不安をあおったもの、と認めています。</p></div>
+<div class="term__sec term__sec--care"><h4>ここに気をつける</h4><p>「部品は製造終了していて、在庫もない」と言われても、その場で決めずに、品番を控えて、メーカーに問い合わせることができます。トイレの手口の事例では、部品の製造は終わっていませんでした。</p><p class="src">出典：03・05・06 の台本（東京都・千葉県・消費者庁）</p></div>
+<div class="term__rel"><b>関連</b><a href="#coolingoff">クーリング・オフ</a><a href="#tenken">点検商法</a><a class="ext" href="../teguchi/">手口の記録</a></div>
+</article>
+</div>
+</section>
+    <section class="kt-about note" aria-labelledby="h-about">
+      <h2 id="h-about">この辞典の数字について</h2>
+      <p>金額や件数は、このチャンネルの各回（01 外壁塗装30坪〜06 お風呂の交換）で見積書を作るときに集めた、公開されている資料の単価表と台本から引いています。新しく作った数字はありません。実際の金額は、家の大きさや状態、地域、頼む会社で変わります。</p>
+      <p>言葉の意味は、見積書を読むための説明です。工事の判断に迷ったら、何社かから見積もりを取って比べてください。</p>
+    </section>
+    <p id="kt-live" class="kt-live" aria-live="polite"></p>
+  </div>
+</main>
+
+<footer class="site-f">
+  <div class="wrap">
+    <a class="logo" href="../"><img src="../img/face.webp" alt="" width="36" height="36">見積書のお姉さん</a>
+    <p class="site-f__about">家の修理・リフォームの見積書を、公開されている資料の単価から1行ずつ読み解くYouTubeチャンネルです。工事を請け負う業者ではありません。</p>
+    <div class="sns">
+      <a href="https://www.youtube.com/@mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#ff0033" d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81z"/><path fill="#fff" d="M9.55 15.57V8.43L15.82 12z"/></svg>YouTube</a>
+      <a href="https://www.instagram.com/mitsumori_onee/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+      <a href="https://x.com/mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</a>
+    </div>
+    <nav class="site-f__nav" aria-label="サイトの案内">
+      <a href="../#keisan">計算する</a>
+      <a href="../douga/">動画</a>
+      <a href="../teguchi/">手口の記録</a>
+      <a href="../kotoba/">言葉の辞典</a>
+      <a href="../houmon/">業者が来たら</a>
+      <a href="../about/">このサイトについて</a>
+      <a href="../privacy/">プライバシーポリシー</a>
+      <a href="../contact/">お問い合わせ</a>
+    </nav>
+    <p class="site-f__fine">金額はすべて、公開されている資料の単価から計算した目安です。実際の金額は家ごとに変わります。</p>
+    <p class="site-f__fine">© 2026 見積書のお姉さん</p>
+  </div>
+</footer>
+<script>
+(() => {
+  const terms = [...document.querySelectorAll('.term')];
+  const secs = [...document.querySelectorAll('.kt-sec')];
+  const chips = [...document.querySelectorAll('.kt-chip')];
+  const q = document.getElementById('kt-q');
+  const count = document.getElementById('kt-count');
+  const empty = document.getElementById('kt-empty');
+  const live = document.getElementById('kt-live');
+  const total = terms.length;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // ひらがな・カタカナ・全角半角・空白の違いを無視してさがす
+  const norm = s => (s || '').normalize('NFKC').toLowerCase()
+    .replace(/[ァ-ヶ]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60))
+    .replace(/[\s・、。,.（）()「」『』]/g, '');
+  const hay = new Map(terms.map(t => [t, norm(
+    [...t.querySelectorAll('.term__name, .term__yomi, .term__short, .term__sec p:not(.src), .term__sec li, .mitsu__row')]
+      .map(e => e.textContent).join(' '))]));
+  let cat = 'all';
+
+  function apply() {
+    const words = q.value.split(/[\s　]+/).map(norm).filter(Boolean);
+    let n = 0;
+    for (const t of terms) {
+      const show = (cat === 'all' || t.dataset.cat === cat) && words.every(w => hay.get(t).includes(w));
+      t.hidden = !show;
+      if (show) n++;
+    }
+    for (const s of secs) s.hidden = !s.querySelector('.term:not([hidden])');
+    count.textContent = (cat === 'all' && !words.length) ? `全${total}語` : `${total}語のうち ${n}語`;
+    empty.hidden = n > 0;
+  }
+  function setCat(c) {
+    cat = c;
+    chips.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.cat === c)));
+  }
+  const send = () => { if (window.track) window.track('kotoba_search', {}); }; // 打った文字は渡さない
+
+  chips.forEach(b => b.addEventListener('click', () => {
+    setCat(b.dataset.cat);
+    apply();
+    send();
+  }));
+  let timer;
+  q.addEventListener('input', () => {
+    if (q.value.trim() && cat !== 'all') setCat('all');
+    apply();
+    clearTimeout(timer);
+    if (q.value.trim()) timer = setTimeout(send, 1200);
+  });
+  q.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); q.blur(); } });
+  document.getElementById('kt-reset').addEventListener('click', () => { q.value = ''; setCat('all'); apply(); q.focus(); });
+
+  // #ashiba などで開いたら、その語を出してスクロールし、蛍光ペンで一度だけ光らせる
+  let userMoved = false;
+  ['wheel', 'touchstart', 'keydown'].forEach(ev => window.addEventListener(ev, () => { userMoved = true; }, { passive: true, once: true }));
+  function reveal(id, initial) {
+    const t = document.getElementById(id);
+    if (!t || !t.classList.contains('term')) return;
+    if (t.hidden) { q.value = ''; setCat('all'); apply(); } // 絞り込み中でもその語は出す
+    // site.css の html{scroll-behavior:smooth} を、最初の表示と動きを減らす設定のときだけ止める
+    const go = smooth => {
+      const root = document.documentElement;
+      if (!smooth) root.style.scrollBehavior = 'auto';
+      t.scrollIntoView({ block: 'start', behavior: smooth ? 'smooth' : 'auto' });
+      if (!smooth) root.style.scrollBehavior = '';
+    };
+    go(!initial && !reduce);
+    t.classList.remove('is-hit');
+    void t.offsetWidth;
+    t.classList.add('is-hit');
+    clearTimeout(t._hit);
+    t._hit = setTimeout(() => t.classList.remove('is-hit'), 2700);
+    if (initial) {
+      // 書体が後から届くと上の段の高さが変わるので、読み込みが済んだらもう一度合わせる
+      const again = () => { if (!userMoved) go(false); };
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(again);
+      if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', again);
+      window.addEventListener('load', again, { once: true });
+      setTimeout(() => { if (document.fonts && document.fonts.removeEventListener) document.fonts.removeEventListener('loadingdone', again); }, 5000);
+    }
+  }
+  const fromHash = () => { try { return decodeURIComponent(location.hash.slice(1)); } catch (_) { return ''; } };
+  window.addEventListener('hashchange', () => reveal(fromHash(), false));
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const id = a.getAttribute('href').slice(1);
+    const t = document.getElementById(id);
+    if (!t || !t.classList.contains('term')) return;
+    e.preventDefault();
+    if (location.hash !== '#' + id) history.pushState(null, '', '#' + id);
+    reveal(id, false);
+  });
+
+  // リンクをコピー（# 付きのURL）
+  document.querySelectorAll('.term__copy').forEach(b => b.addEventListener('click', async () => {
+    const url = location.href.split('#')[0] + '#' + b.dataset.id;
+    let ok = false;
+    try { await navigator.clipboard.writeText(url); ok = true; } catch (_) {
+      const ta = document.createElement('textarea');
+      ta.value = url; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.top = '0'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { ok = document.execCommand('copy'); } catch (_) { ok = false; }
+      ta.remove();
+    }
+    if (!ok) { window.prompt('このリンクをコピーしてください', url); return; }
+    const lbl = b.querySelector('.term__copy-t');
+    lbl.textContent = 'コピーしました';
+    b.classList.add('is-done');
+    live.textContent = 'リンクをコピーしました';
+    clearTimeout(b._t);
+    b._t = setTimeout(() => { lbl.textContent = 'リンクをコピー'; b.classList.remove('is-done'); live.textContent = ''; }, 1800);
+  }));
+
+  apply();
+  if (location.hash) reveal(fromHash(), true);
+})();
+</script>
+</body>
+</html>

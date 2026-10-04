@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>業者が来たら、まずこれ｜見積書のお姉さん</title>
+<meta name="description" content="突然の訪問や電話で工事を勧められたときに見る1ページ。その場で契約しない・見積書は1社で決めない・困ったら188。クーリング・オフは契約書を受け取った日から8日以内。A4で印刷できます。">
+<meta name="theme-color" content="#1f2d55">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="見積書のお姉さん">
+<meta property="og:title" content="業者が来たら、まずこれ｜見積書のお姉さん">
+<meta property="og:description" content="突然の訪問や電話で工事を勧められたときに見る1ページ。その場で契約しない・見積書は1社で決めない・困ったら188。クーリング・オフは契約書を受け取った日から8日以内。A4で印刷できます。">
+<meta property="og:image" content="https://creative-works-plus.github.io/ie-hiyou/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../img/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=BIZ+UDPMincho:wght@700&family=M+PLUS+Rounded+1c:wght@800&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<script src="../assets/site.js" defer></script>
+<style>
+/* 業者が来たら、まずこれ：このページだけの見た目（画面の色は site.css の変数だけ） */
+.hm-hero { display: grid; gap: 16px; }
+@media (min-width: 760px) { .hm-hero { grid-template-columns: minmax(0, 1fr) 170px; align-items: end; } }
+.hm-hero h1 { font-size: clamp(36px, 10vw, 64px); line-height: 1.2; color: var(--red-ink); }
+.hm-hero__img { display: none; }
+@media (min-width: 760px) { .hm-hero__img { display: block; width: 100%; height: auto; } }
+.hm-quick { display: grid; gap: 10px; margin-top: 24px; }
+@media (min-width: 640px) { .hm-quick { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.hm-quick .btn { width: 100%; }
+.btn-188 { background: var(--red); color: var(--sheet); }
+.btn-188:hover { filter: brightness(1.06); }
+
+.hm-three { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; counter-reset: three; }
+@media (min-width: 960px) { .hm-three { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.hm-three > li { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px 20px; min-width: 0; }
+.hm-three__n { display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: var(--ink); color: var(--sheet); font: 800 24px var(--f-disp); margin-bottom: 12px; }
+.hm-three h3 { font-size: clamp(23px, 6vw, 28px); margin-bottom: 12px; }
+.hm-three ul { margin: 0; padding-left: 1.2em; }
+.hm-three li li + li { margin-top: 6px; }
+.hm-three__s { display: block; font-size: 13.5px; color: var(--sub); }
+.hm-motto { margin: 20px 0 0; font-size: 15px; color: var(--sub); }
+.hm-motto b { color: var(--ink); font-family: var(--f-disp); font-size: 19px; }
+
+.hm-co { margin-top: 0; }
+.hm-co__big { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; margin: 14px 0 16px; padding: 14px 18px; background: var(--sheet); border-radius: var(--radius-s); }
+.hm-co__big small { font-size: 15px; font-weight: 700; color: var(--ink); }
+.hm-co__big strong { font-family: var(--f-disp); font-weight: 800; font-size: clamp(40px, 12vw, 60px); line-height: 1.1; color: var(--red-ink); }
+.hm-co ul { margin: 0; padding-left: 1.2em; }
+.hm-co li + li { margin-top: 8px; }
+.hm-co .src { margin: 16px 0 0; }
+
+.hm-188 { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px 18px; width: 100%; max-width: 640px; min-height: 120px; padding: 16px 24px; border-radius: var(--radius); background: var(--red); color: var(--sheet); text-decoration: none; }
+.hm-188:hover { filter: brightness(1.06); }
+.hm-188 strong { font-family: var(--f-disp); font-weight: 800; font-size: clamp(64px, 20vw, 88px); line-height: 1; letter-spacing: .02em; }
+.hm-188 span { font-weight: 700; font-size: 18px; line-height: 1.5; }
+.hm-188 span small { display: block; font-size: 15px; font-weight: 400; }
+.hm-188-after { margin: 14px 0 0; }
+.hm-noprint .tel { white-space: nowrap; }
+
+.hm-share { display: flex; flex-wrap: wrap; gap: 10px; }
+.hm-share .btn { flex: 1 1 200px; }
+.hm-share-st { min-height: 1.8em; margin: 10px 0 0; font-size: 14.5px; color: var(--sub); }
+
+.hm-print-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-bottom: 18px; }
+.hm-print-lab { font-size: 13.5px; font-weight: 700; color: var(--sub); letter-spacing: .04em; margin: 0 0 8px; }
+.paper-frame { max-width: 620px; margin: 0 auto; overflow-x: auto; border-radius: 6px; box-shadow: var(--shadow); border: 1px solid var(--rule); }
+.paper-frame.is-fit { overflow: hidden; }
+
+/* ── A4の紙 ──
+   この中だけは、画面でも印刷でも「白い紙に黒い字」で固定する（夜の表示でも紙の見本として白く見せる）。
+   白黒の印刷でも読めるように、色の塗りに頼らず、太さと枠線だけで差をつける */
+.paper { width: 210mm; height: 297mm; padding: 12mm; background: #fff; color: #000; transform-origin: 0 0; }
+.sheet { width: 186mm; height: 271mm; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; gap: 3mm; font-family: var(--f-body); color: #000; line-height: 1.45; overflow-wrap: normal; }
+.sheet * { margin: 0; }
+.sheet .nw { display: inline-block; }
+.sh-head { border-bottom: 1.4mm solid #000; padding-bottom: 2mm; }
+.sh-kick { font-size: 11pt; font-weight: 700; letter-spacing: .08em; }
+.sh-title { font-family: var(--f-body); font-weight: 700; font-size: 30pt; line-height: 1.2; letter-spacing: .02em; color: #000; }
+.sh-show { border: .9mm solid #000; padding: 2.6mm 4mm; font-size: 16pt; font-weight: 700; line-height: 1.4; }
+.sh-checks { list-style: none; padding: 0; display: grid; gap: 2.6mm; }
+.sh-checks li { display: grid; grid-template-columns: 9.5mm 8mm minmax(0, 1fr); align-items: start; column-gap: 3mm; }
+.sh-box { width: 9.5mm; height: 9.5mm; border: .7mm solid #000; margin-top: .8mm; }
+.sh-no { font-family: var(--f-disp); font-weight: 800; font-size: 21pt; line-height: 1.15; }
+.sh-main { display: block; font-size: 20pt; font-weight: 700; line-height: 1.3; }
+.sh-sub { display: block; font-size: 11.5pt; line-height: 1.45; margin-top: .4mm; }
+.sh-said { border: .35mm solid #000; padding: 2.2mm 4mm 2.6mm; }
+.sh-said h3 { font-family: var(--f-body); font-size: 12pt; font-weight: 700; color: #000; margin-bottom: 1.2mm; }
+.sh-said ul { list-style: none; padding: 0; columns: 2; column-gap: 6mm; font-size: 10.5pt; line-height: 1.45; }
+.sh-said li { break-inside: avoid; }
+.sh-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4mm; }
+.sh-co, .sh-tel { border: .9mm solid #000; padding: 2.6mm 4mm 3mm; display: flex; flex-direction: column; }
+.sh-lab { font-size: 11pt; font-weight: 700; }
+.sh-pre { font-size: 11.5pt; font-weight: 700; margin-top: 1.4mm; }
+.sh-days { font-family: var(--f-disp); font-weight: 800; font-size: 40pt; line-height: 1.1; }
+.sh-txt { font-size: 10.5pt; line-height: 1.5; }
+.sh-date { margin-top: auto; padding-top: 2mm; border-top: .3mm dashed #000; font-size: 10.5pt; font-weight: 700; }
+.sh-co .sh-txt, .sh-tel .sh-txt { margin-bottom: 2.4mm; }
+.sh-n-row { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 2.4mm; margin: .6mm 0 1mm; }
+.sh-n { font-family: var(--f-disp); font-weight: 800; font-size: 54pt; line-height: 1; letter-spacing: .02em; }
+.sh-yomi { font-size: 14pt; font-weight: 700; }
+.sh-family { display: grid; grid-template-columns: auto minmax(0, 1.2fr) auto minmax(0, 1fr); column-gap: 3mm; row-gap: 2.4mm; align-items: end; font-size: 11pt; font-weight: 700; }
+.sh-family h3 { grid-column: 1 / -1; font-family: var(--f-body); font-size: 12pt; font-weight: 700; color: #000; }
+.sh-line { border-bottom: .35mm solid #000; height: 8mm; }
+.sh-foot { display: flex; justify-content: space-between; align-items: flex-end; gap: 4mm; border-top: .35mm solid #000; padding-top: 1.8mm; font-size: 9.5pt; line-height: 1.4; }
+.sh-foot b { font-size: 11pt; }
+
+/* 印刷するときは、紙の部分だけを A4 縦 1 枚に出す */
+@page { size: A4; margin: 12mm; }
+@media print {
+  .skip, .hm-noprint { display: none !important; }
+  main, .print-sec, .print-sec .wrap { margin: 0 !important; padding: 0 !important; max-width: none !important; }
+  .paper-frame { max-width: none; height: auto !important; overflow: visible !important; border: 0; border-radius: 0; box-shadow: none; margin: 0; }
+  .paper { transform: none !important; width: 186mm; height: auto; padding: 0; }
+  .sheet { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へ</a>
+<header class="site-h">
+  <div class="wrap site-h__in">
+    <a class="logo" href="../"><img src="../img/face.webp" alt="" width="36" height="36">見積書のお姉さん</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"><span class="menu-btn__bars" aria-hidden="true"></span>メニュー</button>
+    <nav id="site-nav" class="site-nav" aria-label="サイトの中">
+      <a href="../#keisan">計算する</a>
+      <a href="../douga/">動画</a>
+      <a href="../teguchi/">手口の記録</a>
+      <a href="../kotoba/">言葉の辞典</a>
+      <a class="nav-warn" href="../houmon/" aria-current="page">業者が来たら</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap page-h hm-noprint">
+    <p class="crumb"><a href="../">トップ</a> ／ 業者が来たら</p>
+    <div class="hm-hero">
+      <div>
+        <h1><span class="nw">業者が来たら、</span><span class="nw">まずこれ</span></h1>
+        <p class="lead">突然の訪問や電話で、点検や工事を勧められたときに見るページです。<span class="nw">国民生活センター</span>や消費者庁が呼びかけていることを、3つにしぼりました。</p>
+      </div>
+      <img class="hm-hero__img" src="../img/chara.webp" width="720" height="992" alt="">
+    </div>
+    <div class="hm-quick">
+      <a class="btn btn-188" href="tel:188">188（いやや）に電話する</a>
+      <button class="btn btn-primary" type="button" data-print>A4で印刷する</button>
+      <a class="btn btn-ghost" href="#share">家族に送る</a>
+    </div>
+  </div>
+
+  <section class="section hm-noprint" aria-labelledby="three-h">
+    <div class="wrap">
+      <h2 class="section-h" id="three-h"><span class="nw">覚えるのは、</span><span class="nw">3つだけ</span></h2>
+      <p class="section-sub">6本の動画で紹介した手口は、どれも「その場で決めさせる」ところが同じでした。</p>
+      <ol class="hm-three">
+        <li>
+          <span class="hm-three__n" aria-hidden="true">1</span>
+          <h3><span class="nw">その場で</span><span class="nw">契約しない</span></h3>
+          <ul>
+            <li>突然来た業者には、無料でも<span class="nw">点検させない。</span></li>
+            <li>点検は、契約しているガス会社やメーカーに、自分から頼む。来てしまったら、<span class="nw">インターホン越し</span>に断る。<span class="hm-three__s"><span class="nw">国民生活センター</span>の呼びかけ</span></li>
+            <li>一人で判断せず、家族や近所の人に相談する。「家族に相談します」と言って、帰ってもらってかまいません。<span class="hm-three__s">消費者庁の呼びかけ</span></li>
+            <li>納得できなければ、その場では<span class="nw">払わない。</span></li>
+          </ul>
+        </li>
+        <li>
+          <span class="hm-three__n" aria-hidden="true">2</span>
+          <h3><span class="nw">見積書は</span><span class="nw">1社で</span><span class="nw">決めない</span></h3>
+          <ul>
+            <li>ほかの会社にも見積もりを頼んで、<span class="nw">比べる。</span>その値段が適正か、市価やほかの会社の値段と比べてみる。<span class="hm-three__s">消費者庁の呼びかけ</span></li>
+            <li>「一式」とだけ書いてあったら、中身を<span class="nw">書いてもらう。</span></li>
+            <li>わからない所は納得いくまで確かめ、はっきり答えない業者とは<span class="nw">契約しない。</span><span class="hm-three__s"><span class="nw">国民生活センター</span>の呼びかけ</span></li>
+          </ul>
+        </li>
+        <li>
+          <span class="hm-three__n" aria-hidden="true">3</span>
+          <h3><span class="nw">困ったら</span><span class="nw">188（いやや）</span></h3>
+          <ul>
+            <li><span class="nw">消費者ホットライン</span>「188」に電話すると、近くの<span class="nw">消費生活センター</span>や相談窓口を案内してもらえます。<span class="hm-three__s">消費者庁</span></li>
+            <li>相談は無料です（通話料は<span class="nw">かかります）。</span></li>
+            <li>リフォームの見積書のことは、<span class="nw">住まいるダイヤル</span>（<a class="tel" href="tel:0570016100">0570-016-100</a>）でも<span class="nw">相談を受けています。</span></li>
+          </ul>
+        </li>
+      </ol>
+      <p class="hm-motto">動画の最後で、毎回お伝えしていること。<br><b><span class="nw">その場で決めない。</span><span class="nw">相場を知っておく。</span></b></p>
+    </div>
+  </section>
+
+  <section class="hm-noprint" aria-labelledby="co-h">
+    <div class="wrap">
+      <div class="warn-box hm-co">
+        <h2 class="section-h" id="co-h"><span class="nw">訪問販売で</span><span class="nw">契約して</span><span class="nw">しまったら、</span><span class="nw">クーリング・オフ</span></h2>
+        <p class="hm-co__big"><small>契約書を受け取った日から</small><strong>8日以内</strong></p>
+        <p>訪問販売で契約してしまったら、契約書を受け取った日から8日以内なら、<span class="nw">クーリング・オフ</span>、つまり無条件で契約をやめる手続きができます。書面か、メールで伝えます。</p>
+        <ul>
+          <li>電話で約束を取ってから来る業者も、訪問販売にあたります。電話で勧められて契約した場合（電話勧誘販売）も、8日間です。</li>
+          <li>伝えたら、控えを残しておきます。はがきなら両面をコピーし、メールなら送った画面を保存しておきます。</li>
+          <li>工事が終わっていても、8日以内なら、代金を払う必要はなく、元に戻すことも無償で求められます。<span class="nw">（消費者庁）</span></li>
+          <li>「もう発注した」「もう工事が始まっている」と言われても、あきらめない。<span class="nw">クーリング・オフ</span>を妨げられた場合は、できる期間が延びます。<span class="nw">（消費者庁）</span></li>
+          <li>業者がうそを言っていた場合などは、8日を過ぎてもやめられることがあります。</li>
+          <li>自分で業者を呼んだ場合は、認められないことがあります。ただし、安い修理代を見て呼んだのに、高額な工事を勧められて契約した場合は、通常どおり認められます。<span class="nw">（消費者庁）</span></li>
+        </ul>
+        <p class="src">数える日は、正確には「申込書面か契約書面の、早いほうを受け取った日」です（<a href="https://www.kokusen.go.jp/soudan_now/data/coolingoff.html" target="_blank" rel="noopener"><span class="nw">国民生活センター</span></a>）。迷ったら、188へ。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hm-noprint" aria-labelledby="tel-h">
+    <div class="wrap">
+      <h2 class="section-h" id="tel-h"><span class="nw">困ったら、</span><span class="nw">188（いやや）</span></h2>
+      <p class="section-sub"><span class="nw">消費者ホットライン</span>です。近くの<span class="nw">消費生活センター</span>や相談窓口を案内してもらえます。</p>
+      <a class="hm-188" href="tel:188"><strong>188</strong><span><span class="nw">消費者ホットライン</span>に電話する<small>相談は無料です（通話料はかかります）</small></span></a>
+      <p class="hm-188-after">リフォームの見積書のことは、<span class="nw">住まいるダイヤル</span> <a class="tel" href="tel:0570016100">0570-016-100</a> でも<span class="nw">相談を受けています。</span></p>
+    </div>
+  </section>
+
+  <section class="section hm-noprint" id="share" aria-labelledby="share-h">
+    <div class="wrap">
+      <h2 class="section-h" id="share-h">家族に送る</h2>
+      <p class="section-sub">離れて暮らす親や家族に、このページを送っておけます。</p>
+      <div class="hm-share">
+        <a class="btn btn-primary" id="share-line" href="https://line.me/R/share?text=%E6%A5%AD%E8%80%85%E3%81%8C%E6%9D%A5%E3%81%9F%E3%82%89%E3%80%81%E3%81%BE%E3%81%9A%E3%81%93%E3%82%8C%EF%BC%88%E8%A6%8B%E7%A9%8D%E6%9B%B8%E3%81%AE%E3%81%8A%E5%A7%89%E3%81%95%E3%82%93%EF%BC%89%0A%E3%81%9D%E3%81%AE%E5%A0%B4%E3%81%A7%E5%A5%91%E7%B4%84%E3%81%97%E3%81%AA%E3%81%84%E3%83%BB%E8%A6%8B%E7%A9%8D%E6%9B%B8%E3%81%AF1%E7%A4%BE%E3%81%A7%E6%B1%BA%E3%82%81%E3%81%AA%E3%81%84%E3%83%BB%E5%9B%B0%E3%81%A3%E3%81%9F%E3%82%89188%0Ahttps%3A%2F%2Fcreative-works-plus.github.io%2Fie-hiyou%2Fhoumon%2F" target="_blank" rel="noopener">LINEで送る</a>
+        <button class="btn btn-ghost" type="button" id="share-copy">リンクをコピーする</button>
+        <button class="btn btn-ghost" type="button" id="share-other" hidden>ほかのアプリで送る</button>
+      </div>
+      <p class="hm-share-st" id="share-st" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section class="section print-sec" aria-labelledby="print-h">
+    <div class="wrap">
+      <div class="hm-noprint">
+        <h2 class="section-h" id="print-h"><span class="nw">A4で印刷して、</span><span class="nw">電話のそばに</span></h2>
+        <p class="section-sub">電話のそばや玄関に貼っておける紙です。白黒で印刷しても読めるように作っています。</p>
+        <div class="hm-print-row">
+          <button class="btn btn-primary" type="button" data-print>A4で印刷する</button>
+        </div>
+        <p class="hm-print-lab">印刷するとこうなります</p>
+      </div>
+      <div class="paper-frame">
+        <div class="paper">
+          <div class="sheet">
+            <div class="sh-head">
+              <p class="sh-kick">電話のそば・玄関に貼っておく紙</p>
+              <h2 class="sh-title">業者が来たら、まずこれ</h2>
+            </div>
+            <p class="sh-show">この紙を見せて<br>「家族に相談します」と言ってよい。</p>
+            <ol class="sh-checks">
+              <li><span class="sh-box" aria-hidden="true"></span><span class="sh-no">1</span><span><span class="sh-main">その場で契約しない</span><span class="sh-sub">無料でも点検させない。点検は自分から頼む。<br>納得できなければ、その場では払わない。</span></span></li>
+              <li><span class="sh-box" aria-hidden="true"></span><span class="sh-no">2</span><span><span class="sh-main">見積書は1社で決めない</span><span class="sh-sub">ほかの会社にも見積もりを頼んで、比べる。<br>「一式」とだけ書いてあったら、中身を書いてもらう。</span></span></li>
+              <li><span class="sh-box" aria-hidden="true"></span><span class="sh-no">3</span><span><span class="sh-main">困ったら188（いやや）に電話</span><span class="sh-sub">近くの消費生活センターや相談窓口を案内してもらえます。</span></span></li>
+            </ol>
+            <div class="sh-said">
+              <h3>こう言われたら、この紙を見る</h3>
+              <ul>
+                <li>「近くで工事をしている者です」</li>
+                <li>「無料で屋根を点検する」</li>
+                <li>「ガス器具の点検を行います」</li>
+                <li>「保険金で修繕できる」</li>
+                <li>「法律が変わって…検査が必要になった」</li>
+                <li>「今なら資材があるので割引する」</li>
+                <li>「放っておいたらひどくなって、なお高くなる」</li>
+                <li>「…リフォームをしないと家が傾く」</li>
+                <li>「介護保険を使って無料で住宅改修ができる」</li>
+              </ul>
+            </div>
+            <div class="sh-row">
+              <div class="sh-co">
+                <p class="sh-lab"><span class="nw">訪問販売・電話勧誘で</span><span class="nw">契約してしまったら</span></p>
+                <p class="sh-pre">契約書を受け取った日から</p>
+                <p class="sh-days">8日以内</p>
+                <p class="sh-txt">なら、<span class="nw">クーリング・オフ</span>で無条件に契約をやめられます。書面か、メールで伝え、控えを残す。</p>
+                <p class="sh-date">契約書を受け取った日　　　月　　　日</p>
+              </div>
+              <div class="sh-tel">
+                <p class="sh-lab">困ったら、ここに電話</p>
+                <p class="sh-n-row"><span class="sh-n">188</span><span class="sh-yomi">いやや</span></p>
+                <p class="sh-txt"><span class="nw">消費者ホットライン。</span>近くの<span class="nw">消費生活センター</span>などを案内してもらえます。相談は無料（通話料はかかります）。</p>
+                <p class="sh-date">見積書の相談：<span class="nw">住まいるダイヤル</span> <span class="nw">0570-016-100</span></p>
+              </div>
+            </div>
+            <div class="sh-family">
+              <h3>相談する家族</h3>
+              <span>名前</span><span class="sh-line"></span><span>電話</span><span class="sh-line"></span>
+              <span>名前</span><span class="sh-line"></span><span>電話</span><span class="sh-line"></span>
+            </div>
+            <div class="sh-foot">
+              <p><b>見積書のお姉さん</b><br>https://creative-works-plus.github.io/ie-hiyou/houmon/</p>
+              <p>出典：国民生活センター・消費者庁</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hm-noprint" aria-labelledby="src-h">
+    <div class="wrap">
+      <h2 class="section-h" id="src-h">出典</h2>
+      <ul class="src">
+        <li><a href="https://www.kokusen.go.jp/news/data/n-20231011_1.html" target="_blank" rel="noopener">国民生活センター「屋根工事の点検商法のトラブルが増えています」（2023年10月11日）</a></li>
+        <li><a href="https://www.kokusen.go.jp/news/data/n-20240221_1.html" target="_blank" rel="noopener">国民生活センター「給湯器の点検にご注意ください」（2024年2月21日）</a></li>
+        <li><a href="https://www.kokusen.go.jp/pdf/n-20211007_2.pdf" target="_blank" rel="noopener">国民生活センター「水回り修理『950円〜』のはずが…数十万円の高額請求に！」（2021年10月7日・PDF）</a></li>
+        <li><a href="https://www.kokusen.go.jp/soudan_now/data/coolingoff.html" target="_blank" rel="noopener">国民生活センター「クーリング・オフ」</a></li>
+        <li><a href="https://www.no-trouble.caa.go.jp/what/doortodoorsales/" target="_blank" rel="noopener">消費者庁 特定商取引法ガイド「訪問販売」</a></li>
+        <li><a href="https://www.no-trouble.caa.go.jp/case/doortodoorsales/case03.html" target="_blank" rel="noopener">消費者庁 特定商取引法ガイド 事例紹介「訪問販売でリフォーム工事の契約をさせられた」</a></li>
+        <li><a href="https://www.caa.go.jp/notice/assets/consumer_transaction_cms203_210831_02.pdf" target="_blank" rel="noopener">消費者庁「暮らしのレスキューサービスに関する悪質商法にご注意！」（PDF）</a></li>
+        <li><a href="https://www.caa.go.jp/policies/policy/local_cooperation/local_consumer_administration/hotline/" target="_blank" rel="noopener">消費者庁「消費者ホットライン」</a></li>
+        <li><a href="https://www.chord.or.jp/" target="_blank" rel="noopener">住まいるダイヤル</a></li>
+      </ul>
+      <p class="note">実際にあった手口は、<a href="../teguchi/">手口の記録</a>に、出典とあわせて1つずつ載せています。</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-f">
+  <div class="wrap">
+    <a class="logo" href="../"><img src="../img/face.webp" alt="" width="36" height="36">見積書のお姉さん</a>
+    <p class="site-f__about">家の修理・リフォームの見積書を、公開されている資料の単価から1行ずつ読み解くYouTubeチャンネルです。工事を請け負う業者ではありません。</p>
+    <div class="sns">
+      <a href="https://www.youtube.com/@mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#ff0033" d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81z"/><path fill="#fff" d="M9.55 15.57V8.43L15.82 12z"/></svg>YouTube</a>
+      <a href="https://www.instagram.com/mitsumori_onee/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+      <a href="https://x.com/mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</a>
+    </div>
+    <nav class="site-f__nav" aria-label="サイトの案内">
+      <a href="../#keisan">計算する</a>
+      <a href="../douga/">動画</a>
+      <a href="../teguchi/">手口の記録</a>
+      <a href="../kotoba/">言葉の辞典</a>
+      <a href="../houmon/">業者が来たら</a>
+      <a href="../about/">このサイトについて</a>
+      <a href="../privacy/">プライバシーポリシー</a>
+      <a href="../contact/">お問い合わせ</a>
+    </nav>
+    <p class="site-f__fine">金額はすべて、公開されている資料の単価から計算した目安です。実際の金額は家ごとに変わります。</p>
+    <p class="site-f__fine">© 2026 見積書のお姉さん</p>
+  </div>
+</footer>
+<script>
+// 印刷・家族に送る・紙の見本の縮小（入力した値は送らない）
+(() => {
+  const URL_ = 'https://creative-works-plus.github.io/ie-hiyou/houmon/';
+  const TEXT = '業者が来たら、まずこれ（見積書のお姉さん）\nその場で契約しない・見積書は1社で決めない・困ったら188';
+  const t = (name, params) => { if (window.track) window.track(name, params); };
+
+  document.querySelectorAll('[data-print]').forEach(b => b.addEventListener('click', () => {
+    t('print', { page: 'houmon' });
+    window.print();
+  }));
+
+  const st = document.getElementById('share-st');
+  document.getElementById('share-line').addEventListener('click', () => t('share', { page: 'houmon', method: 'line' }));
+  document.getElementById('share-copy').addEventListener('click', async () => {
+    let ok = false;
+    try { await navigator.clipboard.writeText(URL_); ok = true; } catch (e) {
+      const ta = document.createElement('textarea');
+      ta.value = URL_; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.append(ta); ta.select();
+      try { ok = document.execCommand('copy'); } catch (e2) { ok = false; }
+      ta.remove();
+    }
+    st.textContent = ok ? 'リンクをコピーしました。メールやメッセージに貼りつけて送れます。' : 'コピーできませんでした。このアドレスを送ってください：' + URL_;
+    t('share', { page: 'houmon', method: 'copy' });
+  });
+  const other = document.getElementById('share-other');
+  if (navigator.share) {
+    other.hidden = false;
+    other.addEventListener('click', async () => {
+      try { await navigator.share({ title: '業者が来たら、まずこれ', text: TEXT, url: URL_ }); t('share', { page: 'houmon', method: 'other' }); } catch (e) { /* 閉じただけ */ }
+    });
+  }
+
+  // 紙の見本を、枠の幅に合わせて縮めて見せる（印刷では元の大きさに戻る）
+  const frame = document.querySelector('.paper-frame');
+  const paper = frame && frame.querySelector('.paper');
+  if (!paper) return;
+  const fit = () => {
+    const s = Math.min(1, frame.clientWidth / paper.offsetWidth);
+    paper.style.transform = 'scale(' + s + ')';
+    frame.style.height = Math.ceil(paper.offsetHeight * s) + 'px';
+    frame.classList.add('is-fit');
+  };
+  fit();
+  if ('ResizeObserver' in window) new ResizeObserver(fit).observe(frame); else addEventListener('resize', fit);
+})();
+</script>
+</body>
+</html>
