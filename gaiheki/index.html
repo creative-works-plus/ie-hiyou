@@ -326,7 +326,7 @@ footer p { margin: 0 0 8px; }
         </div>
       </fieldset>
 
-      <button type="button" class="reset" id="reset">動画と同じ条件にもどす</button>
+      <button type="button" class="reset" id="btn-reset">動画と同じ条件にもどす</button>
     </form>
   </section>
 
@@ -334,7 +334,7 @@ footer p { margin: 0 0 8px; }
     <h2 class="step-h" id="h-result"><span class="n">2</span>目安の金額</h2>
     <div class="sheet" aria-live="polite">
       <div class="total-box">
-        <p class="lbl">ふつうの単価で計算すると（税込）</p>
+        <p class="lbl">相場の単価で計算すると（税込）</p>
         <p class="big num"><span class="hl">約<span id="t-std">111</span></span><small>万円</small></p>
         <p class="range">業者によって <b class="num">約<span id="t-lo">90</span>万〜<span id="t-hi">197</span>万円</b></p>
         <p class="year num" id="t-year">1年あたり 約8.9万円</p>
@@ -676,7 +676,7 @@ $('m2').addEventListener('change', () => { const v = parseFloat($('m2').value); 
 $('f').addEventListener('change', e => { if (e.target.name) render(); });
 $('f').addEventListener('submit', e => e.preventDefault());
 $('mine').addEventListener('input', renderCompare);
-$('reset').addEventListener('click', () => {
+$('btn-reset').addEventListener('click', () => {
   $('f').reset(); $('m2').value = ''; setTsubo(30);
 });
 

@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>屋根の修理費用の計算</title>
+<meta name="description" content="家の大きさ・屋根の形・屋根材を選ぶと、塗り直す・上から重ねる・葺き替えるの3つの方法を、見積書と同じ並びで1行ずつ目安の金額にします。数字はすべて公開資料から取り、出典を載せています。">
+<meta name="theme-color" content="#13203a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="屋根の修理費用の計算">
+<meta property="og:description" content="塗り直す・上から重ねる・葺き替える。3つの方法を、見積書と同じ並びで目安の金額にします。手元の見積書とのくらべ方も。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231450d8'/%3E%3Cpath d='M32 12 54 30H48V52H16V30H10Z' fill='%23fff'/%3E%3Crect x='26' y='36' width='12' height='16' fill='%231450d8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=BIZ+UDPMincho:wght@700&family=M+PLUS+Rounded+1c:wght@800&display=swap">
+<style>
+
+/* レイアウト：スマホは1列（選ぶ → 見積書）。広い画面では左に選ぶ欄、右に見積書を貼りつける。
+   見積書（御見積書の並び）がこのページの主役。動画の画面とおなじ紙を、自分の家の数字で出す。 */
+:root {
+  --paper: #eef2f6;      /* ページの地 */
+  --sheet: #ffffff;      /* 見積書の紙・入力欄 */
+  --ink: #13203a;        /* 文字（紺のインク） */
+  --sub: #56637b;        /* 補足の文字 */
+  --rule: #d3dae4;       /* 罫線 */
+  --blue: #1450d8;       /* 答えの色（サムネの「実際の金額は？」） */
+  --blue-soft: #e4edfd;
+  --mark: #ffe14d;       /* 蛍光ペン */
+  --warn: #c8231a;       /* 注意 */
+  --warn-soft: #fdeceb;
+  --bar-ink: #13203a;    /* 下に出る金額の帯 */
+  --bar-text: #ffffff;
+  --f-body: "BIZ UDPGothic", "Hiragino Sans", "ヒラギノ角ゴシック", "Yu Gothic", sans-serif;
+  --f-disp: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Hiragino Sans", sans-serif;
+  --f-doc: "BIZ UDPMincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0d1422; --sheet: #151f33; --ink: #e9eef7; --sub: #a1adc4; --rule: #2b3852;
+    --blue: #7aa2ff; --blue-soft: #1a2a4b; --mark: #7a6600; --warn: #ff7b6e; --warn-soft: #3a1815;
+    --bar-ink: #e9eef7; --bar-text: #0d1422; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0d1422; --sheet: #151f33; --ink: #e9eef7; --sub: #a1adc4; --rule: #2b3852;
+  --blue: #7aa2ff; --blue-soft: #1a2a4b; --mark: #7a6600; --warn: #ff7b6e; --warn-soft: #3a1815;
+  --bar-ink: #e9eef7; --bar-text: #0d1422; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: var(--f-body); font-size: 17px; line-height: 1.8;
+  padding-inline: 16px; padding-block: 0 96px;
+}
+.nw { display: inline-block; }
+h1, h2, h3 { text-wrap: balance; word-break: auto-phrase; line-height: 1.4; margin: 0; }
+a { color: var(--blue); }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.wrap { max-width: 1120px; margin: 0 auto; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* ── 見出し ── */
+header.top { padding-block: 28px 8px; max-width: 760px; }
+.eyebrow { font-size: 14px; color: var(--sub); margin: 0 0 8px; }
+h1 { font-family: var(--f-disp); font-weight: 800; font-size: clamp(30px, 7.4vw, 46px); letter-spacing: .01em; }
+h1 .q { color: var(--blue); }
+.lead { margin: 14px 0 0; max-width: 40em; }
+.promise { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 14px 0 0; padding: 0; list-style: none; font-size: 14px; color: var(--sub); }
+.promise li::before { content: "✓ "; color: var(--blue); font-weight: 700; }
+
+/* ── 計算（選ぶ欄 ＋ 見積書） ── */
+.calc { display: grid; gap: 28px; margin-top: 24px; }
+@media (min-width: 1000px) {
+  .calc { grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); align-items: start; gap: 40px; }
+  .calc .sheet-col { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); }
+}
+.step-h { font-family: var(--f-disp); font-weight: 800; font-size: 22px; display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px; }
+.step-h .n { font-size: 15px; color: var(--bar-text); background: var(--ink); border-radius: 999px; min-width: 28px; height: 28px; display: inline-grid; place-items: center; line-height: 1; transform: translateY(-2px); }
+
+form { display: grid; gap: 22px; }
+fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+legend { font-weight: 700; font-size: 17px; padding: 0; margin-bottom: 8px; }
+.help { font-size: 14px; color: var(--sub); margin: 8px 0 0; line-height: 1.7; }
+
+.seg { display: grid; grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr)); gap: 8px; }
+.seg label { position: relative; display: block; cursor: pointer; }
+.seg input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.seg .opt {
+  display: flex; flex-direction: column; justify-content: center; gap: 2px;
+  min-height: 58px; padding: 10px 12px; border: 2px solid var(--rule); border-radius: 10px;
+  background: var(--sheet); line-height: 1.4; text-align: center;
+}
+.seg .opt b { font-size: 17px; }
+.seg .opt small { font-size: 13px; color: var(--sub); }
+.seg input:checked + .opt { border-color: var(--blue); background: var(--blue-soft); box-shadow: inset 0 0 0 1px var(--blue); }
+.seg input:checked + .opt b { color: var(--blue); }
+.seg input:focus-visible + .opt { outline: 3px solid var(--blue); outline-offset: 2px; }
+.seg.left .opt { text-align: left; }
+
+/* 塗料のカード：その家での金額まで出す */
+.paint .opt { align-items: flex-start; text-align: left; padding: 12px 14px; }
+.paint .price { font-family: var(--f-disp); font-weight: 800; font-size: 20px; color: var(--ink); margin-top: 4px; }
+.paint .per { font-size: 13px; color: var(--sub); }
+@media (max-width: 520px) {
+  .paint { --cols: 1 !important; }
+  .paint .opt { flex-direction: row; flex-wrap: wrap; align-items: baseline; column-gap: 12px; }
+  .paint .opt b { min-width: 3.5em; }
+  .paint .price { margin: 0 0 0 auto; }
+  .paint .per { width: 100%; }
+}
+
+/* 坪数：大きなボタン＋数字 */
+.tsubo { display: grid; grid-template-columns: 58px minmax(0, 1fr) 58px; gap: 8px; align-items: stretch; }
+.tsubo button {
+  font: inherit; font-size: 28px; font-weight: 700; line-height: 1; border: 2px solid var(--rule); border-radius: 10px;
+  background: var(--sheet); color: var(--ink); cursor: pointer; min-height: 58px;
+}
+.tsubo button:active { background: var(--blue-soft); }
+.tsubo .val { border: 2px solid var(--blue); border-radius: 10px; background: var(--sheet); display: flex; align-items: center; justify-content: center; gap: 4px; padding: 4px 8px; }
+.tsubo .val input {
+  width: 3.2em; font: inherit; font-family: var(--f-disp); font-weight: 800; font-size: 30px; text-align: right;
+  border: 0; background: transparent; color: var(--ink); padding: 0;
+}
+.tsubo .val input::-webkit-inner-spin-button { display: none; }
+.tsubo .val span { font-weight: 700; }
+.tsubo .val small { color: var(--sub); font-size: 14px; margin-left: 6px; white-space: nowrap; }
+input[type="range"] { width: 100%; margin: 12px 0 0; accent-color: var(--blue); }
+.m2 { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 8px; font-size: 14px; color: var(--sub); margin-top: 6px; }
+.m2 input { width: 6em; font: inherit; font-size: 16px; padding: 6px 8px; border: 1.5px solid var(--rule); border-radius: 8px; background: var(--sheet); color: var(--ink); }
+
+.reset { justify-self: start; font: inherit; font-size: 15px; color: var(--blue); background: none; border: 0; padding: 4px 0; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+
+/* ── 見積書 ── */
+.sheet { background: var(--sheet); border: 1px solid var(--rule); border-radius: 4px; box-shadow: 0 10px 30px -18px rgba(19, 32, 58, .45); padding: 22px 18px 18px; }
+.total-box { text-align: center; padding-bottom: 18px; border-bottom: 2px solid var(--ink); }
+.total-box .lbl { font-size: 15px; color: var(--sub); margin: 0; }
+.total-box .big {
+  font-family: var(--f-disp); font-weight: 800; line-height: 1.1; margin: 6px 0 0;
+  font-size: clamp(46px, 13vw, 64px); letter-spacing: -.01em;
+}
+.total-box .big .hl { background: linear-gradient(transparent 62%, var(--mark) 62%); padding: 0 .08em; }
+.total-box .big small { font-size: .42em; margin-left: .1em; }
+.total-box .range { margin: 10px 0 0; font-size: 16px; }
+.total-box .range b { font-size: 19px; }
+.total-box .year { margin: 4px 0 0; font-size: 15px; color: var(--sub); }
+.total-box .ref { margin: 10px auto 0; max-width: 30em; font-size: 13.5px; color: var(--sub); line-height: 1.65; }
+.total-box .ref:empty { display: none; }
+.fnote { font-size: 13.5px; line-height: 1.7; background: var(--blue-soft); border-radius: 6px; padding: 10px 12px; margin: 0 0 12px; }
+
+/* 幅の物差し */
+.ruler { position: relative; height: 64px; margin: 18px 6px 4px; }
+.ruler.has-mine { height: 92px; }
+.ruler .track { position: absolute; left: 0; right: 0; top: 30px; height: 6px; background: var(--rule); border-radius: 3px; }
+.ruler .band { position: absolute; top: 28px; height: 10px; background: var(--blue-soft); border: 2px solid var(--blue); border-radius: 5px; }
+.ruler .tick { position: absolute; top: 44px; transform: translateX(-50%); font-size: 13px; color: var(--sub); white-space: nowrap; }
+.ruler .pin { position: absolute; top: 0; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; font-size: 13px; font-weight: 700; white-space: nowrap; }
+.ruler .pin i { display: block; width: 3px; height: 16px; margin-top: 2px; background: currentColor; }
+.ruler .pin.std { color: var(--blue); }
+.ruler .pin.mine { color: var(--warn); top: 26px; flex-direction: column-reverse; }
+.ruler .pin.mine i { height: 40px; margin: 0 0 2px; }
+.ruler .pin[hidden] { display: none; }
+
+.doc-h { font-family: var(--f-doc); font-weight: 700; font-size: 22px; letter-spacing: .3em; text-align: center; margin: 22px 0 4px; }
+.spec { text-align: center; font-size: 13px; color: var(--sub); margin: 0 0 10px; line-height: 1.6; }
+.est-scroll { overflow-x: auto; }
+table.est { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.45; }
+table.est th, table.est td { padding: 9px 4px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+table.est thead th { font-size: 12px; font-weight: 700; color: var(--sub); text-align: right; border-bottom: 1.5px solid var(--ink); padding-top: 0; }
+table.est thead th:first-child { text-align: left; }
+table.est td.item b { font-weight: 700; }
+table.est td.item small { display: block; font-size: 12.5px; color: var(--sub); margin-top: 2px; }
+table.est td.amt { text-align: right; white-space: nowrap; font-weight: 700; padding-left: 12px; }
+table.est td.amt .rng { display: block; font-weight: 400; color: var(--sub); font-size: 13px; margin-top: 2px; }
+table.est thead .rng-h { display: block; font-weight: 400; }
+table.est tr.sum td { border-bottom: 1.5px solid var(--ink); font-weight: 700; }
+table.est tr.grand td { border-bottom: 0; font-size: 17px; padding-top: 12px; }
+table.est tr.grand td.amt { font-size: 19px; }
+table.est tr.grand td.amt .rng { font-size: 14px; }
+table.est tr.off td { color: var(--sub); }
+table.est tr.off td.amt { font-weight: 400; }
+.sheet .foot { font-size: 13.5px; color: var(--sub); margin: 12px 0 0; line-height: 1.7; }
+
+/* ── 手元の見積書とくらべる ── */
+.compare { margin-top: 18px; padding: 16px; border-radius: 8px; background: var(--blue-soft); }
+.compare label { font-weight: 700; display: block; margin-bottom: 8px; }
+.compare .row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.compare input { width: 7.5em; font: inherit; font-family: var(--f-disp); font-weight: 800; font-size: 24px; padding: 6px 10px; border: 2px solid var(--blue); border-radius: 8px; background: var(--sheet); color: var(--ink); text-align: right; }
+.compare .row span { font-weight: 700; }
+.verdict { margin: 12px 0 0; font-size: 15.5px; line-height: 1.75; }
+.verdict:empty { display: none; }
+.verdict b { font-size: 17px; }
+.verdict.hi b { color: var(--warn); }
+
+/* ── 読みもの ── */
+.read { max-width: 760px; margin-top: 56px; display: grid; gap: 44px; }
+.read h2 { font-family: var(--f-disp); font-weight: 800; font-size: clamp(23px, 5.6vw, 28px); margin-bottom: 14px; }
+.read p { margin: 0 0 12px; }
+.checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: c; }
+.checks li { counter-increment: c; display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 4px 10px; }
+.checks li::before { content: counter(c); grid-row: span 2; width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--ink); display: grid; place-items: center; font-weight: 700; font-size: 15px; line-height: 1; margin-top: 2px; }
+.checks b { font-size: 17.5px; }
+.checks span { color: var(--sub); font-size: 15.5px; }
+.ask { margin: 18px 0 0; padding: 16px 18px; border-left: 4px solid var(--blue); background: var(--sheet); display: grid; gap: 8px; }
+.ask p { margin: 0; font-weight: 700; }
+.ask .h { font-weight: 400; color: var(--sub); font-size: 14px; }
+
+.warn-box { border: 2px solid var(--warn); border-radius: 8px; overflow: hidden; background: var(--sheet); }
+.warn-box .head { background: var(--warn); color: #fff; font-weight: 700; padding: 10px 16px; font-size: 16px; }
+.warn-box .body { padding: 16px; display: grid; gap: 16px; }
+.case { display: grid; gap: 4px; }
+.case q { font-weight: 700; font-size: 17px; quotes: "「" "」"; }
+.case p { margin: 0; color: var(--sub); font-size: 15.5px; }
+.case p b { color: var(--warn); }
+.todo { background: var(--warn-soft); border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; }
+.todo p { margin: 0; font-size: 15.5px; }
+.tel { font-family: var(--f-disp); font-weight: 800; font-size: 20px; color: var(--ink); text-decoration: none; border-bottom: 2px solid var(--ink); }
+
+.method { font-size: 15px; }
+.method dl { margin: 0; display: grid; gap: 10px; }
+.method dt { font-weight: 700; }
+.method dd { margin: 0; color: var(--sub); }
+.src { margin: 0; padding-left: 1.2em; font-size: 14px; color: var(--sub); display: grid; gap: 6px; }
+.src a { overflow-wrap: anywhere; }
+
+footer { max-width: 760px; margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--rule); font-size: 13.5px; color: var(--sub); }
+footer p { margin: 0 0 8px; }
+
+/* ── スマホ：下に出る金額の帯 ── */
+.dock {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 10;
+  background: var(--bar-ink); color: var(--bar-text);
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  transition: transform .25s ease;
+}
+.dock.away { transform: translateY(110%); }
+.dock .d1 { font-size: 13px; opacity: .85; line-height: 1.3; }
+.dock .d2 { font-family: var(--f-disp); font-weight: 800; font-size: 26px; line-height: 1.15; }
+.dock .d2 small { font-size: 14px; }
+.dock a { color: var(--bar-text); font-weight: 700; font-size: 14px; white-space: nowrap; border: 1.5px solid currentColor; border-radius: 999px; padding: 6px 12px; text-decoration: none; }
+@media (min-width: 1000px) { .dock { display: none; } body { padding-bottom: 40px; } }
+@media (prefers-reduced-motion: reduce) { .dock { transition: none; } }
+
+/* ── 屋根ページで足したところ ── */
+.calc .sheet-col { position: static !important; }
+.sheet-col .paint { margin-bottom: 18px; }
+.paint .opt small { font-size: 13px; }
+.src-table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.55; margin: 8px 0 0; }
+.src-table th, .src-table td { text-align: left; padding: 7px 6px 7px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.src-table th { font-size: 12.5px; color: var(--sub); border-bottom: 1.5px solid var(--ink); }
+.src-scroll { overflow-x: auto; }
+.src-table td.n { white-space: nowrap; }
+.src-table td:first-child { min-width: 7.5em; }
+.src-table td:last-child { min-width: 10em; }
+.read > section { min-width: 0; }
+.kind { display: grid; gap: 12px; }
+.kind > div { border-left: 4px solid var(--rule); padding: 2px 0 2px 14px; }
+.kind b { display: block; }
+.kind span { color: var(--sub); font-size: 15.5px; }
+.kind .w { border-left-color: var(--warn); }
+.seg.left .opt small { text-align: left; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <p class="eyebrow">YouTube「屋根30坪、本当はいくら？」と同じ単価表で計算します</p>
+  <h1><span class="nw">うちの屋根、</span><span class="nw q">いくらが目安？</span></h1>
+  <p class="lead">家の大きさと屋根の形を選ぶと、「塗り直す」「上から重ねる」「葺き替える」の3つの方法を、業者さんの見積書と同じ並びで、1行ずつ目安の金額にします。数字はすべて公開されている資料から取り、出典をページの下にまとめました。</p>
+  <ul class="promise">
+    <li>屋根工事の業者ではない立場で作っています</li>
+    <li>入力した内容は、どこにも送られません</li>
+    <li>金額はすべて税込</li>
+  </ul>
+</header>
+
+<main class="calc">
+  <section class="form-col" aria-labelledby="h-form">
+    <h2 class="step-h" id="h-form"><span class="n">1</span>家のことを選ぶ</h2>
+    <form id="f" autocomplete="off">
+      <fieldset>
+        <legend>何階建てですか</legend>
+        <div class="seg" style="--cols:2">
+          <label><input type="radio" name="floors" id="fl2" value="2" checked><span class="opt"><b>2階建て</b></span></label>
+          <label><input type="radio" name="floors" id="fl3" value="3"><span class="opt"><b>3階建て</b></span></label>
+        </div>
+        <p class="help">平屋は、屋根だけの工事で足場がいるかどうかが、使っている単価表に書かれていないため、このページでは計算していません。</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>延べ床面積（家ぜんぶの床の広さ）</legend>
+        <div class="tsubo">
+          <button type="button" id="minus" aria-label="1坪へらす">−</button>
+          <div class="val"><input type="number" id="tsubo" inputmode="numeric" min="15" max="60" step="1" value="30" aria-label="延べ床面積（坪）"><span>坪</span><small id="tsubo-m2">約99㎡</small></div>
+          <button type="button" id="plus" aria-label="1坪ふやす">＋</button>
+        </div>
+        <input type="range" id="tsubo-range" min="15" max="60" step="1" value="30" aria-label="延べ床面積（坪）">
+        <div class="m2"><label for="m2">㎡でわかる場合は</label><input type="number" id="m2" inputmode="decimal" min="50" max="200" step="0.1" placeholder="例 99.4"><span>㎡</span></div>
+        <p class="help">固定資産税の通知書（課税明細書）や、建てたときの図面に書いてあります。1坪は約3.3㎡です。1階と2階が同じ広さの家（総2階）として計算します。</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>屋根の形</legend>
+        <div class="seg left" style="--cols:2">
+          <label><input type="radio" name="shape" id="sh1" value="gable" checked><span class="opt"><b>切妻（きりづま）</b><small>本をふせたような、2面の屋根</small></span></label>
+          <label><input type="radio" name="shape" id="sh2" value="hip"><span class="opt"><b>寄棟（よせむね）</b><small>4面あって、軒がぐるっと一周する屋根</small></span></label>
+        </div>
+        <p class="help">いまの新築は切妻が多く、築20〜30年の家には寄棟も多くあります（出典：住宅金融支援機構の調査）。寄棟は板金が長くなり、カバー工法で5万円ほど上がります。</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>屋根のかたむき（勾配）</legend>
+        <div class="seg" style="--cols:3">
+          <label><input type="radio" name="slope" id="sl3" value="3"><span class="opt"><b>3寸</b><small>ゆるい</small></span></label>
+          <label><input type="radio" name="slope" id="sl4" value="4" checked><span class="opt"><b>4寸</b><small>いちばん多い</small></span></label>
+          <label><input type="radio" name="slope" id="sl5" value="5"><span class="opt"><b>5寸</b><small>やや急</small></span></label>
+        </div>
+        <p class="help">住宅でいちばん多いのは4〜5寸です。わからなければ4寸のままで大丈夫です。</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>屋根の面積がわかる場合</legend>
+        <div class="m2"><input type="number" id="roofm2" inputmode="decimal" min="20" max="250" step="0.1" placeholder="空なら家の大きさから計算" style="width:15em"><span>㎡</span></div>
+        <p class="help">見積書や図面に「屋根面積」とあれば入れてください。入れると、面積に比例する行だけが変わります（板金の長さは家の大きさから出したままです）。</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>上から重ねる・葺き替えるときの屋根材</legend>
+        <div class="seg left" style="--cols:1">
+          <label><input type="radio" name="mat" id="ma1" value="gal" checked><span class="opt"><b>ガルバリウム鋼板</b><small>いちばん選ばれている金属屋根。もつ年数 20〜35年（テイガク）</small></span></label>
+          <label><input type="radio" name="mat" id="ma2" value="ishi"><span class="opt"><b>石粒付ガルバリウム鋼板</b><small>表面に石の粒がついたもの。もつ年数 20〜35年（テイガク）</small></span></label>
+          <label><input type="radio" name="mat" id="ma3" value="sgl"><span class="opt"><b>SGL（エスジーエル）鋼板</b><small>ガルバリウムの仲間。もつ年数 25〜40年（テイガク）</small></span></label>
+        </div>
+        <p class="help">塗り直すときは関係ありません。</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>葺き替えるときの、いまのスレートのアスベスト（石綿）</legend>
+        <div class="seg left" style="--cols:2">
+          <label><input type="radio" name="asb" id="as0" value="0" checked><span class="opt"><b>入っていない</b><small>2005年ごろより後の屋根</small></span></label>
+          <label><input type="radio" name="asb" id="as1" value="1"><span class="opt"><b>入っている（かもしれない）</b><small>2004年ごろまでの屋根</small></span></label>
+        </div>
+        <p class="help">カラーベストにアスベストが使われていたのは2004年（平成16年）以前までです（ヌリカエ。製品によって終わった年は少しずつ違います）。わからないときは、入っている側で見ておくと安全です。</p>
+      </fieldset>
+
+      <button type="button" class="reset" id="btn-reset">動画と同じ条件にもどす</button>
+    </form>
+  </section>
+
+  <section class="sheet-col" id="result" aria-labelledby="h-result">
+    <h2 class="step-h" id="h-result"><span class="n">2</span>3つの方法の目安</h2>
+    <div class="seg paint" style="--cols:3" id="methods">
+      <label><input type="radio" name="method" id="me1" value="nuri" checked><span class="opt"><b>塗り直す</b><small>シリコン塗料</small><span class="price num" data-p="nuri"></span><span class="per num" data-y="nuri"></span></span></label>
+      <label><input type="radio" name="method" id="me2" value="cover"><span class="opt"><b>上から重ねる</b><small>カバー工法</small><span class="price num" data-p="cover"></span><span class="per num" data-y="cover"></span></span></label>
+      <label><input type="radio" name="method" id="me3" value="fuki"><span class="opt"><b>葺き替える</b><small>スレートをはがす</small><span class="price num" data-p="fuki"></span><span class="per num" data-y="fuki"></span></span></label>
+    </div>
+    <div class="sheet" aria-live="polite">
+      <div class="total-box">
+        <p class="lbl"><span id="t-name">塗り直す</span>を、相場の単価で計算すると（税込）</p>
+        <p class="big num"><span class="hl">約<span id="t-std">55</span></span><small>万円</small></p>
+        <p class="range">業者によって <b class="num">約<span id="t-lo">44</span>万〜<span id="t-hi">72</span>万円</b></p>
+        <p class="year num" id="t-year"></p>
+        <p class="ref num" id="t-ref"></p>
+        <div class="ruler" id="ruler" aria-hidden="true">
+          <div class="track"></div>
+          <div class="band" id="r-band"></div>
+          <div class="pin std" id="r-std"><span>目安</span><i></i></div>
+          <div class="pin mine" id="r-mine" hidden><span>手元の見積書</span><i></i></div>
+          <div class="tick num" id="r-lo"></div>
+          <div class="tick num" id="r-hi"></div>
+        </div>
+      </div>
+
+      <h3 class="doc-h">御見積書</h3>
+      <p class="spec num" id="spec"></p>
+      <p class="fnote" id="fnote"></p>
+      <div class="est-scroll">
+        <table class="est num">
+          <thead><tr><th scope="col">項目</th><th scope="col">目安<span class="rng-h">業者による幅</span></th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+      <p class="foot" id="notin"></p>
+      <p class="foot">合計だけで決めずに、手元の見積書の1行ずつが、この幅のどこにいるかを見てください。</p>
+
+      <div class="compare">
+        <label for="mine">手元の見積書の合計（税込）をくらべる</label>
+        <div class="row"><input type="number" id="mine" inputmode="decimal" min="0" step="0.1" placeholder="例 60"><span>万円</span></div>
+        <p class="verdict" id="verdict"></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="read">
+  <section aria-labelledby="h-kind">
+    <h2 id="h-kind"><span class="nw">どの方法を</span><span class="nw">選べるかは、屋根しだい</span></h2>
+    <p>金額だけでは決められません。屋根の傷み具合で、選べない方法があります。</p>
+    <div class="kind">
+      <div><b>塗り直す</b><span>屋根材そのものの傷みが軽いときにだけ効きます。ひび割れや反り返りが進んでいると、塗っても十分な効果が得られないことがあります（ヌリカエ）。スレートの場合、塗っても屋根材そのものの強度や防水性能が戻るわけではない、とも書かれています（テイガク）。</span></div>
+      <div><b>上から重ねる（カバー工法）</b><span>瓦屋根、野地板（屋根の下地）が腐っている屋根、すでにカバー工法をした屋根（3重になる）、傾きがゆるすぎる屋根、太陽光パネルが全面に載った屋根では、できないことがあります（シャイン）。古い屋根の上に新しい屋根を重ねるので、屋根が重くなります。</span></div>
+      <div><b>葺き替える</b><span>古い屋根をはがして、下地から新しくします。はがして捨てる費用と、下地の工事の費用がかかるぶん、いちばん高くなります（テイガク）。</span></div>
+      <div class="w"><b>アスベスト（石綿）のこと</b><span>2004年ごろまでのスレート屋根には、アスベストが入っていることがあります（国土交通省の資料・ヌリカエ）。屋根材が壊れていなければ、すぐに飛び散る心配はほとんどありません（ヌリカエ）。工事の前には、アスベストが入っているかの事前調査を、資格のある人にやってもらう決まりがあり、100万円以上の工事は結果の報告も要ります（厚生労働省）。入っていると、はがして捨てる費用が上がります（上の計算では1㎡あたり1,800円）。</span></div>
+      <div class="w"><b>カバー工法とアスベスト、書き手によって言うことが分かれます</b><span>「カバー工法は既存の屋根を撤去しないので、アスベストが飛ぶ危険を最小限にできる」（シャイン）と書く会社と、「アスベストが含まれている場合には、施工できないことがある」（ヌリカエ）と書くところがあります。このページはどちらかに決めません。見てもらう会社に、必ず確かめてください。</span></div>
+      <div class="w"><b>もつ年数の数字は、売る側の資料です</b><span>1年あたりの金額に使った「＋25年」「＋40年」は、カバー工法と葺き替えを請け負う屋根工事会社（テイガク）1社の数字です。塗り直すほうは「次に塗り直すまで」、あとの2つは「屋根の寿命がどれだけ延びるか」で、割っている年数の意味が違います。同じ会社が、カバー工法を「約30年」とも書いています。</span></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-same">
+    <h2 id="h-same"><span class="nw">外壁と同時に頼むと、</span><span class="nw">足場が1回で済みます</span></h2>
+    <p>屋根の工事でも、2階建てなら足場は必要です。外壁塗装と同時に頼めば、同じ足場を使えます（ヌリカエ・外壁塗装の窓口・世田谷ホーム）。30坪のモデルで計算すると、屋根塗装と外壁塗装を別々に頼んだ場合は約165.8万円、同時に頼んだ場合は約144.2万円で、<b>約22万円の差</b>です（外壁側は<a href="../gaiheki/">外壁塗装の計算ページ</a>のモデル見積書）。ただし、工事が増えるので総額そのものは上がります。「同時なら安い」ではなく「足場が1回で済む」と見てください。</p>
+  </section>
+
+  <section aria-labelledby="h-check">
+    <h2 id="h-check"><span class="nw">見積書で</span><span class="nw">確かめたい4つ</span></h2>
+    <p>工事会社さんや一括見積もりサイトが、注意点として挙げていることです。</p>
+    <ol class="checks">
+      <li><b>「屋根工事一式」だけで終わっていないか</b><span>「屋根カバー工法一式：80万円」のような書き方は要注意です。屋根材のメーカー名と品番、ルーフィング（防水シート）の種類、ビスがステンレスか鉄か、が書いてあるかを見てください。</span></li>
+      <li><b>屋根の面積が、会社によって大きくちがわないか</b><span>何社か見積もりを取ったとき、面積がかけ離れていないかを見比べます。まれに面積を大きく書いて金額を上げる業者もゼロではない、と屋根工事会社は書いています。自分で屋根に登ってはいけません。</span></li>
+      <li><b>極端に安くなっていないか</b><span>防水の要になるルーフィングのグレードが低かったり、下地の処理や必要な補強が省かれていたりすることがあります。</span></li>
+      <li><b>契約書に何が書いてあるか</b><span>工事の内容・工事の単価・契約担当者の名前・材料の名前・支払いの方法が書いてあるかを確かめてください。書いていないのは、東京都が業務停止にした事例で、問題にされた点のひとつです。</span></li>
+    </ol>
+    <div class="ask">
+      <p class="h">業者さんに聞くとよい質問</p>
+      <p>「屋根は、何㎡で計算しましたか」</p>
+      <p>「屋根材は、メーカーと品番は何ですか」</p>
+      <p>「ルーフィングは、何というシートですか」</p>
+      <p>「アスベストの事前調査は、していただけますか」</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-warn">
+    <h2 id="h-warn"><span class="nw">こんな訪問に</span><span class="nw">気をつけてください</span></h2>
+    <div class="warn-box">
+      <div class="head">自治体が公表した相談・処分より</div>
+      <div class="body">
+        <div class="case">
+          <q>無料で屋根を点検します</q>
+          <p>屋根の板金がずれているようだと写真を見せられ、不安になって<b>150万円</b>の屋根塗装の契約をした（高槻市の相談事例。60歳代）。近所の工務店に「業者を屋根に登らせたのがよくなかった」と言われて、クーリング・オフを伝え、業者に了承された。</p>
+        </div>
+        <div class="case">
+          <q>屋根が大変なことになっている</q>
+          <p>点検のあと「スレートが割れている」と写真を見せられ、その場で契約した（高槻市の相談事例。70歳代）。隣の人は「隣から見て屋根は何もなっていないし、値段も高すぎる」と話した。</p>
+        </div>
+        <div class="case">
+          <q>近所で工事をしていて、挨拶に来ました</q>
+          <p>屋根の画像と称するものを見せて「台風が来たらめくれる、今のうちに応急処置を」と勧められた。<b>実際には屋根に著しい不具合はなかった</b>（東京都が業者を業務停止9か月にした処分より。相談23件の平均契約額は約107万円）。</p>
+        </div>
+        <div class="todo">
+          <p><b>その場で決めない。</b>突然来た業者に、屋根を点検させないでください。</p>
+          <p>訪問販売で契約したときは、契約書面を受け取った日から<b>8日以内</b>なら、書面かメールでクーリング・オフ（契約の取り消し）ができます。工事が終わっていても、代金を払う必要はありません（消費者庁）。書面は特定記録郵便・書留・内容証明で、メールは送ったものを残してください。</p>
+          <p>困ったときは <span class="nw">消費者ホットライン <a class="tel" href="tel:188">188</a>（いやや）</span><br>住まいの相談は <span class="nw">住まいるダイヤル</span> <a class="tel" href="tel:0570016100">0570-016-100</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-others">
+    <h2 id="h-others"><span class="nw">ほかの出典の</span><span class="nw">総額はどうなっているか</span></h2>
+    <p>30坪の家の総額として公開されているものです。<b>税込か税抜か</b>、足場が入っているかで、比べられるものと比べられないものがあります。書き手は、工事会社・一括見積もりサイトです。</p>
+    <div class="src-scroll"><table class="src-table">
+      <thead><tr><th>書き手</th><th>塗装</th><th>カバー工法</th><th>葺き替え</th><th>税・足場</th></tr></thead>
+      <tbody>
+        <tr><td>ヌリカエ（カラーベスト）</td><td class="n">30〜60万円</td><td class="n">60〜120万円</td><td class="n">80〜120万円</td><td>税の記載なし・足場の記載なし</td></tr>
+        <tr><td>テイガク（屋根工事会社）</td><td class="n">25〜45万円</td><td class="n">90〜120万円</td><td class="n">130〜165万円<br><small>（石綿あり165〜190万円）</small></td><td>税の記載なし・足場は含まない</td></tr>
+        <tr><td>シャイン（塗装会社）</td><td class="n">—</td><td class="n">約89.7〜102.5万円<br><small>（80㎡・片流れの内訳）</small></td><td class="n">120〜200万円</td><td>内訳は税込・足場200㎡こみ</td></tr>
+        <tr><td>世田谷ホーム（塗装会社）</td><td class="n">—</td><td class="n">80〜150万円</td><td class="n">—</td><td>税の記載なし</td></tr>
+        <tr><td>ゼファン（屋根工事会社）</td><td class="n">—</td><td class="n">—</td><td class="n">70〜180万円</td><td>足場・諸経費は含まない</td></tr>
+      </tbody>
+    </table></div>
+    <p class="help">このページのモデル（30坪・総2階・切妻・屋根70㎡・足場こみ）は、税込で塗り直す約55万円、上から重ねる約92万円、葺き替える約139万円（アスベストありは約154万円）です。ヌリカエの見積もり例（税込・屋根55㎡・シリコン・付帯部こみ）は53.3万円、テイガクの葺き替えの施工例（税込・62㎡・アスベストあり）は140.8万円でした。足場代を含まない相場と比べるときは、足場とメッシュのぶんを引いて見てください。</p>
+  </section>
+
+  <section class="method" aria-labelledby="h-method">
+    <h2 id="h-method"><span class="nw">計算の仕方と</span><span class="nw">出典</span></h2>
+    <dl id="method"></dl>
+    <h3 style="font-size:16px;margin:22px 0 8px">出典（2026年10月3日に確認）</h3>
+    <ol class="src">
+      <li>足場・飛散防止メッシュ・高圧洗浄・諸経費（外壁塗装の計算ページと共通）：<a href="https://www.nuri-kae.jp/column/construction-cost/434399/" rel="noopener" target="_blank">ヌリカエ（一括見積もりサイト）</a>／<a href="https://gaiheki-madoguchi.com/articles/2690" rel="noopener" target="_blank">外壁塗装の窓口（一括見積もりサイト）</a>／<a href="https://www.gaiheki110.com/mitumori/point/07.html" rel="noopener" target="_blank">外壁塗装110番</a>／<a href="https://build-art.co.jp/gaiheki/souba/gaiheki-koutei-tanka/" rel="noopener" target="_blank">塗装源（塗装会社）</a>／<a href="https://www.nuri-kae.jp/column/part/exterior_outer-wall/articles/1263/" rel="noopener" target="_blank">ヌリカエ 足場</a></li>
+      <li>屋根塗装の単価：<a href="https://www.nuri-kae.jp/column/construction-cost/107/" rel="noopener" target="_blank">ヌリカエ 屋根塗装</a>／<a href="https://gaiheki-madoguchi.com/articles/1448" rel="noopener" target="_blank">外壁塗装の窓口 屋根塗装</a>／<a href="https://yanekabeya.com/price/" rel="noopener" target="_blank">テイガク 屋根工事単価表（屋根工事会社）</a></li>
+      <li>カバー工法・葺き替えの単価：<a href="https://yanekabeya.com/price/" rel="noopener" target="_blank">テイガク</a>／<a href="https://shine-paint.com/blog/kosumi/roof_cover_price_2026.html" rel="noopener" target="_blank">シャイン（塗装会社）</a>／<a href="https://www.setagayahome.co.jp/blog/4115/" rel="noopener" target="_blank">世田谷ホーム（塗装会社）</a>／<a href="https://www.zephan.co.jp/news/slate-roof-replacement-cost/" rel="noopener" target="_blank">ゼファン（屋根工事会社）</a></li>
+      <li>屋根の相場・向き不向き：<a href="https://www.nuri-kae.jp/column/roof/8912/" rel="noopener" target="_blank">ヌリカエ カラーベスト</a></li>
+      <li>屋根の面積・勾配・形：<a href="https://hi-oki.co.jp/2026/07/01/8484" rel="noopener" target="_blank">ひおき（板金屋根工事会社）</a>／<a href="https://www.yaneyasan.net/yanemenseki" rel="noopener" target="_blank">街の屋根やさん千葉</a>／<a href="https://www.jhf.go.jp/files/a/public/jhf/400346801.pdf" rel="noopener" target="_blank">住宅金融支援機構 フラット35住宅仕様実態調査（令和5年度）</a></li>
+      <li>アスベスト：<a href="https://www.mlit.go.jp/road/ir/ir-council/asbestos/2pdf/s3-1.pdf" rel="noopener" target="_blank">国土交通省 参考資料</a>／<a href="https://www.ishiwata.mhlw.go.jp/pdf/leaflet-a4-r6.pdf" rel="noopener" target="_blank">厚生労働省 石綿総合情報ポータル</a></li>
+      <li>相談事例・処分：<a href="https://www.city.takatsuki.osaka.jp/soshiki/21/5230.html" rel="noopener" target="_blank">高槻市 無料点検のはずが高額な工事に！</a>／<a href="https://www.shouhiseikatu.metro.tokyo.lg.jp/torihiki/shobun/shobun240729.html" rel="noopener" target="_blank">東京都 2024年7月29日</a>／<a href="https://www.no-trouble.caa.go.jp/what/doortodoorsales/" rel="noopener" target="_blank">消費者庁 特定商取引法ガイド</a>／<a href="https://www.caa.go.jp/policies/policy/local_cooperation/local_consumer_administration/hotline/" rel="noopener" target="_blank">消費者庁 消費者ホットライン</a></li>
+    </ol>
+  </section>
+</div>
+
+<footer>
+  <p>このページは、屋根工事の業者ではない立場で、YouTubeの動画のために作っています。特定の業者を紹介するものではありません。</p>
+  <p>金額は公開されている資料から計算した目安です。実際の金額は、屋根の傷み具合・地域・業者によって変わります。見積もりの代わりにはなりません。</p>
+</footer>
+</div>
+
+<div class="dock" id="dock">
+  <div><div class="d1"><span id="d-name">塗り直す</span>・業者によって <span id="d-rng" class="num"></span></div><div class="d2 num">約<span id="d-std"></span><small>万円</small></div></div>
+  <a href="#result">内訳を見る</a>
+</div>
+
+<script>
+/* ============================================================
+   数字はすべて 会社/SNS/YouTube/02_屋根30坪/単価表.md から取る。
+   ここだけ直して、単価表と食い違わせない。
+   std＝動画のモデル見積書の単価 / lo・hi＝出典の幅の下と上
+   ============================================================ */
+const P = {
+  ashiba:  { std: 700,  lo: 600,  hi: 1200 },  // 足場（架面積1㎡）01と同じ
+  mesh:    { std: 150,  lo: 100,  hi: 300  },  // 飛散防止メッシュ（架面積1㎡）01と同じ
+  senjo:   { std: 200,  lo: 100,  hi: 400  },  // 高圧洗浄（屋根1㎡）2-1
+  chosei:  { std: 30000, lo: 20000, hi: 40000 }, // 下地調整（棟板金の釘打ち・コーキング 一式）1-1・2-1
+  engiri:  { std: 350,  lo: 300,  hi: 800  },  // 縁切り（タスペーサー）2-1
+  shita:   { std: 800,  lo: 640,  hi: 1100 },  // 下塗り 2-1
+  top:     { std: 2300, lo: 1920, hi: 3000 },  // 中塗り・上塗り（シリコン・2回分）2-1
+  roofing: { std: 1000, lo: 800,  hi: 1300 },  // ルーフィング 2-2
+  noki:    { std: 2500, lo: 2000, hi: 2650 },  // 軒先板金（1m）2-2
+  kera:    { std: 2200, lo: 2000, hi: 2200 },  // ケラバ板金（1m）2-2
+  mune:    { std: 3500, lo: 3500, hi: 3900 },  // 棟板金・下地こみ（1m）2-2（金属下地なら＋1,000円）
+  tekkyo:  { std: 3000, lo: 3000, hi: 3000 },  // 既存スレートの撤去処分（1㎡）出典1つ
+  noji:    { std: 2900, lo: 2900, hi: 2900 },  // 野地板の増し張り（1㎡）出典1つ
+  asb:     { std: 1800, lo: 1800, hi: 1800 },  // アスベスト加算（1㎡）
+  keihi:   { std: .05, lo: .05, hi: .10 },     // 諸経費（工事金額に対する割合）
+  tax: .10,
+};
+const MAT = {   // 屋根材（材料と工事こみ・1㎡）2-2・2-7
+  gal:  { name: 'ガルバリウム鋼板',       p: { std: 6000, lo: 5400, hi: 6900 } },
+  ishi: { name: '石粒付ガルバリウム鋼板', p: { std: 5400, lo: 5400, hi: 6400 } },
+  sgl:  { name: 'SGL鋼板',                p: { std: 6900, lo: 6100, hi: 6900 } },
+};
+const COEF = { 3: 1.044, 4: 1.077, 5: 1.118 };   // 勾配係数（ひおき）
+const EAVE = 0.45;                                // 軒の出（ひおきの目安の下限0.45m）
+const TSUBO_M2 = 400 / 121;                       // 1坪＝約3.306㎡
+const FL_H = { 2: 6.3, 3: 8.5 };                  // 足場の軒高（01と同じ）
+const FL_ASH_ADD = { 2: { std: 0, lo: 0, hi: 0 }, 3: { std: 100, lo: 0, hi: 300 } };  // 3階建ての足場の単価の足し（01と同じ）
+const YEARS = { nuri: [7.5, 12.5], cover: [25], fuki: [40] };   // 次に塗るまで（テイガク6〜9年・ヌリカエ10〜15年の真ん中）／屋根の寿命の延び（テイガク）
+
+const round5 = x => Math.max(5, Math.round(x / 5) * 5);
+
+/* ── 家の大きさから数量を出す（単価表 数量の出し方）──
+   1階の床を 5間×3間 の長方形（縦横 5:3）とみなし、軒の出を四方に足して、勾配係数をかける。
+   30坪・総2階・4寸・切妻で、棟10m・軒先20m・ケラバ14m・屋根70㎡・足場220㎡になる。 */
+function quantities(s) {
+  const nobe = s.tsubo * TSUBO_M2, foot = nobe / s.floors;
+  const a = Math.sqrt(foot * 5 / 3), b = a * 3 / 5;
+  const A = a + EAVE * 2, B = b + EAVE * 2;
+  const k = COEF[s.slope];
+  const calc = round5(A * B * k);
+  const area = s.roofM2 ? s.roofM2 : calc;
+  let noki, kera, mune;
+  if (s.shape === 'gable') {
+    noki = Math.round(2 * A);
+    kera = Math.round(4 * (B / 2) * k);
+    mune = Math.round(A);
+  } else {
+    noki = Math.round(2 * (A + B) * 10) / 10;
+    kera = 0;
+    const hip = 4 * (B / 2) * Math.sqrt(2 + (s.slope / 10) ** 2);
+    mune = Math.round((A - B) + hip);
+  }
+  const peri = 4.4 * Math.sqrt(foot);
+  const ashiba = round5((peri + 4) * FL_H[s.floors]);   // 足場の架面積＝(外周＋4m)×軒高（01と同じ）
+  return { area, calc, ashiba, noki, kera, mune };
+}
+
+/* ── 見積書の行 ── */
+function estimate(s) {
+  const q = quantities(s);
+  const ad = FL_ASH_ADD[s.floors];
+  const ashP = { std: P.ashiba.std + ad.std, lo: P.ashiba.lo + ad.lo, hi: P.ashiba.hi + ad.hi };
+  const per = (name, qty, p, qtyText, off) => ({ name, unitText: `${qtyText} × ${yen(p.std)}円`, std: qty * p.std, lo: qty * p.lo, hi: qty * p.hi, off });
+  const lump = (name, p, note) => ({ name, unitText: note, std: p.std, lo: p.lo, hi: p.hi });
+  const m = MAT[s.mat];
+  const ashiRows = [
+    per('足場', q.ashiba, ashP, `${q.ashiba}㎡`),
+    per('飛散防止メッシュ', q.ashiba, P.mesh, `${q.ashiba}㎡`),
+  ];
+  const nuri = [
+    ...ashiRows,
+    per('高圧洗浄', q.area, P.senjo, `${q.area}㎡`),
+    lump('下地調整', P.chosei, '一式（棟板金の釘打ち・コーキング）'),
+    per('縁切り（タスペーサー）', q.area, P.engiri, `${q.area}㎡`),
+    per('下塗り', q.area, P.shita, `${q.area}㎡`),
+    per('中塗り・上塗り（シリコン）', q.area, P.top, `${q.area}㎡`),
+  ];
+  const cover = [
+    ...ashiRows,
+    per('ルーフィング（防水シート）', q.area, P.roofing, `${q.area}㎡`),
+    per(`屋根材 ${m.name}（材料と工事こみ）`, q.area, m.p, `${q.area}㎡`),
+    per('軒先板金', q.noki, P.noki, `${q.noki}m`),
+    q.kera ? per('ケラバ板金', q.kera, P.kera, `${q.kera}m`)
+           : { name: 'ケラバ板金', unitText: '寄棟には、ケラバ（屋根の横のはし）がありません', std: 0, lo: 0, hi: 0, off: true },
+    per('棟板金（下地こみ）', q.mune, P.mune, `${q.mune}m`),
+  ];
+  const fuki = [
+    ...cover,
+    per('既存スレートの撤去処分', q.area, P.tekkyo, `${q.area}㎡`),
+    per('野地板の増し張り', q.area, P.noji, `${q.area}㎡`),
+  ];
+  if (s.asb) fuki.push(per('アスベスト加算', q.area, P.asb, `${q.area}㎡`));
+  const tot = rows => {
+    const t = {};
+    for (const k of ['std', 'lo', 'hi']) {
+      const s0 = rows.reduce((a, r) => a + r[k], 0), ke = Math.floor(s0 * P.keihi[k]), ex = s0 + ke, tax = Math.floor(ex * P.tax);
+      t[k] = { sub: s0, keihi: ke, ex, tax, total: ex + tax };
+    }
+    return t;
+  };
+  return { q, nuri: { rows: nuri, t: tot(nuri) }, cover: { rows: cover, t: tot(cover) }, fuki: { rows: fuki, t: tot(fuki) } };
+}
+
+/* ── 表示 ── */
+const yen = n => Math.round(n).toLocaleString('ja-JP');
+const man = n => { const v = Math.round(n / 1000) / 10; return (Number.isInteger(v) ? v : v.toFixed(1)).toString(); };
+const manR = n => Math.round(n / 10000).toString();
+const $ = id => document.getElementById(id);
+const NAME = { nuri: '塗り直す', cover: '上から重ねる', fuki: '葺き替える' };
+
+function readState() {
+  const fd = new FormData($('f'));
+  let tsubo = parseInt($('tsubo').value, 10);
+  if (!Number.isFinite(tsubo)) tsubo = 30;
+  tsubo = Math.min(60, Math.max(15, tsubo));
+  const rm = parseFloat($('roofm2').value);
+  return {
+    floors: +fd.get('floors'), tsubo, shape: fd.get('shape'), slope: +fd.get('slope'),
+    mat: fd.get('mat'), asb: fd.get('asb') === '1', roofM2: rm > 0 ? Math.min(250, Math.max(20, rm)) : null,
+    method: document.querySelector('input[name="method"]:checked').value,
+  };
+}
+
+function perYear(method, total) {
+  const ys = YEARS[method];
+  if (ys.length === 2) return { lo: total / ys[1], hi: total / ys[0] };
+  return { lo: total / ys[0], hi: total / ys[0] };
+}
+function yearText(method, total) {
+  const y = perYear(method, total);
+  if (method === 'nuri') return `<span class="nw">1年あたり 約${man(y.lo)}万〜${man(y.hi)}万円</span><span class="nw">（次に塗るまで 12.5年・7.5年で割った目安）</span>`;
+  const n = YEARS[method][0];
+  return `<span class="nw">1年あたり 約${man(y.lo)}万円</span><span class="nw">（屋根の寿命が${n}年のびるとして割った目安）</span>`;
+}
+
+let last = null, lastSel = null;
+function render() {
+  const s = readState();
+  const e = estimate(s);
+  const { q } = e;
+  $('tsubo-m2').textContent = `約${Math.round(s.tsubo * TSUBO_M2)}㎡`;
+
+  for (const k of ['nuri', 'cover', 'fuki']) {
+    const t = e[k].t.std.total, y = perYear(k, t);
+    document.querySelector(`[data-p="${k}"]`).textContent = `約${manR(t)}万円`;
+    document.querySelector(`[data-y="${k}"]`).textContent = k === 'nuri' ? `1年あたり 約${man(y.lo)}〜${man(y.hi)}万円` : `1年あたり 約${man(y.lo)}万円`;
+  }
+
+  const cur = e[s.method], t = cur.t;
+  last = t; lastSel = s;
+  $('t-name').textContent = NAME[s.method];
+  $('t-std').textContent = manR(t.std.total);
+  $('t-lo').textContent = manR(t.lo.total);
+  $('t-hi').textContent = manR(t.hi.total);
+  $('t-year').innerHTML = yearText(s.method, t.std.total);
+  $('d-name').textContent = NAME[s.method];
+  $('d-std').textContent = manR(t.std.total);
+  $('d-rng').textContent = `${manR(t.lo.total)}〜${manR(t.hi.total)}万円`;
+  $('t-ref').innerHTML = '';
+
+  const shapeName = s.shape === 'gable' ? '切妻' : '寄棟';
+  $('spec').innerHTML = `${s.floors}階建て・${s.tsubo}坪（約${Math.round(s.tsubo * TSUBO_M2)}㎡）・${shapeName}・${s.slope}寸勾配<br>屋根 約${q.area}㎡${s.roofM2 ? '（入力）' : ''}・足場 約${q.ashiba}㎡・軒先 ${q.noki}m` + (s.method === 'nuri' ? '' : `・ケラバ ${q.kera}m・棟 ${q.mune}m`);
+
+  const FN = {
+    nuri: '屋根の塗り直しは、屋根材そのものの傷みが軽いときに向いています。ひび割れや反りが進んでいる屋根は、塗っても十分な効果が得られないことがあります。',
+    cover: '古い屋根を残して上から新しい屋根を重ねます。はがして捨てる工事が無いぶん、葺き替えより安くなります。瓦屋根や、下地が傷んでいる屋根などでは、できないことがあります。',
+    fuki: s.asb
+      ? 'アスベストがある前提の計算です。アスベスト加算（1㎡あたり1,800円）が入っています。ない場合の金額は約' + manR(e.fuki.t.std.total - estimate({ ...s, asb: false }).fuki.t.std.total > 0 ? estimate({ ...s, asb: false }).fuki.t.std.total : 0) + '万円です。'
+      : 'アスベストがない前提の計算です。入っている場合は約' + manR(estimate({ ...s, asb: true }).fuki.t.std.total) + '万円になります（はがして捨てる費用が上がるため）。',
+  };
+  $('fnote').innerHTML = FN[s.method];
+  const NOTIN = {
+    nuri: '入っていないもの：破風・雨どい・軒天などの付帯部（ヌリカエの見積もり例では3つで81,500円）、塗料缶の処分（テイガクの単価で10,000円）、急な屋根の屋根足場、屋根に上がった傷みの補修。',
+    cover: '入っていないもの：資材の搬入搬出（テイガク40,000円・シャイン30,000円。この計算では諸経費5%に含めています）、換気棟（3〜5万円ほど）、雪止め、ステンレスビス。',
+    fuki: '入っていないもの：資材の搬入搬出（テイガク40,000円・シャイン30,000円。この計算では諸経費5%に含めています）、換気棟、雪止め、ステンレスビス。野地板の増し張りの単価は、出典が1つだけです。',
+  };
+  $('notin').textContent = NOTIN[s.method];
+
+  const tr = (cls, name, small, std, rng) =>
+    `<tr class="${cls}"><td class="item"><b>${name}</b>${small ? `<small>${small}</small>` : ''}</td><td class="amt">${std}<span class="rng">${rng}</span></td></tr>`;
+  const rg = r => r.off ? '—' : (r.lo === r.hi ? '幅なし' : `${man(r.lo)}〜${man(r.hi)}万`);
+  let html = cur.rows.map(r => tr(r.off ? 'off' : '', r.name, r.unitText, yen(r.std), rg(r))).join('');
+  html += tr('sum', '小計', '', yen(t.std.sub), `${man(t.lo.sub)}〜${man(t.hi.sub)}万`);
+  html += tr('', '諸経費', `小計の5%（業者によって5〜10%）`, yen(t.std.keihi), `${man(t.lo.keihi)}〜${man(t.hi.keihi)}万`);
+  html += tr('', '消費税', '10%', yen(t.std.tax), `${man(t.lo.tax)}〜${man(t.hi.tax)}万`);
+  html += tr('grand', '合計（税込）', '', yen(t.std.total) + '円', `${man(t.lo.total)}〜${man(t.hi.total)}万`);
+  $('rows').innerHTML = html;
+  renderCompare();
+}
+
+/* 物差し：安い側〜高い側の帯に、目安と手元の見積書を立てる */
+function renderCompare() {
+  if (!last) return;
+  const { lo, std, hi } = { lo: last.lo.total, std: last.std.total, hi: last.hi.total };
+  const raw = parseFloat($('mine').value);
+  const mine = Number.isFinite(raw) && raw > 0 ? raw * 10000 : null;
+  let a = lo * 0.82, b = hi * 1.08;
+  if (mine) { a = Math.min(a, mine * 0.92); b = Math.max(b, mine * 1.06); }
+  const pct = v => ((v - a) / (b - a)) * 100;
+  const x = v => `${pct(v)}%`;
+  const place = (el, v) => { const q = pct(v); el.style.left = `${q}%`; el.style.transform = q < 12 ? 'translateX(-1.5px)' : q > 88 ? 'translateX(calc(-100% + 1.5px))' : 'translateX(-50%)'; el.style.alignItems = q < 12 ? 'flex-start' : q > 88 ? 'flex-end' : 'center'; };
+  $('r-band').style.left = x(lo);
+  $('r-band').style.width = `${((hi - lo) / (b - a)) * 100}%`;
+  place($('r-std'), std);
+  $('r-lo').style.left = x(lo); $('r-lo').textContent = `${manR(lo)}万`;
+  $('r-hi').style.left = x(hi); $('r-hi').textContent = `${manR(hi)}万`;
+  const pin = $('r-mine'), v = $('verdict');
+  $('ruler').classList.toggle('has-mine', !!mine);
+  if (!mine) { pin.hidden = true; v.textContent = ''; v.className = 'verdict'; return; }
+  pin.hidden = false; place(pin, mine);
+  const d = Math.abs(mine - std), nm = NAME[lastSel.method];
+  let msg, cls = 'verdict';
+  if (mine < lo) {
+    msg = `<b>公開されている単価の安い側で計算した金額（約${manR(lo)}万円）よりも、さらに安い見積もりです。</b>安いこと自体は悪くありません。屋根材の品番、ルーフィングの種類、塗る回数、下地の処理が見積書に書いてあるかを確かめてください。`;
+  } else if (mine <= std) {
+    msg = `<b>${nm}場合の目安（約${manR(std)}万円）以下で、単価の幅の中です。</b>念のため、上の表の行がそろっているかを見てください。`;
+  } else if (mine <= hi) {
+    msg = `<b>目安より約${manR(d)}万円高めですが、単価の幅の中です。</b>どの行が高いのか、上の表と1行ずつくらべてみてください。理由を聞いて、数字で答えが返ってくれば1つの安心材料になります。`;
+  } else {
+    cls += ' hi';
+    msg = `<b>公開されている単価の高い側で計算した金額（約${manR(hi)}万円）よりも、約${manR(mine - hi)}万円高い見積もりです。</b>その場で決めずに、ほかの会社からも見積もりを取ってください。困ったときは消費者ホットライン188へ。`;
+  }
+  msg += '<br><small>外壁など、屋根のほかの工事が入っている見積書とは、くらべられません。方法がちがう（塗り直す・重ねる・葺き替える）見積書も、それぞれの金額とくらべてください。</small>';
+  v.className = cls; v.innerHTML = msg;
+}
+
+/* 計算の仕方（数字は上の設定から書き出す） */
+function renderMethod() {
+  $('method').innerHTML = `
+    <div><dt>屋根の面積</dt><dd>1階の床を5間×3間（縦横5：3）の長方形とみなし、軒の出0.45mを四方に足した広さに、勾配係数（3寸1.044・4寸1.077・5寸1.118）をかけ、5㎡単位に丸めています。30坪・総2階・4寸で70㎡になります（公開されている30坪の屋根面積は55〜90㎡と幅があります）。</dd></div>
+    <div><dt>板金の長さ</dt><dd>切妻は、棟＝屋根の長いほうの長さ（10m）、軒先＝その2面分（20m）、ケラバ＝屋根の流れの長さ×4本（14m）。寄棟は、軒先＝屋根のまわり（32.7m）、ケラバ＝なし、棟＝大棟と4本の隅棟の合計（22m）です。</dd></div>
+    <div><dt>足場の面積</dt><dd>（外周＋4m）× 軒の高さ（2階建て6.3m・3階建て8.5m）。30坪・2階建てで約220㎡で、外壁塗装の計算ページと同じです。屋根だけの工事でも、2階建て以上の足場は必要とされています（ヌリカエ・世田谷ホーム）。3階建ては、足場の単価に1㎡あたり＋100円（目安）、＋0〜300円（幅）を足しています。</dd></div>
+    <div><dt>3つの方法の関係</dt><dd>塗り直す工事の高圧洗浄・縁切り・下塗り・中上塗りは、上から重ねるときは要らなくなります。足場とメッシュは同じです。葺き替えるときは、上から重ねる工事の全部の行に、古いスレートをはがして捨てる費用と、下地（野地板）の工事が足されます（テイガク）。</dd></div>
+    <div><dt>1年あたり</dt><dd>塗り直すは「次に塗るまで」の年数（ヌリカエのシリコン10〜15年の真ん中12.5年と、テイガクの屋根用シリコン6〜9年の真ん中7.5年の2通り）で割ります。上から重ねるは屋根の寿命が25年、葺き替えるは40年のびるとして割ります（どちらもテイガク1社の数字）。</dd></div>
+    <div><dt>「目安」と「業者による幅」</dt><dd>目安は動画のモデル見積書と同じ単価、幅は、すべての行を出典の安い側・高い側でそろえた金額です。諸経費は5〜10%です。撤去処分・野地板の増し張り・アスベスト加算は出典が1つなので、幅がありません。すべての行が高い側にそろうことはまれです。</dd></div>
+    <div><dt>入っていないもの</dt><dd>付帯部（破風・雨どい・軒天）、傷みの大きい屋根の補修、雨漏りの修理、急な屋根の屋根足場、地域による差。</dd></div>`;
+}
+
+/* ── 操作 ── */
+function setTsubo(v) {
+  v = Math.min(60, Math.max(15, Math.round(v)));
+  $('tsubo').value = v; $('tsubo-range').value = v; render();
+}
+$('minus').addEventListener('click', () => setTsubo(+$('tsubo').value - 1));
+$('plus').addEventListener('click', () => setTsubo(+$('tsubo').value + 1));
+$('tsubo-range').addEventListener('input', e => setTsubo(+e.target.value));
+$('tsubo').addEventListener('input', () => { const v = parseInt($('tsubo').value, 10); if (v >= 15 && v <= 60) { $('tsubo-range').value = v; render(); } });
+$('tsubo').addEventListener('change', () => setTsubo(parseInt($('tsubo').value, 10) || 30));
+$('m2').addEventListener('change', () => { const v = parseFloat($('m2').value); if (v > 0) setTsubo(v / TSUBO_M2); });
+$('roofm2').addEventListener('input', render);
+$('f').addEventListener('change', e => { if (e.target.name) render(); });
+$('f').addEventListener('submit', e => e.preventDefault());
+$('methods').addEventListener('change', render);
+$('mine').addEventListener('input', renderCompare);
+$('btn-reset').addEventListener('click', () => {
+  $('f').reset(); $('m2').value = ''; $('roofm2').value = ''; $('mine').value = ''; setTsubo(30);
+});
+
+/* スマホ：見積書が画面に入ったら、下の帯をしまう */
+if ('IntersectionObserver' in window) {
+  new IntersectionObserver(([en]) => $('dock').classList.toggle('away', en.isIntersecting), { threshold: 0.08 }).observe($('result'));
+}
+
+renderMethod();
+render();
+</script>
+</body>
+</html>
