@@ -1,0 +1,1096 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>お風呂の交換の費用計算｜見積書のお姉さん</title>
+<meta name="description" content="お風呂のサイズとユニットバスのグレードを選ぶと、お風呂の交換の見積書と同じ並びで1行ずつ目安の金額を出します。数字はすべて公開資料から取り、出典を載せています。">
+<meta name="theme-color" content="#1f2d55">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="見積書のお姉さん">
+<meta property="og:title" content="お風呂の交換の費用計算｜見積書のお姉さん">
+<meta property="og:description" content="お風呂のサイズとグレードを選ぶと、見積書と同じ並びで目安の金額が出ます。手元の見積書とのくらべ方も。">
+<meta property="og:image" content="https://creative-works-plus.github.io/ie-hiyou/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../img/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=BIZ+UDPMincho:wght@700&family=M+PLUS+Rounded+1c:wght@800&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<script src="../assets/site.js" defer></script>
+<script>/* JSが動くときだけ、スマホは1問ずつ・送られてきたリンクは結果から */(function (h) { h.classList.add('js'); try { if (matchMedia('(max-width: 759.98px)').matches) { h.classList.add('is-steps'); if (location.hash.indexOf('=') > 0) h.classList.add('is-result'); } } catch (e) {} })(document.documentElement);</script>
+<style>
+/* 費用計算ページだけの見た目。色は site.css の変数を使う（見積書の明朝 --f-doc だけこのページで足す）
+   並び：スマホ（760px未満）は JS が html に .is-steps を付けて1問1画面にする。付かなければ全部の問いが縦に並ぶ。
+         760〜959px は1列、960px以上は左に問い・右に結果を貼りつける。 */
+:root { --f-doc: "BIZ UDPMincho", "Hiragino Mincho ProN", "Yu Mincho", serif; --line: #06873d; }
+[hidden] { display: none !important; }
+.num { font-variant-numeric: tabular-nums; }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+h1, h2, h3 { text-wrap: pretty; }
+.vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+[tabindex="-1"]:focus { outline: none; }
+
+/* ── ページの見出し ── */
+.page-h { padding-top: 28px; padding-bottom: 4px; }
+.page-h .kicker { font-size: 13px; font-weight: 700; color: var(--blue); margin: 0 0 8px; line-height: 1.6; }
+.page-h h1 .q { color: var(--blue); }
+.page-h .lead { font-size: 15.5px; margin: 12px 0 0; }
+.promise { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 0; padding: 0; list-style: none; }
+.promise li { font-size: 12.5px; font-weight: 700; color: var(--sub); background: var(--sheet); border: 1px solid var(--rule); border-radius: 999px; padding: 2px 11px 2px 9px; line-height: 1.7; }
+.promise li::before { content: "✓"; color: var(--blue); margin-right: 5px; }
+
+/* ── 計算（問い ＋ 結果） ── */
+.calc { display: grid; gap: 32px; margin-top: 24px; align-items: start; }
+.calc > section { min-width: 0; }
+@media (min-width: 960px) {
+  .calc { grid-template-columns: minmax(0, 1fr) minmax(0, 1.04fr); gap: 32px; }
+  .res-col { position: sticky; top: 72px; max-height: calc(100vh - 84px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; padding: 2px 8px 24px; margin: -2px -8px 0;
+    -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 22px), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 22px), transparent); }
+}
+.col-h { display: flex; align-items: center; gap: 10px; font: 800 15px/1.4 var(--f-disp); color: var(--sub); letter-spacing: .04em; margin: 0 0 12px; }
+.col-h .n { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--ink); color: var(--paper); font-size: 13px; line-height: 1; }
+
+/* 問いのカード */
+#f { display: grid; gap: 12px; counter-reset: q; }
+fieldset.q { counter-increment: q; min-width: 0; margin: 0; padding: 18px 16px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--sheet); }
+@media (min-width: 760px) { fieldset.q { padding: 20px 22px; } }
+fieldset.q > legend { float: left; width: 100%; padding: 0; margin: 0 0 12px; font: 800 18px/1.45 var(--f-disp); }
+fieldset.q > legend::before { content: "Q" counter(q); display: block; font: 700 12px/1.7 var(--f-body); letter-spacing: .12em; color: var(--blue); }
+fieldset.q > legend + * { clear: both; }
+.help { font-size: 13.5px; color: var(--sub); margin: 10px 0 0; line-height: 1.7; }
+
+/* 選択肢のカード */
+.seg { display: grid; grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr)); gap: 8px; }
+.seg label { position: relative; display: block; cursor: pointer; }
+.seg input { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; opacity: 0; margin: 0; cursor: pointer; }
+.opt { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; height: 100%; min-height: 56px; padding: 10px; border: 1.5px solid var(--rule); border-radius: 12px; background: var(--sheet); line-height: 1.4; text-align: center; transition: border-color .15s, background-color .15s, box-shadow .15s; }
+.opt b { font-size: 16.5px; }
+.opt small { font-size: 12.5px; color: var(--sub); }
+.seg label:hover .opt { border-color: color-mix(in srgb, var(--blue) 50%, var(--rule)); }
+.seg input:checked + .opt { border-color: var(--blue); background: var(--blue-soft); box-shadow: inset 0 0 0 1px var(--blue); }
+.seg input:checked + .opt b { color: var(--blue); }
+.seg input:focus-visible + .opt { outline: 3px solid var(--blue); outline-offset: 2px; }
+/* 選んだ印（右上の丸） */
+.opt::after { content: "✓"; position: absolute; top: -8px; right: -8px; width: 22px; height: 22px; border-radius: 50%; background: var(--blue); color: var(--blue-ink); font: 700 12px/22px var(--f-body); text-align: center; transform: scale(0); transition: transform .2s cubic-bezier(.3, 1.6, .6, 1); }
+.seg input:checked + .opt::after { transform: scale(1); }
+/* 説明つきの選択肢は、左に丸いラジオ */
+.seg.left .opt { align-items: flex-start; text-align: left; padding: 12px 14px 12px 46px; }
+.seg.left .opt::before { content: ""; position: absolute; left: 15px; top: 50%; width: 20px; height: 20px; margin-top: -10px; border-radius: 50%; border: 2px solid var(--rule); background: var(--sheet); box-sizing: border-box; }
+.seg.left input:checked + .opt::before { border-color: var(--blue); background: var(--blue); box-shadow: inset 0 0 0 4px var(--sheet); }
+.seg.left .opt::after { display: none; }
+.opt .ico { display: block; width: 46px; height: 30px; color: var(--sub); margin: 0 0 6px; flex: none; overflow: visible; }
+.seg input:checked + .opt .ico { color: var(--blue); }
+.opt .t { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.seg.left .opt .t { align-items: flex-start; }
+
+/* 金額まで出すカード（塗料・3つの方法） */
+.paint .opt { align-items: flex-start; text-align: left; padding: 12px 14px; }
+.paint .price { font: 800 20px/1.3 var(--f-disp); color: var(--ink); margin-top: 4px; }
+.paint .per { font-size: 12.5px; color: var(--sub); }
+/* 列が細いとき（スマホ・PCの2段の中）は、1枚ずつ横長に */
+@media (max-width: 520px), (min-width: 960px) {
+  .paint { --cols: 1 !important; }
+  .paint .opt { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 12px; row-gap: 1px; }
+  .paint .opt > b { grid-area: 1 / 1; }
+  .paint .opt > small { grid-area: 2 / 1; }
+  .paint .price { grid-area: 1 / 2 / 3 / 3; margin: 0; text-align: right; }
+  .paint .per { grid-area: 3 / 1 / 4 / 3; margin-top: 2px; }
+}
+
+/* くわしく入れる（畳んである細かい入力） */
+.more { margin-top: 12px; border-top: 1px dashed var(--rule); }
+.more > summary { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding-top: 4px; cursor: pointer; list-style: none; font-size: 14.5px; font-weight: 700; color: var(--blue); }
+.more > summary::-webkit-details-marker { display: none; }
+.more > summary::before { content: "+"; display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid currentColor; font-size: 14px; line-height: 1; }
+.more[open] > summary::before { content: "−"; }
+.more-body { padding: 4px 0 2px; }
+.field { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 8px; font-size: 14px; color: var(--sub); }
+.field label { color: var(--ink); font-weight: 700; }
+.field input { width: 7em; max-width: 100%; font: 400 16px var(--f-body); padding: 9px 10px; border: 1.5px solid var(--rule); border-radius: 10px; background: var(--sheet); color: var(--ink); }
+.field input.wide { width: 15em; }
+.field input:focus-visible { border-color: var(--blue); }
+
+.reset { display: none; justify-self: start; font: 400 14.5px var(--f-body); color: var(--sub); background: none; border: 0; padding: 10px 0; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.js .reset { display: inline-block; }
+.reset:hover { color: var(--ink); }
+
+/* ── スマホの1問1画面 ── */
+.stepbar, .stepnav, .res-top { display: none; }
+.step-back { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 10px 0 2px; border: 0; background: none; color: var(--ink); font: 700 15px var(--f-body); cursor: pointer; }
+.step-back::before { content: ""; width: 9px; height: 9px; border-left: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); margin-left: 4px; }
+.step-back:disabled { visibility: hidden; }
+.is-steps .stepbar { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 2px 12px; margin: 0 0 18px; }
+.step-count { grid-column: 3; font: 800 15px/1 var(--f-disp); color: var(--sub); letter-spacing: .04em; }
+.step-count b { color: var(--ink); font-size: 19px; }
+.step-prog { grid-column: 1 / -1; height: 6px; border-radius: 3px; background: var(--rule); overflow: hidden; }
+.step-prog i { display: block; width: 0; height: 100%; border-radius: 3px; background: var(--blue); transition: width .3s ease; }
+.is-steps .col-h.form-h { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.is-steps #f { gap: 0; }
+.is-steps fieldset.q { display: none; padding: 0; border: 0; border-radius: 0; background: none; }
+.is-steps fieldset.q.is-current { display: block; }
+.is-steps fieldset.q > legend { font-size: 23px; line-height: 1.4; margin-bottom: 18px; }
+.is-steps fieldset.q > legend::before { display: none; }
+.is-steps .seg.left, .is-steps .paint { grid-template-columns: minmax(0, 1fr); }
+.is-steps .seg .opt { min-height: 64px; }
+.is-steps .seg.rows-sp { grid-template-columns: minmax(0, 1fr); }
+.is-steps .rows-sp .opt { flex-direction: row; justify-content: flex-start; align-items: center; gap: 16px; padding: 12px 16px; text-align: left; }
+.is-steps .rows-sp .opt .ico { width: 58px; height: 38px; margin: 0; }
+.is-steps .rows-sp .opt .t { align-items: flex-start; }
+.is-steps .seg.left .opt { min-height: 72px; }
+.is-steps .help { font-size: 14px; margin-top: 14px; }
+.is-steps .stepnav { display: block; margin-top: 24px; }
+.is-steps .reset { display: none; }
+.btn-next { width: 100%; }
+.btn-next.is-quiet { background: var(--sheet); color: var(--ink); border-color: var(--rule); }
+.btn-next.is-quiet:hover { border-color: var(--ink); filter: none; }
+.is-steps fieldset.q.in-fwd { animation: q-in .3s cubic-bezier(.2, .7, .2, 1) both; }
+.is-steps fieldset.q.in-back { animation: q-back .3s cubic-bezier(.2, .7, .2, 1) both; }
+@keyframes q-in { from { opacity: 0; transform: translateX(22px); } }
+@keyframes q-back { from { opacity: 0; transform: translateX(-22px); } }
+.is-steps .res-col { display: none; }
+.is-steps.is-result .res-col { display: block; }
+.is-steps.is-result .form-col { display: none; }
+.is-steps .res-top { display: flex; margin: -6px 0 6px; }
+.is-steps.is-result .res-col { animation: q-up .3s ease both; }
+@keyframes q-up { from { opacity: 0; transform: translateY(12px); } }
+
+/* ── 結果 ── */
+.total { position: relative; overflow: hidden; padding: 24px 18px 22px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--sheet); box-shadow: var(--shadow); text-align: center; }
+.total::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: linear-gradient(90deg, var(--ink) 0 70%, var(--yellow) 70%); }
+.total .lbl { margin: 0; font-size: 14px; color: var(--sub); }
+.total .big { margin: 6px 0 0; font: 800 clamp(50px, 14.5vw, 68px)/1.1 var(--f-disp); letter-spacing: -.01em; }
+.total .big .hl { background: linear-gradient(transparent 60%, var(--marker) 60%); padding: 0 .08em; }
+.total .big small { font-size: .4em; margin-left: .1em; }
+.total .range { margin: 10px 0 0; font-size: 15px; }
+.total .range b { font-size: 18px; }
+.total .year { margin: 4px 0 0; font-size: 14px; color: var(--sub); line-height: 1.65; }
+.total .ref { margin: 12px auto 0; max-width: 30em; padding-top: 12px; border-top: 1px dashed var(--rule); font-size: 13px; color: var(--sub); line-height: 1.65; }
+.total .ref:empty { display: none; }
+
+.blk { margin-top: 16px; }
+.blk-h { font: 800 15px/1.4 var(--f-disp); margin: 0 0 10px; }
+.blk-h small { display: block; margin-top: 2px; font: 500 13px/1.6 var(--f-body); color: var(--sub); }
+.chips-wrap { display: none; }
+.js .chips-wrap { display: block; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 12px 0 14px; border: 1.5px solid var(--rule); border-radius: 999px; background: var(--sheet); color: var(--ink); font: 700 14px var(--f-body); cursor: pointer; }
+.chip::after { content: ""; width: 6px; height: 6px; border-right: 1.5px solid var(--sub); border-top: 1.5px solid var(--sub); transform: rotate(45deg); margin-left: 2px; }
+.chip:hover { border-color: var(--blue); color: var(--blue); }
+.from-link { margin: 8px 0 0; font-size: 13px; color: var(--sub); }
+
+/* 内訳（御見積書） */
+.doc { border: 1px solid var(--rule); border-radius: var(--radius); background: var(--sheet); box-shadow: var(--shadow); }
+.doc > summary { display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 14px 18px; cursor: pointer; list-style: none; border-radius: var(--radius); }
+.doc > summary::-webkit-details-marker { display: none; }
+.doc > summary::after { content: ""; flex: none; width: 9px; height: 9px; margin: -4px 4px 0 auto; border-right: 2px solid var(--sub); border-bottom: 2px solid var(--sub); transform: rotate(45deg); transition: transform .2s; }
+.doc[open] > summary::after { transform: rotate(-135deg); margin-top: 4px; }
+.doc .sum-t { display: block; font: 700 18px/1.3 var(--f-doc); letter-spacing: .14em; }
+.doc .sum-s { display: block; font-size: 13px; color: var(--sub); }
+.doc-body { padding: 4px 16px 18px; border-top: 1px solid var(--rule); }
+@media (min-width: 400px) { .doc-body { padding: 4px 20px 20px; } }
+.doc-h { margin: 18px 0 4px; font: 700 22px/1.4 var(--f-doc); letter-spacing: .3em; text-align: center; }
+.spec { margin: 0 0 12px; font-size: 13px; color: var(--sub); text-align: center; line-height: 1.6; }
+.fnote { margin: 0 0 12px; padding: 10px 12px; border-radius: var(--radius-s); background: var(--blue-soft); font-size: 13.5px; line-height: 1.7; }
+.est-scroll { overflow-x: auto; }
+table.est { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.45; }
+table.est th, table.est td { padding: 10px 4px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+table.est thead th { padding-top: 0; border-bottom: 1.5px solid var(--ink); font-size: 12px; font-weight: 700; color: var(--sub); text-align: right; }
+table.est thead th:first-child { text-align: left; }
+table.est thead .rng-h { display: block; font-weight: 400; }
+table.est td.item b { font-weight: 700; }
+table.est td.item small { display: block; margin-top: 2px; font-size: 12.5px; color: var(--sub); }
+table.est td.amt { padding-left: 12px; text-align: right; white-space: nowrap; font-weight: 700; }
+table.est td.amt .rng { display: block; margin-top: 2px; font-size: 13px; font-weight: 400; color: var(--sub); }
+table.est tr.sum td { border-bottom: 1.5px solid var(--ink); font-weight: 700; }
+table.est tr.grand td { padding-top: 12px; border-bottom: 0; font-size: 17px; }
+table.est tr.grand td.amt { font-size: 19px; }
+table.est tr.grand td.amt .rng { font-size: 14px; }
+table.est tr.off td { color: var(--sub); }
+table.est tr.off td.amt { font-weight: 400; }
+.kw { display: inline-block; margin-left: 6px; padding: 3px 7px 2px; border: 1px solid currentColor; border-radius: 999px; font: 700 11px/1 var(--f-body); color: var(--blue); text-decoration: none; vertical-align: 2px; }
+.kw:hover { background: var(--blue-soft); }
+.doc .foot { margin: 12px 0 0; font-size: 13.5px; color: var(--sub); line-height: 1.7; }
+
+/* 手元の見積書と比べる */
+.card-s { padding: 18px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--sheet); }
+.card-s h3 { font-size: 18px; margin: 0 0 4px; }
+.card-s .hint { margin: 0 0 12px; font-size: 13.5px; color: var(--sub); line-height: 1.7; }
+.cmp .row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 10px; }
+.cmp label { font-size: 14px; font-weight: 700; }
+.cmp .in { display: inline-flex; align-items: center; gap: 8px; }
+.cmp input { width: 6.2em; font: 800 24px var(--f-disp); padding: 6px 12px; border: 2px solid var(--blue); border-radius: 12px; background: var(--sheet); color: var(--ink); text-align: right; }
+.cmp .in span { font-weight: 700; }
+.ruler { position: relative; height: 64px; margin: 18px 6px 4px; }
+.ruler.has-mine { height: 92px; }
+.ruler .track { position: absolute; left: 0; right: 0; top: 30px; height: 6px; border-radius: 3px; background: var(--rule); }
+.ruler .band { position: absolute; top: 28px; height: 10px; border: 2px solid var(--blue); border-radius: 5px; background: var(--blue-soft); }
+.ruler .tick { position: absolute; top: 44px; transform: translateX(-50%); font-size: 13px; color: var(--sub); white-space: nowrap; }
+.ruler .pin { position: absolute; top: 0; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; font-size: 13px; font-weight: 700; white-space: nowrap; }
+.ruler .pin i { display: block; width: 3px; height: 16px; margin-top: 2px; background: currentColor; }
+.ruler .pin.std { color: var(--blue); }
+.ruler .pin.mine { top: 26px; flex-direction: column-reverse; color: var(--red-ink); }
+.ruler .pin.mine i { height: 40px; margin: 0 0 2px; }
+.verdict { margin: 12px 0 0; font-size: 15px; line-height: 1.75; }
+.verdict:empty { display: none; }
+.verdict .v-pill { display: table; margin: 0 0 8px; padding: 3px 14px; border-radius: 999px; background: var(--blue-soft); color: var(--blue); font: 800 16px/1.6 var(--f-disp); }
+.verdict.out .v-pill { background: var(--marker); color: var(--ink); }
+.verdict .v-next { display: block; margin-top: 8px; }
+.verdict .v-open { display: inline-flex; align-items: center; min-height: 40px; margin-top: 6px; padding: 0 16px; border: 1.5px solid var(--blue); border-radius: 999px; background: var(--sheet); color: var(--blue); font: 700 14px var(--f-body); cursor: pointer; }
+.verdict .v-open:hover { background: var(--blue-soft); }
+.verdict small { display: block; margin-top: 8px; font-size: 13px; color: var(--sub); line-height: 1.65; }
+
+/* 家族に送る */
+.share-btns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.share-btns .btn { min-height: 50px; padding: 0 12px; font-size: 15px; }
+.btn-line { grid-column: 1 / -1; background: var(--line); color: #fff; }
+.btn-line:hover { filter: brightness(1.08); }
+.btn-line svg { width: 24px; height: 24px; flex: none; }
+.share-btns:has(#sh-native[hidden]) #sh-copy { grid-column: 1 / -1; }
+@media (max-width: 439.98px) { .share-btns { grid-template-columns: minmax(0, 1fr); } }
+.sh-url { display: inline-block; margin-top: 4px; font-size: 13px; overflow-wrap: anywhere; }
+.share .hint.foot { margin: 10px 0 0; }
+.sh-status { margin: 10px 0 0; font-size: 13.5px; color: var(--sub); }
+.sh-status:empty { display: none; }
+.next-links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 18px 0 0; font-size: 14px; }
+.next-links a { font-weight: 700; }
+.next-links a::after { content: " →"; }
+.next-links a.warn { color: var(--red-ink); }
+
+/* ── 下に出る「いまの条件の相場」の帯 ── */
+.dock { display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; align-items: center; justify-content: space-between; gap: 12px; padding: 9px 16px calc(9px + env(safe-area-inset-bottom, 0px)); background: var(--navy); color: var(--on-navy); border-top: 1px solid rgba(255, 255, 255, .1); box-shadow: 0 -10px 28px rgba(20, 33, 61, .16); transition: transform .25s ease; }
+.js .dock { display: flex; }
+.dock.away { transform: translateY(115%); }
+.is-result .dock { display: none !important; }
+.dock-in { min-width: 0; flex: 1; }
+.dock .d1 { margin: 0; font-size: 12px; line-height: 1.4; color: color-mix(in srgb, var(--on-navy) 78%, transparent); }
+.dock .d2 { margin: 0; font: 800 25px/1.2 var(--f-disp); }
+.dock .d2 small { font-size: 13px; }
+.dock .d2 .d-sub { display: inline-block; font: 400 12px var(--f-body); color: color-mix(in srgb, var(--on-navy) 78%, transparent); margin-left: 8px; }
+.dock .d3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 2px; }
+.dock .d3 > span { display: flex; flex-direction: column; min-width: 0; }
+.dock .d3 b { font: 800 18px/1.2 var(--f-disp); white-space: nowrap; }
+.dock .d3 i { font-style: normal; }
+.dock .d3 small { font: 400 11px/1.4 var(--f-body); white-space: nowrap; color: color-mix(in srgb, var(--on-navy) 78%, transparent); }
+.dock-go { flex: none; min-height: 44px; padding: 0 16px; border: 0; border-radius: 999px; background: var(--yellow); color: #14213d; font: 700 14px var(--f-body); cursor: pointer; }
+@media (max-width: 959.98px) { .js body { padding-bottom: 76px; } .js.is-result body { padding-bottom: 0; } }
+@media (min-width: 960px) { .js .dock { display: none; } }
+
+/* ── 読みもの ── */
+.read { max-width: 760px; margin-top: 72px; display: grid; gap: 52px; }
+.read > section { min-width: 0; }
+.read h2 { font-size: clamp(22px, 5.4vw, 28px); margin-bottom: 14px; }
+.read p { margin: 0 0 12px; }
+.checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: c; }
+.checks li { counter-increment: c; display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 4px 10px; }
+.checks li::before { content: counter(c); grid-row: span 2; width: 30px; height: 30px; margin-top: 2px; border-radius: 50%; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-weight: 700; font-size: 15px; line-height: 1; }
+.checks b { font-size: 17px; }
+.checks span { color: var(--sub); font-size: 15px; }
+.ask { margin: 18px 0 0; padding: 16px 18px; border-left: 4px solid var(--blue); border-radius: 0 var(--radius-s) var(--radius-s) 0; background: var(--sheet); display: grid; gap: 8px; }
+.ask p { margin: 0; font-weight: 700; }
+.ask .h { font-weight: 400; color: var(--sub); font-size: 14px; }
+.read .warn-box { padding: 0; overflow: hidden; border: 2px solid var(--red); border-radius: var(--radius); background: var(--sheet); }
+.read .warn-box .head { padding: 10px 16px; background: var(--red-ink); color: var(--sheet); font-weight: 700; font-size: 16px; }
+.read .warn-box .body { padding: 16px; display: grid; gap: 16px; }
+.case { display: grid; gap: 4px; }
+.case q { font-weight: 700; font-size: 17px; quotes: "「" "」"; }
+.case p { margin: 0; color: var(--sub); font-size: 15px; }
+.case p b { color: var(--red-ink); }
+.todo { background: var(--red-soft); border-radius: var(--radius-s); padding: 14px 16px; display: grid; gap: 8px; }
+.todo p { margin: 0; font-size: 15px; }
+.read .tel { font-family: var(--f-disp); font-weight: 800; font-size: 20px; color: var(--ink); text-decoration: none; border-bottom: 2px solid var(--ink); }
+.method { font-size: 15px; }
+.method dl { margin: 0; display: grid; gap: 10px; }
+.method dt { font-weight: 700; }
+.method dd { margin: 0; color: var(--sub); }
+ol.src { margin: 0; padding-left: 1.2em; font-size: 14px; color: var(--sub); display: grid; gap: 6px; }
+ol.src a { overflow-wrap: anywhere; }
+.src-scroll { overflow-x: auto; }
+.src-table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.55; margin: 8px 0 0; }
+.src-table th, .src-table td { text-align: left; padding: 7px 6px 7px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.src-table th { font-size: 12.5px; color: var(--sub); border-bottom: 1.5px solid var(--ink); }
+.src-table td.n { white-space: nowrap; }
+.src-table td:first-child { min-width: 7.5em; }
+.src-table td:last-child { min-width: 10em; }
+.kind { display: grid; gap: 12px; }
+.kind > div { border-left: 4px solid var(--rule); padding: 2px 0 2px 14px; }
+.kind b { display: block; }
+.kind span { color: var(--sub); font-size: 15px; }
+.kind .w { border-left-color: var(--red); }
+.page-note { max-width: 760px; margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--rule); font-size: 13.5px; color: var(--sub); }
+.page-note p { margin: 0 0 8px; }
+
+@media (prefers-reduced-motion: reduce) {
+  /* 動き（横すべり・はねる）は止める。うすく出るだけは残す */
+  .is-steps fieldset.q.in-fwd, .is-steps fieldset.q.in-back, .is-steps.is-result .res-col { animation: q-fade .16s linear both; }
+  @keyframes q-fade { from { opacity: 0; } }
+  .opt, .opt::after, .step-prog i, .dock, .doc > summary::after { transition: none; }
+}
+@media print { .dock, .stepbar, .stepnav, .share, .reset { display: none !important; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へ</a>
+<header class="site-h">
+  <div class="wrap site-h__in">
+    <a class="logo" href="../"><img src="../img/face.webp" alt="" width="36" height="36">見積書のお姉さん</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"><span class="menu-btn__bars" aria-hidden="true"></span>メニュー</button>
+    <nav id="site-nav" class="site-nav" aria-label="サイトの中">
+      <a href="../#keisan">計算する</a>
+      <a href="../douga/">動画</a>
+      <a href="../teguchi/">手口の記録</a>
+      <a href="../kotoba/">言葉の辞典</a>
+      <a class="nav-warn" href="../houmon/">業者が来たら</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap page-h">
+    <p class="crumb"><a href="../">トップ</a> ／ お風呂の交換の費用計算</p>
+    <p class="kicker"><span class="nw">YouTube「お風呂の交換、本当はいくら？」と</span><span class="nw">同じ単価表で計算します</span></p>
+    <h1><span class="nw">うちのお風呂の交換、</span><span class="nw q">相場はいくら？</span></h1>
+    <p class="lead">お風呂のサイズとユニットバスのグレードを選ぶと、業者さんの見積書と同じ並びで、1行ずつ目安の金額を出します。数字はすべて公開されている資料から取り、出典をページの下にまとめました。</p>
+    <ul class="promise">
+      <li>リフォーム会社でもメーカーでもない立場で作っています</li>
+      <li>入力した内容は、どこにも送られません</li>
+      <li>金額はすべて税込</li>
+    </ul>
+  </div>
+
+  <div class="wrap">
+  <div class="calc">
+    <section class="form-col" aria-labelledby="h-form">
+      <h2 class="col-h form-h" id="h-form"><span class="n">1</span>お風呂のことを選ぶ</h2>
+      <div class="stepbar" id="stepbar">
+        <button type="button" class="step-back" id="step-back">もどる</button>
+        <p class="step-count num" id="step-count"><b>1</b> / 6</p>
+        <div class="step-prog" aria-hidden="true"><i id="step-fill"></i></div>
+      </div>
+      <form id="f" autocomplete="off">
+        <fieldset class="q is-current" data-step="now" data-kind="radio" tabindex="-1">
+          <legend>いまのお風呂は</legend>
+          <div class="seg left" style="--cols:2">
+            <label><input type="radio" name="now" id="no1" value="unit" checked><span class="opt"><span class="t"><b>ユニットバス</b><small><span class="nw">床・壁・浴槽が</span><span class="nw">工場で作られた部品の組み合わせ</span></small></span></span></label>
+            <label><input type="radio" name="now" id="no2" value="zairai"><span class="opt"><span class="t"><b>タイル張り（在来）</b><small><span class="nw">壁や床にタイルを張って、</span><span class="nw">その場で作ったお風呂</span></small></span></span></label>
+          </div>
+          <p class="help">在来のお風呂は、タイルとその下を壊す手間が増えるので、ユニットバスからの交換より高くなります。</p>
+        </fieldset>
+
+        <fieldset class="q" data-step="size" data-kind="radio" tabindex="-1">
+          <legend>お風呂のサイズ</legend>
+          <div class="seg" style="--cols:3">
+            <label><input type="radio" name="size" id="si1" value="075"><span class="opt"><b>0.75坪</b><small>マンションに多い</small></span></label>
+            <label><input type="radio" name="size" id="si2" value="1" checked><span class="opt"><b>1坪</b><small>一戸建てに多い</small></span></label>
+            <label><input type="radio" name="size" id="si3" value="125"><span class="opt"><b>1.25坪</b><small>広め</small></span></label>
+          </div>
+          <p class="help">「1616」は、内側の寸法が160cm×160cmという意味です。マンションは0.75坪、一戸建ては1坪が多いといわれます。</p>
+        </fieldset>
+
+        <fieldset class="q" data-step="grade" data-kind="radio" tabindex="-1">
+          <legend>ユニットバスのグレード</legend>
+          <div class="seg paint" style="--cols:3" id="grade">
+            <label><input type="radio" name="grade" id="gr1" value="n"><span class="opt"><b>普及</b><small>TOTO サザナ Nタイプ</small><span class="price num" data-p="n"></span><span class="per num" data-y="n"></span></span></label>
+            <label><input type="radio" name="grade" id="gr2" value="s" checked><span class="opt"><b>中級</b><small><span class="nw">TOTO サザナ Sタイプ・</span><span class="nw">動画のモデル</span></small><span class="price num" data-p="s"></span><span class="per num" data-y="s"></span></span></label>
+            <label><input type="radio" name="grade" id="gr3" value="c"><span class="opt"><b>高級</b><small>TOTO シンラ Cタイプ</small><span class="price num" data-p="c"></span><span class="per num" data-y="c"></span></span></label>
+          </div>
+          <p class="help">定価をそろえるため、メーカーはTOTOの1社にしています。グレードで使える年数は変わらないので、高いグレードほど1年あたりも高くなります。</p>
+        </fieldset>
+
+        <fieldset class="q" data-step="rate" data-kind="radio" tabindex="-1">
+          <legend>本体の値引き</legend>
+          <div class="seg" style="--cols:4">
+            <label><input type="radio" name="rate" id="ra1" value="40"><span class="opt"><b>40%引き</b></span></label>
+            <label><input type="radio" name="rate" id="ra2" value="50"><span class="opt"><b>50%引き</b></span></label>
+            <label><input type="radio" name="rate" id="ra3" value="60" checked><span class="opt"><b>60%引き</b><small>動画のモデル</small></span></label>
+            <label><input type="radio" name="rate" id="ra4" value="65"><span class="opt"><b>65%引き</b></span></label>
+          </div>
+          <p class="help">ユニットバスの本体は、定価から値引きした金額で見積書に書かれることが多い行です。「定価の40〜60%引きが一般的」という紹介サイトがあり、公開されている見積書では60%引き・65%引きでした。いちばん金額が大きく動く行です。</p>
+        </fieldset>
+
+        <fieldset class="q" data-step="kanso" data-kind="radio" tabindex="-1">
+          <legend>浴室暖房乾燥機</legend>
+          <div class="seg" style="--cols:2">
+            <label><input type="radio" name="kanso" id="ka1" value="0" checked><span class="opt"><b>付けない</b></span></label>
+            <label><input type="radio" name="kanso" id="ka2" value="1"><span class="opt"><b>付ける</b><small>7〜9万円</small></span></label>
+          </div>
+          <p class="help">メーカーのTOTOは、暖房乾燥機の使用期間の目安を10年としています。お風呂（20年）を使う間に、1回は取り替える目安です。</p>
+        </fieldset>
+
+        <fieldset class="q" data-step="tesuri" data-kind="radio" tabindex="-1">
+          <legend>手すり</legend>
+          <div class="seg" style="--cols:3">
+            <label><input type="radio" name="tesuri" id="te0" value="0" checked><span class="opt"><b>付けない</b></span></label>
+            <label><input type="radio" name="tesuri" id="te1" value="1"><span class="opt"><b>1本</b></span></label>
+            <label><input type="radio" name="tesuri" id="te2" value="2"><span class="opt"><b>2本</b></span></label>
+          </div>
+          <p class="help">手すりは、介護保険の住宅改修の対象です（要支援・要介護の認定を受けた人。上限20万円・自己負担1〜3割・工事の前に申請）。この計算には入れていません。</p>
+        </fieldset>
+
+        <div class="stepnav"><button type="button" class="btn btn-primary btn-next" id="step-next">このまま次へ</button></div>
+        <button type="button" class="reset" id="btn-reset">動画と同じ条件にもどす</button>
+      </form>
+    </section>
+
+    <section class="res-col" id="result" aria-labelledby="h-result">
+      <div class="res-top"><button type="button" class="step-back" id="res-back">もどる</button></div>
+      <h2 class="col-h" id="h-result" tabindex="-1"><span class="n">2</span>計算の結果</h2>
+      <div class="total" aria-live="polite">
+        <p class="lbl">相場の単価で計算すると（税込）</p>
+        <p class="big num"><span class="hl">約<span id="t-std">97</span></span><small>万円</small></p>
+        <p class="range">業者によって <b class="num">約<span id="t-lo">77</span>万〜<span id="t-hi">153</span>万円</b></p>
+        <p class="year num" id="t-year">1年あたり 約4.9万円</p>
+        <p class="ref num" id="t-ref"></p>
+      </div>
+
+      <div class="blk chips-wrap">
+        <h3 class="blk-h">この条件で計算しました</h3>
+        <div class="chips" id="chips"></div>
+        <p class="from-link" id="from-link" hidden>送られてきたリンクの条件で計算しています。</p>
+        <p class="from-link">押すと、その問いにもどって直せます。</p>
+      </div>
+
+      <details class="doc blk" id="doc" open>
+        <summary><span><span class="sum-t">御見積書（内訳）</span><span class="sum-s">1行ずつの目安と、業者による幅</span></span></summary>
+        <div class="doc-body">
+          <p class="spec num" id="spec"></p>
+          <p class="fnote" id="fnote" hidden></p>
+          <div class="est-scroll">
+            <table class="est num">
+              <thead><tr><th scope="col">項目</th><th scope="col">目安<span class="rng-h">業者による幅</span></th></tr></thead>
+              <tbody id="rows"></tbody>
+            </table>
+          </div>
+          <p class="foot">合計だけで決めずに、手元の見積書の1行ずつが、この幅のどこにいるかを見てください。各行の金額は税抜で、消費税は最後にまとめて足しています。</p>
+        </div>
+      </details>
+
+      <div class="card-s cmp blk">
+        <h3>手元の見積書と比べる</h3>
+        <p class="hint">見積書の合計（税込）を入れると、相場の幅のどこにあるかを出します。入れた金額は、どこにも送られません。</p>
+        <div class="row"><label for="mine">見積書の合計</label><span class="in"><input type="number" id="mine" inputmode="decimal" min="0" step="0.1" placeholder="例 110"><span>万円</span></span></div>
+        <div class="ruler" id="ruler" aria-hidden="true">
+          <div class="track"></div>
+          <div class="band" id="r-band"></div>
+          <div class="pin std" id="r-std"><span>相場</span><i></i></div>
+          <div class="pin mine" id="r-mine" hidden><span>手元の見積書</span><i></i></div>
+          <div class="tick num" id="r-lo"></div>
+          <div class="tick num" id="r-hi"></div>
+        </div>
+        <p class="verdict" id="verdict" aria-live="polite"></p>
+      </div>
+
+      <section class="card-s share blk" id="share" aria-labelledby="h-share" hidden>
+        <h3 id="h-share">家族に送る</h3>
+        <p class="hint">いま選んでいる条件のまま、同じ計算が開くリンクを送れます。</p>
+        <div class="share-btns">
+          <a class="btn btn-line" id="sh-line" href="https://line.me/R/share" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.5s5.9-3.5 8-6C21.4 14.3 22 12.7 22 11c0-4.4-4.5-8-10-8Z"/></svg>LINEで送る</a>
+          <button type="button" class="btn btn-ghost" id="sh-copy">リンクをコピー</button>
+          <button type="button" class="btn btn-ghost" id="sh-native" hidden>ほかのアプリで送る</button>
+        </div>
+        <p class="sh-status" id="sh-status" role="status"></p>
+        <p class="hint foot">送るのは、選んだ条件だけです。手元の見積書の金額は入りません。</p>
+      </section>
+
+      <p class="next-links"><a href="../douga/06/">動画の内容を文字で読む</a><a class="warn" href="../houmon/">業者が来たら、まずこれ</a></p>
+    </section>
+  </div>
+
+<div class="read">
+  <section aria-labelledby="h-check">
+    <h2 id="h-check"><span class="nw">見積書で</span><span class="nw">確かめたい4つ</span></h2>
+    <p>住まいの相談窓口「住まいるダイヤル」が公開している、見積書のチェックの事例からまとめました。</p>
+    <ol class="checks">
+      <li><b>本体に、定価と値引き後の金額が書いてあるか</b><span>値引きが大きすぎないかも見てください。床暖房の見積書の事例では、定価を書いたうえで「お得意様特別値引き」が8割を超えていて、窓口は理由を事業者に確かめるよう助言しています。</span></li>
+      <li><b>「浴室改修工事 一式」のように、まとめられていないか</b><span>お風呂の工事が「一式 351,000円」とだけ書かれた事例で、窓口は内訳の確認が必要としています。<a href="../kotoba/#isshiki">一式</a>の行は、解体・処分・給排水・電気・組立・ドア枠に分けてもらいましょう。</span></li>
+      <li><b>表紙と明細で、会社の名前が同じか</b><span>同じ事例では、表紙はA社、明細はB社の名前でした。責任を持つのがどちらかを確かめてください。</span></li>
+      <li><b>安すぎないか</b><span>住まいるダイヤルは、とても安い見積もりには、あとから追加の請求が出るおそれがあると書いています。追加になるのはどんなときで、いくらなのかを先に書いてもらいましょう。</span></li>
+    </ol>
+    <div class="ask">
+      <p class="h">業者さんに聞くとよい質問</p>
+      <p>「本体の型番と、定価と、値引きのあとの金額を教えてください」</p>
+      <p>「工事費を、解体、処分、給排水、電気、組立、ドア枠に分けて書いてもらえますか」</p>
+      <p>「壊して土台が傷んでいたら、いくら追加ですか。工事を進める前に連絡をもらえますか」</p>
+    </div>
+    <p style="margin-top:14px">何社かから見積もりを取って比べること（<a href="../kotoba/#aimitsumori">相見積もり</a>）も、窓口がすすめている方法です。</p>
+  </section>
+
+  <section aria-labelledby="h-cond">
+    <h2 id="h-cond"><span class="nw">この計算に</span><span class="nw">入っていない金額</span></h2>
+    <div class="kind">
+      <div class="w"><b>土台・下地の腐れ</b><span>壊してみるまで分かりません。下地の補修が要れば5〜15万円ほど追加（リフォームガイド）。公開されている見積書では、土台・柱の取り替えが95,000円＋税でした（アラキ工務店）。</span></div>
+      <div><b>給湯器の交換</b><span>パナソニックは約10〜38.5万円としています。お風呂の見積書とは分けて見てください。</span></div>
+      <div><b>浴室を広げる・サイズを変える</b><span>追加工事20〜50万円程度（リショップナビ）。</span></div>
+      <div><b>マンションの決まり</b><span>管理規約で工事の時間や使える設備が決まっていたり、搬入や共用部分の養生に費用がかかったりすることがあります（リショップナビ）。</span></div>
+      <div><b><a href="../kotoba/#kaigo">介護保険の住宅改修</a></b><span>手すり・段差の解消・すべりにくい床・引き戸への取り替えなどが対象で、上限は1人20万円、自己負担は1〜3割、工事の前に申請が要ります。ユニットバスを丸ごと替える費用が出るわけではありません。「介護保険を使って無料で住宅改修ができる」と訪ねてくる事案を、大阪市東淀川区役所が2026年7月に呼びかけています。無料で改修はできません。</span></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-warn">
+    <h2 id="h-warn"><span class="nw">こんな訪問に</span><span class="nw">気をつけてください</span></h2>
+    <div class="warn-box">
+      <div class="head">消費者庁・千葉県・住まいるダイヤルが公表した事例より</div>
+      <div class="body">
+        <div class="case">
+          <q>浴室塗装の点検をさせてください。キャンペーンにつき無料で行います</q>
+          <p>一人で暮らす高齢の方の家で、点検のあと「見えない場所が湿気で腐り始めています」。お風呂の改修と屋根裏の補強工事で<b>総額125万円</b>の契約をして、その日のうちに支払った（消費者庁）。</p>
+        </div>
+        <div class="case">
+          <q>早急に浴室のリフォームをしないと家が傾く</q>
+          <p>千葉県が2021年に業務停止を命じた訪問販売の事業者の事例。県内の消費生活相談窓口に寄せられた相談は40件で、<b>平均の契約額は約204万円</b>（お風呂のほか、梁の補強やトイレも含む）。</p>
+        </div>
+        <div class="case">
+          <q>年度末で実績をあげなければならず、300万円を260万円にする</q>
+          <p>2000年の相談。飛び込みの営業マンがお風呂を外から見て「土台、柱が腐っている」と言い、<b>260万円</b>ですぐに契約させた（住まいるダイヤル）。</p>
+        </div>
+        <div class="todo">
+          <p><b>その場で決めない。</b>突然来た業者には、無料でも点検させないでください。</p>
+          <p>訪問販売で契約したときは、契約書面を受け取った日から<b>8日以内</b>なら、書面やメールで<a href="../kotoba/#coolingoff">クーリング・オフ</a>（契約の取り消し）ができます。クーリング・オフを妨げられたときは、できる期間が延びます。</p>
+          <p>困ったときは <span class="nw">消費者ホットライン <a class="tel" href="tel:188">188</a>（いやや）</span><br>住まいの相談は <span class="nw">住まいるダイヤル</span> <a class="tel" href="tel:0570016100">0570-016-100</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="method" aria-labelledby="h-method">
+    <h2 id="h-method"><span class="nw">計算の仕方と</span><span class="nw">出典</span></h2>
+    <dl id="method"></dl>
+    <h3 style="font-size:16px;margin:22px 0 8px">参考：相場サイトの総額（どれも税込か税抜かの記載なし）</h3>
+    <div class="src-scroll">
+      <table class="src-table">
+        <thead><tr><th scope="col">出典（書き手）</th><th scope="col">中身</th><th scope="col">金額</th></tr></thead>
+        <tbody>
+          <tr><td>リショップナビ（一括見積もりサイト）</td><td>ユニットバス→ユニットバス／在来→ユニットバス</td><td class="n">60〜120万円／80〜150万円</td></tr>
+          <tr><td>リフォームガイド（紹介サイト）</td><td>1坪・ロー／ミドル／ハイ</td><td class="n">約61〜76万／約70〜87万／約94〜112万円</td></tr>
+          <tr><td>シズケンリフォーム（リフォーム会社）</td><td>1坪</td><td class="n">70〜100万円</td></tr>
+          <tr><td>ハピすむ（紹介サイト）</td><td>ミドル</td><td class="n">70〜100万円</td></tr>
+          <tr><td>SUUMO（2019年の調査）</td><td>0.75坪／1坪／1.25坪</td><td class="n">約60〜120万／約80〜160万／約90〜280万円</td></tr>
+          <tr><td>パナソニック（メーカー）</td><td>ユニットバス全体の交換</td><td class="n">約50〜150万円</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 style="font-size:16px;margin:22px 0 8px">出典（2026年10月3日に確認）</h3>
+    <ol class="src">
+      <li>本体の定価：<a href="https://jp.toto.com/products/bath/sazana/specification/" rel="noopener" target="_blank">TOTO サザナ 仕様・価格</a>／<a href="https://jp.toto.com/products/bath/synla/specification/" rel="noopener" target="_blank">TOTO シンラ 仕様・価格</a>（メーカー希望小売価格）／使用期間の目安：<a href="https://jp.toto.com/support/repair/saiteihoyuukikan/" rel="noopener" target="_blank">TOTO ご使用期間の目安</a></li>
+      <li>工事の行の単価・値引き率・オプション：<a href="https://www.reform-guide.jp/topics/unitbath-koukan/" rel="noopener" target="_blank">リフォームガイド ユニットバス交換</a>／<a href="https://www.reform-guide.jp/topics/unitbath-reform/" rel="noopener" target="_blank">リフォームガイド ユニットバスリフォーム</a>（紹介サイト）／<a href="https://hapisumu.jp/category/bath-reform/59752/" rel="noopener" target="_blank">ハピすむ（紹介サイト）</a>／<a href="https://shizuken-reform.com/column/bath-reform-cost/" rel="noopener" target="_blank">シズケンリフォーム（リフォーム会社）</a></li>
+      <li>諸経費：<a href="https://systembath.net/" rel="noopener" target="_blank">systembath.net（個人のサイト）</a>／公開されている見積書：<a href="https://www.miyako-reform.co.jp/unitbath-kokan-mitsumori/" rel="noopener" target="_blank">みやこリフォーム（リフォーム会社）</a>／<a href="https://www.kyoto-araki.jp/kenchiku/zokaichiku/kaishu_3.html" rel="noopener" target="_blank">アラキ工務店（工務店）</a></li>
+      <li>見積書のチェック：<a href="https://www.chord.or.jp/case/reform_estimate_check/chk3-008.html" rel="noopener" target="_blank">住まいるダイヤル chk3-008</a>／<a href="https://www.chord.or.jp/case/reform_estimate_check/chk4-001.html" rel="noopener" target="_blank">同 chk4-001</a></li>
+      <li>相場：<a href="https://rehome-navi.com/articles/95" rel="noopener" target="_blank">リショップナビ（一括見積もりサイト）</a>／<a href="https://suumo.jp/remodel/soba/rk_bath/" rel="noopener" target="_blank">SUUMO 相場</a>／<a href="https://suumo.jp/remodel/blog/entry/20240528/001" rel="noopener" target="_blank">SUUMO リフォームタイムズ</a>／<a href="https://sumai.panasonic.jp/sumai_create/hiyou/bath/" rel="noopener" target="_blank">パナソニック（メーカー）</a></li>
+      <li>介護保険：<a href="https://www.mhlw.go.jp/general/seido/toukatsu/suishin/dl/07.pdf" rel="noopener" target="_blank">厚生労働省「介護保険における住宅改修」（PDF）</a>／<a href="https://www.city.osaka.lg.jp/higashiyodogawa/page/0000443175.html" rel="noopener" target="_blank">大阪市東淀川区役所</a></li>
+      <li>相談事例：<a href="https://www.no-trouble.caa.go.jp/case/doortodoorsales/case03.html" rel="noopener" target="_blank">消費者庁 消費者トラブル事例</a>／<a href="https://www.pref.chiba.lg.jp/seikouan/press/2021/r0306jigyousya-syobun.html" rel="noopener" target="_blank">千葉県 2021年6月11日</a>／<a href="https://www.chord.or.jp/case/detail/detail_6260.html" rel="noopener" target="_blank">住まいるダイヤル 相談事例</a>／<a href="https://www.kokusen.go.jp/soudan_now/data/coolingoff.html" rel="noopener" target="_blank">国民生活センター クーリング・オフ</a>／<a href="https://www.caa.go.jp/policies/policy/local_cooperation/local_consumer_administration/hotline/" rel="noopener" target="_blank">消費者庁 消費者ホットライン</a></li>
+    </ol>
+  </section>
+</div>
+
+  <div class="page-note">
+  <p>このページは、工事を請け負う業者ではない立場で、YouTubeの動画のために作っています。特定の業者や商品を紹介するものではありません。</p>
+  <p>金額は公開されている資料から計算した目安です。実際の金額は、お風呂の傷み具合・地域・業者によって変わります。見積もりの代わりにはなりません。</p>
+  </div>
+  </div>
+</main>
+
+<div class="dock" id="dock">
+  <div class="dock-in">
+    <p class="d1">いまの条件の相場（税込）</p>
+    <p class="d2 num">約<span id="d-std">97</span><small>万円</small><span class="d-sub">業者によって <span id="d-rng">77〜153万円</span></span></p>
+  </div>
+  <button type="button" class="dock-go" id="dock-go">結果へ</button>
+</div>
+
+<footer class="site-f">
+  <div class="wrap">
+    <a class="logo" href="../"><img src="../img/face.webp" alt="" width="36" height="36">見積書のお姉さん</a>
+    <p class="site-f__about">家の修理・リフォームの見積書を、公開されている資料の単価から1行ずつ読み解くYouTubeチャンネルです。工事を請け負う業者ではありません。</p>
+    <div class="sns">
+      <a href="https://www.youtube.com/@mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#ff0033" d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81z"/><path fill="#fff" d="M9.55 15.57V8.43L15.82 12z"/></svg>YouTube</a>
+      <a href="https://www.instagram.com/mitsumori_onee/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+      <a href="https://x.com/mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</a>
+    </div>
+    <nav class="site-f__nav" aria-label="サイトの案内">
+      <a href="../#keisan">計算する</a>
+      <a href="../douga/">動画</a>
+      <a href="../teguchi/">手口の記録</a>
+      <a href="../kotoba/">言葉の辞典</a>
+      <a href="../houmon/">業者が来たら</a>
+      <a href="../about/">このサイトについて</a>
+      <a href="../privacy/">プライバシーポリシー</a>
+      <a href="../contact/">お問い合わせ</a>
+    </nav>
+    <p class="site-f__fine">金額はすべて、公開されている資料の単価から計算した目安です。実際の金額は家ごとに変わります。</p>
+    <p class="site-f__fine">© 2026 見積書のお姉さん</p>
+  </div>
+</footer>
+<script>
+/* ============================================================
+   数字はすべて 06_お風呂の交換/単価表.md から取る。
+   ここだけ直して、単価表と食い違わせない。
+   std＝動画のモデル見積書の金額 / lo・hi＝出典の幅の下と上
+   行の金額はすべて税抜。諸経費と消費税（切り捨て）は最後に足す（単価表の 1 と同じ順）。
+   既定（ユニットバスから・1坪・中級・60%引き・オプションなし）で税込971,495円になる。
+   ============================================================ */
+const P = {
+  youjou:  { std: 20000, lo: 10000, hi: 30000  },  // 養生 1〜3万円（リフォームガイド）
+  kaitai:  { std: 80000, lo: 50000, hi: 150000 },  // 既存ユニットバスの解体・撤去 5〜15万円（リフォームガイド・シズケン）
+  shobun:  { std: 30000, lo: 20000, hi: 50000  },  // 廃材の処分 2〜5万円（ハピすむ）
+  kyuhai:  { std: 50000, lo: 15000, hi: 80000  },  // 給排水 1.5〜8万円（リフォームガイド）
+  denki:   { std: 30000, lo: 25000, hi: 50000  },  // 電気 2.5〜5万円（リフォームガイド）
+  kumi:    { std: 90000, lo: 80000, hi: 120000 },  // 組立 8〜10万円（リフォームガイド）・8〜12万円（ハピすむ）
+  door:    { std: 50000, lo: 40000, hi: 60000  },  // 入口のドア枠・袖壁の復旧 4〜6万円（リフォームガイド）
+  naisou:  { std: 25000, lo: 20000, hi: 50000  },  // 脱衣所側の内装 2〜5万円（ハピすむ）
+  keihi:   { std: .07,   lo: .067,  hi: .10    },  // 諸経費：実例 6.7%（みやこ）・7.6%（アラキ）の間の7%／10%程度（systembath.net）
+  tax: .10,
+};
+// ユニットバス本体：TOTO 1616 の定価（メーカー希望小売価格・税抜）
+const GRADE = {
+  n: { name: '普及', item: 'TOTO サザナ 1616 Nタイプ', list: 904000 },
+  s: { name: '中級', item: 'TOTO サザナ 1616 Sタイプ', list: 1126000 },
+  c: { name: '高級', item: 'TOTO シンラ 1616 Cタイプ', list: 1382000 },
+};
+// 値引き率：「定価の40〜60%引きが一般的」（リフォームガイド）／実際の見積書で60%（アラキ）・65%（みやこ）。幅は65%引き〜40%引き
+const RATES = { 40: .40, 50: .50, 60: .60, 65: .65 };
+const RATE_LO = .65, RATE_HI = .40;
+const YEARS = 20;   // TOTO「ご使用期間の目安」システムバス全体20年。グレードで変わらない
+// サイズ：リフォームガイドのミドルの相場（0.75坪 約65〜83万／1.0坪 約70〜87万／1.25坪 約75〜92万）が「1段大きくなるごとに約5万円」なのを、1坪との差の行にする
+const SIZE = {
+  '075': { name: '0.75坪', add: -50000 },
+  '1':   { name: '1坪',    add: 0 },
+  '125': { name: '1.25坪', add: 50000 },
+};
+// 在来（タイル張り）から：「ユニットバスからの交換より＋10〜20万円以上」（ハピすむ）。目安は出典の下の端（少なくとも＋10万円）。真ん中などの新しい数字は作らない
+const ZAIRAI = { std: 100000, lo: 100000, hi: 200000 };
+// オプション
+const KANSO = { std: 80000, lo: 70000, hi: 90000 };   // 浴室換気暖房乾燥機 7〜9万円（リフォームガイド）
+const TESURI = 10000;                                // 手すり 1本1万円（リフォームガイド）
+
+/* ── 見積書の行 ── */
+function estimate(s) {
+  const g = GRADE[s.grade], rate = RATES[s.rate];
+  const flat = (name, p, unitText) => ({ name, unitText, std: p.std, lo: p.lo, hi: p.hi });
+  const rows = [
+    { name: `ユニットバス本体（${g.name}）`, unitText: `${g.item}・定価${yen(g.list)}円の${s.rate}%引き`,
+      std: g.list * (1 - rate), lo: g.list * (1 - RATE_LO), hi: g.list * (1 - RATE_HI) },
+    flat('養生', P.youjou, '1式'),
+    flat(s.now === 'zairai' ? '既存のお風呂の解体・撤去' : '既存ユニットバスの解体・撤去', P.kaitai, '1式'),
+    flat('廃材の処分', P.shobun, '1式'),
+    flat('給排水', P.kyuhai, '1式'),
+    flat('電気', P.denki, '1式'),
+    flat('組立', P.kumi, '1式'),
+    flat('入口のドア枠・袖壁の復旧', P.door, '1式'),
+    flat('脱衣所側の内装（クロス）', P.naisou, '1式'),
+  ];
+  if (s.now === 'zairai') rows.push(flat('在来のお風呂からの追加', ZAIRAI, 'タイルと下地・土間の解体など（ユニットバスからより＋10〜20万円以上）。下地の傷み次第でさらに増えます'));
+  const sz = SIZE[s.size];
+  if (sz.add) rows.push({ name: `サイズの差（${sz.name}）`, unitText: '1坪との差の目安（1段ごとに約5万円）', std: sz.add, lo: sz.add, hi: sz.add });
+  if (s.kanso) rows.push(flat('浴室暖房乾燥機', KANSO, '1台'));
+  if (s.tesuri) rows.push({ name: '手すり', unitText: `${s.tesuri}本 × ${yen(TESURI)}円`, std: TESURI * s.tesuri, lo: TESURI * s.tesuri, hi: TESURI * s.tesuri });
+
+  const sub = k => rows.reduce((a, r) => a + r[k], 0);
+  const t = {};
+  for (const k of ['std', 'lo', 'hi']) {
+    const s0 = Math.round(sub(k)), ke = Math.round(s0 * P.keihi[k]), ex = s0 + ke, tax = Math.floor(ex * P.tax);
+    t[k] = { sub: s0, keihi: ke, ex, tax, total: ex + tax };
+  }
+  return { rows, t };
+}
+
+/* ── 表示 ── */
+const yen = n => Math.round(n).toLocaleString('ja-JP');
+const man = n => { const v = Math.round(n / 1000) / 10; return (Number.isInteger(v) ? v : v.toFixed(1)).toString(); };
+const manR = n => Math.round(n / 10000).toString();
+const $ = id => document.getElementById(id);
+
+function readState() {
+  const fd = new FormData($('f'));
+  const pick = (k, map, d) => { const v = fd.get(k); return own(map, v) ? v : d; };
+  return {
+    now: fd.get('now') === 'zairai' ? 'zairai' : 'unit',
+    size: pick('size', SIZE, '1'),
+    grade: pick('grade', GRADE, 's'),
+    rate: pick('rate', RATES, '60'),
+    kanso: fd.get('kanso') === '1',
+    tesuri: Math.min(2, Math.max(0, parseInt(fd.get('tesuri'), 10) || 0)),
+  };
+}
+
+let last = null;
+function render() {
+  const s = readState();
+  const e = estimate(s);
+  last = e;
+  const { t } = e;
+
+  $('t-std').textContent = manR(t.std.total);
+  $('t-lo').textContent = manR(t.lo.total);
+  $('t-hi').textContent = manR(t.hi.total);
+  $('t-year').innerHTML = `<span class="nw">1年あたり 約${man(t.std.total / YEARS)}万円</span><span class="nw">（メーカーの目安 ${YEARS}年で割った金額）</span>`;
+  $('d-std').textContent = manR(t.std.total);
+  $('d-rng').textContent = `${manR(t.lo.total)}〜${manR(t.hi.total)}万円`;
+
+  // 相場の参考（どれも税の記載なし）
+  const RG = { '075': '約65〜83万円', '1': '約70〜87万円', '125': '約75〜92万円' };   // リフォームガイド ミドル
+  const SU = { '075': '約60〜120万円', '1': '約80〜160万円', '125': '約90〜280万円' }; // SUUMO（2019年の調査）
+  $('t-ref').innerHTML = s.now === 'zairai'
+    ? `参考：リショップナビは、在来からユニットバスへの交換を<span class="nw">80〜150万円</span>としています<span class="nw">（税込か税抜かの記載なし）</span>`
+    : `参考：${SIZE[s.size].name}の相場は、リフォームガイドのミドルで<span class="nw">${RG[s.size]}</span>、SUUMO（2019年の調査）で<span class="nw">${SU[s.size]}</span><span class="nw">（どちらも税込か税抜かの記載なし）</span>`;
+  const notes = [];
+  if (s.rate === '40') notes.push('40%引きは、紹介サイトの「40〜60%引きが一般的」の下の端です。本体の行だけで、60%引きより税込で約26.5万円高くなります（1坪・中級のとき）。');
+  if (s.size !== '1') notes.push('サイズの差は、紹介サイトの相場が「1段ごとに約5万円」ちがうのを1行にした目安です。本体の定価のサイズごとの差ではありません。');
+  if (s.now === 'zairai') notes.push('在来のお風呂は、壊してみるまで下地の傷み具合が分かりません。下地の補修が要れば、さらに5〜15万円ほど追加になるという紹介サイトがあります。');
+  $('fnote').hidden = !notes.length; $('fnote').innerHTML = notes.join('<br>');
+  $('spec').innerHTML = `${s.now === 'zairai' ? '在来のお風呂' : 'ユニットバス'}から・${SIZE[s.size].name}<br>${GRADE[s.grade].item.replace('1616 ', '')}・本体${s.rate}%引き`;
+
+  const tr = (cls, name, small, std, rng) =>
+    `<tr class="${cls}"><td class="item"><b>${name}</b>${kw(name)}${small ? `<small>${small}</small>` : ''}</td><td class="amt">${std}<span class="rng">${rng}</span></td></tr>`;
+  const rg = (a, b) => a === b ? `${man(a)}万` : `${man(a)}〜${man(b)}万`;
+  let html = e.rows.map(r => tr('', r.name, r.unitText, yen(r.std), rg(r.lo, r.hi))).join('');
+  html += tr('sum', '小計', '', yen(t.std.sub), rg(t.lo.sub, t.hi.sub));
+  html += tr('', '諸経費', `小計の${Math.round(P.keihi.std * 100)}%（業者によって6.7〜10%）`, yen(t.std.keihi), rg(t.lo.keihi, t.hi.keihi));
+  html += tr('', '消費税', '10%（円未満切り捨て）', yen(t.std.tax), rg(t.lo.tax, t.hi.tax));
+  html += tr('grand', '合計（税込）', '', yen(t.std.total) + '円', rg(t.lo.total, t.hi.total));
+  $('rows').innerHTML = html;
+
+  for (const k of Object.keys(GRADE)) {
+    const ek = estimate({ ...s, grade: k });
+    document.querySelector(`[data-p="${k}"]`).textContent = `約${manR(ek.t.std.total)}万円`;
+    document.querySelector(`[data-y="${k}"]`).textContent = `1年あたり 約${man(ek.t.std.total / YEARS)}万円（${YEARS}年で割った目安）`;
+  }
+  renderCompare();
+  afterRender(s);
+}
+
+/* 物差し：安い側〜高い側の帯に、目安と手元の見積書を立てる */
+function renderCompare() {
+  if (!last) return;
+  const { lo, std, hi } = { lo: last.t.lo.total, std: last.t.std.total, hi: last.t.hi.total };
+  const raw = parseFloat($('mine').value);
+  const mine = Number.isFinite(raw) && raw > 0 ? raw * 10000 : null;
+  let a = lo * 0.82, b = hi * 1.08;
+  if (mine) { a = Math.min(a, mine * 0.92); b = Math.max(b, mine * 1.06); }
+  const pct = v => ((v - a) / (b - a)) * 100;
+  const x = v => `${pct(v)}%`;
+  const place = (el, v) => { const q = pct(v); el.style.left = `${q}%`; el.style.transform = q < 12 ? 'translateX(-1.5px)' : q > 88 ? 'translateX(calc(-100% + 1.5px))' : 'translateX(-50%)'; el.style.alignItems = q < 12 ? 'flex-start' : q > 88 ? 'flex-end' : 'center'; };
+  $('r-band').style.left = x(lo);
+  $('r-band').style.width = `${((hi - lo) / (b - a)) * 100}%`;
+  place($('r-std'), std);
+  $('r-lo').style.left = x(lo); $('r-lo').textContent = `${manR(lo)}万`;
+  $('r-hi').style.left = x(hi); $('r-hi').textContent = `${manR(hi)}万`;
+  const pin = $('r-mine'), v = $('verdict');
+  $('ruler').classList.toggle('has-mine', !!mine);
+  if (!mine) { pin.hidden = true; v.textContent = ''; v.className = 'verdict'; return; }
+  pin.hidden = false; place(pin, mine);
+  const near = n => n < 5000;
+  let pill, msg, cls = 'verdict';
+  if (mine < lo) {
+    cls += ' out';
+    pill = near(lo - mine) ? '幅の下限とほぼ同じ' : `幅の下限より約${manR(lo - mine)}万円安い`;
+    msg = `公開されている単価の安い側で計算した金額（約${manR(lo)}万円）よりも、さらに安い見積もりです。安いこと自体は悪くありません。本体の型番・定価・値引きのあとの金額と、解体・処分・給排水・電気・組立の行が書いてあるかを確かめてください。追加の請求が出るのはどんなときかも、先に聞いておきましょう。`;
+  } else if (mine <= hi) {
+    pill = '相場の幅の中';
+    msg = mine <= std ? `目安（約${manR(std)}万円）以下で、単価の幅の中です。念のため、内訳の行がそろっているかを見てください。`
+      : near(mine - std) ? '目安とほぼ同じで、単価の幅の中です。'
+      : `目安より約${manR(mine - std)}万円高めですが、単価の幅の中です。本体の値引き率と、工事費の内訳を聞いて、数字で答えが返ってくれば1つの安心材料になります。`;
+  } else {
+    cls += ' out';
+    pill = near(mine - hi) ? '幅の上限とほぼ同じ' : `幅の上限より約${manR(mine - hi)}万円高い`;
+    msg = `公開されている単価の高い側で計算した金額（約${manR(hi)}万円）よりも高い見積もりです。高いことだけで、おかしな見積もりとは決められません。その場で決めずに、ほかの会社からも見積もりを取ってください。困ったときは消費者ホットライン188へ。`;
+  }
+  msg += '<b class="v-next">内訳の行ごとに比べてください。</b><button type="button" class="v-open">内訳を開く</button>';
+  msg += '<small>給湯器や土台の補修など、お風呂のほかの工事が入っている見積書とはくらべられません。</small>';
+  v.className = cls; v.innerHTML = `<span class="v-pill">${pill}</span>${msg}`;
+}
+
+/* 計算の仕方（数字は上の設定から書き出す） */
+function renderMethod() {
+  $('method').innerHTML = `
+    <div><dt>動画のモデル見積書</dt><dd>戸建て1階のユニットバスを、1坪（1616）の中級のユニットバスに替える工事です。本体と、養生・解体・処分・給排水・電気・組立・ドア枠・内装の工事の行で、税込971,495円です。</dd></div>
+    <div><dt>本体の行</dt><dd>TOTOの定価（メーカー希望小売価格・税抜）から、選んだ率を引いた金額です。普及 ${yen(GRADE.n.list)}円・中級 ${yen(GRADE.s.list)}円・高級 ${yen(GRADE.c.list)}円。幅は65%引き〜40%引きです。</dd></div>
+    <div><dt>工事の行</dt><dd>どれも「1式」です。目安は動画のモデル見積書の金額、幅は紹介サイト・リフォーム会社の出典の安い側と高い側です。グレードを変えても、工事の行は変わりません。</dd></div>
+    <div><dt>諸経費と消費税</dt><dd>諸経費は小計の${Math.round(P.keihi.std * 100)}%（公開されている見積書2枚の6.7%と7.6%の間）、幅は6.7〜10%。消費税は10%で、円未満は切り捨てです。各行は税抜で、合計だけ税込です。</dd></div>
+    <div><dt>サイズ</dt><dd>0.75坪は−5万円、1.25坪は＋5万円の行を足します。紹介サイトの相場が、サイズが1段変わるごとに約5万円ちがうためです。</dd></div>
+    <div><dt>在来のお風呂から</dt><dd>「ユニットバスからの交換より＋10〜20万円以上」という紹介サイトの数字から、目安10万円（少なくともこれだけ増える額）・幅10〜20万円の行を足します。</dd></div>
+    <div><dt>オプション</dt><dd>浴室暖房乾燥機は目安8万円・幅7〜9万円、手すりは1本1万円です。</dd></div>
+    <div><dt>1年あたり</dt><dd>税込の合計を、TOTOの「ご使用期間の目安」のシステムバス全体${YEARS}年で割っています。</dd></div>
+    <div><dt>「目安」と「業者による幅」</dt><dd>目安は動画のモデル見積書と同じ金額、幅はすべての行を出典の安い側・高い側でそろえた金額です。すべての行が高い側にそろうことはまれです。</dd></div>
+    <div><dt>入っていないもの</dt><dd>土台・下地の補修、給湯器の交換、浴室を広げる工事、マンションの搬入・共用部分の養生、地域による差。</dd></div>`;
+}
+
+/* ── 操作 ── */
+$('f').addEventListener('change', e => { if (e.target.name) render(); });
+$('f').addEventListener('submit', e => e.preventDefault());
+$('mine').addEventListener('input', renderCompare);
+$('btn-reset').addEventListener('click', () => { $('f').reset(); render(); });
+
+/* ── このページの設定（送る条件の書き方・チップ・辞典へのリンク） ──
+   送るリンクの例：…/ofuro/#n=unit&z=1&g=s&r=60&k=0&h=0 */
+const CFG = {
+  page: 'ofuro',
+  radios: [
+    ['n', 'now', { unit: 'unit', zairai: 'zairai' }],
+    ['z', 'size', { '075': '075', 1: '1', 125: '125' }],
+    ['g', 'grade', { n: 'n', s: 's', c: 'c' }],
+    ['r', 'rate', { 40: '40', 50: '50', 60: '60', 65: '65' }],
+    ['k', 'kanso', { 0: '0', 1: '1' }],
+    ['h', 'tesuri', { 0: '0', 1: '1', 2: '2' }],
+  ],
+  toHash(s) {
+    return [`n=${s.now}`, `z=${s.size}`, `g=${s.grade}`, `r=${s.rate}`, `k=${s.kanso ? 1 : 0}`, `h=${s.tesuri}`];
+  },
+  chips(s) {
+    return [
+      ['now', s.now === 'zairai' ? '在来のお風呂から' : 'ユニットバスから'],
+      ['size', SIZE[s.size].name],
+      ['grade', GRADE[s.grade].name],
+      ['rate', `本体${s.rate}%引き`],
+      ['kanso', s.kanso ? '暖房乾燥機あり' : '暖房乾燥機なし'],
+      ['tesuri', s.tesuri ? `手すり${s.tesuri}本` : '手すりなし'],
+    ];
+  },
+  shareText() {
+    return `お風呂の交換、うちの条件だと相場は約${manR(last.t.std.total)}万円でした（見積書のお姉さんの計算ページ）`;
+  },
+  kw: [[/^ユニットバス本体/, 'unitbath'], [/^養生$/, 'youjou'], [/^廃材の処分$/, 'shobun'], [/^在来/, 'zairai'],
+    [/^手すり$/, 'kaigo'], [/^諸経費$/, 'shokeihi']],
+  kwLabel: { unitbath: 'ユニットバス', youjou: '養生', shobun: '撤去・処分費', zairai: '在来浴室', kaigo: '介護保険の住宅改修', shokeihi: '諸経費' },
+};
+
+/* ============================================================
+   画面の動き（ここから下は計算に関わらない）
+   スマホ（760px未満）：1問ずつ出して、最後に「結果を見る」。<html> の .is-steps / .is-result で切り替える
+   条件を送る：ボタンを押したときだけ、URLの # の後ろに条件を書いたリンクを作る（入力中は location を書き換えない）
+   アクセス解析：入力した値（選んだ条件・金額など）は渡さない。どのページで・何をしたかだけ
+   ============================================================ */
+const H = document.documentElement;
+const MQ = window.matchMedia('(max-width: 759.98px)');
+const RM = window.matchMedia('(prefers-reduced-motion: reduce)');
+const own = (o, k) => Object.prototype.hasOwnProperty.call(o, k);
+const T = (name, params) => {
+  const go = () => { try { if (typeof window.track === 'function') window.track(name, params); } catch (_) { /* 解析が動かなくても計算は止めない */ } };
+  if (typeof window.track === 'function') go(); else document.addEventListener('DOMContentLoaded', go, { once: true });
+};
+const steps = [...document.querySelectorAll('#f .q')];
+const liveSteps = () => steps.filter(el => !el.hidden);
+const isSteps = () => H.classList.contains('is-steps');
+const isResult = () => H.classList.contains('is-result');
+let curEl = steps[0], editing = false, advTimer = 0, ptrAt = 0, doneSent = false, cmpSent = false;
+
+function kw(name) {
+  for (const [re, id] of CFG.kw) {
+    if (re.test(name)) return `<a class="kw" href="../kotoba/#${id}" aria-label="${CFG.kwLabel[id]}の意味（言葉の辞典）">辞典</a>`;
+  }
+  return '';
+}
+
+function scrollToY(y, smooth) {
+  y = Math.max(0, y);
+  if (smooth && !RM.matches) { window.scrollTo({ top: y, behavior: 'smooth' }); return; }
+  const prev = H.style.scrollBehavior;
+  H.style.scrollBehavior = 'auto'; window.scrollTo(0, y); H.style.scrollBehavior = prev;
+}
+function moveTo(el, smooth = true) { scrollToY(el.getBoundingClientRect().top + window.scrollY - 72, smooth); }
+
+function paintStepbar() {
+  const live = liveSteps();
+  if (!live.includes(curEl)) curEl = live[0];
+  const i = live.indexOf(curEl), n = live.length, lastStep = i === n - 1;
+  $('step-count').innerHTML = `<b>${i + 1}</b> / ${n}`;
+  $('step-fill').style.width = `${((i + 1) / n) * 100}%`;
+  $('step-back').disabled = i === 0 && !editing;
+  const btn = $('step-next'), num = curEl.dataset.kind === 'number';
+  btn.textContent = editing ? '結果にもどる' : lastStep ? '結果を見る' : num ? '次へ' : 'このまま次へ';
+  btn.classList.toggle('is-quiet', !editing && !lastStep && !num);
+}
+
+function showStep(el, dir, focus) {
+  if (!el) return;
+  clearTimeout(advTimer);
+  const wasResult = isResult();
+  H.classList.remove('is-result');
+  for (const q of steps) q.classList.toggle('is-current', q === el);
+  el.classList.remove('in-fwd', 'in-back');
+  if (dir) { void el.offsetWidth; el.classList.add(dir > 0 ? 'in-fwd' : 'in-back'); }
+  curEl = el;
+  paintStepbar();
+  const bar = $('stepbar'), top = bar.getBoundingClientRect().top;
+  if (Math.abs(top - 72) > 6 && (dir || top < 0 || top > window.innerHeight * 0.5)) moveTo(bar, !!dir && !wasResult);
+  if (focus) {
+    const t = el.dataset.kind === 'number' ? el : (el.querySelector('input:checked') || el.querySelector('input'));
+    try { t.focus({ preventScroll: true }); } catch (_) { t.focus(); }
+  }
+}
+function nextStep() {
+  clearTimeout(advTimer);
+  const live = liveSteps(), i = live.indexOf(curEl);
+  if (editing || i >= live.length - 1) { showResult(true); return; }
+  showStep(live[i + 1], 1, true);
+}
+function prevStep() {
+  if (editing) { showResult(true); return; }
+  const live = liveSteps(), i = live.indexOf(curEl);
+  if (i > 0) showStep(live[i - 1], -1, true);
+}
+function markDone() {
+  if (doneSent) return;
+  doneSent = true;
+  T('calc_done', { page: CFG.page });
+}
+function showResult(user) {
+  clearTimeout(advTimer);
+  editing = false;
+  if (isSteps()) {
+    H.classList.add('is-result');
+    moveTo($('result'), false);
+  } else if (user) moveTo($('result'));
+  if (user) { try { $('h-result').focus({ preventScroll: true }); } catch (_) { /* 古いブラウザ */ } }
+  markDone();
+}
+
+/* 選んだ条件のチップ（押すと、その問いにもどる） */
+function paintChips(s) {
+  $('chips').innerHTML = CFG.chips(s).map(([k, label]) => `<button type="button" class="chip" data-go="${k}">${label}</button>`).join('');
+}
+function afterRender(s) {
+  paintChips(s);
+  const seen = new Set();
+  for (const a of document.querySelectorAll('#rows .kw')) { const h = a.getAttribute('href'); if (seen.has(h)) a.remove(); else seen.add(h); }
+  if (isSteps()) paintStepbar();
+}
+
+/* ── 1問ずつの操作 ── */
+$('f').addEventListener('pointerdown', () => { ptrAt = Date.now(); }, true);
+$('f').addEventListener('click', e => {
+  const r = e.target;
+  if (!isSteps() || !(r instanceof HTMLInputElement) || r.type !== 'radio') return;
+  const q = r.closest('.q');
+  if (q !== curEl || Date.now() - ptrAt > 1500) return;   // 矢印キーで選んだときは進めない
+  const live = liveSteps();
+  if (!editing && live.indexOf(q) === live.length - 1) return;   // 最後の問いは「結果を見る」を押してもらう
+  clearTimeout(advTimer);
+  advTimer = setTimeout(nextStep, 260);
+});
+$('f').addEventListener('keydown', e => {
+  if (e.key !== 'Enter' || !isSteps() || e.isComposing) return;
+  const t = e.target;
+  if (!(t instanceof HTMLInputElement) || !t.closest('.q')) return;
+  e.preventDefault();
+  if (t.type === 'number') t.dispatchEvent(new Event('change', { bubbles: true }));
+  nextStep();
+});
+$('step-next').addEventListener('click', nextStep);
+$('step-back').addEventListener('click', prevStep);
+$('res-back').addEventListener('click', () => { const live = liveSteps(); showStep(live[live.length - 1], -1, true); });
+$('chips').addEventListener('click', e => {
+  const b = e.target.closest('[data-go]');
+  if (!b) return;
+  const q = document.querySelector(`#f .q[data-step="${b.dataset.go}"]`);
+  if (!q || q.hidden) return;
+  if (isSteps()) { editing = true; showStep(q, 0, true); return; }
+  moveTo(q);
+  const t = q.querySelector('input:checked') || q.querySelector('input');
+  try { t.focus({ preventScroll: true }); } catch (_) { t.focus(); }
+});
+
+/* ── 下の帯 ── */
+$('dock-go').addEventListener('click', () => showResult(true));
+if ('IntersectionObserver' in window) {
+  new IntersectionObserver(([en]) => $('dock').classList.toggle('away', en.isIntersecting && !isSteps()), { threshold: 0.08 }).observe($('result'));
+}
+
+/* 広い画面：最初に条件を動かしたら「結果を見た」とする */
+const onEdit = () => { if (!isSteps()) markDone(); };
+$('f').addEventListener('change', onEdit);
+if ($('methods')) $('methods').addEventListener('change', onEdit);
+
+/* ── 手元の見積書と比べる（金額はどこにも送らない） ── */
+$('mine').addEventListener('change', () => {
+  if (cmpSent || !(parseFloat($('mine').value) > 0)) return;
+  cmpSent = true;
+  T('compare', { page: CFG.page });
+});
+$('verdict').addEventListener('click', e => {
+  if (!e.target.closest('.v-open')) return;
+  $('doc').open = true;
+  moveTo($('doc'));
+  $('doc').querySelector('summary').focus({ preventScroll: true });
+});
+
+/* ── 家族に送る ── */
+function shareURL() {
+  return location.href.replace(/[?#].*$/, '') + '#' + CFG.toHash(readState()).join('&');
+}
+function shareStatus(text, url) {
+  const st = $('sh-status');
+  st.textContent = text;
+  if (url) {
+    const a = document.createElement('a');
+    a.href = url; a.textContent = url; a.className = 'sh-url';
+    st.append(document.createElement('br'), a);
+  }
+}
+async function copyText(s) {
+  try { await navigator.clipboard.writeText(s); return true; } catch (_) { /* 下の方法で */ }
+  const ta = document.createElement('textarea');
+  ta.value = s; ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+  document.body.appendChild(ta); ta.select();
+  let ok = false;
+  try { ok = document.execCommand('copy'); } catch (_) { ok = false; }
+  ta.remove();
+  return ok;
+}
+$('sh-line').addEventListener('click', () => {
+  $('sh-line').href = 'https://line.me/R/share?text=' + encodeURIComponent(CFG.shareText() + '\n' + shareURL());
+  T('share', { page: CFG.page, method: 'line' });
+});
+$('sh-copy').addEventListener('click', async () => {
+  const url = shareURL();
+  const ok = await copyText(url);
+  if (ok) shareStatus('リンクをコピーしました。LINEやメールに貼りつけると、同じ条件の計算が開きます。');
+  else shareStatus('コピーできませんでした。下のリンクを長押しして、コピーしてください。', url);
+  T('share', { page: CFG.page, method: 'copy' });
+});
+if (typeof navigator.share === 'function') {
+  $('sh-native').hidden = false;
+  $('sh-native').addEventListener('click', async () => {
+    try {
+      await navigator.share({ title: document.title, text: CFG.shareText(), url: shareURL() });
+      T('share', { page: CFG.page, method: 'native' });
+    } catch (_) { /* 閉じただけ */ }
+  });
+}
+
+/* ── # の後ろの条件を読む（おかしな値は無視して、はじめの値のまま） ── */
+function applyHash() {
+  const raw = location.hash.slice(1);
+  if (!raw || raw.indexOf('=') < 0 || raw.length > 200) return false;
+  let sp;
+  try { sp = new URLSearchParams(raw); } catch (_) { return false; }
+  for (const [key, name, map] of CFG.radios) {
+    const v = sp.get(key);
+    if (v === null || !own(map, v)) continue;
+    const el = document.querySelector(`input[name="${name}"][value="${map[v]}"]`);
+    if (el) el.checked = true;
+  }
+  if (CFG.fromHashExtra) CFG.fromHashExtra(sp);
+  return true;
+}
+
+function setMode() {
+  H.classList.toggle('is-steps', MQ.matches);
+  if (!MQ.matches) H.classList.remove('is-result');
+  else { if (!curEl || curEl.hidden) curEl = liveSteps()[0]; for (const q of steps) q.classList.toggle('is-current', q === curEl); paintStepbar(); }
+}
+if (MQ.addEventListener) MQ.addEventListener('change', setMode); else if (MQ.addListener) MQ.addListener(setMode);
+
+/* ── はじめに ── */
+const fromHash = applyHash();
+renderMethod();
+render();
+$('share').hidden = false;
+if (fromHash) $('from-link').hidden = false;
+if (MQ.matches) $('doc').open = false;
+setMode();
+if (fromHash) { if (isSteps()) H.classList.add('is-result'); markDone(); }
+else H.classList.remove('is-result');
+</script>
+</body>
+</html>

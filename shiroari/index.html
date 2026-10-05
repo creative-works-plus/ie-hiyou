@@ -1,0 +1,1129 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>シロアリ駆除の費用計算｜見積書のお姉さん</title>
+<meta name="description" content="延べ床の坪数と階数を選ぶと、シロアリの予防（バリア工法・ベイト工法）の見積書と同じ並びで、1行ずつ目安の金額を出します。数字はすべて公開資料から取り、出典を載せています。">
+<meta name="theme-color" content="#1f2d55">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="見積書のお姉さん">
+<meta property="og:title" content="シロアリ駆除の費用計算｜見積書のお姉さん">
+<meta property="og:description" content="坪数と階数を選ぶと、シロアリの予防の見積書と同じ並びで目安の金額が出ます。バリア工法とベイト工法の1年あたりの比べも。">
+<meta property="og:image" content="https://creative-works-plus.github.io/ie-hiyou/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../img/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=BIZ+UDPMincho:wght@700&family=M+PLUS+Rounded+1c:wght@800&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<script src="../assets/site.js" defer></script>
+<script>/* JSが動くときだけ、スマホは1問ずつ・送られてきたリンクは結果から */(function (h) { h.classList.add('js'); try { if (matchMedia('(max-width: 759.98px)').matches) { h.classList.add('is-steps'); if (location.hash.indexOf('=') > 0) h.classList.add('is-result'); } } catch (e) {} })(document.documentElement);</script>
+<style>
+/* 費用計算ページだけの見た目。色は site.css の変数を使う（見積書の明朝 --f-doc だけこのページで足す）
+   並び：スマホ（760px未満）は JS が html に .is-steps を付けて1問1画面にする。付かなければ全部の問いが縦に並ぶ。
+         760〜959px は1列、960px以上は左に問い・右に結果を貼りつける。 */
+:root { --f-doc: "BIZ UDPMincho", "Hiragino Mincho ProN", "Yu Mincho", serif; --line: #06873d; }
+[hidden] { display: none !important; }
+.num { font-variant-numeric: tabular-nums; }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+h1, h2, h3 { text-wrap: pretty; }
+.vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+[tabindex="-1"]:focus { outline: none; }
+
+/* ── ページの見出し ── */
+.page-h { padding-top: 28px; padding-bottom: 4px; }
+.page-h .kicker { font-size: 13px; font-weight: 700; color: var(--blue); margin: 0 0 8px; line-height: 1.6; }
+.page-h h1 .q { color: var(--blue); }
+.page-h .lead { font-size: 15.5px; margin: 12px 0 0; }
+.promise { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 0; padding: 0; list-style: none; }
+.promise li { font-size: 12.5px; font-weight: 700; color: var(--sub); background: var(--sheet); border: 1px solid var(--rule); border-radius: 999px; padding: 2px 11px 2px 9px; line-height: 1.7; }
+.promise li::before { content: "✓"; color: var(--blue); margin-right: 5px; }
+
+/* ── 計算（問い ＋ 結果） ── */
+.calc { display: grid; gap: 32px; margin-top: 24px; align-items: start; }
+.calc > section { min-width: 0; }
+@media (min-width: 960px) {
+  .calc { grid-template-columns: minmax(0, 1fr) minmax(0, 1.04fr); gap: 32px; }
+  .res-col { position: sticky; top: 72px; max-height: calc(100vh - 84px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; padding: 2px 8px 24px; margin: -2px -8px 0;
+    -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 22px), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 22px), transparent); }
+}
+.col-h { display: flex; align-items: center; gap: 10px; font: 800 15px/1.4 var(--f-disp); color: var(--sub); letter-spacing: .04em; margin: 0 0 12px; }
+.col-h .n { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--ink); color: var(--paper); font-size: 13px; line-height: 1; }
+
+/* 問いのカード */
+#f { display: grid; gap: 12px; counter-reset: q; }
+fieldset.q { counter-increment: q; min-width: 0; margin: 0; padding: 18px 16px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--sheet); }
+@media (min-width: 760px) { fieldset.q { padding: 20px 22px; } }
+fieldset.q > legend { float: left; width: 100%; padding: 0; margin: 0 0 12px; font: 800 18px/1.45 var(--f-disp); }
+fieldset.q > legend::before { content: "Q" counter(q); display: block; font: 700 12px/1.7 var(--f-body); letter-spacing: .12em; color: var(--blue); }
+fieldset.q > legend + * { clear: both; }
+.help { font-size: 13.5px; color: var(--sub); margin: 10px 0 0; line-height: 1.7; }
+
+/* 選択肢のカード */
+.seg { display: grid; grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr)); gap: 8px; }
+.seg label { position: relative; display: block; cursor: pointer; }
+.seg input { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; opacity: 0; margin: 0; cursor: pointer; }
+.opt { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; height: 100%; min-height: 56px; padding: 10px; border: 1.5px solid var(--rule); border-radius: 12px; background: var(--sheet); line-height: 1.4; text-align: center; transition: border-color .15s, background-color .15s, box-shadow .15s; }
+.opt b { font-size: 16.5px; }
+.opt small { font-size: 12.5px; color: var(--sub); }
+.seg label:hover .opt { border-color: color-mix(in srgb, var(--blue) 50%, var(--rule)); }
+.seg input:checked + .opt { border-color: var(--blue); background: var(--blue-soft); box-shadow: inset 0 0 0 1px var(--blue); }
+.seg input:checked + .opt b { color: var(--blue); }
+.seg input:focus-visible + .opt { outline: 3px solid var(--blue); outline-offset: 2px; }
+/* 選んだ印（右上の丸） */
+.opt::after { content: "✓"; position: absolute; top: -8px; right: -8px; width: 22px; height: 22px; border-radius: 50%; background: var(--blue); color: var(--blue-ink); font: 700 12px/22px var(--f-body); text-align: center; transform: scale(0); transition: transform .2s cubic-bezier(.3, 1.6, .6, 1); }
+.seg input:checked + .opt::after { transform: scale(1); }
+/* 説明つきの選択肢は、左に丸いラジオ */
+.seg.left .opt { align-items: flex-start; text-align: left; padding: 12px 14px 12px 46px; }
+.seg.left .opt::before { content: ""; position: absolute; left: 15px; top: 50%; width: 20px; height: 20px; margin-top: -10px; border-radius: 50%; border: 2px solid var(--rule); background: var(--sheet); box-sizing: border-box; }
+.seg.left input:checked + .opt::before { border-color: var(--blue); background: var(--blue); box-shadow: inset 0 0 0 4px var(--sheet); }
+.seg.left .opt::after { display: none; }
+.opt .ico { display: block; width: 46px; height: 30px; color: var(--sub); margin: 0 0 6px; flex: none; overflow: visible; }
+.seg input:checked + .opt .ico { color: var(--blue); }
+.opt .t { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.seg.left .opt .t { align-items: flex-start; }
+
+/* 金額まで出すカード（工法） */
+.paint .opt { align-items: flex-start; text-align: left; padding: 12px 14px; }
+.paint .price { font: 800 20px/1.3 var(--f-disp); color: var(--ink); margin-top: 4px; }
+.paint .per { font-size: 12.5px; color: var(--sub); }
+/* 列が細いとき（スマホ・PCの2段の中）は、1枚ずつ横長に */
+@media (max-width: 520px), (min-width: 960px) {
+  .paint { --cols: 1 !important; }
+  .paint .opt { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 12px; row-gap: 1px; }
+  .paint .opt > b { grid-area: 1 / 1; }
+  .paint .opt > small { grid-area: 2 / 1; }
+  .paint .price { grid-area: 1 / 2 / 3 / 3; margin: 0; text-align: right; }
+  .paint .per { grid-area: 3 / 1 / 4 / 3; margin-top: 2px; }
+}
+
+/* 坪数 */
+.tsubo { display: grid; grid-template-columns: 56px minmax(0, 1fr) 56px; gap: 8px; align-items: stretch; }
+.tsubo button { font: 700 26px/1 var(--f-body); border: 1.5px solid var(--rule); border-radius: 12px; background: var(--sheet); color: var(--ink); cursor: pointer; min-height: 60px; }
+.tsubo button:hover { border-color: var(--blue); color: var(--blue); }
+.tsubo button:active { background: var(--blue-soft); }
+.tsubo .val { border: 2px solid var(--blue); border-radius: 12px; background: var(--sheet); display: flex; align-items: center; justify-content: center; gap: 4px; padding: 4px 8px; min-width: 0; }
+.tsubo .val:focus-within { outline: 3px solid var(--blue); outline-offset: 2px; }
+.tsubo .val input { width: 2.4em; min-width: 0; font: 800 32px/1.1 var(--f-disp); text-align: right; border: 0; background: transparent; color: var(--ink); padding: 0; -moz-appearance: textfield; appearance: textfield; }
+.tsubo .val input:focus-visible { outline: none; }
+.tsubo .val input::-webkit-inner-spin-button, .tsubo .val input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.tsubo .val span { font-weight: 700; }
+.tsubo .val small { color: var(--sub); font-size: 13.5px; margin-left: 6px; white-space: nowrap; }
+input[type="range"] { display: block; width: 100%; height: 28px; margin: 12px 0 0; accent-color: var(--blue); }
+
+/* くわしく入れる（畳んである細かい入力） */
+.more { margin-top: 12px; border-top: 1px dashed var(--rule); }
+.more > summary { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding-top: 4px; cursor: pointer; list-style: none; font-size: 14.5px; font-weight: 700; color: var(--blue); }
+.more > summary::-webkit-details-marker { display: none; }
+.more > summary::before { content: "+"; display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid currentColor; font-size: 14px; line-height: 1; }
+.more[open] > summary::before { content: "−"; }
+.more-body { padding: 4px 0 2px; }
+.field { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 8px; font-size: 14px; color: var(--sub); }
+.field label { color: var(--ink); font-weight: 700; }
+.field input { width: 7em; max-width: 100%; font: 400 16px var(--f-body); padding: 9px 10px; border: 1.5px solid var(--rule); border-radius: 10px; background: var(--sheet); color: var(--ink); }
+.field input.wide { width: 15em; }
+.field input:focus-visible { border-color: var(--blue); }
+
+.reset { display: none; justify-self: start; font: 400 14.5px var(--f-body); color: var(--sub); background: none; border: 0; padding: 10px 0; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.js .reset { display: inline-block; }
+.reset:hover { color: var(--ink); }
+
+/* ── スマホの1問1画面 ── */
+.stepbar, .stepnav, .res-top { display: none; }
+.step-back { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 10px 0 2px; border: 0; background: none; color: var(--ink); font: 700 15px var(--f-body); cursor: pointer; }
+.step-back::before { content: ""; width: 9px; height: 9px; border-left: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); margin-left: 4px; }
+.step-back:disabled { visibility: hidden; }
+.is-steps .stepbar { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 2px 12px; margin: 0 0 18px; }
+.step-count { grid-column: 3; font: 800 15px/1 var(--f-disp); color: var(--sub); letter-spacing: .04em; }
+.step-count b { color: var(--ink); font-size: 19px; }
+.step-prog { grid-column: 1 / -1; height: 6px; border-radius: 3px; background: var(--rule); overflow: hidden; }
+.step-prog i { display: block; width: 0; height: 100%; border-radius: 3px; background: var(--blue); transition: width .3s ease; }
+.is-steps .col-h.form-h { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.is-steps #f { gap: 0; }
+.is-steps fieldset.q { display: none; padding: 0; border: 0; border-radius: 0; background: none; }
+.is-steps fieldset.q.is-current { display: block; }
+.is-steps fieldset.q > legend { font-size: 23px; line-height: 1.4; margin-bottom: 18px; }
+.is-steps fieldset.q > legend::before { display: none; }
+.is-steps .seg.left, .is-steps .paint { grid-template-columns: minmax(0, 1fr); }
+.is-steps .seg .opt { min-height: 64px; }
+.is-steps .seg.rows-sp { grid-template-columns: minmax(0, 1fr); }
+.is-steps .rows-sp .opt { flex-direction: row; justify-content: flex-start; align-items: center; gap: 16px; padding: 12px 16px; text-align: left; }
+.is-steps .rows-sp .opt .ico { width: 58px; height: 38px; margin: 0; }
+.is-steps .rows-sp .opt .t { align-items: flex-start; }
+.is-steps .seg.left .opt { min-height: 72px; }
+.is-steps .help { font-size: 14px; margin-top: 14px; }
+.is-steps .stepnav { display: block; margin-top: 24px; }
+.is-steps .reset { display: none; }
+.btn-next { width: 100%; }
+.btn-next.is-quiet { background: var(--sheet); color: var(--ink); border-color: var(--rule); }
+.btn-next.is-quiet:hover { border-color: var(--ink); filter: none; }
+.is-steps fieldset.q.in-fwd { animation: q-in .3s cubic-bezier(.2, .7, .2, 1) both; }
+.is-steps fieldset.q.in-back { animation: q-back .3s cubic-bezier(.2, .7, .2, 1) both; }
+@keyframes q-in { from { opacity: 0; transform: translateX(22px); } }
+@keyframes q-back { from { opacity: 0; transform: translateX(-22px); } }
+.is-steps .res-col { display: none; }
+.is-steps.is-result .res-col { display: block; }
+.is-steps.is-result .form-col { display: none; }
+.is-steps .res-top { display: flex; margin: -6px 0 6px; }
+.is-steps.is-result .res-col { animation: q-up .3s ease both; }
+@keyframes q-up { from { opacity: 0; transform: translateY(12px); } }
+
+/* ── 結果 ── */
+.total { position: relative; overflow: hidden; padding: 24px 18px 22px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--sheet); box-shadow: var(--shadow); text-align: center; }
+.total::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: linear-gradient(90deg, var(--ink) 0 70%, var(--yellow) 70%); }
+.total .lbl { margin: 0; font-size: 14px; color: var(--sub); }
+.total .big { margin: 6px 0 0; font: 800 clamp(50px, 14.5vw, 68px)/1.1 var(--f-disp); letter-spacing: -.01em; }
+.total .big .hl { background: linear-gradient(transparent 60%, var(--marker) 60%); padding: 0 .08em; }
+.total .big small { font-size: .4em; margin-left: .1em; }
+.total .range { margin: 10px 0 0; font-size: 15px; }
+.total .range b { font-size: 18px; }
+.total .year { margin: 4px 0 0; font-size: 14px; color: var(--sub); line-height: 1.65; }
+.total .ref { margin: 12px auto 0; max-width: 30em; padding-top: 12px; border-top: 1px dashed var(--rule); font-size: 13px; color: var(--sub); line-height: 1.65; }
+.total .ref:empty { display: none; }
+
+.blk { margin-top: 16px; }
+.blk-h { font: 800 15px/1.4 var(--f-disp); margin: 0 0 10px; }
+.blk-h small { display: block; margin-top: 2px; font: 500 13px/1.6 var(--f-body); color: var(--sub); }
+.chips-wrap { display: none; }
+.js .chips-wrap { display: block; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 12px 0 14px; border: 1.5px solid var(--rule); border-radius: 999px; background: var(--sheet); color: var(--ink); font: 700 14px var(--f-body); cursor: pointer; }
+.chip::after { content: ""; width: 6px; height: 6px; border-right: 1.5px solid var(--sub); border-top: 1.5px solid var(--sub); transform: rotate(45deg); margin-left: 2px; }
+.chip:hover { border-color: var(--blue); color: var(--blue); }
+.from-link { margin: 8px 0 0; font-size: 13px; color: var(--sub); }
+
+/* 内訳（御見積書） */
+.doc { border: 1px solid var(--rule); border-radius: var(--radius); background: var(--sheet); box-shadow: var(--shadow); }
+.doc > summary { display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 14px 18px; cursor: pointer; list-style: none; border-radius: var(--radius); }
+.doc > summary::-webkit-details-marker { display: none; }
+.doc > summary::after { content: ""; flex: none; width: 9px; height: 9px; margin: -4px 4px 0 auto; border-right: 2px solid var(--sub); border-bottom: 2px solid var(--sub); transform: rotate(45deg); transition: transform .2s; }
+.doc[open] > summary::after { transform: rotate(-135deg); margin-top: 4px; }
+.doc .sum-t { display: block; font: 700 18px/1.3 var(--f-doc); letter-spacing: .14em; }
+.doc .sum-s { display: block; font-size: 13px; color: var(--sub); }
+.doc-body { padding: 4px 16px 18px; border-top: 1px solid var(--rule); }
+@media (min-width: 400px) { .doc-body { padding: 4px 20px 20px; } }
+.doc-h { margin: 18px 0 4px; font: 700 22px/1.4 var(--f-doc); letter-spacing: .3em; text-align: center; }
+.spec { margin: 0 0 12px; font-size: 13px; color: var(--sub); text-align: center; line-height: 1.6; }
+.fnote { margin: 0 0 12px; padding: 10px 12px; border-radius: var(--radius-s); background: var(--blue-soft); font-size: 13.5px; line-height: 1.7; }
+.est-scroll { overflow-x: auto; }
+table.est { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.45; }
+table.est th, table.est td { padding: 10px 4px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+table.est thead th { padding-top: 0; border-bottom: 1.5px solid var(--ink); font-size: 12px; font-weight: 700; color: var(--sub); text-align: right; }
+table.est thead th:first-child { text-align: left; }
+table.est thead .rng-h { display: block; font-weight: 400; }
+table.est td.item b { font-weight: 700; }
+table.est td.item small { display: block; margin-top: 2px; font-size: 12.5px; color: var(--sub); }
+table.est td.amt { padding-left: 12px; text-align: right; white-space: nowrap; font-weight: 700; }
+table.est td.amt .rng { display: block; margin-top: 2px; font-size: 13px; font-weight: 400; color: var(--sub); }
+table.est tr.sum td { border-bottom: 1.5px solid var(--ink); font-weight: 700; }
+table.est tr.grand td { padding-top: 12px; border-bottom: 0; font-size: 17px; }
+table.est tr.grand td.amt { font-size: 19px; }
+table.est tr.grand td.amt .rng { font-size: 14px; }
+table.est tr.off td { color: var(--sub); }
+table.est tr.off td.amt { font-weight: 400; }
+.kw { display: inline-block; margin-left: 6px; padding: 3px 7px 2px; border: 1px solid currentColor; border-radius: 999px; font: 700 11px/1 var(--f-body); color: var(--blue); text-decoration: none; vertical-align: 2px; }
+.kw:hover { background: var(--blue-soft); }
+.doc .foot { margin: 12px 0 0; font-size: 13.5px; color: var(--sub); line-height: 1.7; }
+
+/* 手元の見積書と比べる */
+.card-s { padding: 18px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--sheet); }
+.card-s h3 { font-size: 18px; margin: 0 0 4px; }
+.card-s .hint { margin: 0 0 12px; font-size: 13.5px; color: var(--sub); line-height: 1.7; }
+.cmp .row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 10px; }
+.cmp label { font-size: 14px; font-weight: 700; }
+.cmp .in { display: inline-flex; align-items: center; gap: 8px; }
+.cmp input { width: 6.2em; font: 800 24px var(--f-disp); padding: 6px 12px; border: 2px solid var(--blue); border-radius: 12px; background: var(--sheet); color: var(--ink); text-align: right; }
+.cmp .in span { font-weight: 700; }
+.ruler { position: relative; height: 64px; margin: 18px 6px 4px; }
+.ruler.has-mine { height: 92px; }
+.ruler .track { position: absolute; left: 0; right: 0; top: 30px; height: 6px; border-radius: 3px; background: var(--rule); }
+.ruler .band { position: absolute; top: 28px; height: 10px; border: 2px solid var(--blue); border-radius: 5px; background: var(--blue-soft); }
+.ruler .tick { position: absolute; top: 44px; transform: translateX(-50%); font-size: 13px; color: var(--sub); white-space: nowrap; }
+.ruler .pin { position: absolute; top: 0; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; font-size: 13px; font-weight: 700; white-space: nowrap; }
+.ruler .pin i { display: block; width: 3px; height: 16px; margin-top: 2px; background: currentColor; }
+.ruler .pin.std { color: var(--blue); }
+.ruler .pin.mine { top: 26px; flex-direction: column-reverse; color: var(--red-ink); }
+.ruler .pin.mine i { height: 40px; margin: 0 0 2px; }
+.verdict { margin: 12px 0 0; font-size: 15px; line-height: 1.75; }
+.verdict:empty { display: none; }
+.verdict .v-pill { display: table; margin: 0 0 8px; padding: 3px 14px; border-radius: 999px; background: var(--blue-soft); color: var(--blue); font: 800 16px/1.6 var(--f-disp); }
+.verdict.out .v-pill { background: var(--marker); color: var(--ink); }
+.verdict .v-next { display: block; margin-top: 8px; }
+.verdict .v-open { display: inline-flex; align-items: center; min-height: 40px; margin-top: 6px; padding: 0 16px; border: 1.5px solid var(--blue); border-radius: 999px; background: var(--sheet); color: var(--blue); font: 700 14px var(--f-body); cursor: pointer; }
+.verdict .v-open:hover { background: var(--blue-soft); }
+.verdict small { display: block; margin-top: 8px; font-size: 13px; color: var(--sub); line-height: 1.65; }
+
+/* 家族に送る */
+.share-btns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.share-btns .btn { min-height: 50px; padding: 0 12px; font-size: 15px; }
+.btn-line { grid-column: 1 / -1; background: var(--line); color: #fff; }
+.btn-line:hover { filter: brightness(1.08); }
+.btn-line svg { width: 24px; height: 24px; flex: none; }
+.share-btns:has(#sh-native[hidden]) #sh-copy { grid-column: 1 / -1; }
+@media (max-width: 439.98px) { .share-btns { grid-template-columns: minmax(0, 1fr); } }
+.sh-url { display: inline-block; margin-top: 4px; font-size: 13px; overflow-wrap: anywhere; }
+.share .hint.foot { margin: 10px 0 0; }
+.sh-status { margin: 10px 0 0; font-size: 13.5px; color: var(--sub); }
+.sh-status:empty { display: none; }
+.next-links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 18px 0 0; font-size: 14px; }
+.next-links a { font-weight: 700; }
+.next-links a::after { content: " →"; }
+.next-links a.warn { color: var(--red-ink); }
+
+/* ── 下に出る「いまの条件の相場」の帯 ── */
+.dock { display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; align-items: center; justify-content: space-between; gap: 12px; padding: 9px 16px calc(9px + env(safe-area-inset-bottom, 0px)); background: var(--navy); color: var(--on-navy); border-top: 1px solid rgba(255, 255, 255, .1); box-shadow: 0 -10px 28px rgba(20, 33, 61, .16); transition: transform .25s ease; }
+.js .dock { display: flex; }
+.dock.away { transform: translateY(115%); }
+.is-result .dock { display: none !important; }
+.dock-in { min-width: 0; flex: 1; }
+.dock .d1 { margin: 0; font-size: 12px; line-height: 1.4; color: color-mix(in srgb, var(--on-navy) 78%, transparent); }
+.dock .d2 { margin: 0; font: 800 25px/1.2 var(--f-disp); }
+.dock .d2 small { font-size: 13px; }
+.dock .d2 .d-sub { display: inline-block; font: 400 12px var(--f-body); color: color-mix(in srgb, var(--on-navy) 78%, transparent); margin-left: 8px; }
+.dock .d3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 2px; }
+.dock .d3 > span { display: flex; flex-direction: column; min-width: 0; }
+.dock .d3 b { font: 800 18px/1.2 var(--f-disp); white-space: nowrap; }
+.dock .d3 i { font-style: normal; }
+.dock .d3 small { font: 400 11px/1.4 var(--f-body); white-space: nowrap; color: color-mix(in srgb, var(--on-navy) 78%, transparent); }
+.dock-go { flex: none; min-height: 44px; padding: 0 16px; border: 0; border-radius: 999px; background: var(--yellow); color: #14213d; font: 700 14px var(--f-body); cursor: pointer; }
+@media (max-width: 959.98px) { .js body { padding-bottom: 76px; } .js.is-result body { padding-bottom: 0; } }
+@media (min-width: 960px) { .js .dock { display: none; } }
+
+/* ── 読みもの ── */
+.read { max-width: 760px; margin-top: 72px; display: grid; gap: 52px; }
+.read > section { min-width: 0; }
+.read h2 { font-size: clamp(22px, 5.4vw, 28px); margin-bottom: 14px; }
+.read p { margin: 0 0 12px; }
+.checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: c; }
+.checks li { counter-increment: c; display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 4px 10px; }
+.checks li::before { content: counter(c); grid-row: span 2; width: 30px; height: 30px; margin-top: 2px; border-radius: 50%; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-weight: 700; font-size: 15px; line-height: 1; }
+.checks b { font-size: 17px; }
+.checks span { color: var(--sub); font-size: 15px; }
+.ask { margin: 18px 0 0; padding: 16px 18px; border-left: 4px solid var(--blue); border-radius: 0 var(--radius-s) var(--radius-s) 0; background: var(--sheet); display: grid; gap: 8px; }
+.ask p { margin: 0; font-weight: 700; }
+.ask .h { font-weight: 400; color: var(--sub); font-size: 14px; }
+.read .warn-box { padding: 0; overflow: hidden; border: 2px solid var(--red); border-radius: var(--radius); background: var(--sheet); }
+.read .warn-box .head { padding: 10px 16px; background: var(--red-ink); color: var(--sheet); font-weight: 700; font-size: 16px; }
+.read .warn-box .body { padding: 16px; display: grid; gap: 16px; }
+.case { display: grid; gap: 4px; }
+.case q { font-weight: 700; font-size: 17px; quotes: "「" "」"; }
+.case p { margin: 0; color: var(--sub); font-size: 15px; }
+.case p b { color: var(--red-ink); }
+.todo { background: var(--red-soft); border-radius: var(--radius-s); padding: 14px 16px; display: grid; gap: 8px; }
+.todo p { margin: 0; font-size: 15px; }
+.read .tel { font-family: var(--f-disp); font-weight: 800; font-size: 20px; color: var(--ink); text-decoration: none; border-bottom: 2px solid var(--ink); }
+.method { font-size: 15px; }
+.method dl { margin: 0; display: grid; gap: 10px; }
+.method dt { font-weight: 700; }
+.method dd { margin: 0; color: var(--sub); }
+ol.src { margin: 0; padding-left: 1.2em; font-size: 14px; color: var(--sub); display: grid; gap: 6px; }
+ol.src a { overflow-wrap: anywhere; }
+.src-scroll { overflow-x: auto; }
+.src-table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.55; margin: 8px 0 0; }
+.src-table th, .src-table td { text-align: left; padding: 7px 6px 7px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.src-table th { font-size: 12.5px; color: var(--sub); border-bottom: 1.5px solid var(--ink); }
+.src-table td.n { white-space: nowrap; }
+.src-table td:first-child { min-width: 7.5em; }
+.src-table td:last-child { min-width: 10em; }
+.kind { display: grid; gap: 12px; }
+.kind > div { border-left: 4px solid var(--rule); padding: 2px 0 2px 14px; }
+.kind b { display: block; }
+.kind span { color: var(--sub); font-size: 15px; }
+.kind .w { border-left-color: var(--red); }
+.page-note { max-width: 760px; margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--rule); font-size: 13.5px; color: var(--sub); }
+.page-note p { margin: 0 0 8px; }
+
+@media (prefers-reduced-motion: reduce) {
+  /* 動き（横すべり・はねる）は止める。うすく出るだけは残す */
+  .is-steps fieldset.q.in-fwd, .is-steps fieldset.q.in-back, .is-steps.is-result .res-col { animation: q-fade .16s linear both; }
+  @keyframes q-fade { from { opacity: 0; } }
+  .opt, .opt::after, .step-prog i, .dock, .doc > summary::after { transition: none; }
+}
+@media print { .dock, .stepbar, .stepnav, .share, .reset { display: none !important; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へ</a>
+<header class="site-h">
+  <div class="wrap site-h__in">
+    <a class="logo" href="../"><img src="../img/face.webp" alt="" width="36" height="36">見積書のお姉さん</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"><span class="menu-btn__bars" aria-hidden="true"></span>メニュー</button>
+    <nav id="site-nav" class="site-nav" aria-label="サイトの中">
+      <a href="../#keisan">計算する</a>
+      <a href="../douga/">動画</a>
+      <a href="../teguchi/">手口の記録</a>
+      <a href="../kotoba/">言葉の辞典</a>
+      <a class="nav-warn" href="../houmon/">業者が来たら</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap page-h">
+    <p class="crumb"><a href="../">トップ</a> ／ シロアリ駆除の費用計算</p>
+    <p class="kicker"><span class="nw">YouTube「シロアリ駆除30坪、本当はいくら？」と</span><span class="nw">同じ単価表で計算します</span></p>
+    <h1><span class="nw">うちのシロアリ予防、</span><span class="nw q">相場はいくら？</span></h1>
+    <p class="lead">延べ床の坪数と階数を選ぶと、業者さんの見積書と同じ並びで、1行ずつ目安の金額を出します。バリア工法とベイト工法の1年あたりの費用も比べられます。数字はすべて公開されている資料から取り、出典をページの下にまとめました。</p>
+    <ul class="promise">
+      <li>駆除業者ではない立場で作っています</li>
+      <li>入力した内容は、どこにも送られません</li>
+      <li>金額はすべて税込</li>
+    </ul>
+  </div>
+
+  <div class="wrap">
+  <div class="calc">
+    <section class="form-col" aria-labelledby="h-form">
+      <h2 class="col-h form-h" id="h-form"><span class="n">1</span>家のことを選ぶ</h2>
+      <div class="stepbar" id="stepbar">
+        <button type="button" class="step-back" id="step-back">もどる</button>
+        <p class="step-count num" id="step-count"><b>1</b> / 7</p>
+        <div class="step-prog" aria-hidden="true"><i id="step-fill"></i></div>
+      </div>
+      <form id="f" autocomplete="off">
+        <fieldset class="q is-current" data-step="floors" data-kind="radio" tabindex="-1">
+          <legend>何階建てですか</legend>
+          <div class="seg" style="--cols:3">
+            <label><input type="radio" name="floors" id="fl1" value="1"><span class="opt"><b>平屋</b></span></label>
+            <label><input type="radio" name="floors" id="fl2" value="2" checked><span class="opt"><b>2階建て</b></span></label>
+            <label><input type="radio" name="floors" id="fl3" value="3"><span class="opt"><b>3階建て</b></span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="q" data-step="tsubo" data-kind="number" tabindex="-1">
+          <legend><span class="nw">延べ床面積</span><span class="nw">（家ぜんぶの床の広さ）</span></legend>
+          <div class="tsubo">
+            <button type="button" id="minus" aria-label="1坪へらす">−</button>
+            <div class="val"><input type="number" id="tsubo" inputmode="numeric" min="15" max="60" step="1" value="30" aria-label="延べ床面積（坪）"><span>坪</span><small id="tsubo-m2">約99㎡</small></div>
+            <button type="button" id="plus" aria-label="1坪ふやす">＋</button>
+          </div>
+          <input type="range" id="tsubo-range" min="15" max="60" step="1" value="30" aria-label="延べ床面積（坪）">
+          <p class="help">固定資産税の通知書（課税明細書）や、建てたときの図面に書いてあります。1坪は約3.3㎡です。</p>
+          <p class="help num" id="foot-note">薬をまくのは1階の床下です。この家なら、1階の床は 約50㎡ として計算します。</p>
+          <details class="more" id="more-m2">
+            <summary>くわしく入れる</summary>
+            <div class="more-body">
+              <div class="field"><label for="m2">延べ床を㎡でわかる場合は</label><input type="number" id="m2" inputmode="decimal" min="50" max="200" step="0.1" placeholder="例 99.2"><span>㎡</span></div>
+            </div>
+          </details>
+        </fieldset>
+
+        <fieldset class="q" data-step="koho" data-kind="radio" tabindex="-1">
+          <legend>工法</legend>
+          <div class="seg paint" style="--cols:2" id="koho">
+            <label><input type="radio" name="koho" id="ko1" value="barrier" checked><span class="opt"><b>バリア工法</b><small><span class="nw">床下の木と土に薬をまく・</span><span class="nw">効き目は約5年</span></small><span class="price num" data-p="barrier"></span><span class="per num" data-y="barrier"></span></span></label>
+            <label><input type="radio" name="koho" id="ko2" value="bait"><span class="opt"><b>ベイト工法</b><small><span class="nw">家のまわりにエサの筒を埋める・</span><span class="nw">毎年の管理料がかかる</span></small><span class="price num" data-p="bait"></span><span class="per num" data-y="bait"></span></span></label>
+          </div>
+          <p class="help">ベイト工法は、家のまわりの長さ（外周）で値段が決まり、2年目からも毎年の管理料がかかります。どちらも5年で割った1年あたりの金額を出しています。</p>
+        </fieldset>
+
+        <fieldset class="q" id="senkou-set" data-step="senkou" data-kind="radio" tabindex="-1">
+          <legend><span class="nw">玄関と浴室の</span><span class="nw">穿孔注入（せんこうちゅうにゅう）</span></legend>
+          <div class="seg left" style="--cols:2">
+            <label><input type="radio" name="senkou" id="sk1" value="betsu" checked><span class="opt"><span class="t"><b>見積書に別の行で入る</b><small><span class="nw">玄関7,000円・</span><span class="nw">浴室12,000円（税抜）</span></small></span></span></label>
+            <label><input type="radio" name="senkou" id="sk2" value="fukumu"><span class="opt"><span class="t"><b>㎡単価に含む業者</b><small>この2行は0円になる</small></span></span></label>
+          </div>
+          <p class="help">玄関や浴室の下はコンクリートでふさがっているので、穴をあけて薬を入れます。この作業を㎡単価に含めている業者もあります。</p>
+        </fieldset>
+
+        <fieldset class="q" id="kiso-set" data-step="kiso" data-kind="radio" tabindex="-1">
+          <legend>基礎の形</legend>
+          <div class="seg left" style="--cols:2">
+            <label><input type="radio" name="kiso" id="ks1" value="beta" checked><span class="opt"><span class="t"><b>ベタ基礎</b><small>床下の一面がコンクリート</small></span></span></label>
+            <label><input type="radio" name="kiso" id="ks2" value="nuno"><span class="opt"><span class="t"><b>布基礎</b><small><span class="nw">壁の下だけがコンクリート。</span><span class="nw">1〜2万円高くなることがある</span></small></span></span></label>
+          </div>
+          <p class="help">わからなければ、そのままで大丈夫です。</p>
+        </fieldset>
+
+        <fieldset class="q" id="yuka-set" data-step="yuka" data-kind="radio" tabindex="-1">
+          <legend>床下の高さ</legend>
+          <div class="seg left" style="--cols:2">
+            <label><input type="radio" name="yuka" id="yk1" value="std" checked><span class="opt"><span class="t"><b>人がもぐれる高さ</b><small>40cm以上</small></span></span></label>
+            <label><input type="radio" name="yuka" id="yk2" value="low"><span class="opt"><span class="t"><b>低い</b><small><span class="nw">30cm以下。</span><span class="nw">1〜3万円高くなることがある</span></small></span></span></label>
+          </div>
+          <p class="help">わからなければ、そのままで大丈夫です。</p>
+        </fieldset>
+
+        <fieldset class="q" id="tenken-set" data-step="tenken" data-kind="radio" tabindex="-1">
+          <legend><span class="nw">床下への入り口</span><span class="nw">（点検口）</span></legend>
+          <div class="seg left" style="--cols:2">
+            <label><input type="radio" name="tenken" id="tk1" value="ari" checked><span class="opt"><span class="t"><b>ある</b><small>床下にもぐる入り口がある</small></span></span></label>
+            <label><input type="radio" name="tenken" id="tk2" value="nashi"><span class="opt"><span class="t"><b>ない（新しく作る）</b><small><span class="nw">平均22,000円／か所</span><span class="nw">（税の記載なし）</span></small></span></span></label>
+          </div>
+        </fieldset>
+
+        <div class="stepnav"><button type="button" class="btn btn-primary btn-next" id="step-next">このまま次へ</button></div>
+        <button type="button" class="reset" id="btn-reset">動画と同じ条件にもどす</button>
+      </form>
+    </section>
+
+    <section class="res-col" id="result" aria-labelledby="h-result">
+      <div class="res-top"><button type="button" class="step-back" id="res-back">もどる</button></div>
+      <h2 class="col-h" id="h-result" tabindex="-1"><span class="n">2</span>計算の結果</h2>
+      <div class="total" aria-live="polite">
+        <p class="lbl" id="t-lbl">相場の単価で計算すると（税込）</p>
+        <p class="big num"><span class="hl" id="t-std">119,900</span><small>円</small></p>
+        <p class="range" id="t-range">業者によって <b class="num">約10.3万〜15.7万円</b></p>
+        <p class="year num" id="t-year">1年あたり 約2.4万円</p>
+        <p class="ref num" id="t-ref"></p>
+      </div>
+
+      <div class="blk chips-wrap">
+        <h3 class="blk-h">この条件で計算しました</h3>
+        <div class="chips" id="chips"></div>
+        <p class="from-link" id="from-link" hidden>送られてきたリンクの条件で計算しています。</p>
+        <p class="from-link">押すと、その問いにもどって直せます。</p>
+      </div>
+
+      <details class="doc blk" id="doc" open>
+        <summary><span><span class="sum-t">御見積書（内訳）</span><span class="sum-s">1行ずつの目安と、業者による幅</span></span></summary>
+        <div class="doc-body">
+          <p class="spec num" id="spec"></p>
+          <p class="fnote" id="fnote" hidden></p>
+          <div class="est-scroll">
+            <table class="est num">
+              <thead><tr><th scope="col">項目</th><th scope="col">目安<span class="rng-h">業者による幅</span></th></tr></thead>
+              <tbody id="rows"></tbody>
+            </table>
+          </div>
+          <p class="foot">合計だけで決めずに、薬をまく面積（何㎡か）と、手元の見積書の1行ずつが、この幅のどこにいるかを見てください。</p>
+        </div>
+      </details>
+
+      <div class="card-s cmp blk">
+        <h3>手元の見積書と比べる</h3>
+        <p class="hint" id="cmp-hint">見積書の合計（税込）を入れると、相場の幅のどこにあるかを出します。入れた金額は、どこにも送られません。</p>
+        <div class="row"><label for="mine">見積書の合計</label><span class="in"><input type="number" id="mine" inputmode="decimal" min="0" step="0.1" placeholder="例 15"><span>万円</span></span></div>
+        <div class="ruler" id="ruler" aria-hidden="true">
+          <div class="track"></div>
+          <div class="band" id="r-band"></div>
+          <div class="pin std" id="r-std"><span>相場</span><i></i></div>
+          <div class="pin mine" id="r-mine" hidden><span>手元の見積書</span><i></i></div>
+          <div class="tick num" id="r-lo"></div>
+          <div class="tick num" id="r-hi"></div>
+        </div>
+        <p class="verdict" id="verdict" aria-live="polite"></p>
+      </div>
+
+      <section class="card-s share blk" id="share" aria-labelledby="h-share" hidden>
+        <h3 id="h-share">家族に送る</h3>
+        <p class="hint">いま選んでいる条件のまま、同じ計算が開くリンクを送れます。</p>
+        <div class="share-btns">
+          <a class="btn btn-line" id="sh-line" href="https://line.me/R/share" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.5s5.9-3.5 8-6C21.4 14.3 22 12.7 22 11c0-4.4-4.5-8-10-8Z"/></svg>LINEで送る</a>
+          <button type="button" class="btn btn-ghost" id="sh-copy">リンクをコピー</button>
+          <button type="button" class="btn btn-ghost" id="sh-native" hidden>ほかのアプリで送る</button>
+        </div>
+        <p class="sh-status" id="sh-status" role="status"></p>
+        <p class="hint foot">送るのは、選んだ条件だけです。手元の見積書の金額は入りません。</p>
+      </section>
+
+      <p class="next-links"><a href="../douga/04/">動画の文字版を読む</a><a class="warn" href="../houmon/">業者が来たら、まずこれ</a></p>
+    </section>
+  </div>
+
+<div class="read">
+  <section aria-labelledby="h-check">
+    <h2 id="h-check"><span class="nw">見積書で</span><span class="nw">確かめたい4つ</span></h2>
+    <p>駆除会社・見積もりサイト・日本しろあり対策協会などが、注意点として挙げていることです。</p>
+    <ol class="checks">
+      <li><b>薬をまく面積が「1階の床」になっているか</b><span>床下の広さは、1階の床面積で数えるのが一般的です。延べ床で計算されると、薬剤処理の行が約2倍になります（延べ床30坪の家なら 99㎡×1,800円＝178,200円。1階の床50㎡なら90,000円）。言葉の意味は<a href="../kotoba/#tsubo">坪・延床面積</a>・<a href="../kotoba/#heibei">㎡単価</a>へ。</span></li>
+      <li><b>「一式」だけになっていないか</b><span>内訳・薬剤の名前・保証の中身・追加の費用がかかる条件を確かめます。訪問販売の契約書に「床下工事一式」とだけ書くのは、特定商取引法の違反です（国民生活センター）。→ <a href="../kotoba/#isshiki">一式</a></span></li>
+      <li><b>保証の年数と、点検の回数</b><span>薬の効き目は約5年です（日本しろあり対策協会）。保証の年数は「5年～10年」と業者によって違い、点検の回数や、何が起きたら直してもらえるかも業者ごとに違います。→ <a href="../kotoba/#bougi">防蟻（シロアリの薬剤処理）</a></span></li>
+      <li><b>頼んでいない工事が増えていないか</b><span>床下の点検のあとに、床下換気扇や調湿材を次々にすすめるのは、古くからある点検商法の形です（国民生活センターの資料）。その場で決めずに、何社か見積もりを取ってください。→ <a href="../kotoba/#kankisen">床下換気扇</a>・<a href="../kotoba/#aimitsumori">相見積もり</a></span></li>
+    </ol>
+    <div class="ask">
+      <p class="h">業者さんに聞くとよい質問</p>
+      <p>「薬をまく面積は、何㎡で計算しましたか」</p>
+      <p>「使う薬剤の名前と、保証の年数・点検の回数を教えてください」</p>
+      <p>「玄関と浴室の穿孔注入は、㎡単価に入っていますか」</p>
+    </div>
+    <p style="margin-top:18px">動画の内容は、文字でも読めます → <a href="../douga/04/">シロアリ駆除30坪、本当はいくら？（文字版）</a></p>
+  </section>
+
+  <section aria-labelledby="h-warn">
+    <h2 id="h-warn"><span class="nw">こんな訪問に</span><span class="nw">気をつけてください</span></h2>
+    <div class="warn-box">
+      <div class="head">香川県・国民生活センター・上田市が公表した事例より</div>
+      <div class="body">
+        <div class="case">
+          <q>排水管の点検させてください。今、近所を回っているのですが、どうですか</q>
+          <p>排水管の清掃のあと床下へ。スマートフォンの写真を見せて「これは白蟻が通った跡である」。<b>440万円</b>の工事の見積金額を示された。翌朝、自分で床下に入ると、写真のような場所はどこにも見当たらなかった。（香川県が業務停止命令を出した事業者の例）</p>
+        </div>
+        <div class="case">
+          <q>無料点検するので床下を見せてほしい</q>
+          <p>防虫防蟻処理などで約15万円の契約。工事の日に「床下全面に調湿剤をまいた方がよい」と約85万円、さらに水道管・トイレと工事が増えて<b>総額約175万円</b>。</p>
+        </div>
+        <div class="case">
+          <q>お宅から羽アリが飛んできているとクレームが出ているので点検に来た</q>
+          <p>何度もしつこく勧められ、帰ってもらうために契約。作業の前に<b>現金で約50万円</b>を払った。</p>
+        </div>
+        <div class="todo">
+          <p><b>その場で決めない。</b>見せられた写真や映像が自分の家のものか、落ち着いて確かめてください（写真の日付を見るのも1つの方法）。→ <a href="../kotoba/#tenken">点検商法</a></p>
+          <p>訪問販売で契約したときは、不備のない契約書面を受け取った日から<b>8日以内</b>なら、<a href="../kotoba/#coolingoff">クーリング・オフ</a>（契約の取り消し）ができます。工事が終わっていても、代金を払う必要はありません。</p>
+          <p>困ったときは <span class="nw">消費者ホットライン <a class="tel" href="tel:188">188</a>（いやや）</span><br>住まいの相談は <span class="nw">住まいるダイヤル</span> <a class="tel" href="tel:0570016100">0570-016-100</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="method" aria-labelledby="h-method">
+    <h2 id="h-method"><span class="nw">計算の仕方と</span><span class="nw">出典</span></h2>
+    <dl id="method"></dl>
+    <h3 style="font-size:16px;margin:22px 0 8px">出典（2026年10月3日に確認）</h3>
+    <ol class="src">
+      <li>床下の薬剤処理の㎡単価：<a href="https://www.sharing-tech.co.jp/shiroari/shiroari-kujo-cost/" rel="noopener" target="_blank">シェアリングテクノロジー（見積もり・仲介サイト）</a>／<a href="https://xn--cckwajz5wft5cb0080xf1h.com/column/know12/" rel="noopener" target="_blank">fortitude（業者の比較サイト）</a>／<a href="https://house--keeper.jp/termite-control_cost/" rel="noopener" target="_blank">ハウスキーパー（駆除業者）</a>／<a href="https://www.shiroari-ichiban.com/contents/column/shiroarikujo-price/" rel="noopener" target="_blank">シロアリ1番！（駆除業者）</a>／<a href="https://www.duskin.jp/terminix/ant/tm000030/" rel="noopener" target="_blank">ダスキン バリア工法（駆除サービス）</a>／<a href="https://aripro-sesco.com/termite-cost/" rel="noopener" target="_blank">アリプロ（情報サイト）</a>／<a href="https://www.asante.co.jp/termite/column/t31.html" rel="noopener" target="_blank">アサンテ（駆除業者）</a>／<a href="https://total-clean.co.jp/consultation/shiroari/%E3%82%B7%E3%83%AD%E3%82%A2%E3%83%AA%E9%A7%86%E9%99%A4%E3%81%AE%E6%96%99%E9%87%91%E7%9B%B8%E5%A0%B4%E3%81%AF%E3%81%84%E3%81%8F%E3%82%89%EF%BC%9F/" rel="noopener" target="_blank">トータルクリーン（駆除業者）</a>／<a href="https://ouchi-shuzen.jp/shiroari/cost/" rel="noopener" target="_blank">おうちの修繕ガイド（情報サイト）</a></li>
+      <li>ベイト工法：<a href="https://www.duskin.jp/terminix/ant/tm000020/" rel="noopener" target="_blank">ダスキン ベイト工法</a>／<a href="https://group.nagase.com/sentricon/faq/" rel="noopener" target="_blank">セントリコン よくある質問（ベイト剤の会社）</a></li>
+      <li>穿孔注入・基礎の形・床下の高さ・点検口・調査・保証：<a href="https://seikatsu-doctor.co.jp/reform/average-cost-of-termite-prevention/" rel="noopener" target="_blank">外構ドクター（一級建築士監修の記事）</a>／<a href="https://www.sharing-tech.co.jp/shiroari/shiroari-kujo-cost/" rel="noopener" target="_blank">シェアリングテクノロジー</a>／<a href="https://rehome-navi.com/articles/105" rel="noopener" target="_blank">リホームナビ（リフォーム情報サイト）</a>／<a href="https://www.duskin.jp/terminix/ant/tm000110/" rel="noopener" target="_blank">ダスキン 床下換気扇</a></li>
+      <li>効き目の年数・処理する範囲：<a href="https://www.hakutaikyo.or.jp/faq/2659.html" rel="noopener" target="_blank">日本しろあり対策協会 よくある質問（有効期間5年）</a>／<a href="https://www.hakutaikyo.or.jp/faq/2654.html" rel="noopener" target="_blank">同（5年を過ぎても）</a>／<a href="https://www.hakutaikyo.or.jp/faq/2679.html" rel="noopener" target="_blank">同（5年ごとの施工）</a>／<a href="https://www.hakutaikyo.or.jp/faq/2678.html" rel="noopener" target="_blank">同（ベタ基礎）</a>／<a href="https://www.hakutaikyo.or.jp/jigyou/boujo" rel="noopener" target="_blank">同 防除について</a>／<a href="https://www.hakutaikyo.or.jp/boujo/files/shiyousho.pdf" rel="noopener" target="_blank">同 防除施工標準仕様書</a></li>
+      <li>相談事例：<a href="https://www.pref.kagawa.lg.jp/documents/5566/20210915.pdf" rel="noopener" target="_blank">香川県 令和3年9月15日の発表資料</a>／<a href="https://www.kokusen.go.jp/pdf/n-20180301_1.pdf" rel="noopener" target="_blank">国民生活センター 2018年3月1日</a>／<a href="https://www.city.ueda.nagano.jp/soshiki/shohiseikatu/41247.html" rel="noopener" target="_blank">上田市消費生活センター</a>／<a href="https://www.kokusen.go.jp/soudan_topics/data/reformtenken.html" rel="noopener" target="_blank">国民生活センター 訪問販売によるリフォーム工事・点検商法</a>／<a href="https://www.caa.go.jp/policies/policy/local_cooperation/local_consumer_administration/hotline/" rel="noopener" target="_blank">消費者庁 消費者ホットライン</a></li>
+    </ol>
+  </section>
+</div>
+
+  <div class="page-note">
+  <p>このページは、駆除業者ではない立場で、YouTubeの動画のために作っています。特定の業者を紹介するものではありません。業者の名前は、単価の出典としてだけ載せています。</p>
+  <p>金額は公開されている資料から計算した目安です。実際の金額は、家の状態・地域・業者によって変わります。見積もりの代わりにはなりません。</p>
+  </div>
+  </div>
+</main>
+
+<div class="dock" id="dock">
+  <div class="dock-in">
+    <p class="d1" id="d-lbl">いまの条件の相場（税込）</p>
+    <p class="d2 num"><span id="d-std">119,900</span><small>円</small><span class="d-sub" id="d-sub">業者によって 10.3〜15.7万円</span></p>
+  </div>
+  <button type="button" class="dock-go" id="dock-go">結果へ</button>
+</div>
+<footer class="site-f">
+  <div class="wrap">
+    <a class="logo" href="../"><img src="../img/face.webp" alt="" width="36" height="36">見積書のお姉さん</a>
+    <p class="site-f__about">家の修理・リフォームの見積書を、公開されている資料の単価から1行ずつ読み解くYouTubeチャンネルです。工事を請け負う業者ではありません。</p>
+    <div class="sns">
+      <a href="https://www.youtube.com/@mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#ff0033" d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81z"/><path fill="#fff" d="M9.55 15.57V8.43L15.82 12z"/></svg>YouTube</a>
+      <a href="https://www.instagram.com/mitsumori_onee/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+      <a href="https://x.com/mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</a>
+    </div>
+    <nav class="site-f__nav" aria-label="サイトの案内">
+      <a href="../#keisan">計算する</a>
+      <a href="../douga/">動画</a>
+      <a href="../teguchi/">手口の記録</a>
+      <a href="../kotoba/">言葉の辞典</a>
+      <a href="../houmon/">業者が来たら</a>
+      <a href="../about/">このサイトについて</a>
+      <a href="../privacy/">プライバシーポリシー</a>
+      <a href="../contact/">お問い合わせ</a>
+    </nav>
+    <p class="site-f__fine">金額はすべて、公開されている資料の単価から計算した目安です。実際の金額は家ごとに変わります。</p>
+    <p class="site-f__fine">© 2026 見積書のお姉さん</p>
+  </div>
+</footer>
+<script>
+/* ============================================================
+   数字はすべて 04_シロアリ駆除30坪/単価表.md から取る。
+   ここだけ直して、単価表と食い違わせない。
+   std＝動画のモデル見積書の単価 / lo・hi＝出典の幅の下と上。すべて税抜（最後に消費税10%を足す）
+   ============================================================ */
+const P = {
+  yakuzai:  { std: 1800,  lo: 1725 / 1.1, hi: 2250  },  // 床下の薬剤処理（1階の床1㎡）。幅は税込1,725円（シェアリング）〜2,475円（ダスキン）を税抜に直したもの（2-1）
+  genkan:   { std: 7000,  lo: 5000,  hi: 10000 },  // 玄関の土間の穿孔注入（1か所）外構ドクター 5千〜1万円・税の記載なし（2-4）
+  yokushitsu:{ std: 12000, lo: 10000, hi: 20000 },  // 浴室まわりの穿孔注入（1か所）シェアリング 平均13,200円を税込とみて税抜12,000円／外構ドクター 1〜2万円・税の記載なし（2-4）
+  nuno:     { std: 10000, lo: 10000, hi: 20000 },  // 布基礎の上乗せ。外構ドクター ＋1〜2万円・税の記載なし。目安は出典の下の端（真ん中などの新しい数字は作らない）（2-4）
+  hikui:    { std: 10000, lo: 10000, hi: 30000 },  // 床下30cm以下の上乗せ。外構ドクター ＋1〜3万円・税の記載なし。目安は出典の下の端（2-4）
+  tenken:   { std: 22000, lo: 10000, hi: 50000 },  // 床下点検口の新設（1か所）シェアリング 平均22,000円／外構ドクター 1〜3万円／リホームナビ 2〜5万円・どれも税の記載なし（2-4）
+  tax: .10,
+};
+// ベイト工法：ダスキン（全国共通料金）の税抜単価。管理料まで同じ形で比べられたのがダスキンだけなので、幅は出さない（2-2）
+const BAIT = { first: 3720, month: 120 };   // 初回（設置料＋管理料）外周1m／2か月目からの月額 外周1m
+// ほかの業者のベイトの値段（参考として出すだけ。計算には入れない）
+const BAIT_REF = { ichiban: 4400, sentricon: 7000 };  // シロアリ1番 4,400円/m（税込・年間管理費は記載なし）／セントリコンのQ&A 7,000円前後/m（税の記載なし）
+const YEARS = 5;   // バリア工法の薬の効き目（日本しろあり対策協会「有効期間は5年」）。1年あたりは5年で比べる
+// 参考：ダスキンのバリア工法 2,475円/㎡（税込）。1階の床50㎡までは一律123,750円（税込）
+const DUSKIN = { perM2: 2475, flat: 123750, flatUpTo: 50 };
+
+/* ── 家の大きさから数量を出す ──
+   単価表の1章の式：1階の床㎡＝延床㎡÷階数（どの階も同じ広さとみなす）、外周＝4.4×√1階の床㎡。
+   延べ床30坪・2階建てで、1階の床50㎡・外周31m（動画のモデルと同じ）になる。 */
+const TSUBO_M2 = 400 / 121;        // 1坪＝約3.306㎡
+const FLOORS = { 1: '平屋', 2: '2階建て', 3: '3階建て' };
+
+function quantities(s) {
+  const nobe = s.tsubo * TSUBO_M2;              // 延べ床㎡
+  const foot0 = nobe / s.floors;                // 1階の床㎡
+  const foot = Math.round(foot0);               // 薬をまく広さ（施工面積）。1㎡単位（30坪2階：49.6→50）
+  const peri = Math.round(4.4 * Math.sqrt(foot0));  // 外周m（30坪2階：30.99→31）
+  return { nobe, foot, peri };
+}
+
+/* ── 見積書の行 ── */
+function estimate(s) {
+  const q = quantities(s);
+  const r3 = (p, k) => ({ std: Math.round(p.std * k), lo: Math.round(p.lo * k), hi: Math.round(p.hi * k) });
+  const zero = (name, unitText, rng) => ({ name, unitText, std: 0, lo: 0, hi: 0, off: true, rng });
+  const rows = [zero('床下の調査（点検・見積もり）', '1回。無料の業者が多い', '無料が多い')];
+  let annual = null;
+  if (s.koho === 'bait') {
+    const ex = q.peri * BAIT.first + q.peri * BAIT.month * 11;
+    rows.push({ name: 'ベイト工法の初年度（設置料＋管理料）', unitText: `外周${q.peri}m ×（${yen(BAIT.first)}円＋月${BAIT.month}円×11か月）`, std: ex, lo: ex, hi: ex, rng: 'ダスキンの単価' });
+    const aex = q.peri * BAIT.month * 12;
+    annual = { ex: aex, tax: Math.floor(aex * P.tax), total: aex + Math.floor(aex * P.tax) };
+  } else {
+    rows.push({ name: '床下の薬剤処理（木部処理＋土壌処理）', unitText: `${q.foot}㎡ × ${yen(P.yakuzai.std)}円`, ...r3(P.yakuzai, q.foot) });
+    if (s.senkou === 'betsu') {
+      rows.push({ name: '玄関の土間の穿孔注入', unitText: `1か所 × ${yen(P.genkan.std)}円`, ...r3(P.genkan, 1) });
+      rows.push({ name: '浴室まわりの穿孔注入', unitText: `1か所 × ${yen(P.yokushitsu.std)}円`, ...r3(P.yokushitsu, 1) });
+    } else {
+      rows.push(zero('玄関・浴室の穿孔注入', '㎡単価に含む業者の見積もり', '—'));
+    }
+    if (s.kiso === 'nuno') rows.push({ name: '布基礎の上乗せ', unitText: '1〜2万円の下の端（税の記載なし）', ...r3(P.nuno, 1) });
+    if (s.yuka === 'low') rows.push({ name: '床下が低い（30cm以下）上乗せ', unitText: '1〜3万円の下の端（税の記載なし）', ...r3(P.hikui, 1) });
+    if (s.tenken === 'nashi') rows.push({ name: '床下点検口の新設', unitText: `1か所 × ${yen(P.tenken.std)}円（平均・税の記載なし）`, ...r3(P.tenken, 1) });
+    rows.push(zero('保証（5年・毎年1回の点検つき）', '一式。施工料金に含む業者が多い（中身は業者ごとに違う）', '—'));
+  }
+
+  const sub = k => rows.reduce((a, r) => a + r[k], 0);
+  const t = {};
+  for (const k of ['std', 'lo', 'hi']) {
+    const s0 = sub(k), ke = 0, ex = s0 + ke, tax = Math.floor(ex * P.tax);   // 出張費・諸経費は公開例が無いので0円（単価表1章）
+    t[k] = { sub: s0, keihi: ke, ex, tax, total: ex + tax };
+  }
+  // 5年で割った1年あたり：バリア＝初回÷5、ベイト＝（初年度＋管理料×4年）÷5
+  const five = annual ? t.std.total + annual.total * (YEARS - 1) : t.std.total;
+  return { q, rows, t, annual, five, perYear: five / YEARS };
+}
+
+/* ── 表示 ── */
+const yen = n => Math.round(n).toLocaleString('ja-JP');
+const man = n => { const v = Math.round(n / 1000) / 10; return (Number.isInteger(v) ? v : v.toFixed(1)).toString(); };
+const $ = id => document.getElementById(id);
+
+function readState() {
+  const fd = new FormData($('f'));
+  let tsubo = parseInt($('tsubo').value, 10);
+  if (!Number.isFinite(tsubo)) tsubo = 30;
+  tsubo = Math.min(60, Math.max(15, tsubo));
+  return {
+    floors: +fd.get('floors'), tsubo, koho: fd.get('koho'), senkou: fd.get('senkou'),
+    kiso: fd.get('kiso'), yuka: fd.get('yuka'), tenken: fd.get('tenken'),
+  };
+}
+
+let last = null;
+function render() {
+  const s = readState();
+  const e = estimate(s);
+  last = e;
+  const { t, q } = e;
+  const bait = s.koho === 'bait';
+
+  $('tsubo-m2').textContent = `約${Math.round(q.nobe)}㎡`;
+  $('foot-note').textContent = `薬をまくのは1階の床下です。この家なら、1階の床は 約${q.foot}㎡ として計算します。`;
+  for (const id of ['senkou-set', 'kiso-set', 'yuka-set', 'tenken-set']) $(id).hidden = bait;
+
+  $('t-lbl').textContent = bait ? 'ベイト工法の初年度（税込）' : '相場の単価で計算すると（税込）';
+  $('t-std').textContent = yen(t.std.total);
+  $('t-range').innerHTML = bait
+    ? '<span class="nw">ダスキンの単価で計算しています</span><span class="nw">（業者による幅は出していません）</span>'
+    : `業者によって <b class="num">約${man(t.lo.total)}万〜${man(t.hi.total)}万円</b>`;
+  $('t-year').innerHTML = bait
+    ? `<span class="nw">2年目からは毎年 約${man(e.annual.total)}万円の管理料</span><br><span class="nw">5年で割ると1年あたり 約${man(e.perYear)}万円</span>`
+    : `<span class="nw">1年あたり 約${man(e.perYear)}万円</span><span class="nw">（薬の効き目 約${YEARS}年で割った目安）</span>`;
+  $('d-lbl').textContent = bait ? 'いまの条件・ベイト工法の初年度（税込）' : 'いまの条件の相場（税込）';
+  $('d-std').textContent = yen(t.std.total);
+  $('d-sub').textContent = bait ? `2年目から毎年 約${man(e.annual.total)}万円` : `業者によって ${man(t.lo.total)}〜${man(t.hi.total)}万円`;
+
+  if (bait) {
+    $('t-ref').innerHTML = `参考：ほかの業者のベイトの値段（管理料の書き方がばらばらなので、上の計算には入れていません）<br><span class="nw">シロアリ1番！ 外周1m ${yen(BAIT_REF.ichiban)}円（税込・年間の管理料は記載なし）</span><span class="nw">→ 外周${q.peri}mで${yen(q.peri * BAIT_REF.ichiban)}円</span><br><span class="nw">セントリコンのQ&amp;A 初年度は外周1m ${yen(BAIT_REF.sentricon)}円前後（税の記載なし）</span><span class="nw">→ 約${yen(q.peri * BAIT_REF.sentricon)}円</span>`;
+  } else {
+    const d = q.foot <= DUSKIN.flatUpTo ? DUSKIN.flat : q.foot * DUSKIN.perM2;
+    $('t-ref').innerHTML = `参考：全国どこでも同じ料金のダスキンのバリア工法は、<span class="nw">${q.foot <= DUSKIN.flatUpTo ? `1階の床${DUSKIN.flatUpTo}㎡までは一律` : `1階の床${q.foot}㎡で`}</span><span class="nw">${yen(d)}円（税込）</span>`;
+  }
+  const FN = {
+    1: '平屋は、延べ床がそのまま床下の広さになります。同じ坪数の2階建てより、薬をまく面積が広くなります。',
+    3: '3階建ても、延べ床を3で割って1階の床の広さにしています。1階がほかの階より広い家は、見積書の面積と1階の床面積（㎡）をくらべてください。',
+  };
+  $('fnote').hidden = !FN[s.floors]; $('fnote').textContent = FN[s.floors] || '';
+  $('spec').innerHTML = `${FLOORS[s.floors]}・延べ床${s.tsubo}坪（約${Math.round(q.nobe)}㎡）<br>1階の床（薬をまく広さ）約${q.foot}㎡` + (bait ? `・外周 約${q.peri}m` : '');
+
+  const tr = (cls, name, small, std, rng) =>
+    `<tr class="${cls}"><td class="item"><b>${name}</b>${kw(name)}${small ? `<small>${small}</small>` : ''}</td><td class="amt">${std}<span class="rng">${rng}</span></td></tr>`;
+  const rg = (lo, hi) => bait ? '—' : `${man(lo)}〜${man(hi)}万`;
+  let html = e.rows.map(r => tr(r.off ? 'off' : '', r.name, r.unitText, yen(r.std), r.rng || rg(r.lo, r.hi))).join('');
+  html += tr('sum', '小計', '', yen(t.std.sub), rg(t.lo.sub, t.hi.sub));
+  html += tr('off', '出張費・諸経費', '公開された金額の例が見つからないので0円（別に取る業者もある）', yen(t.std.keihi), '—');
+  html += tr('', '消費税', '10%（円未満は切り捨て）', yen(t.std.tax), rg(t.lo.tax, t.hi.tax));
+  html += tr('grand', bait ? '合計（税込・初年度）' : '合計（税込）', '', yen(t.std.total) + '円', rg(t.lo.total, t.hi.total));
+  if (bait) html += tr('off', '2年目からの管理料（毎年）', `外周${q.peri}m × 月${BAIT.month}円 × 12か月（税抜${yen(e.annual.ex)}円＋消費税）`, yen(e.annual.total) + '円', '毎年');
+  $('rows').innerHTML = html;
+
+  for (const k of ['barrier', 'bait']) {
+    const ek = estimate({ ...s, koho: k });
+    document.querySelector(`[data-p="${k}"]`).textContent = `${k === 'bait' ? '初年度 ' : ''}約${man(ek.t.std.total)}万円`;
+    document.querySelector(`[data-y="${k}"]`).textContent = `5年で1年あたり 約${man(ek.perYear)}万円`;
+  }
+  renderCompare();
+  afterRender(s);
+}
+
+/* 物差し：安い側〜高い側の帯に、目安と手元の見積書を立てる（ベイトは幅が無いので、目安だけ） */
+function renderCompare() {
+  if (!last) return;
+  const { lo, std, hi } = { lo: last.t.lo.total, std: last.t.std.total, hi: last.t.hi.total };
+  const bait = !!last.annual;
+  const raw = parseFloat($('mine').value);
+  const mine = Number.isFinite(raw) && raw > 0 ? raw * 10000 : null;
+  let a = bait ? std * 0.6 : lo * 0.82, b = bait ? std * 1.4 : hi * 1.08;
+  if (mine) { a = Math.min(a, mine * 0.92); b = Math.max(b, mine * 1.06); }
+  const pct = v => ((v - a) / (b - a)) * 100;
+  const x = v => `${pct(v)}%`;
+  const place = (el, v) => { const q = pct(v); el.style.left = `${q}%`; el.style.transform = q < 12 ? 'translateX(-1.5px)' : q > 88 ? 'translateX(calc(-100% + 1.5px))' : 'translateX(-50%)'; el.style.alignItems = q < 12 ? 'flex-start' : q > 88 ? 'flex-end' : 'center'; };
+  $('r-band').hidden = bait; $('r-lo').hidden = bait; $('r-hi').hidden = bait;
+  $('r-band').style.left = x(lo);
+  $('r-band').style.width = `${((hi - lo) / (b - a)) * 100}%`;
+  place($('r-std'), std);
+  $('r-std').querySelector('span').textContent = bait ? 'ベイトの目安' : '相場';
+  $('r-lo').style.left = x(lo); $('r-lo').textContent = `${man(lo)}万`;
+  $('r-hi').style.left = x(hi); $('r-hi').textContent = `${man(hi)}万`;
+  $('cmp-hint').textContent = bait
+    ? '見積書の初年度の合計（税込）を入れると、ダスキンの単価で計算した目安とくらべます。入れた金額は、どこにも送られません。'
+    : '見積書の合計（税込）を入れると、相場の幅のどこにあるかを出します。入れた金額は、どこにも送られません。';
+  const pin = $('r-mine'), v = $('verdict');
+  $('ruler').classList.toggle('has-mine', !!mine);
+  if (!mine) { pin.hidden = true; v.textContent = ''; v.className = 'verdict'; return; }
+  pin.hidden = false; place(pin, mine);
+  const near = n => Math.abs(n) < 5000;
+  let pill, msg, cls = 'verdict';
+  if (bait) {
+    pill = near(mine - std) ? '目安とほぼ同じ' : mine > std ? `目安より約${man(mine - std)}万円高い` : `目安より約${man(std - mine)}万円安い`;
+    msg = `ダスキンの単価で計算した初年度（約${man(std)}万円）とくらべました。ベイト工法は、業者ごとに管理料の取り方がばらばらです。初年度の金額だけでなく、2年目からの管理料が毎年いくらで、何年続くのかを聞いてください。`;
+  } else if (mine < lo) {
+    cls += ' out';
+    pill = near(lo - mine) ? '幅の下限とほぼ同じ' : `幅の下限より約${man(lo - mine)}万円安い`;
+    msg = `公開されている単価の安い側で計算した金額（約${man(lo)}万円）よりも、さらに安い見積もりです。安いこと自体は悪くありません。薬をまく面積、薬剤の名前、保証の年数が見積書に書いてあるかを確かめてください。`;
+  } else if (mine <= hi) {
+    pill = '相場の幅の中';
+    msg = mine <= std ? `目安（約${man(std)}万円）以下で、単価の幅の中です。念のため、薬をまく面積と保証の中身を見てください。`
+      : near(mine - std) ? '目安とほぼ同じで、単価の幅の中です。'
+      : `目安より約${man(mine - std)}万円高めですが、単価の幅の中です。理由を聞いて、数字で答えが返ってくれば1つの安心材料になります。`;
+  } else {
+    cls += ' out';
+    pill = near(mine - hi) ? '幅の上限とほぼ同じ' : `幅の上限より約${man(mine - hi)}万円高い`;
+    msg = `公開されている単価の高い側で計算した金額（約${man(hi)}万円）よりも高い見積もりです。高いことだけで、おかしな見積もりとは決められません。薬をまく面積が延べ床で計算されていないかを見て、その場で決めずに、ほかの会社からも見積もりを取ってください。困ったときは消費者ホットライン188へ。`;
+  }
+  msg += '<b class="v-next">内訳の行ごとに比べてください。</b><button type="button" class="v-open">内訳を開く</button>';
+  msg += '<small>床下換気扇・調湿材・木の取り替えなど、ほかの工事が入っている見積書とはくらべられません。</small>';
+  v.className = cls; v.innerHTML = `<span class="v-pill">${pill}</span>${msg}`;
+}
+
+/* 計算の仕方（数字は上の設定から書き出す） */
+function renderMethod() {
+  $('method').innerHTML = `
+    <div><dt>薬をまく広さ</dt><dd>延べ床面積を階数で割って、1階の床の広さ（施工面積）にします。どの階も同じ広さとみなす計算で、1㎡単位に丸めています。延べ床30坪・2階建てで約50㎡です。床下の広さは、1階の床面積で数えるのが一般的です（シェアリングテクノロジー・ダスキン）。</dd></div>
+    <div><dt>床下の薬剤処理（バリア工法）</dt><dd>1階の床1㎡あたり${yen(P.yakuzai.std)}円（税抜。税込${yen(P.yakuzai.std * 1.1)}円）。幅は、税込で書かれた6件の1,725〜2,475円を税抜に直した約1,570〜2,250円です。木部処理と土壌処理を含みます。</dd></div>
+    <div><dt>玄関・浴室の穿孔注入</dt><dd>玄関${yen(P.genkan.std)}円（幅 5千〜1万円）、浴室${yen(P.yokushitsu.std)}円（幅 1万〜2万円）。㎡単価に含めている業者の見積もりなら、この2行は0円です。</dd></div>
+    <div><dt>基礎の形・床下の高さ・点検口</dt><dd>布基礎は＋1〜2万円、床下が30cm以下なら＋1〜3万円（外構ドクター）。目安はそれぞれの幅の下の端（少なくともこれだけ増える額）にし、高い側は幅の上の端で見せています。点検口を新しく作るときは平均${yen(P.tenken.std)}円／か所（シェアリングテクノロジー）、幅は1〜5万円（外構ドクター・リホームナビ）です。</dd></div>
+    <div><dt>税の記載が無い数字</dt><dd>玄関の穿孔注入・基礎の形・床下の高さ・点検口の金額は、出典に税込か税抜かが書かれていません。この計算では税抜とみなして、消費税10%を足しています（税込の数字だった場合は、合計が少し高めに出ます）。</dd></div>
+    <div><dt>調査・保証・出張費・諸経費</dt><dd>調査と見積もりは無料の業者が多く、保証（5年・毎年1回の点検）は施工料金に含む業者があるので0円にしています。出張費・諸経費は、別に取る業者もありますが、公開された金額の例が見つからなかったので0円です。</dd></div>
+    <div><dt>ベイト工法</dt><dd>ダスキン（全国共通料金）の単価で、外周1mあたり初回${yen(BAIT.first)}円、2か月目から月${BAIT.month}円（どちらも税抜）。初年度＝外周×${yen(BAIT.first)}円＋外周×${BAIT.month}円×11か月、2年目から＝外周×${BAIT.month}円×12か月です。外周は 4.4×√（1階の床㎡）で出しています（延べ床30坪・2階建てで約31m）。管理料まで同じ形で比べられたのがダスキン1社だけなので、業者による幅は出していません。家のまわりがコンクリートで穴をあけるときは、1か所2,000円（税抜）が足されます（ダスキン）。</dd></div>
+    <div><dt>1年あたり</dt><dd>バリア工法は、薬の効き目の約${YEARS}年（日本しろあり対策協会）で割っています。ベイト工法は、初年度と2〜5年目の管理料を足して${YEARS}で割っています。</dd></div>
+    <div><dt>「目安」と「業者による幅」</dt><dd>目安は動画のモデル見積書と同じ単価、幅はすべての行を出典の安い側・高い側でそろえた金額です。すべての行が高い側にそろうことはまれです。</dd></div>
+    <div><dt>入っていないもの</dt><dd>シロアリの被害が見つかったときの駆除や木の取り替え、床下換気扇・調湿材、床下に入れない家の工事、地域の差（比較サイトfortitudeの集計では、㎡単価は大阪府2,115円〜北海道1,538円・税込）。</dd></div>`;
+}
+
+/* ── 操作 ── */
+function setTsubo(v) {
+  v = Math.min(60, Math.max(15, Math.round(v)));
+  $('tsubo').value = v; $('tsubo-range').value = v; render();
+}
+$('minus').addEventListener('click', () => setTsubo(+$('tsubo').value - 1));
+$('plus').addEventListener('click', () => setTsubo(+$('tsubo').value + 1));
+$('tsubo-range').addEventListener('input', e => setTsubo(+e.target.value));
+$('tsubo').addEventListener('input', () => { const v = parseInt($('tsubo').value, 10); if (v >= 15 && v <= 60) { $('tsubo-range').value = v; render(); } });
+$('tsubo').addEventListener('change', () => setTsubo(parseInt($('tsubo').value, 10) || 30));
+$('m2').addEventListener('change', () => { const v = parseFloat($('m2').value); if (v > 0) setTsubo(v / TSUBO_M2); });
+$('f').addEventListener('change', e => { if (e.target.name) render(); });
+$('f').addEventListener('submit', e => e.preventDefault());
+$('mine').addEventListener('input', renderCompare);
+$('btn-reset').addEventListener('click', () => {
+  $('f').reset(); $('m2').value = ''; setTsubo(30);
+});
+
+/* ── このページの設定（送る条件の書き方・チップ・辞典へのリンク） ──
+   送るリンクの例：…/shiroari/#f=2&t=30&k=barrier&s=betsu&b=beta&y=std&g=ari */
+const CFG = {
+  page: 'shiroari',
+  radios: [
+    ['f', 'floors', { 1: '1', 2: '2', 3: '3' }],
+    ['k', 'koho', { barrier: 'barrier', bait: 'bait' }],
+    ['s', 'senkou', { betsu: 'betsu', fukumu: 'fukumu' }],
+    ['b', 'kiso', { beta: 'beta', nuno: 'nuno' }],
+    ['y', 'yuka', { std: 'std', low: 'low' }],
+    ['g', 'tenken', { ari: 'ari', nashi: 'nashi' }],
+  ],
+  toHash(s) {
+    return [`f=${s.floors}`, `t=${s.tsubo}`, `k=${s.koho}`, `s=${s.senkou}`, `b=${s.kiso}`, `y=${s.yuka}`, `g=${s.tenken}`];
+  },
+  chips(s) {
+    const c = [['floors', FLOORS[s.floors]], ['tsubo', `延べ床${s.tsubo}坪`], ['koho', s.koho === 'bait' ? 'ベイト工法' : 'バリア工法']];
+    if (s.koho !== 'bait') {
+      c.push(['senkou', s.senkou === 'fukumu' ? '穿孔は㎡単価に含む' : '玄関・浴室の穿孔は別の行'],
+        ['kiso', s.kiso === 'nuno' ? '布基礎' : 'ベタ基礎'],
+        ['yuka', s.yuka === 'low' ? '床下が低い' : '床下はもぐれる高さ'],
+        ['tenken', s.tenken === 'nashi' ? '点検口を新しく作る' : '点検口あり']);
+    }
+    return c;
+  },
+  shareText() {
+    const e = last;
+    return e.annual
+      ? `シロアリのベイト工法、うちの条件だと初年度の目安は${yen(e.t.std.total)}円、2年目から毎年${yen(e.annual.total)}円でした（見積書のお姉さんの計算ページ）`
+      : `シロアリの予防（バリア工法）、うちの条件だと相場の目安は${yen(e.t.std.total)}円でした（見積書のお姉さんの計算ページ）`;
+  },
+  kw: [[/^床下の薬剤処理/, 'bougi'], [/穿孔注入/, 'senkou'], [/^ベイト工法/, 'bait'], [/^出張費/, 'shucchou']],
+  kwLabel: { bougi: '防蟻（シロアリの薬剤処理）', senkou: '穿孔注入', bait: 'ベイト工法', shucchou: '出張費・基本料金' },
+};
+/* ============================================================
+   画面の動き（ここから下は計算に関わらない）
+   スマホ（760px未満）：1問ずつ出して、最後に「結果を見る」。<html> の .is-steps / .is-result で切り替える
+   条件を送る：ボタンを押したときだけ、URLの # の後ろに条件を書いたリンクを作る（入力中は location を書き換えない）
+   アクセス解析：入力した値（坪数・金額など）は渡さない。どのページで・何をしたかだけ
+   ============================================================ */
+const H = document.documentElement;
+const MQ = window.matchMedia('(max-width: 759.98px)');
+const RM = window.matchMedia('(prefers-reduced-motion: reduce)');
+const own = (o, k) => Object.prototype.hasOwnProperty.call(o, k);
+const T = (name, params) => {
+  const go = () => { try { if (typeof window.track === 'function') window.track(name, params); } catch (_) { /* 解析が動かなくても計算は止めない */ } };
+  if (typeof window.track === 'function') go(); else document.addEventListener('DOMContentLoaded', go, { once: true });
+};
+const steps = [...document.querySelectorAll('#f .q')];
+const liveSteps = () => steps.filter(el => !el.hidden);
+const isSteps = () => H.classList.contains('is-steps');
+const isResult = () => H.classList.contains('is-result');
+let curEl = steps[0], editing = false, advTimer = 0, ptrAt = 0, doneSent = false, cmpSent = false;
+
+function kw(name) {
+  for (const [re, id] of CFG.kw) {
+    if (re.test(name)) return `<a class="kw" href="../kotoba/#${id}" aria-label="${CFG.kwLabel[id]}の意味（言葉の辞典）">辞典</a>`;
+  }
+  return '';
+}
+
+function scrollToY(y, smooth) {
+  y = Math.max(0, y);
+  if (smooth && !RM.matches) { window.scrollTo({ top: y, behavior: 'smooth' }); return; }
+  const prev = H.style.scrollBehavior;
+  H.style.scrollBehavior = 'auto'; window.scrollTo(0, y); H.style.scrollBehavior = prev;
+}
+function moveTo(el, smooth = true) { scrollToY(el.getBoundingClientRect().top + window.scrollY - 72, smooth); }
+
+function paintStepbar() {
+  const live = liveSteps();
+  if (!live.includes(curEl)) curEl = live[0];
+  const i = live.indexOf(curEl), n = live.length, lastStep = i === n - 1;
+  $('step-count').innerHTML = `<b>${i + 1}</b> / ${n}`;
+  $('step-fill').style.width = `${((i + 1) / n) * 100}%`;
+  $('step-back').disabled = i === 0 && !editing;
+  const btn = $('step-next'), num = curEl.dataset.kind === 'number';
+  btn.textContent = editing ? '結果にもどる' : lastStep ? '結果を見る' : num ? '次へ' : 'このまま次へ';
+  btn.classList.toggle('is-quiet', !editing && !lastStep && !num);
+}
+
+function showStep(el, dir, focus) {
+  if (!el) return;
+  clearTimeout(advTimer);
+  const wasResult = isResult();
+  H.classList.remove('is-result');
+  for (const q of steps) q.classList.toggle('is-current', q === el);
+  el.classList.remove('in-fwd', 'in-back');
+  if (dir) { void el.offsetWidth; el.classList.add(dir > 0 ? 'in-fwd' : 'in-back'); }
+  curEl = el;
+  paintStepbar();
+  const bar = $('stepbar'), top = bar.getBoundingClientRect().top;
+  if (Math.abs(top - 72) > 6 && (dir || top < 0 || top > window.innerHeight * 0.5)) moveTo(bar, !!dir && !wasResult);
+  if (focus) {
+    const t = el.dataset.kind === 'number' ? el : (el.querySelector('input:checked') || el.querySelector('input'));
+    try { t.focus({ preventScroll: true }); } catch (_) { t.focus(); }
+  }
+}
+function nextStep() {
+  clearTimeout(advTimer);
+  const live = liveSteps(), i = live.indexOf(curEl);
+  if (editing || i >= live.length - 1) { showResult(true); return; }
+  showStep(live[i + 1], 1, true);
+}
+function prevStep() {
+  if (editing) { showResult(true); return; }
+  const live = liveSteps(), i = live.indexOf(curEl);
+  if (i > 0) showStep(live[i - 1], -1, true);
+}
+function markDone() {
+  if (doneSent) return;
+  doneSent = true;
+  T('calc_done', { page: CFG.page });
+}
+function showResult(user) {
+  clearTimeout(advTimer);
+  editing = false;
+  if (isSteps()) {
+    H.classList.add('is-result');
+    moveTo($('result'), false);
+  } else if (user) moveTo($('result'));
+  if (user) { try { $('h-result').focus({ preventScroll: true }); } catch (_) { /* 古いブラウザ */ } }
+  markDone();
+}
+
+/* 選んだ条件のチップ（押すと、その問いにもどる） */
+function paintChips(s) {
+  $('chips').innerHTML = CFG.chips(s).map(([k, label]) => `<button type="button" class="chip" data-go="${k}">${label}</button>`).join('');
+}
+function afterRender(s) {
+  paintChips(s);
+  const seen = new Set();
+  for (const a of document.querySelectorAll('#rows .kw')) { const h = a.getAttribute('href'); if (seen.has(h)) a.remove(); else seen.add(h); }
+  if (isSteps()) paintStepbar();
+}
+
+/* ── 1問ずつの操作 ── */
+$('f').addEventListener('pointerdown', () => { ptrAt = Date.now(); }, true);
+$('f').addEventListener('click', e => {
+  const r = e.target;
+  if (!isSteps() || !(r instanceof HTMLInputElement) || r.type !== 'radio') return;
+  const q = r.closest('.q');
+  if (q !== curEl || Date.now() - ptrAt > 1500) return;   // 矢印キーで選んだときは進めない
+  const live = liveSteps();
+  if (!editing && live.indexOf(q) === live.length - 1) return;   // 最後の問いは「結果を見る」を押してもらう
+  clearTimeout(advTimer);
+  advTimer = setTimeout(nextStep, 260);
+});
+$('f').addEventListener('keydown', e => {
+  if (e.key !== 'Enter' || !isSteps() || e.isComposing) return;
+  const t = e.target;
+  if (!(t instanceof HTMLInputElement) || !t.closest('.q')) return;
+  e.preventDefault();
+  if (t.type === 'number') t.dispatchEvent(new Event('change', { bubbles: true }));
+  nextStep();
+});
+$('step-next').addEventListener('click', nextStep);
+$('step-back').addEventListener('click', prevStep);
+$('res-back').addEventListener('click', () => { const live = liveSteps(); showStep(live[live.length - 1], -1, true); });
+$('chips').addEventListener('click', e => {
+  const b = e.target.closest('[data-go]');
+  if (!b) return;
+  const q = document.querySelector(`#f .q[data-step="${b.dataset.go}"]`);
+  if (!q || q.hidden) return;
+  if (isSteps()) { editing = true; showStep(q, 0, true); return; }
+  moveTo(q);
+  const t = q.querySelector('input:checked') || q.querySelector('input');
+  try { t.focus({ preventScroll: true }); } catch (_) { t.focus(); }
+});
+
+/* ── 下の帯 ── */
+$('dock-go').addEventListener('click', () => showResult(true));
+if ('IntersectionObserver' in window) {
+  new IntersectionObserver(([en]) => $('dock').classList.toggle('away', en.isIntersecting && !isSteps()), { threshold: 0.08 }).observe($('result'));
+}
+
+/* 広い画面：最初に条件を動かしたら「結果を見た」とする */
+const onEdit = () => { if (!isSteps()) markDone(); };
+$('f').addEventListener('change', onEdit);
+$('minus').addEventListener('click', onEdit);
+$('plus').addEventListener('click', onEdit);
+if ($('methods')) $('methods').addEventListener('change', onEdit);
+
+/* ── 手元の見積書と比べる（金額はどこにも送らない） ── */
+$('mine').addEventListener('change', () => {
+  if (cmpSent || !(parseFloat($('mine').value) > 0)) return;
+  cmpSent = true;
+  T('compare', { page: CFG.page });
+});
+$('verdict').addEventListener('click', e => {
+  if (!e.target.closest('.v-open')) return;
+  $('doc').open = true;
+  moveTo($('doc'));
+  $('doc').querySelector('summary').focus({ preventScroll: true });
+});
+
+/* ── 家族に送る ── */
+function shareURL() {
+  return location.href.replace(/[?#].*$/, '') + '#' + CFG.toHash(readState()).join('&');
+}
+function shareStatus(text, url) {
+  const st = $('sh-status');
+  st.textContent = text;
+  if (url) {
+    const a = document.createElement('a');
+    a.href = url; a.textContent = url; a.className = 'sh-url';
+    st.append(document.createElement('br'), a);
+  }
+}
+async function copyText(s) {
+  try { await navigator.clipboard.writeText(s); return true; } catch (_) { /* 下の方法で */ }
+  const ta = document.createElement('textarea');
+  ta.value = s; ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+  document.body.appendChild(ta); ta.select();
+  let ok = false;
+  try { ok = document.execCommand('copy'); } catch (_) { ok = false; }
+  ta.remove();
+  return ok;
+}
+$('sh-line').addEventListener('click', () => {
+  $('sh-line').href = 'https://line.me/R/share?text=' + encodeURIComponent(CFG.shareText() + '\n' + shareURL());
+  T('share', { page: CFG.page, method: 'line' });
+});
+$('sh-copy').addEventListener('click', async () => {
+  const url = shareURL();
+  const ok = await copyText(url);
+  if (ok) shareStatus('リンクをコピーしました。LINEやメールに貼りつけると、同じ条件の計算が開きます。');
+  else shareStatus('コピーできませんでした。下のリンクを長押しして、コピーしてください。', url);
+  T('share', { page: CFG.page, method: 'copy' });
+});
+if (typeof navigator.share === 'function') {
+  $('sh-native').hidden = false;
+  $('sh-native').addEventListener('click', async () => {
+    try {
+      await navigator.share({ title: document.title, text: CFG.shareText(), url: shareURL() });
+      T('share', { page: CFG.page, method: 'native' });
+    } catch (_) { /* 閉じただけ */ }
+  });
+}
+
+/* ── # の後ろの条件を読む（おかしな値は無視して、はじめの値のまま） ── */
+function applyHash() {
+  const raw = location.hash.slice(1);
+  if (!raw || raw.indexOf('=') < 0 || raw.length > 200) return false;
+  let sp;
+  try { sp = new URLSearchParams(raw); } catch (_) { return false; }
+  for (const [key, name, map] of CFG.radios) {
+    const v = sp.get(key);
+    if (v === null || !own(map, v)) continue;
+    const el = document.querySelector(`input[name="${name}"][value="${map[v]}"]`);
+    if (el) el.checked = true;
+  }
+  const t = sp.get('t');
+  if (t !== null && /^\d{1,2}$/.test(t) && +t >= 15 && +t <= 60) { $('tsubo').value = String(+t); $('tsubo-range').value = String(+t); }
+  if (CFG.fromHashExtra) CFG.fromHashExtra(sp);
+  return true;
+}
+
+function setMode() {
+  H.classList.toggle('is-steps', MQ.matches);
+  if (!MQ.matches) H.classList.remove('is-result');
+  else { if (!curEl || curEl.hidden) curEl = liveSteps()[0]; for (const q of steps) q.classList.toggle('is-current', q === curEl); paintStepbar(); }
+}
+if (MQ.addEventListener) MQ.addEventListener('change', setMode); else if (MQ.addListener) MQ.addListener(setMode);
+
+/* ── はじめに ── */
+const fromHash = applyHash();
+renderMethod();
+render();
+$('share').hidden = false;
+if (fromHash) $('from-link').hidden = false;
+if (MQ.matches) $('doc').open = false;
+setMode();
+if (fromHash) { if (isSteps()) H.classList.add('is-result'); markDone(); }
+else H.classList.remove('is-result');
+</script>
+</body>
+</html>
