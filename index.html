@@ -110,12 +110,46 @@ a.vid:hover .vid__title { color: var(--blue); }
 .more { margin-top: auto; font-weight: 700; text-decoration: none; }
 .more::after { content: " →"; }
 
-/* お姉さんについて */
-.hello { display: grid; grid-template-columns: 72px 1fr; gap: 16px; align-items: start; }
-.hello img { width: 72px; height: 72px; border-radius: 50%; display: block; }
-.hello h2 { font-size: 22px; margin-bottom: 8px; }
-.hello p { color: var(--sub); }
-@media (min-width: 760px) { .hello { grid-template-columns: 112px 1fr; gap: 28px; } .hello img { width: 112px; height: 112px; } }
+/* ヒーローのヤモ吉（お姉さんの右下に立つ） */
+.hero__yamo { position: absolute; z-index: 3; right: -6%; bottom: 0; width: 34%; }
+.hero__yamo img { display: block; width: 100%; filter: drop-shadow(0 6px 10px rgba(20, 33, 61, .18)); }
+.bubble--yamo { left: auto; right: 62%; top: -34%; font-size: 12.5px; white-space: nowrap; max-width: none; background: var(--leaf-soft); border-color: var(--leaf-ink); color: var(--ink); }
+.bubble--yamo::after { right: 14px; top: auto; bottom: -9px; background: var(--leaf-soft); border-color: var(--leaf-ink); transform: rotate(135deg); }
+@media (min-width: 760px) { .hero__yamo { right: -10%; width: 32%; } .bubble--yamo { font-size: 13.5px; } }
+@media (prefers-reduced-motion: no-preference) {
+  .hero__yamo img { animation: yamo-hop 3.6s ease-in-out infinite; transform-origin: 50% 100%; }
+  @keyframes yamo-hop { 0%, 80%, 100% { transform: translateY(0); } 86% { transform: translateY(-6px); } 92% { transform: translateY(0); } }
+}
+
+/* 案内するふたり */
+:root { --leaf: #9ccc3c; --leaf-soft: #eef7dc; --leaf-ink: #4f7a12; --sun-soft: #fff4d1; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --leaf-soft: #1d2a17; --leaf-ink: #a9d65a; --sun-soft: #2a2414; } }
+:root[data-theme="dark"] { --leaf-soft: #1d2a17; --leaf-ink: #a9d65a; --sun-soft: #2a2414; }
+.pair { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; }
+@media (min-width: 760px) { .pair { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; } }
+.mate { display: grid; grid-template-columns: 120px minmax(0, 1fr); align-items: stretch; background: var(--sheet); border: 1px solid var(--rule); border-radius: 22px; overflow: hidden; box-shadow: var(--shadow); transition: transform .2s, box-shadow .2s; }
+.mate:hover { transform: translateY(-3px); box-shadow: 0 1px 2px rgba(20, 33, 61, .06), 0 14px 32px rgba(20, 33, 61, .12); }
+.mate__stage { position: relative; display: flex; align-items: flex-end; justify-content: center; padding: 16px 10px 0; isolation: isolate; overflow: hidden; }
+.mate__stage::before { content: ""; position: absolute; inset: 0; z-index: -1; background-image: radial-gradient(color-mix(in srgb, var(--ink) 9%, transparent) 1.2px, transparent 1.4px); background-size: 12px 12px; }
+.mate__stage::after { content: ""; position: absolute; left: 50%; bottom: -30%; z-index: -1; width: 130%; aspect-ratio: 1; translate: -50% 0; border-radius: 50%; }
+.mate--onee .mate__stage { background: linear-gradient(160deg, var(--sun-soft), color-mix(in srgb, var(--yellow) 30%, var(--sheet))); }
+.mate--onee .mate__stage::after { background: color-mix(in srgb, var(--yellow) 55%, transparent); }
+.mate--yamo .mate__stage { background: linear-gradient(160deg, var(--leaf-soft), color-mix(in srgb, var(--leaf) 30%, var(--sheet))); }
+.mate--yamo .mate__stage::after { background: color-mix(in srgb, var(--leaf) 50%, transparent); }
+.mate__stage img { display: block; width: 100%; height: auto; max-height: 190px; object-fit: contain; object-position: bottom; }
+.mate--yamo .mate__stage img { width: 84%; }
+.mate__body { padding: 18px 18px 16px; }
+.mate__body p { color: var(--sub); font-size: 14.5px; margin: 0 0 .6em; }
+.mate__role { display: inline-block; font: 800 12px var(--f-disp); letter-spacing: .08em; padding: 2px 10px; border-radius: 999px; margin: 0 0 6px !important; }
+.mate--onee .mate__role { background: var(--sun-soft); color: #8a6200; border: 1px solid color-mix(in srgb, var(--yellow) 70%, transparent); }
+.mate--yamo .mate__role { background: var(--leaf-soft); color: var(--leaf-ink); border: 1px solid color-mix(in srgb, var(--leaf) 70%, transparent); }
+:root[data-theme="dark"] .mate--onee .mate__role { color: var(--yellow); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .mate--onee .mate__role { color: var(--yellow); } }
+.mate__name { font-size: 22px; margin-bottom: 6px; }
+.mate__voice { font-size: 12.5px !important; margin: 0 !important; }
+@media (min-width: 760px) { .mate { grid-template-columns: 150px minmax(0, 1fr); } .mate__stage img { max-height: 220px; } .mate__body { padding: 22px 22px 20px; } }
+.pair__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 20px; margin-top: 20px; }
+@media (prefers-reduced-motion: reduce) { .mate, .mate:hover { transition: none; transform: none; } }
 
 .head-row { display: flex; align-items: end; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
 .head-row a { font-weight: 700; text-decoration: none; white-space: nowrap; font-size: 15px; }
@@ -153,6 +187,10 @@ a.vid:hover .vid__title { color: var(--blue); }
       <figure class="hero__fig">
         <p class="bubble">決める前に、<br>まず相場を。</p>
         <img src="img/chara.webp" alt="見積書のクリップボードを持った、眼鏡のお姉さんのイラスト" width="720" height="992" fetchpriority="high">
+        <span class="hero__yamo">
+          <span class="bubble bubble--yamo">ボクも<br>いっしょに見るよ！</span>
+          <img src="img/yamo.webp" alt="相方のヤモリ、ヤモ吉のイラスト" width="280" height="422">
+        </span>
       </figure>
     </div>
   </section>
@@ -242,17 +280,35 @@ a.vid:hover .vid__title { color: var(--blue); }
 
   <section class="section" aria-labelledby="hello-h">
     <div class="wrap">
-      <div class="card hello">
-        <img src="img/face.webp" alt="" width="112" height="112" loading="lazy">
-        <div>
-          <h2 id="hello-h">見積書のお姉さんです</h2>
-          <p>家の修理やリフォームの見積書を、国の資料・見積もりサイト・工事会社の記事など、誰でも見られる公開情報の単価から1行ずつ読み解いています。工事を請け負う業者ではないので、特定の会社をすすめることはありません。</p>
-          <p><a href="about/">このサイトについて →</a></p>
-          <div class="sns">
+      <span class="eyebrow">案内するふたり</span>
+      <h2 class="section-h" id="hello-h">見積書のお姉さんと、ヤモ吉です</h2>
+      <p class="section-sub">家の修理やリフォームの見積書を、国の資料・見積もりサイト・工事会社の記事など、誰でも見られる公開情報の単価から1行ずつ読み解いています。工事を請け負う業者ではないので、特定の会社をすすめることはありません。</p>
+      <ul class="pair">
+        <li class="mate mate--onee">
+          <div class="mate__stage"><img src="img/chara.webp" alt="見積書のクリップボードを持った、眼鏡のお姉さんのイラスト" width="720" height="992" loading="lazy"></div>
+          <div class="mate__body">
+            <p class="mate__role">案内役</p>
+            <h3 class="mate__name">見積書のお姉さん</h3>
+            <p>見積書の行を1つずつ、出典の数字で確かめていきます。答えと説明の担当です。</p>
+            <p class="mate__voice">声：VOICEVOX:冥鳴ひまり</p>
+          </div>
+        </li>
+        <li class="mate mate--yamo">
+          <div class="mate__stage"><img src="img/yamo-smile.webp" alt="相方のヤモリ、ヤモ吉のイラスト" width="276" height="421" loading="lazy"></div>
+          <div class="mate__body">
+            <p class="mate__role">相方</p>
+            <h3 class="mate__name">ヤモ吉</h3>
+            <p>家の壁に住んでいるヤモリ。一人称は「ボク」。見ている人の代わりに聞いて、驚いて、まとめます。</p>
+            <p class="mate__voice">声：VOICEVOX:白上虎太郎(CV:可愛ユウ)</p>
+          </div>
+        </li>
+      </ul>
+      <div class="pair__foot">
+        <a class="more" href="about/">このサイトについて</a>
+        <div class="sns">
             <a href="https://www.youtube.com/@mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#ff0033" d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81z"/><path fill="#fff" d="M9.55 15.57V8.43L15.82 12z"/></svg>YouTube</a>
             <a href="https://www.instagram.com/mitsumori_onee/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>Instagram</a>
             <a href="https://x.com/mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</a>
-          </div>
         </div>
       </div>
     </div>
