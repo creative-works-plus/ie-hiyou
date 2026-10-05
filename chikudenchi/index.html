@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>お風呂の交換の費用計算｜見積書のお姉さん</title>
-<meta name="description" content="お風呂のサイズとユニットバスのグレードを選ぶと、お風呂の交換の見積書と同じ並びで1行ずつ目安の金額を出します。数字はすべて公開資料から取り、出典を載せています。">
+<title>家庭用蓄電池の費用計算｜見積書のお姉さん</title>
+<meta name="description" content="蓄電池の容量と、太陽光発電を一緒に付けるかを選ぶと、蓄電池の見積書と同じ並びで1行ずつ目安の金額を出します。数字はすべて公開資料から取り、出典を載せています。">
 <meta name="theme-color" content="#1f2d55">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="見積書のお姉さん">
-<meta property="og:title" content="お風呂の交換の費用計算｜見積書のお姉さん">
-<meta property="og:description" content="お風呂のサイズとグレードを選ぶと、見積書と同じ並びで目安の金額が出ます。手元の見積書とのくらべ方も。">
+<meta property="og:title" content="家庭用蓄電池の費用計算｜見積書のお姉さん">
+<meta property="og:description" content="蓄電池の容量と太陽光を一緒に付けるかを選ぶと、見積書と同じ並びで目安の金額が出ます。手元の見積書とのくらべ方も。">
 <meta property="og:image" content="https://creative-works-plus.github.io/ie-hiyou/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../img/favicon-48.png" sizes="48x48" type="image/png">
@@ -348,84 +348,45 @@ ol.src a { overflow-wrap: anywhere; }
 
 <main id="main">
   <div class="wrap page-h">
-    <p class="crumb"><a href="../">トップ</a> ／ お風呂の交換の費用計算</p>
-    <p class="kicker"><span class="nw">YouTube「お風呂の交換、本当はいくら？」と</span><span class="nw">同じ単価表で計算します</span></p>
-    <h1><span class="nw">うちのお風呂の交換、</span><span class="nw q">相場はいくら？</span></h1>
-    <p class="lead">お風呂のサイズとユニットバスのグレードを選ぶと、業者さんの見積書と同じ並びで、1行ずつ目安の金額を出します。数字はすべて公開されている資料から取り、出典をページの下にまとめました。</p>
+    <p class="crumb"><a href="../">トップ</a> ／ 家庭用蓄電池の費用計算</p>
+    <p class="kicker"><span class="nw">YouTube「蓄電池、本当はいくら？」と</span><span class="nw">同じ単価表で計算します</span></p>
+    <h1><span class="nw">うちの蓄電池、</span><span class="nw q">相場はいくら？</span></h1>
+    <p class="lead">蓄電池の容量と、太陽光発電を一緒に付けるかを選ぶと、業者さんの見積書と同じ並びで、1行ずつ目安の金額を出します。数字はすべて公開されている資料から取り、出典をページの下にまとめました。</p>
     <ul class="promise">
-      <li>リフォーム会社でもメーカーでもない立場で作っています</li>
+      <li>販売会社でも電気工事の会社でもメーカーでもない立場で作っています</li>
       <li>入力した内容は、どこにも送られません</li>
-      <li>金額はすべて税込</li>
+      <li>金額はすべて税込・補助金を引く前</li>
     </ul>
   </div>
 
   <div class="wrap">
   <div class="calc">
     <section class="form-col" aria-labelledby="h-form">
-      <h2 class="col-h form-h" id="h-form"><span class="n">1</span>お風呂のことを選ぶ</h2>
+      <h2 class="col-h form-h" id="h-form"><span class="n">1</span>蓄電池のことを選ぶ</h2>
       <div class="stepbar" id="stepbar">
         <button type="button" class="step-back" id="step-back">もどる</button>
-        <p class="step-count num" id="step-count"><b>1</b> / 6</p>
+        <p class="step-count num" id="step-count"><b>1</b> / 2</p>
         <div class="step-prog" aria-hidden="true"><i id="step-fill"></i></div>
       </div>
       <form id="f" autocomplete="off">
-        <fieldset class="q is-current" data-step="now" data-kind="radio" tabindex="-1">
-          <legend>いまのお風呂は</legend>
-          <div class="seg left" style="--cols:2">
-            <label><input type="radio" name="now" id="no1" value="unit" checked><span class="opt"><span class="t"><b>ユニットバス</b><small><span class="nw">床・壁・浴槽が</span><span class="nw">工場で作られた部品の組み合わせ</span></small></span></span></label>
-            <label><input type="radio" name="now" id="no2" value="zairai"><span class="opt"><span class="t"><b>タイル張り（在来）</b><small><span class="nw">壁や床にタイルを張って、</span><span class="nw">その場で作ったお風呂</span></small></span></span></label>
+        <fieldset class="q is-current" data-step="cap" data-kind="radio" tabindex="-1">
+          <legend>蓄電池の容量</legend>
+          <div class="seg paint" style="--cols:3" id="cap">
+            <label><input type="radio" name="cap" id="ca5" value="5"><span class="opt"><b>5kWh</b><small>小さめ</small><span class="price num" data-p="5"></span><span class="per num" data-y="5"></span></span></label>
+            <label><input type="radio" name="cap" id="ca7" value="7" checked><span class="opt"><b>7kWh</b><small>動画のモデル</small><span class="price num" data-p="7"></span><span class="per num" data-y="7"></span></span></label>
+            <label><input type="radio" name="cap" id="ca10" value="10"><span class="opt"><b>10kWh</b><small>大きめ</small><span class="price num" data-p="10"></span><span class="per num" data-y="10"></span></span></label>
           </div>
-          <p class="help">在来のお風呂は、タイルとその下を壊す手間が増えるので、ユニットバスからの交換より高くなります。</p>
+          <p class="help">容量は、ためておける電気の量です。単位は<a href="../kotoba/#kwh">kWh（キロワットアワー）</a>で、国の資料も「1kWhあたり何万円」で比べています。この計算は、今の太陽光のパワコンをそのまま使う<a href="../kotoba/#hybrid">単機能型</a>、停電のときは決めた部屋だけに電気を送る<a href="../kotoba/#fuka">特定負荷型</a>です。</p>
         </fieldset>
 
-        <fieldset class="q" data-step="size" data-kind="radio" tabindex="-1">
-          <legend>お風呂のサイズ</legend>
-          <div class="seg" style="--cols:3">
-            <label><input type="radio" name="size" id="si1" value="075"><span class="opt"><b>0.75坪</b><small>マンションに多い</small></span></label>
-            <label><input type="radio" name="size" id="si2" value="1" checked><span class="opt"><b>1坪</b><small>一戸建てに多い</small></span></label>
-            <label><input type="radio" name="size" id="si3" value="125"><span class="opt"><b>1.25坪</b><small>広め</small></span></label>
+        <fieldset class="q" data-step="pv" data-kind="radio" tabindex="-1">
+          <legend>太陽光発電を一緒に付けるか</legend>
+          <div class="seg left" style="--cols:3">
+            <label><input type="radio" name="pv" id="pv0" value="0" checked><span class="opt"><span class="t"><b>付けない</b><small><span class="nw">もう太陽光がある家・</span><span class="nw">動画のモデル</span></small></span></span></label>
+            <label><input type="radio" name="pv" id="pv4" value="4"><span class="opt"><span class="t"><b>4kW を一緒に付ける</b><small>パネルと工事</small></span></span></label>
+            <label><input type="radio" name="pv" id="pv5" value="5"><span class="opt"><span class="t"><b>5kW を一緒に付ける</b><small>パネルと工事</small></span></span></label>
           </div>
-          <p class="help">「1616」は、内側の寸法が160cm×160cmという意味です。マンションは0.75坪、一戸建ては1坪が多いといわれます。</p>
-        </fieldset>
-
-        <fieldset class="q" data-step="grade" data-kind="radio" tabindex="-1">
-          <legend>ユニットバスのグレード</legend>
-          <div class="seg paint" style="--cols:3" id="grade">
-            <label><input type="radio" name="grade" id="gr1" value="n"><span class="opt"><b>普及</b><small>TOTO サザナ Nタイプ</small><span class="price num" data-p="n"></span><span class="per num" data-y="n"></span></span></label>
-            <label><input type="radio" name="grade" id="gr2" value="s" checked><span class="opt"><b>中級</b><small><span class="nw">TOTO サザナ Sタイプ・</span><span class="nw">動画のモデル</span></small><span class="price num" data-p="s"></span><span class="per num" data-y="s"></span></span></label>
-            <label><input type="radio" name="grade" id="gr3" value="c"><span class="opt"><b>高級</b><small>TOTO シンラ Cタイプ</small><span class="price num" data-p="c"></span><span class="per num" data-y="c"></span></span></label>
-          </div>
-          <p class="help">定価をそろえるため、メーカーはTOTOの1社にしています。グレードで使える年数は変わらないので、高いグレードほど1年あたりも高くなります。</p>
-        </fieldset>
-
-        <fieldset class="q" data-step="rate" data-kind="radio" tabindex="-1">
-          <legend>本体の値引き</legend>
-          <div class="seg" style="--cols:4">
-            <label><input type="radio" name="rate" id="ra1" value="40"><span class="opt"><b>40%引き</b></span></label>
-            <label><input type="radio" name="rate" id="ra2" value="50"><span class="opt"><b>50%引き</b></span></label>
-            <label><input type="radio" name="rate" id="ra3" value="60" checked><span class="opt"><b>60%引き</b><small>動画のモデル</small></span></label>
-            <label><input type="radio" name="rate" id="ra4" value="65"><span class="opt"><b>65%引き</b></span></label>
-          </div>
-          <p class="help">ユニットバスの本体は、定価から値引きした金額で見積書に書かれることが多い行です。「定価の40〜60%引きが一般的」という紹介サイトがあり、公開されている見積書では60%引き・65%引きでした。いちばん金額が大きく動く行です。</p>
-        </fieldset>
-
-        <fieldset class="q" data-step="kanso" data-kind="radio" tabindex="-1">
-          <legend>浴室暖房乾燥機</legend>
-          <div class="seg" style="--cols:2">
-            <label><input type="radio" name="kanso" id="ka1" value="0" checked><span class="opt"><b>付けない</b></span></label>
-            <label><input type="radio" name="kanso" id="ka2" value="1"><span class="opt"><b>付ける</b><small>7〜9万円</small></span></label>
-          </div>
-          <p class="help">メーカーのTOTOは、暖房乾燥機の使用期間の目安を10年としています。お風呂（20年）を使う間に、1回は取り替える目安です。</p>
-        </fieldset>
-
-        <fieldset class="q" data-step="tesuri" data-kind="radio" tabindex="-1">
-          <legend>手すり</legend>
-          <div class="seg" style="--cols:3">
-            <label><input type="radio" name="tesuri" id="te0" value="0" checked><span class="opt"><b>付けない</b></span></label>
-            <label><input type="radio" name="tesuri" id="te1" value="1"><span class="opt"><b>1本</b></span></label>
-            <label><input type="radio" name="tesuri" id="te2" value="2"><span class="opt"><b>2本</b></span></label>
-          </div>
-          <p class="help">手すりは、介護保険の住宅改修の対象です（要支援・要介護の認定を受けた人。上限20万円・自己負担1〜3割・工事の前に申請）。この計算には入れていません。</p>
+          <p class="help">太陽光は、国の委員会の資料の「すでに建っている家に付けた住宅用太陽光」の2025年の平均、1kWあたり30.1万円で計算します（税の記載なし）。蓄電池とは別に、これだけかかります。</p>
         </fieldset>
 
         <div class="stepnav"><button type="button" class="btn btn-primary btn-next" id="step-next">このまま次へ</button></div>
@@ -438,9 +399,9 @@ ol.src a { overflow-wrap: anywhere; }
       <h2 class="col-h" id="h-result" tabindex="-1"><span class="n">2</span>計算の結果</h2>
       <div class="total" aria-live="polite">
         <p class="lbl">相場の単価で計算すると（税込）</p>
-        <p class="big num"><span class="hl">約<span id="t-std">97</span></span><small>万円</small></p>
-        <p class="range">業者によって <b class="num">約<span id="t-lo">77</span>万〜<span id="t-hi">153</span>万円</b></p>
-        <p class="year num" id="t-year">1年あたり 約4.9万円</p>
+        <p class="big num"><span class="hl">約<span id="t-std">141</span></span><small>万円</small></p>
+        <p class="range">業者によって <b class="num">約<span id="t-lo">141</span>万〜<span id="t-hi">196</span>万円</b></p>
+        <p class="year num" id="t-year"></p>
         <p class="ref num" id="t-ref"></p>
       </div>
 
@@ -469,7 +430,7 @@ ol.src a { overflow-wrap: anywhere; }
       <div class="card-s cmp blk">
         <h3>手元の見積書と比べる</h3>
         <p class="hint">見積書の合計（税込）を入れると、相場の幅のどこにあるかを出します。入れた金額は、どこにも送られません。</p>
-        <div class="row"><label for="mine">見積書の合計</label><span class="in"><input type="number" id="mine" inputmode="decimal" min="0" step="0.1" placeholder="例 110"><span>万円</span></span></div>
+        <div class="row"><label for="mine">見積書の合計</label><span class="in"><input type="number" id="mine" inputmode="decimal" min="0" step="0.1" placeholder="例 160"><span>万円</span></span></div>
         <div class="ruler" id="ruler" aria-hidden="true">
           <div class="track"></div>
           <div class="band" id="r-band"></div>
@@ -492,100 +453,98 @@ ol.src a { overflow-wrap: anywhere; }
         <p class="sh-status" id="sh-status" role="status"></p>
         <p class="hint foot">送るのは、選んだ条件だけです。手元の見積書の金額は入りません。</p>
       </section>
-
-      <p class="next-links"><a href="../douga/06/">動画の内容を文字で読む</a><a class="warn" href="../houmon/">業者が来たら、まずこれ</a></p>
+      <p class="next-links"><a href="../douga/08/">動画の内容を文字で読む</a><a class="warn" href="../houmon/">業者が来たら、まずこれ</a></p>
     </section>
   </div>
 
 <div class="read">
   <section aria-labelledby="h-check">
-    <h2 id="h-check"><span class="nw">見積書で</span><span class="nw">確かめたい4つ</span></h2>
-    <p>住まいの相談窓口「住まいるダイヤル」が公開している、見積書のチェックの事例からまとめました。</p>
+    <h2 id="h-check"><span class="nw">見積書で</span><span class="nw">確かめたい3つ</span></h2>
+    <p>国民生活センター・消費者庁・国の資料からまとめました。合計だけで決めずに、<b>1kWhあたりいくらか</b>で見てください。</p>
     <ol class="checks">
-      <li><b>本体に、定価と値引き後の金額が書いてあるか</b><span>値引きが大きすぎないかも見てください。床暖房の見積書の事例では、定価を書いたうえで「お得意様特別値引き」が8割を超えていて、窓口は理由を事業者に確かめるよう助言しています。</span></li>
-      <li><b>「浴室改修工事 一式」のように、まとめられていないか</b><span>お風呂の工事が「一式 351,000円」とだけ書かれた事例で、窓口は内訳の確認が必要としています。<a href="../kotoba/#isshiki">一式</a>の行は、解体・処分・給排水・電気・組立・ドア枠に分けてもらいましょう。</span></li>
-      <li><b>表紙と明細で、会社の名前が同じか</b><span>同じ事例では、表紙はA社、明細はB社の名前でした。責任を持つのがどちらかを確かめてください。</span></li>
-      <li><b>安すぎないか</b><span>住まいるダイヤルは、とても安い見積もりには、あとから追加の請求が出るおそれがあると書いています。追加になるのはどんなときで、いくらなのかを先に書いてもらいましょう。</span></li>
+      <li><b>定価からの大きな値引きで、お得に見せていないか</b><span>あるメーカーの単機能型（9.8kWh）の定価は税込3,487,000円で、1kWhあたり約35万6千円。国の資料の値段（補助金を使わない場合で設備費15〜20万円/kWh）よりずっと高い数字です。紹介サイトの見積書のサンプルには、200万円の値引きが入ったものもありました。値引きのあとの金額を、1kWhあたりに直して比べてください。</span></li>
+      <li><b>「無料」「プレゼント」が、どの行に入っているか</b><span>国が2024年に業務停止を命じた事業者の例では、「防犯カメラプレゼント」「足場代も初期費用に入ってる」と言いながら、防犯カメラの代金と太陽光の工事の足場代を、商品や工事の値段に上乗せしていました。</span></li>
+      <li><b>「補助金で実質いくら」「電気代でローンが払える」と言われていないか</b><span><a href="../kotoba/#hojokin">補助金</a>は、出す所と年度で変わり、予算に達すると締め切られます。補助金を引く前の金額と、どこの何年度の補助金か、申請は誰がいつするのかを書いてもらいましょう。電気代がいくら下がるかは、電気の値段と使い方で変わります（国民生活センター）。</span></li>
     </ol>
     <div class="ask">
       <p class="h">業者さんに聞くとよい質問</p>
-      <p>「本体の型番と、定価と、値引きのあとの金額を教えてください」</p>
-      <p>「工事費を、解体、処分、給排水、電気、組立、ドア枠に分けて書いてもらえますか」</p>
-      <p>「壊して土台が傷んでいたら、いくら追加ですか。工事を進める前に連絡をもらえますか」</p>
+      <p>「容量は何キロワットアワーですか。機器と工事を分けて、1キロワットアワーあたりいくらか教えてください」</p>
+      <p>「補助金を引く前の金額はいくらですか。補助金は、どこの、何年度のもので、申請は誰がいつしますか」</p>
+      <p>「電気代がいくら下がるという計算は、電気の値段と使う量を、いくらにしていますか」</p>
     </div>
-    <p style="margin-top:14px">何社かから見積もりを取って比べること（<a href="../kotoba/#aimitsumori">相見積もり</a>）も、窓口がすすめている方法です。</p>
+    <p style="margin-top:14px">国民生活センターは、その場で契約せず、何社かから見積もりを取って比べるように（<a href="../kotoba/#aimitsumori">相見積もり</a>）、と呼びかけています。</p>
   </section>
 
   <section aria-labelledby="h-cond">
     <h2 id="h-cond"><span class="nw">この計算に</span><span class="nw">入っていない金額</span></h2>
     <div class="kind">
-      <div class="w"><b>土台・下地の腐れ</b><span>壊してみるまで分かりません。下地の補修が要れば5〜15万円ほど追加（リフォームガイド）。公開されている見積書では、土台・柱の取り替えが95,000円＋税でした（アラキ工務店）。</span></div>
-      <div><b>給湯器の交換</b><span>パナソニックは約10〜38.5万円としています。お風呂の見積書とは分けて見てください。</span></div>
-      <div><b>浴室を広げる・サイズを変える</b><span>追加工事20〜50万円程度（リショップナビ）。</span></div>
-      <div><b>マンションの決まり</b><span>管理規約で工事の時間や使える設備が決まっていたり、搬入や共用部分の養生に費用がかかったりすることがあります（リショップナビ）。</span></div>
-      <div><b><a href="../kotoba/#kaigo">介護保険の住宅改修</a></b><span>手すり・段差の解消・すべりにくい床・引き戸への取り替えなどが対象で、上限は1人20万円、自己負担は1〜3割、工事の前に申請が要ります。ユニットバスを丸ごと替える費用が出るわけではありません。「介護保険を使って無料で住宅改修ができる」と訪ねてくる事案を、大阪市東淀川区役所が2026年7月に呼びかけています。無料で改修はできません。</span></div>
+      <div class="w"><b>ハイブリッド型・全負荷型</b><span>1つのメーカーの同じ9.8kWhの定価（税込）は、単機能型3,487,000円、<a href="../kotoba/#hybrid">ハイブリッド型</a>（特定負荷）4,169,000円、ハイブリッド型（全負荷）5,082,000円。定価どうしの差で、実際に払う金額の差ではありません（ガス会社の蓄電池のコラム・2025年1月時点）。</span></div>
+      <div><b>今の太陽光のパワコンの取り替え</b><span><a href="../kotoba/#powercon">パワコン</a>は20年の間に一度は取り替えられ、38.4万円程度が一般的な相場（国の委員会の資料）。</span></div>
+      <div><b>申請の手続き・HEMS・運搬費</b><span>電力会社や補助金の申請の手続きの費用、家の電気の使い方を見る機械（HEMS）、運搬費は、出典の金額が見つからなかったので入れていません。</span></div>
+      <div><b>補助金</b><span>引く前の金額です。国の令和7年度補正の補助金（上限60万円）は、2026年5月29日に予算に達して締め切られました。東京都の令和8年度は1kWhあたり10万円・上限120万円（税抜の対象経費が上限）。年度と予算で変わります。</span></div>
+      <div><b>ローンの利息・メンテナンス</b><span>分割払いの利息や、点検・メンテナンスの費用は入っていません。国民生活センターは、初期費用のほかに利息やメンテナンス費用など様々な費用がかかる、と書いています。</span></div>
     </div>
   </section>
 
   <section aria-labelledby="h-warn">
     <h2 id="h-warn"><span class="nw">こんな訪問に</span><span class="nw">気をつけてください</span></h2>
     <div class="warn-box">
-      <div class="head">消費者庁・千葉県・住まいるダイヤルが公表した事例より</div>
+      <div class="head">国民生活センター・消費者庁・徳島県が公表した事例より</div>
       <div class="body">
         <div class="case">
-          <q>浴室塗装の点検をさせてください。キャンペーンにつき無料で行います</q>
-          <p>一人で暮らす高齢の方の家で、点検のあと「見えない場所が湿気で腐り始めています」。お風呂の改修と屋根裏の補強工事で<b>総額125万円</b>の契約をして、その日のうちに支払った（消費者庁）。</p>
+          <q>今なら工事費、設置費無料で、20年から30年はもつ。元は取れる</q>
+          <p>売電の10年が終わる家に業者が訪ねてきて、勧誘は4時間。契約しないと帰ってもらえないと思い、<b>クレジットで約330万円</b>の契約をした。翌日クーリング・オフを申し出ると「通知の送付は不要だ」と言われた（国民生活センター・2021年1月受付）。</p>
         </div>
         <div class="case">
-          <q>早急に浴室のリフォームをしないと家が傾く</q>
-          <p>千葉県が2021年に業務停止を命じた訪問販売の事業者の事例。県内の消費生活相談窓口に寄せられた相談は40件で、<b>平均の契約額は約204万円</b>（お風呂のほか、梁の補強やトイレも含む）。</p>
+          <q>市から委託された。国の補助金が出るので安くなる</q>
+          <p>太陽光パネルの無料点検のあと「売電するための装置の一部が壊れている」と言われ、<b>約200万円</b>の蓄電池を契約。あとで来た工事の担当者は「壊れていない。部品もモーターも正常だ」と言った（国民生活センター・2020年11月受付）。徳島県が2023年に業務停止を命じた事業者は、「実質の支払いは●●万円になります」と嘘を言っていました。</p>
         </div>
         <div class="case">
-          <q>年度末で実績をあげなければならず、300万円を260万円にする</q>
-          <p>2000年の相談。飛び込みの営業マンがお風呂を外から見て「土台、柱が腐っている」と言い、<b>260万円</b>ですぐに契約させた（住まいるダイヤル）。</p>
+          <q>防犯カメラプレゼント。足場代も初期費用に入ってるんで</q>
+          <p>国が2024年に業務停止を命じた訪問販売の事業者の例。実際には防犯カメラの代金と足場代を値段に上乗せしていた。「今日は帰ってください」と断った家でも、<b>午後7時ごろから11時ごろまで約4時間</b>勧誘を続けた（消費者庁が公表）。</p>
         </div>
         <div class="todo">
-          <p><b>その場で決めない。</b>突然来た業者には、無料でも点検させないでください。</p>
-          <p>訪問販売で契約したときは、契約書面を受け取った日から<b>8日以内</b>なら、書面やメールで<a href="../kotoba/#coolingoff">クーリング・オフ</a>（契約の取り消し）ができます。クーリング・オフを妨げられたときは、できる期間が延びます。</p>
+          <p><b>その場で決めない。</b>「今日限り」「今なら工事費無料」「○年で元がとれる」は、国民生活センターが挙げている勧誘の言葉です。</p>
+          <p>訪問販売・電話勧誘で契約したときは、契約書面を受け取った日から<b>8日以内</b>なら、書面やメールで<a href="../kotoba/#coolingoff">クーリング・オフ</a>（契約の取り消し）ができます。業者に「送らなくていい」と言われても、自分で送って記録を残してください。</p>
           <p>困ったときは <span class="nw">消費者ホットライン <a class="tel" href="tel:188">188</a>（いやや）</span><br>住まいの相談は <span class="nw">住まいるダイヤル</span> <a class="tel" href="tel:0335565147">03-3556-5147</a></p>
         </div>
       </div>
     </div>
+    <p style="margin-top:14px">ほかの事例は <a href="../teguchi/#ep08">手口の記録</a> にまとめています。</p>
   </section>
 
   <section class="method" aria-labelledby="h-method">
     <h2 id="h-method"><span class="nw">計算の仕方と</span><span class="nw">出典</span></h2>
     <dl id="method"></dl>
-    <h3 style="font-size:16px;margin:22px 0 8px">参考：相場サイトの総額（どれも税込か税抜かの記載なし）</h3>
+    <h3 style="font-size:16px;margin:22px 0 8px">参考：国の資料と相場サイトの金額（税の書き方は行ごとに）</h3>
     <div class="src-scroll">
       <table class="src-table">
         <thead><tr><th scope="col">出典（書き手）</th><th scope="col">中身</th><th scope="col">金額</th></tr></thead>
         <tbody>
-          <tr><td>リショップナビ（一括見積もりサイト）</td><td>ユニットバス→ユニットバス／在来→ユニットバス</td><td class="n">60〜120万円／80〜150万円</td></tr>
-          <tr><td>リフォームガイド（紹介サイト）</td><td>1坪・ロー／ミドル／ハイ</td><td class="n">約61〜76万／約70〜87万／約94〜112万円</td></tr>
-          <tr><td>シズケンリフォーム（リフォーム会社）</td><td>1坪</td><td class="n">70〜100万円</td></tr>
-          <tr><td>ハピすむ（紹介サイト）</td><td>ミドル</td><td class="n">70〜100万円</td></tr>
-          <tr><td>SUUMO（2019年の調査）</td><td>0.75坪／1坪／1.25坪</td><td class="n">約60〜120万／約80〜160万／約90〜280万円</td></tr>
-          <tr><td>パナソニック（メーカー）</td><td>ユニットバス全体の交換</td><td class="n">約50〜150万円</td></tr>
+          <tr><td>経済産業省の検討会の資料（国）</td><td>補助金を使わない場合の設備費＋工事費（税の記載なし）</td><td class="n">17〜22万円/kWh</td></tr>
+          <tr><td>経済産業省の資料（国）</td><td>補助事業のデータの導入費用・2023年度（税の記載なし）</td><td class="n">12.1万円/kWh</td></tr>
+          <tr><td>エコ発（見積もり比較サイト）</td><td>5〜7kWh未満／7〜10kWh未満／10〜14kWh未満（工事費込み・税込）</td><td class="n">約158万／約200万／約229万円</td></tr>
+          <tr><td>エコ発（見積もり比較サイト）</td><td>総額（税の記載なし）</td><td class="n">100万〜300万円</td></tr>
+          <tr><td>東京ガス（ガス会社・販売もする）</td><td>7kWh の価格の目安（税の記載なし・工事費が別にかかる場合あり）</td><td class="n">約210万円</td></tr>
+          <tr><td>エコ突撃隊（販売会社）</td><td>総額（税の記載なし）</td><td class="n">100万〜200万円程度</td></tr>
+          <tr><td>ソーラーパートナーズ（紹介サイト）</td><td>見積書のサンプル：太陽光6.6kW＋蓄電池9.7kWh</td><td class="n">税込2,651,000円</td></tr>
         </tbody>
       </table>
     </div>
-    <h3 style="font-size:16px;margin:22px 0 8px">出典（2026年10月3日に確認）</h3>
+    <h3 style="font-size:16px;margin:22px 0 8px">出典（2026年10月6日に確認）</h3>
     <ol class="src">
-      <li>本体の定価：<a href="https://jp.toto.com/products/bath/sazana/specification/" rel="noopener" target="_blank">TOTO サザナ 仕様・価格</a>／<a href="https://jp.toto.com/products/bath/synla/specification/" rel="noopener" target="_blank">TOTO シンラ 仕様・価格</a>（メーカー希望小売価格）／使用期間の目安：<a href="https://jp.toto.com/support/repair/saiteihoyuukikan/" rel="noopener" target="_blank">TOTO ご使用期間の目安</a></li>
-      <li>工事の行の単価・値引き率・オプション：<a href="https://www.reform-guide.jp/topics/unitbath-koukan/" rel="noopener" target="_blank">リフォームガイド ユニットバス交換</a>／<a href="https://www.reform-guide.jp/topics/unitbath-reform/" rel="noopener" target="_blank">リフォームガイド ユニットバスリフォーム</a>（紹介サイト）／<a href="https://hapisumu.jp/category/bath-reform/59752/" rel="noopener" target="_blank">ハピすむ（紹介サイト）</a>／<a href="https://shizuken-reform.com/column/bath-reform-cost/" rel="noopener" target="_blank">シズケンリフォーム（リフォーム会社）</a></li>
-      <li>諸経費：<a href="https://systembath.net/" rel="noopener" target="_blank">systembath.net（個人のサイト）</a>／公開されている見積書：<a href="https://www.miyako-reform.co.jp/unitbath-kokan-mitsumori/" rel="noopener" target="_blank">みやこリフォーム（リフォーム会社）</a>／<a href="https://www.kyoto-araki.jp/kenchiku/zokaichiku/kaishu_3.html" rel="noopener" target="_blank">アラキ工務店（工務店）</a></li>
-      <li>見積書のチェック：<a href="https://www.chord.or.jp/case/reform_estimate_check/chk3-008.html" rel="noopener" target="_blank">住まいるダイヤル chk3-008</a>／<a href="https://www.chord.or.jp/case/reform_estimate_check/chk4-001.html" rel="noopener" target="_blank">同 chk4-001</a></li>
-      <li>相場：<a href="https://rehome-navi.com/articles/95" rel="noopener" target="_blank">リショップナビ（一括見積もりサイト）</a>／<a href="https://suumo.jp/remodel/soba/rk_bath/" rel="noopener" target="_blank">SUUMO 相場</a>／<a href="https://suumo.jp/remodel/blog/entry/20240528/001" rel="noopener" target="_blank">SUUMO リフォームタイムズ</a>／<a href="https://sumai.panasonic.jp/sumai_create/hiyou/bath/" rel="noopener" target="_blank">パナソニック（メーカー）</a></li>
-      <li>介護保険：<a href="https://www.mhlw.go.jp/general/seido/toukatsu/suishin/dl/07.pdf" rel="noopener" target="_blank">厚生労働省「介護保険における住宅改修」（PDF）</a>／<a href="https://www.city.osaka.lg.jp/higashiyodogawa/page/0000443175.html" rel="noopener" target="_blank">大阪市東淀川区役所</a></li>
-      <li>相談事例：<a href="https://www.no-trouble.caa.go.jp/case/doortodoorsales/case03.html" rel="noopener" target="_blank">消費者庁 消費者トラブル事例</a>／<a href="https://www.pref.chiba.lg.jp/seikouan/press/2021/r0306jigyousya-syobun.html" rel="noopener" target="_blank">千葉県 2021年6月11日</a>／<a href="https://www.chord.or.jp/case/detail/detail_6260.html" rel="noopener" target="_blank">住まいるダイヤル 相談事例</a>／<a href="https://www.kokusen.go.jp/soudan_now/data/coolingoff.html" rel="noopener" target="_blank">国民生活センター クーリング・オフ</a>／<a href="https://www.caa.go.jp/policies/policy/local_cooperation/local_consumer_administration/hotline/" rel="noopener" target="_blank">消費者庁 消費者ホットライン</a></li>
+      <li>蓄電池の単価・工事費：<a href="https://www.meti.go.jp/shingikai/energy_environment/storage_system/pdf/2024_004_05_01.pdf" rel="noopener" target="_blank">経済産業省 定置用蓄電システム普及拡大検討会 資料5-1（2024年11月・PDF）</a>／<a href="https://www.meti.go.jp/policy/mono_info_service/joho/conference/battery_strategy2/shiryo06.pdf" rel="noopener" target="_blank">経済産業省「定置用蓄電システムの現状と課題」（2025年3月・PDF）</a></li>
+      <li>太陽光の単価・パワコン・電気の値段：<a href="https://www.meti.go.jp/shingikai/santeii/pdf/20260205_1.pdf" rel="noopener" target="_blank">調達価格等算定委員会「令和8年度以降の調達価格等に関する意見」（2026年2月・PDF）</a></li>
+      <li>工事の行の目安・相場：<a href="https://www.eco-hatsu.com/battery/190/" rel="noopener" target="_blank">エコ発（見積もり比較サイト）</a>／<a href="https://solar-battery.tokyo-gas.co.jp/column/0075/" rel="noopener" target="_blank">東京ガス 家庭用蓄電池の価格相場（使用期間・定価の表）</a>／<a href="https://totsugekitai.com/media/lib220125.html" rel="noopener" target="_blank">エコ突撃隊（販売会社）</a>／<a href="https://www.solar-partners.jp/contents/66389.html" rel="noopener" target="_blank">ソーラーパートナーズ（紹介サイト・見積書のサンプル）</a></li>
+      <li>補助金：<a href="https://dr-battery.sii.or.jp/r7h/about/" rel="noopener" target="_blank">環境共創イニシアチブ 家庭用蓄電システム導入支援事業（国）</a>／<a href="https://www.tokyo-co2down.jp/subsidy/family_tikudenchi/r8/" rel="noopener" target="_blank">クール・ネット東京 令和8年度（東京都）</a></li>
+      <li>相談事例と助言：<a href="https://www.kokusen.go.jp/news/data/n-20210603_2.html" rel="noopener" target="_blank">国民生活センター「家庭用蓄電池の勧誘トラブルにご注意！」2021年6月3日</a>／<a href="https://www.kokusen.go.jp/mimamori/mj_mailmag/mj-shinsen456.html" rel="noopener" target="_blank">国民生活センター 見守り新鮮情報 第456号</a>／<a href="https://www.pref.tokushima.lg.jp/ippannokata/kurashi/shohiseikatsu/7216686/" rel="noopener" target="_blank">徳島県 2023年5月16日</a>／<a href="https://www.caa.go.jp/notice/entry/039001/" rel="noopener" target="_blank">消費者庁 2024年8月9日</a>／<a href="https://www.kokusen.go.jp/soudan_now/data/coolingoff.html" rel="noopener" target="_blank">国民生活センター クーリング・オフ</a>／<a href="https://www.caa.go.jp/policies/policy/local_cooperation/local_consumer_administration/hotline/" rel="noopener" target="_blank">消費者庁 消費者ホットライン</a></li>
     </ol>
   </section>
 </div>
 
   <div class="page-note">
   <p>このページは、工事を請け負う業者ではない立場で、YouTubeの動画のために作っています。特定の業者や商品を紹介するものではありません。</p>
-  <p>金額は公開されている資料から計算した目安です。実際の金額は、お風呂の傷み具合・地域・業者によって変わります。見積もりの代わりにはなりません。</p>
+  <p>金額は公開されている資料から計算した目安です。実際の金額は、機械の種類・置き場所・配線・地域・業者によって変わります。電気代がいくら下がるか・何年で元が取れるかは、このページでは計算していません。見積もりの代わりにはなりません。</p>
   </div>
   </div>
 </main>
@@ -593,7 +552,7 @@ ol.src a { overflow-wrap: anywhere; }
 <div class="dock" id="dock">
   <div class="dock-in">
     <p class="d1">いまの条件の相場（税込）</p>
-    <p class="d2 num">約<span id="d-std">97</span><small>万円</small><span class="d-sub">業者によって <span id="d-rng">77〜153万円</span></span></p>
+    <p class="d2 num">約<span id="d-std">141</span><small>万円</small><span class="d-sub">業者によって <span id="d-rng">141〜196万円</span></span></p>
   </div>
   <button type="button" class="dock-go" id="dock-go">結果へ</button>
 </div>
@@ -623,75 +582,51 @@ ol.src a { overflow-wrap: anywhere; }
 </footer>
 <script>
 /* ============================================================
-   数字はすべて 06_お風呂の交換/単価表.md から取る。
+   数字はすべて 08_蓄電池・太陽光/単価表.md から取る。
    ここだけ直して、単価表と食い違わせない。
-   std＝動画のモデル見積書の金額 / lo・hi＝出典の幅の下と上
-   行の金額はすべて税抜。諸経費と消費税（切り捨て）は最後に足す（単価表の 1 と同じ順）。
-   既定（ユニットバスから・1坪・中級・60%引き・オプションなし）で税込971,495円になる。
+   std＝動画のモデル見積書の金額 / lo・hi＝出典の幅の下と上（モデルはどの行も幅の下の端で置いているので、std＝lo）
+   国の資料の単価（万円/kWh・万円/kW）は税の記載が無いので、税抜とみなす（単価表の 1）。
+   行の金額はすべて税抜。諸経費（額）と消費税（切り捨て）は最後に足す。
+   既定（7kWh・単機能型・特定負荷型・太陽光は付けない）で税込1,408,000円になる。
    ============================================================ */
 const P = {
-  youjou:  { std: 20000, lo: 10000, hi: 30000  },  // 養生 1〜3万円（リフォームガイド）
-  kaitai:  { std: 80000, lo: 50000, hi: 150000 },  // 既存ユニットバスの解体・撤去 5〜15万円（リフォームガイド・シズケン）
-  shobun:  { std: 30000, lo: 20000, hi: 50000  },  // 廃材の処分 2〜5万円（ハピすむ）
-  kyuhai:  { std: 50000, lo: 15000, hi: 80000  },  // 給排水 1.5〜8万円（リフォームガイド）
-  denki:   { std: 30000, lo: 25000, hi: 50000  },  // 電気 2.5〜5万円（リフォームガイド）
-  kumi:    { std: 90000, lo: 80000, hi: 120000 },  // 組立 8〜10万円（リフォームガイド）・8〜12万円（ハピすむ）
-  door:    { std: 50000, lo: 40000, hi: 60000  },  // 入口のドア枠・袖壁の復旧 4〜6万円（リフォームガイド）
-  naisou:  { std: 25000, lo: 20000, hi: 50000  },  // 脱衣所側の内装 2〜5万円（ハピすむ）
-  keihi:   { std: .07,   lo: .067,  hi: .10    },  // 諸経費：実例 6.7%（みやこ）・7.6%（アラキ）の間の7%／10%程度（systembath.net）
+  kiki:   { std: 150000, lo: 150000, hi: 200000 },  // 機器一式 1kWhあたり：国の検討会の資料「補助事業以外で導入する場合、設備費は15〜20万円/kWh」
+  kiso:   { std: 50000,  lo: 50000,  hi: 100000 },  // 基礎工事：エコ発「約5〜10万円」（税の記載なし）
+  suetsuke: { std: 50000, lo: 50000, hi: 80000 },   // 据え付け・調整：エコ発「約5〜8万円」
+  denki:  { std: 100000, lo: 100000, hi: 150000 },  // 電気工事：エコ発「約10〜15万円」
+  keihi:  { std: 30000,  lo: 30000,  hi: 50000 },   // 諸経費（額）：エコ発「約3〜5万円」。率の出典は見つからなかった
   tax: .10,
 };
-// ユニットバス本体：TOTO 1616 の定価（メーカー希望小売価格・税抜）
-const GRADE = {
-  n: { name: '普及', item: 'TOTO サザナ 1616 Nタイプ', list: 904000 },
-  s: { name: '中級', item: 'TOTO サザナ 1616 Sタイプ', list: 1126000 },
-  c: { name: '高級', item: 'TOTO シンラ 1616 Cタイプ', list: 1382000 },
-};
-// 値引き率：「定価の40〜60%引きが一般的」（リフォームガイド）／実際の見積書で60%（アラキ）・65%（みやこ）。幅は65%引き〜40%引き
-const RATES = { 40: .40, 50: .50, 60: .60, 65: .65 };
-const RATE_LO = .65, RATE_HI = .40;
-const YEARS = 20;   // TOTO「ご使用期間の目安」システムバス全体20年。グレードで変わらない
-// サイズ：リフォームガイドのミドルの相場（0.75坪 約65〜83万／1.0坪 約70〜87万／1.25坪 約75〜92万）が「1段大きくなるごとに約5万円」なのを、1坪との差の行にする
-const SIZE = {
-  '075': { name: '0.75坪', add: -50000 },
-  '1':   { name: '1坪',    add: 0 },
-  '125': { name: '1.25坪', add: 50000 },
-};
-// 在来（タイル張り）から：「ユニットバスからの交換より＋10〜20万円以上」（ハピすむ）。目安は出典の下の端（少なくとも＋10万円）。真ん中などの新しい数字は作らない
-const ZAIRAI = { std: 100000, lo: 100000, hi: 200000 };
-// オプション
-const KANSO = { std: 80000, lo: 70000, hi: 90000 };   // 浴室換気暖房乾燥機 7〜9万円（リフォームガイド）
-const TESURI = 10000;                                // 手すり 1本1万円（リフォームガイド）
+const CAPS = { 5: 5, 7: 7, 10: 10 };
+// 太陽光：国の委員会の資料 住宅用（10kW未満）2025年設置の平均 既築30.1万円/kW（パネル・パワコン・架台・工事費などを含む・税の記載なし）。幅の出典なし
+const PV_PER_KW = 301000;
+const PVS = { 0: 0, 4: 4, 5: 5 };
+const YEARS = 15, YEARS_SHORT = 10;   // 使用期間・保証「10〜15年程度」（蓄電池を売っているガス会社のコラム）の上の端。10年も添える
 
 /* ── 見積書の行 ── */
 function estimate(s) {
-  const g = GRADE[s.grade], rate = RATES[s.rate];
+  const cap = CAPS[s.cap];
   const flat = (name, p, unitText) => ({ name, unitText, std: p.std, lo: p.lo, hi: p.hi });
   const rows = [
-    { name: `ユニットバス本体（${g.name}）`, unitText: `${g.item}・定価${yen(g.list)}円の${s.rate}%引き`,
-      std: g.list * (1 - rate), lo: g.list * (1 - RATE_LO), hi: g.list * (1 - RATE_HI) },
-    flat('養生', P.youjou, '1式'),
-    flat(s.now === 'zairai' ? '既存のお風呂の解体・撤去' : '既存ユニットバスの解体・撤去', P.kaitai, '1式'),
-    flat('廃材の処分', P.shobun, '1式'),
-    flat('給排水', P.kyuhai, '1式'),
-    flat('電気', P.denki, '1式'),
-    flat('組立', P.kumi, '1式'),
-    flat('入口のドア枠・袖壁の復旧', P.door, '1式'),
-    flat('脱衣所側の内装（クロス）', P.naisou, '1式'),
+    { name: '蓄電池システムの機器一式', unitText: `${cap}kWh × ${yen(P.kiki.std)}円（電池・蓄電池用のパワコン・リモコン・特定負荷用の分電盤）`,
+      std: P.kiki.std * cap, lo: P.kiki.lo * cap, hi: P.kiki.hi * cap },
+    flat('基礎工事', P.kiso, '1式（蓄電池を置く台）'),
+    flat('据え付け・調整', P.suetsuke, '1式'),
+    flat('電気工事', P.denki, '1式（配線・分電盤へのつなぎ込み）'),
   ];
-  if (s.now === 'zairai') rows.push(flat('在来のお風呂からの追加', ZAIRAI, 'タイルと下地・土間の解体など（ユニットバスからより＋10〜20万円以上）。下地の傷み次第でさらに増えます'));
-  const sz = SIZE[s.size];
-  if (sz.add) rows.push({ name: `サイズの差（${sz.name}）`, unitText: '1坪との差の目安（1段ごとに約5万円）', std: sz.add, lo: sz.add, hi: sz.add });
-  if (s.kanso) rows.push(flat('浴室暖房乾燥機', KANSO, '1台'));
-  if (s.tesuri) rows.push({ name: '手すり', unitText: `${s.tesuri}本 × ${yen(TESURI)}円`, std: TESURI * s.tesuri, lo: TESURI * s.tesuri, hi: TESURI * s.tesuri });
+  const kw = PVS[s.pv];
+  if (kw) rows.push({ name: `太陽光発電（${kw}kW）`, unitText: `${kw}kW × ${yen(PV_PER_KW)}円（国の資料の既築の平均・パネルと工事を含む）`, std: PV_PER_KW * kw, lo: PV_PER_KW * kw, hi: PV_PER_KW * kw });
 
   const sub = k => rows.reduce((a, r) => a + r[k], 0);
   const t = {};
   for (const k of ['std', 'lo', 'hi']) {
-    const s0 = Math.round(sub(k)), ke = Math.round(s0 * P.keihi[k]), ex = s0 + ke, tax = Math.floor(ex * P.tax);
+    const s0 = Math.round(sub(k)), ke = P.keihi[k], ex = s0 + ke, tax = Math.floor(ex * P.tax);
     t[k] = { sub: s0, keihi: ke, ex, tax, total: ex + tax };
   }
-  return { rows, t };
+  // 蓄電池だけの税込（太陽光を除く。1年あたり・1kWhあたりに使う）
+  const bEx = t.std.ex - PV_PER_KW * kw;
+  const battery = bEx + Math.floor(bEx * P.tax);
+  return { rows, t, battery, cap };
 }
 
 /* ── 表示 ── */
@@ -704,12 +639,8 @@ function readState() {
   const fd = new FormData($('f'));
   const pick = (k, map, d) => { const v = fd.get(k); return own(map, v) ? v : d; };
   return {
-    now: fd.get('now') === 'zairai' ? 'zairai' : 'unit',
-    size: pick('size', SIZE, '1'),
-    grade: pick('grade', GRADE, 's'),
-    rate: pick('rate', RATES, '60'),
-    kanso: fd.get('kanso') === '1',
-    tesuri: Math.min(2, Math.max(0, parseInt(fd.get('tesuri'), 10) || 0)),
+    cap: pick('cap', CAPS, '7'),
+    pv: pick('pv', PVS, '0'),
   };
 }
 
@@ -719,41 +650,41 @@ function render() {
   const e = estimate(s);
   last = e;
   const { t } = e;
+  const pv = PVS[s.pv];
 
   $('t-std').textContent = manR(t.std.total);
   $('t-lo').textContent = manR(t.lo.total);
   $('t-hi').textContent = manR(t.hi.total);
-  $('t-year').innerHTML = `<span class="nw">1年あたり 約${man(t.std.total / YEARS)}万円</span><span class="nw">（メーカーの目安 ${YEARS}年で割った金額）</span>`;
+  $('t-year').innerHTML = `<span class="nw">${pv ? '蓄電池の分（税込' + yen(e.battery) + '円）は' : ''}1年あたり 約${man(e.battery / YEARS)}万円</span><span class="nw">（${YEARS}年で割った目安。${YEARS_SHORT}年なら約${man(e.battery / YEARS_SHORT)}万円）</span><br><span class="nw">1kWhあたり 税込${yen(Math.floor(e.battery / e.cap))}円</span>`;
   $('d-std').textContent = manR(t.std.total);
   $('d-rng').textContent = `${manR(t.lo.total)}〜${manR(t.hi.total)}万円`;
 
-  // 相場の参考（どれも税の記載なし）
-  const RG = { '075': '約65〜83万円', '1': '約70〜87万円', '125': '約75〜92万円' };   // リフォームガイド ミドル
-  const SU = { '075': '約60〜120万円', '1': '約80〜160万円', '125': '約90〜280万円' }; // SUUMO（2019年の調査）
-  $('t-ref').innerHTML = s.now === 'zairai'
-    ? `参考：リショップナビは、在来からユニットバスへの交換を<span class="nw">80〜150万円</span>としています<span class="nw">（税込か税抜かの記載なし）</span>`
-    : `参考：${SIZE[s.size].name}の相場は、リフォームガイドのミドルで<span class="nw">${RG[s.size]}</span>、SUUMO（2019年の調査）で<span class="nw">${SU[s.size]}</span><span class="nw">（どちらも税込か税抜かの記載なし）</span>`;
-  const notes = [];
-  if (s.rate === '40') notes.push('40%引きは、紹介サイトの「40〜60%引きが一般的」の下の端です。本体の行だけで、60%引きより税込で約26.5万円高くなります（1坪・中級のとき）。');
-  if (s.size !== '1') notes.push('サイズの差は、紹介サイトの相場が「1段ごとに約5万円」ちがうのを1行にした目安です。本体の定価のサイズごとの差ではありません。');
-  if (s.now === 'zairai') notes.push('在来のお風呂は、壊してみるまで下地の傷み具合が分かりません。下地の補修が要れば、さらに5〜15万円ほど追加になるという紹介サイトがあります。');
+  // 相場の参考
+  const ECO = { 5: '5〜7kWh未満で約158万円', 7: '7〜10kWh未満で約200万円', 10: '10〜14kWh未満で約229万円' };
+  const cap = e.cap;
+  $('t-ref').innerHTML = pv
+    ? `参考：紹介サイトの見積書のサンプル（太陽光6.6kW＋蓄電池9.7kWh）は<span class="nw">税込2,651,000円</span>`
+    : `参考：国の資料の補助金を使わない場合の目安で計算すると、${cap}kWhで<span class="nw">${17 * cap}万〜${22 * cap}万円</span><span class="nw">（税の記載なし）</span>。見積もり比較サイトは${ECO[cap]}<span class="nw">（工事費込み・税込）</span>`;
+  const notes = ['単機能型・特定負荷型で、今の太陽光のパワコンをそのまま使う計算です。補助金は引く前の金額です。'];
+  if (s.cap !== '7') notes.push('容量を変えても、工事の3行と諸経費はモデルのままにしています。大きい容量ほど1kWhあたりが下がるのはそのためです。機器の1kWhの単価は、どの容量も15万円にしています。');
+  if (pv) notes.push(`太陽光は、国の委員会の資料の住宅用（すでに建っている家）2025年設置の平均30.1万円/kW（税の記載なし・税抜とみなしています）で1行にしました。業者による幅の出典が無いので、太陽光の行には幅を付けていません。諸経費は蓄電池だけのときのままです。`);
   $('fnote').hidden = !notes.length; $('fnote').innerHTML = notes.join('<br>');
-  $('spec').innerHTML = `${s.now === 'zairai' ? '在来のお風呂' : 'ユニットバス'}から・${SIZE[s.size].name}<br>${GRADE[s.grade].item.replace('1616 ', '')}・本体${s.rate}%引き`;
+  $('spec').innerHTML = `蓄電池 ${cap}kWh・単機能型・特定負荷型・屋外に置く<br>${pv ? `太陽光 ${pv}kW を一緒に付ける` : 'すでに太陽光がある家に後付け'}`;
 
   const tr = (cls, name, small, std, rng) =>
     `<tr class="${cls}"><td class="item"><b>${name}</b>${kw(name)}${small ? `<small>${small}</small>` : ''}</td><td class="amt">${std}<span class="rng">${rng}</span></td></tr>`;
   const rg = (a, b) => a === b ? `${man(a)}万` : `${man(a)}〜${man(b)}万`;
   let html = e.rows.map(r => tr('', r.name, r.unitText, yen(r.std), rg(r.lo, r.hi))).join('');
   html += tr('sum', '小計', '', yen(t.std.sub), rg(t.lo.sub, t.hi.sub));
-  html += tr('', '諸経費', `小計の${Math.round(P.keihi.std * 100)}%（業者によって6.7〜10%）`, yen(t.std.keihi), rg(t.lo.keihi, t.hi.keihi));
+  html += tr('', '諸経費', '1式（業者によって約3〜5万円）', yen(t.std.keihi), rg(t.lo.keihi, t.hi.keihi));
   html += tr('', '消費税', '10%（円未満切り捨て）', yen(t.std.tax), rg(t.lo.tax, t.hi.tax));
   html += tr('grand', '合計（税込）', '', yen(t.std.total) + '円', rg(t.lo.total, t.hi.total));
   $('rows').innerHTML = html;
 
-  for (const k of Object.keys(GRADE)) {
-    const ek = estimate({ ...s, grade: k });
+  for (const k of Object.keys(CAPS)) {
+    const ek = estimate({ ...s, cap: k });
     document.querySelector(`[data-p="${k}"]`).textContent = `約${manR(ek.t.std.total)}万円`;
-    document.querySelector(`[data-y="${k}"]`).textContent = `1年あたり 約${man(ek.t.std.total / YEARS)}万円（${YEARS}年で割った目安）`;
+    document.querySelector(`[data-y="${k}"]`).textContent = `${pv ? '蓄電池の分 ' : ''}1年あたり 約${man(ek.battery / YEARS)}万円（${YEARS}年で割った目安）`;
   }
   renderCompare();
   afterRender(s);
@@ -784,35 +715,34 @@ function renderCompare() {
   if (mine < lo) {
     cls += ' out';
     pill = near(lo - mine) ? '幅の下限とほぼ同じ' : `幅の下限より約${manR(lo - mine)}万円安い`;
-    msg = `公開されている単価の安い側で計算した金額（約${manR(lo)}万円）よりも、さらに安い見積もりです。安いこと自体は悪くありません。本体の型番・定価・値引きのあとの金額と、解体・処分・給排水・電気・組立の行が書いてあるかを確かめてください。追加の請求が出るのはどんなときかも、先に聞いておきましょう。`;
+    msg = `公開されている単価の安い側で計算した金額（約${manR(lo)}万円）よりも、さらに安い見積もりです。安いこと自体は悪くありません。容量（kWh）と、機器・工事の行が分けて書いてあるかを確かめてください。補助金を引いたあとの「実質」の金額になっていないかも見てください。`;
   } else if (mine <= hi) {
     pill = '相場の幅の中';
-    msg = mine <= std ? `目安（約${manR(std)}万円）以下で、単価の幅の中です。念のため、内訳の行がそろっているかを見てください。`
+    msg = mine <= std ? `目安（約${manR(std)}万円）以下で、単価の幅の中です。念のため、容量と機械の種類（単機能型かハイブリッド型か）が同じかを見てください。`
       : near(mine - std) ? '目安とほぼ同じで、単価の幅の中です。'
-      : `目安より約${manR(mine - std)}万円高めですが、単価の幅の中です。本体の値引き率と、工事費の内訳を聞いて、数字で答えが返ってくれば1つの安心材料になります。`;
+      : `目安より約${manR(mine - std)}万円高めですが、単価の幅の中です。機器と工事を分けて、1kWhあたりいくらかを聞いて、数字で答えが返ってくれば1つの安心材料になります。`;
   } else {
     cls += ' out';
     pill = near(mine - hi) ? '幅の上限とほぼ同じ' : `幅の上限より約${manR(mine - hi)}万円高い`;
-    msg = `公開されている単価の高い側で計算した金額（約${manR(hi)}万円）よりも高い見積もりです。高いことだけで、おかしな見積もりとは決められません。その場で決めずに、ほかの会社からも見積もりを取ってください。困ったときは消費者ホットライン188へ。`;
+    msg = `公開されている単価の高い側で計算した金額（約${manR(hi)}万円）よりも高い見積もりです。ハイブリッド型・全負荷型なら高くなるので、高いことだけで、おかしな見積もりとは決められません。その場で決めずに、ほかの会社からも見積もりを取ってください。困ったときは消費者ホットライン188へ。`;
   }
   msg += '<b class="v-next">内訳の行ごとに比べてください。</b><button type="button" class="v-open">内訳を開く</button>';
-  msg += '<small>給湯器や土台の補修など、お風呂のほかの工事が入っている見積書とはくらべられません。</small>';
+  msg += '<small>ハイブリッド型・全負荷型、パワコンの取り替え、エコキュートなどほかの機械が入っている見積書とはくらべられません。</small>';
   v.className = cls; v.innerHTML = `<span class="v-pill">${pill}</span>${msg}`;
 }
 
 /* 計算の仕方（数字は上の設定から書き出す） */
 function renderMethod() {
   $('method').innerHTML = `
-    <div><dt>動画のモデル見積書</dt><dd>戸建て1階のユニットバスを、1坪（1616）の中級のユニットバスに替える工事です。本体と、養生・解体・処分・給排水・電気・組立・ドア枠・内装の工事の行で、税込971,495円です。</dd></div>
-    <div><dt>本体の行</dt><dd>TOTOの定価（メーカー希望小売価格・税抜）から、選んだ率を引いた金額です。普及 ${yen(GRADE.n.list)}円・中級 ${yen(GRADE.s.list)}円・高級 ${yen(GRADE.c.list)}円。幅は65%引き〜40%引きです。</dd></div>
-    <div><dt>工事の行</dt><dd>どれも「1式」です。目安は動画のモデル見積書の金額、幅は紹介サイト・リフォーム会社の出典の安い側と高い側です。グレードを変えても、工事の行は変わりません。</dd></div>
-    <div><dt>諸経費と消費税</dt><dd>諸経費は小計の${Math.round(P.keihi.std * 100)}%（公開されている見積書2枚の6.7%と7.6%の間）、幅は6.7〜10%。消費税は10%で、円未満は切り捨てです。各行は税抜で、合計だけ税込です。</dd></div>
-    <div><dt>サイズ</dt><dd>0.75坪は−5万円、1.25坪は＋5万円の行を足します。紹介サイトの相場が、サイズが1段変わるごとに約5万円ちがうためです。</dd></div>
-    <div><dt>在来のお風呂から</dt><dd>「ユニットバスからの交換より＋10〜20万円以上」という紹介サイトの数字から、目安10万円（少なくともこれだけ増える額）・幅10〜20万円の行を足します。</dd></div>
-    <div><dt>オプション</dt><dd>浴室暖房乾燥機は目安8万円・幅7〜9万円、手すりは1本1万円です。</dd></div>
-    <div><dt>1年あたり</dt><dd>税込の合計を、TOTOの「ご使用期間の目安」のシステムバス全体${YEARS}年で割っています。</dd></div>
-    <div><dt>「目安」と「業者による幅」</dt><dd>目安は動画のモデル見積書と同じ金額、幅はすべての行を出典の安い側・高い側でそろえた金額です。すべての行が高い側にそろうことはまれです。</dd></div>
-    <div><dt>入っていないもの</dt><dd>土台・下地の補修、給湯器の交換、浴室を広げる工事、マンションの搬入・共用部分の養生、地域による差。</dd></div>`;
+    <div><dt>動画のモデル見積書</dt><dd>すでに太陽光発電があり、売電の10年が終わった戸建てに、家庭用蓄電池7kWhを1台足す工事です。単機能型・特定負荷型・屋外に置く・補助金を引く前で、税込1,408,000円（1kWhあたり税込201,142円）です。</dd></div>
+    <div><dt>機器の行</dt><dd>容量 × 1kWhあたり${yen(P.kiki.std)}円。経済産業省の検討会の資料の「補助事業以外で導入する場合、設備費は15〜20万円/kWhが標準的な水準」の下の端です（税の記載なし・税抜とみなしています）。幅は15〜20万円/kWhです。</dd></div>
+    <div><dt>工事の行と諸経費</dt><dd>基礎工事${yen(P.kiso.std)}円・据え付けと調整${yen(P.suetsuke.std)}円・電気工事${yen(P.denki.std)}円・諸経費${yen(P.keihi.std)}円で、どれも見積もり比較サイト（エコ発）の目安（基礎約5〜10万・据え付け約5〜8万・電気約10〜15万・諸経費約3〜5万円。税の記載なし）の下の端です。容量を変えても、工事と諸経費は同じにしています。工事の3行の20万円は、国の資料の「工事費2万円/kWh程度」で7kWhを計算した14万円より6万円高めです。</dd></div>
+    <div><dt>太陽光</dt><dd>国の委員会の資料（調達価格等算定委員会）の住宅用太陽光（10kW未満）2025年設置の平均、既築${yen(PV_PER_KW)}円/kWに、選んだkWをかけた1行です。パネル・パワコン・架台・工事費などを含む数字です（税の記載なし・税抜とみなしています）。</dd></div>
+    <div><dt>消費税</dt><dd>10%で、円未満は切り捨てです。各行は税抜で、合計だけ税込です。</dd></div>
+    <div><dt>1年あたり</dt><dd>蓄電池の分の税込を、蓄電池を売っているガス会社のコラムの「使用期間10〜15年程度」「保証期間は10〜15年程度が一般的」の上の端、${YEARS}年で割っています。${YEARS_SHORT}年で割った金額も添えています。太陽光の分は入れていません。</dd></div>
+    <div><dt>「目安」と「業者による幅」</dt><dd>目安は動画のモデル見積書と同じ金額で、どの行も出典の幅の下の端です。幅の上は、すべての行を出典の高い側でそろえた金額です。すべての行が高い側にそろうことはまれです。</dd></div>
+    <div><dt>計算していないもの</dt><dd>電気代がいくら下がるか・何年で元が取れるか。国の委員会の資料では、家で買う電気は1kWhあたり27.86円、売電の10年が終わったあとの買い取りは平均10.0円ですが、1年にどれだけ蓄電池から使えるかの公的な出典が無いためです。</dd></div>
+    <div><dt>入っていないもの</dt><dd>ハイブリッド型・全負荷型、今の太陽光のパワコンの取り替え、申請の手続きの費用・HEMS・運搬費、補助金、ローンの利息、地域による差。</dd></div>`;
 }
 
 /* ── 操作 ── */
@@ -822,36 +752,27 @@ $('mine').addEventListener('input', renderCompare);
 $('btn-reset').addEventListener('click', () => { $('f').reset(); render(); });
 
 /* ── このページの設定（送る条件の書き方・チップ・辞典へのリンク） ──
-   送るリンクの例：…/ofuro/#n=unit&z=1&g=s&r=60&k=0&h=0 */
+   送るリンクの例：…/chikudenchi/#c=7&p=0 */
 const CFG = {
-  page: 'ofuro',
+  page: 'chikudenchi',
   radios: [
-    ['n', 'now', { unit: 'unit', zairai: 'zairai' }],
-    ['z', 'size', { '075': '075', 1: '1', 125: '125' }],
-    ['g', 'grade', { n: 'n', s: 's', c: 'c' }],
-    ['r', 'rate', { 40: '40', 50: '50', 60: '60', 65: '65' }],
-    ['k', 'kanso', { 0: '0', 1: '1' }],
-    ['h', 'tesuri', { 0: '0', 1: '1', 2: '2' }],
+    ['c', 'cap', { 5: '5', 7: '7', 10: '10' }],
+    ['p', 'pv', { 0: '0', 4: '4', 5: '5' }],
   ],
   toHash(s) {
-    return [`n=${s.now}`, `z=${s.size}`, `g=${s.grade}`, `r=${s.rate}`, `k=${s.kanso ? 1 : 0}`, `h=${s.tesuri}`];
+    return [`c=${s.cap}`, `p=${s.pv}`];
   },
   chips(s) {
     return [
-      ['now', s.now === 'zairai' ? '在来のお風呂から' : 'ユニットバスから'],
-      ['size', SIZE[s.size].name],
-      ['grade', GRADE[s.grade].name],
-      ['rate', `本体${s.rate}%引き`],
-      ['kanso', s.kanso ? '暖房乾燥機あり' : '暖房乾燥機なし'],
-      ['tesuri', s.tesuri ? `手すり${s.tesuri}本` : '手すりなし'],
+      ['cap', `蓄電池 ${s.cap}kWh`],
+      ['pv', s.pv === '0' ? '太陽光は付けない' : `太陽光 ${s.pv}kW も付ける`],
     ];
   },
   shareText() {
-    return `お風呂の交換、うちの条件だと相場は約${manR(last.t.std.total)}万円でした（見積書のお姉さんの計算ページ）`;
+    return `家庭用蓄電池、うちの条件だと相場は約${manR(last.t.std.total)}万円でした（見積書のお姉さんの計算ページ）`;
   },
-  kw: [[/^ユニットバス本体/, 'unitbath'], [/^養生$/, 'youjou'], [/^廃材の処分$/, 'shobun'], [/^在来/, 'zairai'],
-    [/^手すり$/, 'kaigo'], [/^諸経費$/, 'shokeihi']],
-  kwLabel: { unitbath: 'ユニットバス', youjou: '養生', shobun: '撤去・処分費', zairai: '在来浴室', kaigo: '介護保険の住宅改修', shokeihi: '諸経費' },
+  kw: [[/^蓄電池システム/, 'chikudenchi'], [/^電気工事$/, 'fuka'], [/^太陽光発電/, 'baiden'], [/^諸経費$/, 'shokeihi']],
+  kwLabel: { chikudenchi: '家庭用蓄電池', fuka: '特定負荷・全負荷', baiden: '売電・卒FIT', shokeihi: '諸経費' },
 };
 
 /* ============================================================

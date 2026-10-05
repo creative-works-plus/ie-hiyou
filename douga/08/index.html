@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>【実際の手口3つ】蓄電池、本当はいくら？（文字版）｜見積書のお姉さん</title>
+<meta name="description" content="太陽光のある家に家庭用蓄電池（7kWh）を足す見積書を、公開されている資料の単価だけで1行ずつ作りました（税込み約141万円）。国民生活センター・徳島県・消費者庁の事例から、実際にあった手口3つと、補助金の「実質」の見方も紹介します。動画の文字版です。">
+<meta name="theme-color" content="#1f2d55">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="見積書のお姉さん">
+<meta property="og:title" content="【実際の手口3つ】蓄電池、本当はいくら？（文字版）｜見積書のお姉さん">
+<meta property="og:description" content="家庭用蓄電池の見積書を、公開されている資料の単価だけで1行ずつ作りました。実際にあった手口3つも紹介します。">
+<meta property="og:image" content="https://creative-works-plus.github.io/ie-hiyou/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../img/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="../../img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=BIZ+UDPMincho:wght@700&family=M+PLUS+Rounded+1c:wght@800&display=swap">
+<link rel="stylesheet" href="../../assets/site.css">
+<script src="../../assets/site.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "【実際の手口3つ】蓄電池、本当はいくら？",
+  "description": "家庭用蓄電池の見積書を、公開されている資料の単価だけで1行ずつ作った動画の文字版です。",
+  "inLanguage": "ja",
+  "image": "https://creative-works-plus.github.io/ie-hiyou/img/thumbs/08.webp",
+  "mainEntityOfPage": "https://creative-works-plus.github.io/ie-hiyou/douga/08/",
+  "author": { "@type": "Organization", "name": "見積書のお姉さん", "url": "https://www.youtube.com/@mitsumori_onee" },
+  "publisher": { "@type": "Organization", "name": "見積書のお姉さん" }
+}
+</script>
+<style>
+/* ── 動画の文字版（douga/01〜09 で同じ見た目）。色は site.css の変数だけを使う ── */
+.kicker { display: block; font-size: .48em; color: var(--sub); letter-spacing: .02em; margin-bottom: .35em; }
+.art-h { max-width: calc(680px + 32px); }
+.doc { display: grid; grid-template-columns: minmax(0, 1fr); max-width: 680px; margin: 0 auto; }
+@media (min-width: 1024px) {
+  .art-h { max-width: var(--wrap); }
+  .doc { max-width: none; grid-template-columns: minmax(0, 680px) 232px; justify-content: space-between; column-gap: 48px; }
+  .doc > * { grid-column: 1; }
+  .doc > .toc { grid-column: 2; grid-row: 1 / span 30; position: sticky; top: 84px; align-self: start; margin-top: 0; }
+}
+
+/* 動画の場所（公開まではサムネと「近日公開」） */
+.video { margin: 0; }
+.video__frame { position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; background: var(--tint); box-shadow: var(--shadow); max-width: 640px; }
+.video__frame img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.video__badge { position: absolute; left: 12px; top: 12px; display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 999px; background: rgba(13, 20, 34, .82); color: #fff; font-size: 13px; font-weight: 700; }
+.video__badge::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--yellow); }
+.video figcaption { margin-top: 12px; font-size: 14.5px; color: var(--sub); }
+.video figcaption a { font-weight: 700; }
+
+/* 目次 */
+.toc { margin-top: 28px; background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); padding: 18px 20px 14px; }
+.toc__h { font-family: var(--f-disp); font-weight: 800; font-size: 15px; margin: 0 0 6px; }
+.toc ol { list-style: none; margin: 0; padding: 0; counter-reset: toc; }
+.toc li { border-top: 1px solid var(--rule); }
+.toc li:first-child { border-top: 0; }
+.toc a { display: block; padding: 9px 0; color: var(--ink); text-decoration: none; font-size: 15px; line-height: 1.5; }
+.toc a:hover { color: var(--blue); }
+.toc a.is-here { color: var(--blue); font-weight: 700; }
+.toc .toc__sub a { color: var(--sub); font-size: 14px; }
+@media (min-width: 1024px) {
+  .toc { background: none; border: 0; padding: 0; border-radius: 0; }
+  .toc__h { font-size: 13px; color: var(--sub); letter-spacing: .06em; }
+  .toc a { font-size: 14px; padding: 7px 0 7px 12px; border-left: 2px solid var(--rule); }
+  .toc li { border-top: 0; }
+  .toc a.is-here { border-left-color: var(--blue); }
+}
+
+/* 本文 */
+.art { font-size: 17px; line-height: 1.95; }
+.art p, .art li { text-wrap: pretty; }
+.chap { margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--rule); }
+.chap:first-of-type { border-top: 0; padding-top: 0; margin-top: 40px; }
+.chap > h2 { font-size: clamp(23px, 5.2vw, 29px); margin: 0 0 20px; }
+.chap > h2 .num { color: var(--blue); margin-right: .25em; }
+.art h3 { font-size: 19px; line-height: 1.5; margin: 36px 0 12px; padding-left: 12px; border-left: 4px solid var(--yellow); }
+.art ol.plain, .art ul.plain { padding-left: 1.4em; margin: 0 0 1em; }
+.art ol.plain li, .art ul.plain li { margin-bottom: .5em; }
+a.term { color: inherit; text-decoration: underline dotted var(--blue); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+a.term:hover { color: var(--blue); }
+a.ref { font-size: 12px; font-weight: 700; color: var(--sub); text-decoration: none; vertical-align: super; line-height: 0; margin-left: 2px; white-space: nowrap; }
+a.ref:hover { color: var(--blue); }
+
+/* 業者の言葉（引用） */
+.say { position: relative; margin: 0 0 24px; padding: 20px 20px 16px 24px; background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); box-shadow: var(--shadow); }
+.say::before { content: ""; position: absolute; left: 0; top: 18px; bottom: 18px; width: 4px; border-radius: 0 4px 4px 0; background: var(--red); }
+.say p { font-family: "BIZ UDPMincho", "Hiragino Mincho ProN", serif; font-weight: 700; font-size: clamp(20px, 5.2vw, 25px); line-height: 1.6; margin: 0 0 8px; }
+.say footer { font-size: 13.5px; color: var(--sub); }
+
+/* 数字の囲み */
+.figs { list-style: none; margin: 24px 0; padding: 0; display: grid; gap: 10px; }
+@media (min-width: 560px) { .figs { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.figs li { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius-s); padding: 14px 16px; }
+.figs .k { display: block; font-size: 13px; color: var(--sub); }
+.figs .v { display: block; font-family: var(--f-disp); font-weight: 800; font-size: 22px; line-height: 1.4; }
+.figs .s { display: block; font-size: 13px; color: var(--sub); }
+@media (min-width: 560px) { .figs.two { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* 身を守るために */
+.guard { background: var(--blue-soft); border-radius: var(--radius); padding: 20px 20px 8px; margin: 28px 0; }
+.guard .art-h3, .guard h3 { margin: 0 0 10px; padding: 0; border: 0; }
+.guard ul { margin: 0 0 12px; padding-left: 1.2em; }
+.guard li { margin-bottom: .5em; }
+.guard .go { display: inline-block; margin: 4px 0 12px; font-weight: 700; color: var(--red-ink); }
+
+/* 家の条件 */
+.spec { background: var(--tint); border-radius: var(--radius-s); padding: 14px 18px; margin: 0 0 20px; font-size: 15.5px; line-height: 1.8; }
+.spec dl { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2px 14px; }
+.spec dt { color: var(--sub); white-space: nowrap; }
+.spec dd { margin: 0; }
+
+/* 見積書の行の読み上げ */
+.lines { list-style: none; margin: 20px 0; padding: 0; border-top: 1px solid var(--rule); }
+.lines > li { padding: 16px 0; border-bottom: 1px solid var(--rule); }
+.lines .ln { display: inline-block; font-size: 12.5px; font-weight: 700; color: var(--sub); background: var(--tint); border-radius: 999px; padding: 1px 10px; margin-right: 8px; vertical-align: 2px; }
+.lines b { font-size: 17.5px; }
+.lines p { margin: 6px 0 0; }
+
+/* 比べるカード */
+.cmp { list-style: none; margin: 24px 0; padding: 0; display: grid; gap: 12px; }
+.cmp > li { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius-s); padding: 16px; }
+.cmp__name { font-family: var(--f-disp); font-weight: 800; font-size: 19px; margin: 0 0 6px; }
+.cmp dl { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2px 12px; font-size: 14.5px; line-height: 1.7; }
+.cmp dt { color: var(--sub); }
+.cmp dd { margin: 0; text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }
+.cmp dd.hl span { background: linear-gradient(transparent 58%, var(--marker) 58%); }
+@media (min-width: 600px) {
+  .cmp { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cmp dl { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .cmp dt { font-size: 12.5px; margin-top: 6px; }
+  .cmp dd { text-align: left; font-size: 15.5px; }
+}
+
+/* 幅の物差し */
+.ruler { margin: 14px 0 20px; padding: 14px 16px 12px; background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius-s); }
+.ruler figcaption { font-size: 13.5px; color: var(--sub); margin-bottom: 30px; }
+.ruler__bar { position: relative; height: 8px; border-radius: 999px; background: var(--tint); border: 1px solid var(--rule); }
+.ruler__pin { position: absolute; left: var(--p); top: 50%; width: 16px; height: 16px; margin: -8px 0 0 -8px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 3px var(--sheet); }
+.ruler__tag { position: absolute; left: var(--p); bottom: calc(100% + 10px); transform: translateX(calc(var(--p) * -1)); white-space: nowrap; font-size: 13.5px; font-weight: 700; color: var(--ink); }
+.ruler__ends { display: flex; justify-content: space-between; gap: 12px; margin-top: 8px; font-size: 13px; color: var(--sub); font-variant-numeric: tabular-nums; }
+
+/* 小さな表（本文の中） */
+.mini { width: 100%; border-collapse: collapse; font-size: 15px; margin: 12px 0 20px; }
+.mini th, .mini td { padding: 8px 0; border-bottom: 1px solid var(--rule); text-align: left; font-weight: 400; }
+.mini td { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.mini caption { text-align: left; font-size: 13.5px; color: var(--sub); padding-bottom: 4px; }
+
+/* 質問 */
+.ask { list-style: none; margin: 16px 0 20px; padding: 0; display: grid; gap: 10px; }
+.ask li { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius-s); padding: 12px 16px 12px 44px; position: relative; font-weight: 700; }
+.ask li::before { content: "？"; position: absolute; left: 12px; top: 12px; width: 22px; height: 22px; border-radius: 50%; background: var(--blue); color: var(--blue-ink); font-size: 13px; line-height: 22px; text-align: center; }
+
+/* モデル見積書 */
+.est { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px 16px 16px; margin: 20px 0 16px; }
+@media (min-width: 600px) { .est { padding: 28px 28px 20px; } }
+.est__h { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; padding-bottom: 10px; border-bottom: 3px double var(--ink); }
+.est__title { font-family: "BIZ UDPMincho", "Hiragino Mincho ProN", serif; font-weight: 700; font-size: 22px; letter-spacing: .12em; margin: 0; }
+.est__cond { font-size: 13px; color: var(--sub); }
+.est table { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.6; }
+.est caption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.est thead th { font-size: 12.5px; font-weight: 400; color: var(--sub); text-align: left; padding: 10px 0 6px; border-bottom: 1px solid var(--ink); }
+.est thead th.amt { text-align: right; }
+.est tbody th, .est tbody td, .est tfoot th, .est tfoot td { padding: 11px 0; border-bottom: 1px solid var(--rule); vertical-align: top; text-align: left; font-weight: 400; }
+.est .no { width: 2.2em; white-space: nowrap; color: var(--sub); font-variant-numeric: tabular-nums; font-size: 13px; padding-top: 13px; }
+.est .item b { display: block; font-weight: 700; }
+.est .calc { display: block; font-size: 13.5px; color: var(--sub); font-variant-numeric: tabular-nums; }
+.est .range { display: block; font-size: 12.5px; color: var(--red-ink); }
+.est td.amt { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; padding-left: 12px; }
+.est tfoot th { font-weight: 700; }
+.est tfoot .sum td.amt { font-weight: 700; }
+.est tfoot .total th, .est tfoot .total td { border-top: 2px solid var(--ink); border-bottom: 3px double var(--ink); font-size: 18px; font-weight: 700; padding: 14px 0; }
+.est tfoot .total td.amt span:not(.about) { background: linear-gradient(transparent 58%, var(--marker) 58%); }
+.est tfoot .total .about { display: block; font-size: 13px; font-weight: 400; color: var(--sub); }
+.asb { margin-top: 20px; padding-top: 2px; border-top: 1px dashed var(--sub); }
+.asb__h { font-weight: 700; font-size: 14.5px; color: var(--red-ink); margin: 12px 0 0; }
+.est__notes { margin: 14px 0 0; padding-left: 1.2em; font-size: 13.5px; color: var(--sub); line-height: 1.8; }
+
+/* 計算ページへ */
+.calc-cta { margin: 56px 0 0; padding: 28px 20px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--navy); color: var(--on-navy); text-align: center; }
+.calc-cta h2 { font-size: clamp(22px, 5vw, 28px); margin: 0 0 8px; color: var(--on-navy); }
+.calc-cta p { color: color-mix(in srgb, var(--on-navy) 80%, transparent); margin: 0 0 20px; font-size: 15.5px; }
+.calc-cta .btn { min-height: 60px; font-size: 18px; width: 100%; max-width: 420px; background: var(--yellow); color: #14213d; }
+.calc-cta .btn:hover { filter: brightness(1.05); }
+
+/* 手口・業者が来たら */
+.next2 { display: grid; gap: 12px; margin: 16px 0 0; }
+@media (min-width: 600px) { .next2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.next2 a { display: block; padding: 18px 20px; border-radius: var(--radius-s); background: var(--sheet); border: 1px solid var(--rule); color: var(--ink); text-decoration: none; }
+.next2 a:hover { border-color: var(--ink); }
+.next2 b { display: block; font-family: var(--f-disp); font-weight: 800; font-size: 18px; margin-bottom: 4px; }
+.next2 b::after { content: " →"; color: var(--sub); }
+.next2 span { font-size: 14.5px; color: var(--sub); line-height: 1.7; display: block; }
+.next2 a.warn { background: var(--red-soft); border-color: var(--red); }
+.next2 a.warn b { color: var(--red-ink); }
+
+/* 出典 */
+.srcs h3 { font-size: 16px; border: 0; padding: 0; margin: 24px 0 6px; }
+.srcs ul { list-style: none; margin: 0; padding: 0; }
+.srcs li { padding: 8px 0; border-bottom: 1px solid var(--rule); font-size: 14.5px; line-height: 1.7; }
+.srcs li a { font-weight: 700; }
+.srcs .what { display: block; font-size: 13px; color: var(--sub); }
+.srcs .n { display: inline-block; min-width: 2.6em; margin-right: .3em; font-size: 12px; color: var(--sub); font-weight: 700; }
+.srcs li:target { background: var(--blue-soft); }
+
+/* 前後の回 */
+.pager { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--rule); font-size: 15px; }
+.pager a { font-weight: 700; }
+/* 目次の時刻（07〜：動画の中の位置） */
+.toc a.tm { display: grid; grid-template-columns: 3.3em minmax(0, 1fr); }
+.toc .t { font-size: 12.5px; color: var(--sub); font-variant-numeric: tabular-nums; padding-top: .12em; }
+.toc a.is-here .t { color: var(--blue); }
+.toc__note { margin: 8px 0 0; font-size: 12.5px; color: var(--sub); line-height: 1.6; }
+@media (min-width: 600px) { .cmp.two { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へ</a>
+<header class="site-h">
+  <div class="wrap site-h__in">
+    <a class="logo" href="../../"><img src="../../img/face.webp" alt="" width="36" height="36">見積書のお姉さん</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"><span class="menu-btn__bars" aria-hidden="true"></span>メニュー</button>
+    <nav id="site-nav" class="site-nav" aria-label="サイトの中">
+      <a href="../../#keisan">計算する</a>
+      <a href="../../douga/">動画</a>
+      <a href="../../teguchi/">手口の記録</a>
+      <a href="../../kotoba/">言葉の辞典</a>
+      <a class="nav-warn" href="../../houmon/">業者が来たら</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap art-h">
+    <div class="page-h">
+      <p class="crumb"><a href="../../">トップ</a> ／ <a href="../">動画</a> ／ 蓄電池・太陽光</p>
+      <span class="eyebrow">第8回・動画の文字版</span>
+      <h1><span class="kicker">【実際の手口3つ】</span><span class="nw">蓄電池、</span><span class="nw">本当はいくら？</span></h1>
+      <p class="lead">動画を見なくても中身が分かるように、話した内容を文章にしました。数字はすべて、公開されている資料から取っています。</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="doc">
+      <figure class="video">
+        <!-- 公開したら YouTube の埋め込みに差し替える -->
+        <div class="video__frame">
+          <img src="../../img/thumbs/08.webp" width="640" height="360" alt="動画のサムネイル（蓄電池、本当はいくら？）">
+          <span class="video__badge">動画は近日公開</span>
+        </div>
+        <figcaption>動画はまだ公開していません。公開したら、ここで見られるようにします。お知らせは <a href="https://www.youtube.com/@mitsumori_onee" target="_blank" rel="noopener">YouTubeチャンネル</a> で。</figcaption>
+      </figure>
+
+      <nav class="toc" aria-labelledby="toc-h">
+        <p class="toc__h" id="toc-h">目次</p>
+        <ol>
+          <li><a class="tm" href="#intro"><span class="t">0:00</span><span>はじめに</span></a></li>
+          <li><a class="tm" href="#about"><span class="t">1:14</span><span>このチャンネルについて</span></a></li>
+          <li><a class="tm" href="#c1"><span class="t">2:07</span><span>① 実際にあった3つの手口</span></a></li>
+          <li><a class="tm" href="#c2"><span class="t">6:01</span><span>② 見積書を1行ずつ</span></a></li>
+          <li><a class="tm" href="#c3"><span class="t">8:29</span><span>③ 容量と種類で、総額はどう変わるか</span></a></li>
+          <li><a class="tm" href="#c4"><span class="t">10:47</span><span>④ 同じ蓄電池でも、金額が変わる5つの条件</span></a></li>
+          <li><a class="tm" href="#c5"><span class="t">12:46</span><span>⑤ 高すぎ・安すぎの見積書の見分け方</span></a></li>
+          <li><a class="tm" href="#end"><span class="t">14:55</span><span>まとめ</span></a></li>
+          <li class="toc__sub"><a href="#mitsumori">モデル見積書（表）</a></li>
+          <li class="toc__sub"><a href="#keisan">容量と太陽光で計算する</a></li>
+          <li class="toc__sub"><a href="#sources">出典</a></li>
+        </ol>
+        <p class="toc__note">左の時刻は、動画の中の位置です。</p>
+      </nav>
+
+      <article class="art">
+        <section class="chap" id="intro" aria-labelledby="intro-h">
+          <h2 id="intro-h">はじめに</h2>
+          <blockquote class="say">
+            <p>「今なら工事費、設置費無料で、20年から30年はもつ。元は取れる」</p>
+            <footer>国民生活センターが公表している相談の事例に出てくる言葉</footer>
+          </blockquote>
+          <p>太陽光パネルを付けている家に、業者が訪ねてきて、こう言いました。国民生活センターが公表している、実際の相談の事例です。<a class="ref" href="#s1" aria-label="出典1">［1］</a></p>
+          <p>勧誘は4時間続きました。30歳代の女性は、契約しないと帰ってもらえないと思い、クレジットで約330万円の契約をしました。</p>
+          <p>その場で決めてしまう理由の1つは、工事の<a class="term" href="../../kotoba/#souba">相場</a>を知らないことです。</p>
+          <p>そこでこの回では、ネットで公開されている数字だけを使って、<a class="term" href="../../kotoba/#chikudenchi">家庭用蓄電池</a>の見積書を1枚作りました。出てきた金額は、税込みで約141万円です。前半で実際にあった手口を3つ紹介し、後半でこの141万円を1行ずつ確かめます。</p>
+        </section>
+
+        <section class="chap" id="about" aria-labelledby="about-h">
+          <h2 id="about-h">このチャンネルについて</h2>
+          <p>このチャンネルは、蓄電池の販売会社でも、電気工事の会社でも、メーカーでもありません。特定の業者や商品も、すすめません。</p>
+          <p>使う数字は、国の資料、メーカー、見積もりサイトなど、誰でも見られる公開情報だけです。出典は、このページのいちばん下に<a href="#sources">すべて載せています</a>。</p>
+        </section>
+
+        <section class="chap" id="c1" aria-labelledby="c1-h">
+          <h2 id="c1-h"><span class="num">①</span><span class="nw">実際にあった</span><span class="nw">3つの手口</span></h2>
+          <p>国民生活センターや国、県が公表している事例から、実際にあった手口を3つ紹介します。</p>
+          <p>背景にあるのは、太陽光発電の<a class="term" href="../../kotoba/#baiden">売電</a>です。家で余った電気を、決まった値段で買い取ってもらえる期間は10年。2019年から、この10年が順番に終わっています。10年が終わると買い取りの値段が下がるので、「売るより、ためて使ったほうがいい」と、蓄電池を勧められるのです。<a class="ref" href="#s1" aria-label="出典1">［1］</a></p>
+
+          <h3>1つめ　「今なら工事費無料」と言う手口</h3>
+          <p>冒頭の事例です。業者は、売電の値段が下がるから蓄電池を付けたほうがいい、と言って家に上がり、4時間勧誘しました。</p>
+          <ul class="figs" aria-label="1つめの事例の数字">
+            <li><span class="k">勧誘された時間</span><span class="v">4時間</span><span class="s">契約しないと帰ってもらえないと思った</span></li>
+            <li><span class="k">契約した人</span><span class="v">30歳代</span><span class="s">女性</span></li>
+            <li><span class="k">契約の金額</span><span class="v">約330万円</span><span class="s">クレジットの契約</span></li>
+          </ul>
+          <p>契約の翌日、クーリング・オフを申し出ると、業者は「通知の送付は不要だ」と言いました。でも、クーリング・オフは、書面かメールで伝えて、記録を残すことが大切です。業者に「要らない」と言われても、自分で送ってください。<a class="ref" href="#s1" aria-label="出典1">［1］</a><a class="ref" href="#s5" aria-label="出典5">［5］</a></p>
+
+          <h3>2つめ　「補助金が出るので安くなる」と言う手口</h3>
+          <p>業者は「市から委託された」と言って、太陽光パネルの無料点検に来ました。点検のあと、「売電するための装置の一部が壊れている」。国の補助金が出るので安くなる、とも言われ、40歳代の男性は約200万円の蓄電池を契約しました。</p>
+          <p>ところが、あとで来た工事の担当者は、「売電するための装置は壊れていない。部品もモーターも正常だ」。<a class="ref" href="#s1" aria-label="出典1">［1］</a></p>
+          <p>徳島県が2023年に業務停止を命じた蓄電池の業者は、「実質の支払いは○○万円になります」と嘘を言い、工事も始めませんでした。<a class="ref" href="#s2" aria-label="出典2">［2］</a></p>
+
+          <h3>3つめ　「無料でプレゼント」と言う手口</h3>
+          <p>国が2024年に業務停止を命じ、消費者庁が公表した、蓄電池や太陽光パネルの訪問販売の業者の例です。<a class="ref" href="#s3" aria-label="出典3">［3］</a></p>
+          <blockquote class="say">
+            <p>「ここの期間中であれば、防犯カメラプレゼント」「初期費用は当社とメーカーで負担してるんで、これ一切いただいてないんです」</p>
+            <footer>消費者庁が公表した業務停止命令の資料に出てくる営業員の言葉</footer>
+          </blockquote>
+          <p>「足場代も初期費用に入ってるんで」とも言いました。でも実際には、防犯カメラの代金も、太陽光パネルの工事の<a class="term" href="../../kotoba/#ashiba">足場</a>代も、商品や工事の値段に上乗せされていました。</p>
+          <p>同じ業者は、「今日は帰ってください」と断った家でも、夜7時ごろから11時ごろまで勧誘を続けていました。</p>
+
+          <h3>3つに共通すること</h3>
+          <p>その場で決めさせること。そして、「無料」「補助金」「元が取れる」と、払うお金が少なく見える言葉を使うことです。</p>
+
+          <div class="guard">
+            <h3>身を守るために（国民生活センター・消費者庁の呼びかけ）</h3>
+            <ul>
+              <li>訪問販売や電話勧誘で契約してしまったら、申込書か契約書を受け取った日から8日以内なら、<a class="term" href="../../kotoba/#coolingoff">クーリング・オフ</a>、つまり無条件で契約をやめる手続きができます。書面か、メールで伝えます。<a class="ref" href="#s5" aria-label="出典5">［5］</a></li>
+              <li>困ったときは、<a class="term" href="../../kotoba/#hotline">消費者ホットライン「188（いやや）」</a>に電話してください。<a class="ref" href="#s6" aria-label="出典6">［6］</a></li>
+            </ul>
+            <a class="go" href="../../houmon/">業者が来たら、まずこれ →</a>
+          </div>
+          <p>そしてもう1つ。国民生活センターは、その場で契約せず、何社かから見積もりを取って比べるように、と呼びかけています。<a class="ref" href="#s4" aria-label="出典4">［4］</a>相場を知っておくことです。ここからは、見積書を見ていきます。</p>
+        </section>
+
+        <section class="chap" id="c2" aria-labelledby="c2-h">
+          <h2 id="c2-h"><span class="num">②</span><span class="nw">見積書を1行ずつ</span></h2>
+          <div class="spec">
+            <dl>
+              <dt>家</dt><dd>戸建て。もう太陽光発電が付いていて、売電の10年が終わった家</dd>
+              <dt>工事</dt><dd>蓄電池を1台足す。補助金は、引く前の金額</dd>
+              <dt>容量</dt><dd>7<a class="term" href="../../kotoba/#kwh">キロワットアワー</a>（ためておける電気の量）</dd>
+              <dt>タイプ</dt><dd>今の太陽光の<a class="term" href="../../kotoba/#powercon">パワコン</a>はそのまま使う「<a class="term" href="../../kotoba/#hybrid">単機能型</a>」。停電のときは決めた部屋だけに電気を送る「<a class="term" href="../../kotoba/#fuka">特定負荷型</a>」</dd>
+            </dl>
+          </div>
+          <p>キロワットアワーは、電気の量の単位です。蓄電池の値段は、国の資料でも「1キロワットアワーあたり何万円」で比べます。パワコンは、電気を家で使える形に変える機械です。</p>
+          <ol class="lines">
+            <li><span class="ln">1行目</span><b>電池やパワコンなどの機器</b>
+              <p>経済産業省の検討会の資料には、補助金を使わずに付ける場合、機器は1キロワットアワーあたり15万円から20万円が標準的、とあります。この見積書はいちばん下の15万円で、7キロワットアワー、105万円です。<a class="ref" href="#s7" aria-label="出典7">［7］</a></p></li>
+            <li><span class="ln">2行目</span><b>基礎（きそ）工事</b>
+              <p>蓄電池を置く台を作る工事で、5万円。見積もり比較サイトの目安は、約5万円から10万円です。<a class="ref" href="#s12" aria-label="出典12">［12］</a></p></li>
+            <li><span class="ln">3行目</span><b>据え付け（すえつけ）と調整</b>
+              <p>5万円。目安は約5万円から8万円。</p></li>
+            <li><span class="ln">4行目</span><b>電気工事</b>
+              <p>配線と、分電盤へのつなぎ込みで、10万円。目安は約10万円から15万円です。</p></li>
+          </ol>
+          <p>ここまでで、小計125万円。<a class="term" href="../../kotoba/#shokeihi">諸経費</a>（しょけいひ）は、同じサイトの目安が約3万円から5万円。この見積書は3万円です。<a class="ref" href="#s12" aria-label="出典12">［12］</a></p>
+          <p>税抜きで128万円。消費税を入れて、140万8千円です。1キロワットアワーにすると、税込みで約20万1千円です。</p>
+          <p>国の資料の、補助金を使わない場合の目安で計算すると、7キロワットアワーで119万円から154万円。税抜き128万円は、この中です。ただ、工事の3行の20万円は、国の資料の目安で計算した14万円より、6万円高めです。<a class="ref" href="#s7" aria-label="出典7">［7］</a></p>
+          <p>1行ずつ見ると、いちばん大きいのは、やはり機器の行です。1枚にまとめた表は、下の<a href="#mitsumori">モデル見積書</a>にあります。</p>
+        </section>
+
+        <section class="chap" id="c3" aria-labelledby="c3-h">
+          <h2 id="c3-h"><span class="num">③</span><span class="nw">容量と種類で、</span><span class="nw">総額はどう変わるか</span></h2>
+          <p>容量を変えてみます。この計算では、変えるのは機器の行だけです。工事と諸経費は同じにしています。</p>
+          <ul class="cmp">
+            <li>
+              <p class="cmp__name">5キロワットアワー</p>
+              <dl>
+                <dt>総額（税込）</dt><dd>約108万円</dd>
+                <dt>1キロワットアワーあたり</dt><dd>約21万6千円</dd>
+                <dt>1年あたり（15年）</dt><dd class="hl"><span>約7万2千円</span></dd>
+              </dl>
+            </li>
+            <li>
+              <p class="cmp__name">7キロワットアワー</p>
+              <dl>
+                <dt>総額（税込）</dt><dd>約141万円</dd>
+                <dt>1キロワットアワーあたり</dt><dd>約20万1千円</dd>
+                <dt>1年あたり（15年）</dt><dd class="hl"><span>約9万4千円</span></dd>
+              </dl>
+            </li>
+            <li>
+              <p class="cmp__name">10キロワットアワー</p>
+              <dl>
+                <dt>総額（税込）</dt><dd>約190万円</dd>
+                <dt>1キロワットアワーあたり</dt><dd>約19万円</dd>
+                <dt>1年あたり（15年）</dt><dd class="hl"><span>約12万7千円</span></dd>
+              </dl>
+            </li>
+          </ul>
+          <p>蓄電池を売っている会社のコラムには、使用期間も保証も、10年から15年程度とあります。上の1年あたりは、15年で割ったものです。<a class="ref" href="#s13" aria-label="出典13">［13］</a></p>
+          <p>ただし、注意が2つあります。</p>
+          <ol class="plain">
+            <li><b>15年は、幅の上の端です。</b>10年なら、7キロワットアワーで1年あたり約14万1千円。最初の手口の「20年から30年はもつ」とは、だいぶ違います。</li>
+            <li><b>電気代がいくら下がるかは、前提で大きく変わります。</b>国の委員会の資料では、家で買う電気は1キロワットアワー約28円。売電の10年が終わったあとの買い取りは、平均10円でした。売らずにためて使えば、その差のぶん得になる、という考え方です。でも、1年にどれだけ使えるかは、家しだいです。だから、「元が取れる」とは言い切れません。<a class="ref" href="#s9" aria-label="出典9">［9］</a></li>
+          </ol>
+
+          <h3>種類でも、値段は変わる</h3>
+          <p>蓄電池を売っている会社のページに載っている、1つのメーカーの、同じ9.8キロワットアワーの機械の定価です。太陽光と蓄電池のパワコンを1台にまとめるのが「ハイブリッド型」、停電のとき家じゅうに電気を送るのが「全負荷型」です。<a class="ref" href="#s13" aria-label="出典13">［13］</a></p>
+          <table class="mini">
+            <caption>同じ9.8キロワットアワーの機械の定価（税込み・2025年1月時点）</caption>
+            <tbody>
+              <tr><th scope="row">単機能型</th><td>348万7千円</td></tr>
+              <tr><th scope="row">ハイブリッド型・特定負荷</th><td>＋68万2千円</td></tr>
+              <tr><th scope="row">ハイブリッド型・全負荷</th><td>さらに＋91万3千円</td></tr>
+            </tbody>
+          </table>
+          <p>定価どうしの差で、実際に払う金額の差ではありません。</p>
+          <p>業者さんには、「容量を1つ下げると、いくら下がって、停電のとき何が使えなくなりますか」と聞いてみてください。</p>
+        </section>
+
+        <section class="chap" id="c4" aria-labelledby="c4-h">
+          <h2 id="c4-h"><span class="num">④</span><span class="nw">同じ蓄電池でも、</span><span class="nw">金額が変わる5つの条件</span></h2>
+
+          <h3>1つめ　容量</h3>
+          <p>国の補助事業のデータでは、1キロワットアワーあたりの機器の値段は、5キロワットアワー未満で15万円、5から10キロワットアワーで10万6千円。小さい機械ほど割高です。<a class="ref" href="#s7" aria-label="出典7">［7］</a></p>
+
+          <h3>2つめ　種類</h3>
+          <p>③で見た、単機能かハイブリッドか、特定負荷か全負荷かです。</p>
+
+          <h3>3つめ　太陽光も一緒に付けるか</h3>
+          <p>国の委員会の資料では、すでに建っている家に付けた太陽光は、2025年の平均で1キロワットあたり30万1千円。5キロワットなら、計算すると150万5千円です。蓄電池とは別に、これだけかかります。<a class="ref" href="#s9" aria-label="出典9">［9］</a></p>
+
+          <h3>4つめ　今の太陽光のパワコンが何年目か</h3>
+          <p>パワコンは20年の間に一度は取り替えられ、38万4千円程度が相場、と同じ資料にあります。<a class="ref" href="#s9" aria-label="出典9">［9］</a></p>
+
+          <h3>5つめ　補助金を使うかどうか</h3>
+          <p>国の補助事業のデータでは、工事費込みで1キロワットアワーあたり12万1千円。ただ、2023年度の国の<a class="term" href="../../kotoba/#hojokin">補助金</a>は、14万1千円以下のものだけが対象でした。<a class="ref" href="#s7" aria-label="出典7">［7］</a><a class="ref" href="#s8" aria-label="出典8">［8］</a></p>
+
+          <h3>相場サイトと比べると</h3>
+          <p>ある見積もり比較サイトは、7から10キロワットアワー未満で、工事費込み・税込みで約200万円。この見積書は、これより59万2千円低い金額です。<a class="ref" href="#s12" aria-label="出典12">［12］</a></p>
+          <p>国の資料の幅の中ですが、補助事業の平均よりは高く、サイトの目安よりは低い。出典によって、目安が大きく違います。合計だけで決めずに、1キロワットアワーあたりいくらか、で見てください。</p>
+        </section>
+
+        <section class="chap" id="c5" aria-labelledby="c5-h">
+          <h2 id="c5-h"><span class="num">⑤</span><span class="nw">高すぎ・安すぎの</span><span class="nw">見積書の見分け方</span></h2>
+          <p>3つにまとめます。</p>
+
+          <h3>1つめ　定価からの大きな値引き</h3>
+          <p>③の単機能型の定価は、1キロワットアワーにすると約35万6千円。国の資料の値段より、ずっと高い数字です。紹介サイトの見積書のサンプルには、200万円の<a class="term" href="../../kotoba/#nebiki">値引き</a>が入ったものもありました。値引きのあとの、1キロワットアワーあたりで比べてください。<a class="ref" href="#s13" aria-label="出典13">［13］</a><a class="ref" href="#s14" aria-label="出典14">［14］</a></p>
+
+          <h3>2つめ　「無料」「プレゼント」</h3>
+          <p>3つめの手口では、無料のはずの防犯カメラや足場代が、値段に上乗せされていました。無料と言われた物が、見積書のどの行に入っているか、聞いてください。<a class="ref" href="#s3" aria-label="出典3">［3］</a></p>
+
+          <h3>3つめ　「補助金で実質いくら」「電気代でローンが払える」という言い方</h3>
+          <p>補助金は、出す所と年度で変わります。どれも予算がなくなれば終わります。</p>
+          <ul class="figs two" aria-label="補助金の例">
+            <li><span class="k">国（令和7年度補正）</span><span class="v">上限60万円</span><span class="s">2026年5月29日に予算に達して締め切り</span></li>
+            <li><span class="k">東京都（令和8年度）</span><span class="v">1キロワットアワー10万円</span><span class="s">上限120万円</span></li>
+          </ul>
+          <p>だから、「実質」の金額ではなく、補助金を引く前の金額と、誰がいつ申請するのかを書いてもらいましょう。<a class="ref" href="#s10" aria-label="出典10">［10］</a><a class="ref" href="#s11" aria-label="出典11">［11］</a></p>
+
+          <h3>業者さんに聞くとよい質問</h3>
+          <ul class="ask">
+            <li>「容量は何キロワットアワーですか。機器と工事を分けて、1キロワットアワーあたりいくらか教えてください」</li>
+            <li>「補助金を引く前の金額はいくらですか。補助金は、どこの、何年度のもので、申請は誰がいつしますか」</li>
+            <li>「電気代がいくら下がるという計算は、電気の値段と使う量を、いくらにしていますか」</li>
+          </ul>
+          <p>答えが数字で返ってくるかどうかが、1つの目安になります。</p>
+        </section>
+
+        <section class="chap" id="end" aria-labelledby="end-h">
+          <h2 id="end-h">まとめ</h2>
+          <p>この回では、実際にあった手口と、公開されている数字だけで作った、家庭用蓄電池の見積書を見てきました。</p>
+          <p class="say-end"><span class="mark">その場で決めない。相場を知っておく。</span>この2つで、防げることはたくさんあります。「無料」や「実質」も、すぐには信じないでください。</p>
+          <p>次回も、1つの工事を見積書で見ていきます。</p>
+        </section>
+
+        <section class="chap" id="mitsumori" aria-labelledby="mitsumori-h">
+          <h2 id="mitsumori-h">モデル見積書</h2>
+          <p>②で読み上げた見積書を、1枚の表にまとめました。赤い字は、その行の相場の幅です。</p>
+          <div class="est">
+            <div class="est__h">
+              <p class="est__title">御見積書</p>
+              <p class="est__cond">家庭用蓄電池の後付け／戸建て・太陽光あり・7kWh・単機能型・特定負荷型・補助金を引く前</p>
+            </div>
+            <table>
+              <caption>家庭用蓄電池のモデル見積書</caption>
+              <thead>
+                <tr><th scope="col">行</th><th scope="col">項目（数量）</th><th scope="col" class="amt">金額（円）</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="no">1</td><th scope="row" class="item"><b>蓄電池システムの機器一式（電池・蓄電池用のパワコン・リモコン・特定負荷用の分電盤）</b><span class="calc">7kWh × 150,000円</span><span class="range">補助金を使わない場合 15〜20万円／kWh が標準的（国の検討会の資料・税の記載なし）</span></th><td class="amt">1,050,000</td></tr>
+                <tr><td class="no">2</td><th scope="row" class="item"><b>基礎工事</b><span class="calc">1式</span><span class="range">幅 約5〜10万円</span></th><td class="amt">50,000</td></tr>
+                <tr><td class="no">3</td><th scope="row" class="item"><b>据え付け・調整</b><span class="calc">1式</span><span class="range">幅 約5〜8万円</span></th><td class="amt">50,000</td></tr>
+                <tr><td class="no">4</td><th scope="row" class="item"><b>電気工事（配線・分電盤のつなぎ込み）</b><span class="calc">1式</span><span class="range">幅 約10〜15万円</span></th><td class="amt">100,000</td></tr>
+              </tbody>
+              <tfoot>
+                <tr class="sum"><td></td><th scope="row">小計</th><td class="amt">1,250,000</td></tr>
+                <tr><td></td><th scope="row">諸経費<span class="range">幅 約3〜5万円</span></th><td class="amt">30,000</td></tr>
+                <tr class="sum"><td></td><th scope="row">税抜<span class="range">国の資料の幅 119〜154万円（7kWh・税の記載なし）の中</span></th><td class="amt">1,280,000</td></tr>
+                <tr><td></td><th scope="row">消費税（10%）</th><td class="amt">128,000</td></tr>
+                <tr class="total"><td></td><th scope="row">税込</th><td class="amt"><span>1,408,000</span><span class="about">約141万円</span></td></tr>
+              </tfoot>
+            </table>
+            <ul class="est__notes">
+              <li>国の資料の単価は税の記載が無いので、税抜きとみなしています。<a class="ref" href="#s7" aria-label="出典7">［7］</a></li>
+              <li>工事の3行と諸経費の幅は、見積もり比較サイトの目安（税の記載なし）です。<a class="ref" href="#s12" aria-label="出典12">［12］</a></li>
+              <li>1kWh あたりは、税込みで201,142円です。工事の3行（200,000円）は、国の資料の「工事費2万円／kWh 程度」で計算した140,000円より60,000円高めです。</li>
+              <li>補助金は引いていません。太陽光パネルは、すでに付いている家の計算です。</li>
+              <li>消費税は円未満を切り捨てています。</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="calc-cta" id="keisan" aria-labelledby="keisan-h">
+          <h2 id="keisan-h"><span class="nw">容量と太陽光で</span><span class="nw">計算する</span></h2>
+          <p>蓄電池の容量と、太陽光を一緒に付けるかを選ぶと、目安の金額が出ます。この見積書と同じ単価表で計算します。</p>
+          <a class="btn" href="../../chikudenchi/" data-track="douga_to_calc">蓄電池・太陽光の費用を計算する →</a>
+        </section>
+
+        <div class="next2">
+          <a href="../../teguchi/#ep08"><b>手口の記録</b><span>国民生活センターや自治体が公表している手口を、まとめて読めます。</span></a>
+          <a class="warn" href="../../houmon/"><b>業者が来たら、まずこれ</b><span>突然の訪問や電話のときに見る1枚。A4で印刷できます。</span></a>
+        </div>
+
+        <section class="chap srcs" id="sources" aria-labelledby="sources-h">
+          <h2 id="sources-h">出典</h2>
+          <p>数字と事例は、すべて次の資料から取りました（2026年10月6日に確認）。（　）は書き手です。工事会社や見積もりサイトは、自社に都合よく書くこともあるので、書き手を並べています。</p>
+          <h3>手口・相談・身を守る方法</h3>
+          <ul>
+            <li id="s1"><span class="n">［1］</span><a href="https://www.kokusen.go.jp/news/data/n-20210603_2.html" target="_blank" rel="noopener">国民生活センター「家庭用蓄電池の勧誘トラブルにご注意！」（2021年6月3日）</a>（<a href="https://www.kokusen.go.jp/pdf/n-20210603_2.pdf" target="_blank" rel="noopener">資料PDF</a>）<span class="what">「今なら工事費無料」の約330万円の事例・「市から委託された」約200万円の事例・売電の10年・クーリング・オフの通知</span></li>
+            <li id="s2"><span class="n">［2］</span><a href="https://www.pref.tokushima.lg.jp/ippannokata/kurashi/shohiseikatsu/7216686/" target="_blank" rel="noopener">徳島県 訪問販売業者への業務停止命令（2023年5月16日）</a>（<a href="https://www.pref.tokushima.lg.jp/file/attachment/842967.pdf" target="_blank" rel="noopener">資料PDF</a>）<span class="what">「実質の支払いは○○万円」という説明・工事を始めなかった</span></li>
+            <li id="s3"><span class="n">［3］</span><a href="https://www.caa.go.jp/notice/entry/039001/" target="_blank" rel="noopener">消費者庁 訪問販売業者への業務停止命令（2024年8月9日公表）</a>（<a href="https://www.caa.go.jp/notice/assets/consumer_transaction_cms203_240809_01.pdf" target="_blank" rel="noopener">資料PDF</a>）<span class="what">防犯カメラの「プレゼント」と足場代の上乗せ・夜までの勧誘</span></li>
+            <li id="s4"><span class="n">［4］</span><a href="https://www.kokusen.go.jp/mimamori/mj_mailmag/mj-shinsen456.html" target="_blank" rel="noopener">国民生活センター 見守り新鮮情報 第456号（2023年7月11日）</a><span class="what">何社かから見積もりを取って比べる</span></li>
+            <li id="s5"><span class="n">［5］</span><a href="https://www.kokusen.go.jp/soudan_now/data/coolingoff.html" target="_blank" rel="noopener">国民生活センター クーリング・オフ</a><span class="what">クーリング・オフの日数と伝え方</span></li>
+            <li id="s6"><span class="n">［6］</span><a href="https://www.caa.go.jp/policies/policy/local_cooperation/local_consumer_administration/hotline/" target="_blank" rel="noopener">消費者庁「消費者ホットライン」</a><span class="what">188（いやや）</span></li>
+          </ul>
+          <h3>国の資料・補助金</h3>
+          <ul>
+            <li id="s7"><span class="n">［7］</span><a href="https://www.meti.go.jp/shingikai/energy_environment/storage_system/pdf/2024_004_05_01.pdf" target="_blank" rel="noopener">経済産業省 定置用蓄電システム普及拡大検討会 資料5-1（2024年11月11日・PDF）</a><span class="what">補助金を使わない場合の機器15〜20万円／kWh・工事費2万円／kWh・補助事業の容量別の値段・2023年度の補助金の要件</span></li>
+            <li id="s8"><span class="n">［8］</span><a href="https://www.meti.go.jp/policy/mono_info_service/joho/conference/battery_strategy2/shiryo06.pdf" target="_blank" rel="noopener">経済産業省「定置用蓄電システムの現状と課題」資料6（2025年3月12日・PDF）</a><span class="what">補助事業の導入費用（工事費込み）12.1万円／kWh</span></li>
+            <li id="s9"><span class="n">［9］</span><a href="https://www.meti.go.jp/shingikai/santeii/pdf/20260205_1.pdf" target="_blank" rel="noopener">調達価格等算定委員会「令和8年度以降の調達価格等に関する意見」（2026年2月5日・PDF）</a><span class="what">買う電気約28円／kWh・売電の10年のあとの買い取り平均10円・既築の太陽光30.1万円／kW・パワコンの取り替え38.4万円程度</span></li>
+            <li id="s10"><span class="n">［10］</span><a href="https://dr-battery.sii.or.jp/r7h/about/" target="_blank" rel="noopener">環境共創イニシアチブ 令和7年度補正 家庭用蓄電システム導入支援事業</a><span class="what">国の補助金・上限60万円・締め切り</span></li>
+            <li id="s11"><span class="n">［11］</span><a href="https://www.tokyo-co2down.jp/subsidy/family_tikudenchi/r8/" target="_blank" rel="noopener">クール・ネット東京 令和8年度 家庭における蓄電池導入促進事業</a>（東京都環境公社）<span class="what">1kWh あたり10万円・上限120万円</span></li>
+          </ul>
+          <h3>単価・相場</h3>
+          <ul>
+            <li id="s12"><span class="n">［12］</span><a href="https://www.eco-hatsu.com/battery/190/" target="_blank" rel="noopener">エコ発 蓄電池の価格・工事費</a>（見積もり比較サイト）<span class="what">基礎工事・据え付け・電気工事・諸経費の目安・7〜10kWh 未満の総額</span></li>
+            <li id="s13"><span class="n">［13］</span><a href="https://solar-battery.tokyo-gas.co.jp/column/0075/" target="_blank" rel="noopener">東京ガス 家庭用蓄電池の価格相場</a>（ガス会社・蓄電池の販売もする）<span class="what">使用期間・保証10〜15年程度・メーカー希望小売価格</span></li>
+            <li id="s14"><span class="n">［14］</span><a href="https://www.solar-partners.jp/contents/66389.html" target="_blank" rel="noopener">ソーラーパートナーズ 太陽光・蓄電池の見積書の例</a>（業者紹介サイト）<span class="what">200万円の値引きが入った見積書のサンプル</span></li>
+          </ul>
+          <ul>
+            <li>動画で使った写真の題名・作者・元のページは、<a href="../../credits/08/">写真の出典</a>にまとめています。</li>
+          </ul>
+        </section>
+
+        <nav class="pager" aria-label="前後の回">
+          <a href="../07/">← 前の回：床下換気扇・調湿材</a>
+          <a href="../09/">次の回：雨どい修理 →</a>
+        </nav>
+      </article>
+    </div>
+  </div>
+</main>
+
+<footer class="site-f">
+  <div class="wrap">
+    <a class="logo" href="../../"><img src="../../img/face.webp" alt="" width="36" height="36">見積書のお姉さん</a>
+    <p class="site-f__about">家の修理・リフォームの見積書を、公開されている資料の単価から1行ずつ読み解くYouTubeチャンネルです。工事を請け負う業者ではありません。</p>
+    <div class="sns">
+      <a href="https://www.youtube.com/@mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#ff0033" d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81z"/><path fill="#fff" d="M9.55 15.57V8.43L15.82 12z"/></svg>YouTube</a>
+      <a href="https://www.instagram.com/mitsumori_onee/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+      <a href="https://x.com/mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</a>
+    </div>
+    <nav class="site-f__nav" aria-label="サイトの案内">
+      <a href="../../#keisan">計算する</a>
+      <a href="../../douga/">動画</a>
+      <a href="../../teguchi/">手口の記録</a>
+      <a href="../../kotoba/">言葉の辞典</a>
+      <a href="../../houmon/">業者が来たら</a>
+      <a href="../../about/">このサイトについて</a>
+      <a href="../../privacy/">プライバシーポリシー</a>
+      <a href="../../contact/">お問い合わせ</a>
+    </nav>
+    <p class="site-f__fine">金額はすべて、公開されている資料の単価から計算した目安です。実際の金額は家ごとに変わります。</p>
+    <p class="site-f__fine">© 2026 見積書のお姉さん</p>
+  </div>
+</footer>
+<script>
+// 目次：いま読んでいる章に色を付ける／計算ページへのボタンを数える（入力した値は送らない）
+(() => {
+  const links = [...document.querySelectorAll('.toc a[href^="#"]')];
+  const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => {
+      es.forEach(e => {
+        if (!e.isIntersecting) return;
+        links.forEach(a => a.classList.remove('is-here'));
+        const a = map.get(e.target.id);
+        if (a) a.classList.add('is-here');
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    map.forEach((a, id) => { const el = document.getElementById(id); if (el) io.observe(el); });
+  }
+  document.querySelectorAll('[data-track]').forEach(a => a.addEventListener('click', () => {
+    if (window.track) window.track(a.dataset.track, { page: 'douga_08' });
+  }));
+})();
+</script>
+</body>
+</html>

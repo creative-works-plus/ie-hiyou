@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>【実際の手口3つ】床下換気扇・調湿材、本当はいくら？（文字版）｜見積書のお姉さん</title>
+<meta name="description" content="床下換気扇3台と調湿材の見積書を、公開されている資料の単価だけで1行ずつ作りました（税込み約40万円）。茨城県・桶川市・住まいるダイヤルの事例から、実際にあった手口3つと、そもそも工事が要るのかを確かめる方法も紹介します。動画の文字版です。">
+<meta name="theme-color" content="#1f2d55">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="見積書のお姉さん">
+<meta property="og:title" content="【実際の手口3つ】床下換気扇・調湿材、本当はいくら？（文字版）｜見積書のお姉さん">
+<meta property="og:description" content="床下換気扇・調湿材の見積書を、公開されている資料の単価だけで1行ずつ作りました。実際にあった手口3つと、要らない家の見分け方も紹介します。">
+<meta property="og:image" content="https://creative-works-plus.github.io/ie-hiyou/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../img/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="../../img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=BIZ+UDPMincho:wght@700&family=M+PLUS+Rounded+1c:wght@800&display=swap">
+<link rel="stylesheet" href="../../assets/site.css">
+<script src="../../assets/site.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "【実際の手口3つ】床下換気扇・調湿材、本当はいくら？",
+  "description": "床下換気扇と調湿材の見積書を、公開されている資料の単価だけで1行ずつ作った動画の文字版です。",
+  "inLanguage": "ja",
+  "image": "https://creative-works-plus.github.io/ie-hiyou/img/thumbs/07.webp",
+  "mainEntityOfPage": "https://creative-works-plus.github.io/ie-hiyou/douga/07/",
+  "author": { "@type": "Organization", "name": "見積書のお姉さん", "url": "https://www.youtube.com/@mitsumori_onee" },
+  "publisher": { "@type": "Organization", "name": "見積書のお姉さん" }
+}
+</script>
+<style>
+/* ── 動画の文字版（douga/01〜09 で同じ見た目）。色は site.css の変数だけを使う ── */
+.kicker { display: block; font-size: .48em; color: var(--sub); letter-spacing: .02em; margin-bottom: .35em; }
+.art-h { max-width: calc(680px + 32px); }
+.doc { display: grid; grid-template-columns: minmax(0, 1fr); max-width: 680px; margin: 0 auto; }
+@media (min-width: 1024px) {
+  .art-h { max-width: var(--wrap); }
+  .doc { max-width: none; grid-template-columns: minmax(0, 680px) 232px; justify-content: space-between; column-gap: 48px; }
+  .doc > * { grid-column: 1; }
+  .doc > .toc { grid-column: 2; grid-row: 1 / span 30; position: sticky; top: 84px; align-self: start; margin-top: 0; }
+}
+
+/* 動画の場所（公開まではサムネと「近日公開」） */
+.video { margin: 0; }
+.video__frame { position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; background: var(--tint); box-shadow: var(--shadow); max-width: 640px; }
+.video__frame img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.video__badge { position: absolute; left: 12px; top: 12px; display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 999px; background: rgba(13, 20, 34, .82); color: #fff; font-size: 13px; font-weight: 700; }
+.video__badge::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--yellow); }
+.video figcaption { margin-top: 12px; font-size: 14.5px; color: var(--sub); }
+.video figcaption a { font-weight: 700; }
+
+/* 目次 */
+.toc { margin-top: 28px; background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); padding: 18px 20px 14px; }
+.toc__h { font-family: var(--f-disp); font-weight: 800; font-size: 15px; margin: 0 0 6px; }
+.toc ol { list-style: none; margin: 0; padding: 0; counter-reset: toc; }
+.toc li { border-top: 1px solid var(--rule); }
+.toc li:first-child { border-top: 0; }
+.toc a { display: block; padding: 9px 0; color: var(--ink); text-decoration: none; font-size: 15px; line-height: 1.5; }
+.toc a:hover { color: var(--blue); }
+.toc a.is-here { color: var(--blue); font-weight: 700; }
+.toc .toc__sub a { color: var(--sub); font-size: 14px; }
+@media (min-width: 1024px) {
+  .toc { background: none; border: 0; padding: 0; border-radius: 0; }
+  .toc__h { font-size: 13px; color: var(--sub); letter-spacing: .06em; }
+  .toc a { font-size: 14px; padding: 7px 0 7px 12px; border-left: 2px solid var(--rule); }
+  .toc li { border-top: 0; }
+  .toc a.is-here { border-left-color: var(--blue); }
+}
+
+/* 本文 */
+.art { font-size: 17px; line-height: 1.95; }
+.art p, .art li { text-wrap: pretty; }
+.chap { margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--rule); }
+.chap:first-of-type { border-top: 0; padding-top: 0; margin-top: 40px; }
+.chap > h2 { font-size: clamp(23px, 5.2vw, 29px); margin: 0 0 20px; }
+.chap > h2 .num { color: var(--blue); margin-right: .25em; }
+.art h3 { font-size: 19px; line-height: 1.5; margin: 36px 0 12px; padding-left: 12px; border-left: 4px solid var(--yellow); }
+.art ol.plain, .art ul.plain { padding-left: 1.4em; margin: 0 0 1em; }
+.art ol.plain li, .art ul.plain li { margin-bottom: .5em; }
+a.term { color: inherit; text-decoration: underline dotted var(--blue); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+a.term:hover { color: var(--blue); }
+a.ref { font-size: 12px; font-weight: 700; color: var(--sub); text-decoration: none; vertical-align: super; line-height: 0; margin-left: 2px; white-space: nowrap; }
+a.ref:hover { color: var(--blue); }
+
+/* 業者の言葉（引用） */
+.say { position: relative; margin: 0 0 24px; padding: 20px 20px 16px 24px; background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); box-shadow: var(--shadow); }
+.say::before { content: ""; position: absolute; left: 0; top: 18px; bottom: 18px; width: 4px; border-radius: 0 4px 4px 0; background: var(--red); }
+.say p { font-family: "BIZ UDPMincho", "Hiragino Mincho ProN", serif; font-weight: 700; font-size: clamp(20px, 5.2vw, 25px); line-height: 1.6; margin: 0 0 8px; }
+.say footer { font-size: 13.5px; color: var(--sub); }
+
+/* 数字の囲み */
+.figs { list-style: none; margin: 24px 0; padding: 0; display: grid; gap: 10px; }
+@media (min-width: 560px) { .figs { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.figs li { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius-s); padding: 14px 16px; }
+.figs .k { display: block; font-size: 13px; color: var(--sub); }
+.figs .v { display: block; font-family: var(--f-disp); font-weight: 800; font-size: 22px; line-height: 1.4; }
+.figs .s { display: block; font-size: 13px; color: var(--sub); }
+@media (min-width: 560px) { .figs.two { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* 身を守るために */
+.guard { background: var(--blue-soft); border-radius: var(--radius); padding: 20px 20px 8px; margin: 28px 0; }
+.guard .art-h3, .guard h3 { margin: 0 0 10px; padding: 0; border: 0; }
+.guard ul { margin: 0 0 12px; padding-left: 1.2em; }
+.guard li { margin-bottom: .5em; }
+.guard .go { display: inline-block; margin: 4px 0 12px; font-weight: 700; color: var(--red-ink); }
+
+/* 家の条件 */
+.spec { background: var(--tint); border-radius: var(--radius-s); padding: 14px 18px; margin: 0 0 20px; font-size: 15.5px; line-height: 1.8; }
+.spec dl { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2px 14px; }
+.spec dt { color: var(--sub); white-space: nowrap; }
+.spec dd { margin: 0; }
+
+/* 見積書の行の読み上げ */
+.lines { list-style: none; margin: 20px 0; padding: 0; border-top: 1px solid var(--rule); }
+.lines > li { padding: 16px 0; border-bottom: 1px solid var(--rule); }
+.lines .ln { display: inline-block; font-size: 12.5px; font-weight: 700; color: var(--sub); background: var(--tint); border-radius: 999px; padding: 1px 10px; margin-right: 8px; vertical-align: 2px; }
+.lines b { font-size: 17.5px; }
+.lines p { margin: 6px 0 0; }
+
+/* 比べるカード */
+.cmp { list-style: none; margin: 24px 0; padding: 0; display: grid; gap: 12px; }
+.cmp > li { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius-s); padding: 16px; }
+.cmp__name { font-family: var(--f-disp); font-weight: 800; font-size: 19px; margin: 0 0 6px; }
+.cmp dl { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2px 12px; font-size: 14.5px; line-height: 1.7; }
+.cmp dt { color: var(--sub); }
+.cmp dd { margin: 0; text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }
+.cmp dd.hl span { background: linear-gradient(transparent 58%, var(--marker) 58%); }
+@media (min-width: 600px) {
+  .cmp { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cmp dl { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .cmp dt { font-size: 12.5px; margin-top: 6px; }
+  .cmp dd { text-align: left; font-size: 15.5px; }
+}
+
+/* 幅の物差し */
+.ruler { margin: 14px 0 20px; padding: 14px 16px 12px; background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius-s); }
+.ruler figcaption { font-size: 13.5px; color: var(--sub); margin-bottom: 30px; }
+.ruler__bar { position: relative; height: 8px; border-radius: 999px; background: var(--tint); border: 1px solid var(--rule); }
+.ruler__pin { position: absolute; left: var(--p); top: 50%; width: 16px; height: 16px; margin: -8px 0 0 -8px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 3px var(--sheet); }
+.ruler__tag { position: absolute; left: var(--p); bottom: calc(100% + 10px); transform: translateX(calc(var(--p) * -1)); white-space: nowrap; font-size: 13.5px; font-weight: 700; color: var(--ink); }
+.ruler__ends { display: flex; justify-content: space-between; gap: 12px; margin-top: 8px; font-size: 13px; color: var(--sub); font-variant-numeric: tabular-nums; }
+
+/* 小さな表（本文の中） */
+.mini { width: 100%; border-collapse: collapse; font-size: 15px; margin: 12px 0 20px; }
+.mini th, .mini td { padding: 8px 0; border-bottom: 1px solid var(--rule); text-align: left; font-weight: 400; }
+.mini td { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.mini caption { text-align: left; font-size: 13.5px; color: var(--sub); padding-bottom: 4px; }
+
+/* 質問 */
+.ask { list-style: none; margin: 16px 0 20px; padding: 0; display: grid; gap: 10px; }
+.ask li { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius-s); padding: 12px 16px 12px 44px; position: relative; font-weight: 700; }
+.ask li::before { content: "？"; position: absolute; left: 12px; top: 12px; width: 22px; height: 22px; border-radius: 50%; background: var(--blue); color: var(--blue-ink); font-size: 13px; line-height: 22px; text-align: center; }
+
+/* モデル見積書 */
+.est { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px 16px 16px; margin: 20px 0 16px; }
+@media (min-width: 600px) { .est { padding: 28px 28px 20px; } }
+.est__h { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; padding-bottom: 10px; border-bottom: 3px double var(--ink); }
+.est__title { font-family: "BIZ UDPMincho", "Hiragino Mincho ProN", serif; font-weight: 700; font-size: 22px; letter-spacing: .12em; margin: 0; }
+.est__cond { font-size: 13px; color: var(--sub); }
+.est table { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.6; }
+.est caption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.est thead th { font-size: 12.5px; font-weight: 400; color: var(--sub); text-align: left; padding: 10px 0 6px; border-bottom: 1px solid var(--ink); }
+.est thead th.amt { text-align: right; }
+.est tbody th, .est tbody td, .est tfoot th, .est tfoot td { padding: 11px 0; border-bottom: 1px solid var(--rule); vertical-align: top; text-align: left; font-weight: 400; }
+.est .no { width: 2.2em; white-space: nowrap; color: var(--sub); font-variant-numeric: tabular-nums; font-size: 13px; padding-top: 13px; }
+.est .item b { display: block; font-weight: 700; }
+.est .calc { display: block; font-size: 13.5px; color: var(--sub); font-variant-numeric: tabular-nums; }
+.est .range { display: block; font-size: 12.5px; color: var(--red-ink); }
+.est td.amt { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; padding-left: 12px; }
+.est tfoot th { font-weight: 700; }
+.est tfoot .sum td.amt { font-weight: 700; }
+.est tfoot .total th, .est tfoot .total td { border-top: 2px solid var(--ink); border-bottom: 3px double var(--ink); font-size: 18px; font-weight: 700; padding: 14px 0; }
+.est tfoot .total td.amt span:not(.about) { background: linear-gradient(transparent 58%, var(--marker) 58%); }
+.est tfoot .total .about { display: block; font-size: 13px; font-weight: 400; color: var(--sub); }
+.asb { margin-top: 20px; padding-top: 2px; border-top: 1px dashed var(--sub); }
+.asb__h { font-weight: 700; font-size: 14.5px; color: var(--red-ink); margin: 12px 0 0; }
+.est__notes { margin: 14px 0 0; padding-left: 1.2em; font-size: 13.5px; color: var(--sub); line-height: 1.8; }
+
+/* 計算ページへ */
+.calc-cta { margin: 56px 0 0; padding: 28px 20px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--navy); color: var(--on-navy); text-align: center; }
+.calc-cta h2 { font-size: clamp(22px, 5vw, 28px); margin: 0 0 8px; color: var(--on-navy); }
+.calc-cta p { color: color-mix(in srgb, var(--on-navy) 80%, transparent); margin: 0 0 20px; font-size: 15.5px; }
+.calc-cta .btn { min-height: 60px; font-size: 18px; width: 100%; max-width: 420px; background: var(--yellow); color: #14213d; }
+.calc-cta .btn:hover { filter: brightness(1.05); }
+
+/* 手口・業者が来たら */
+.next2 { display: grid; gap: 12px; margin: 16px 0 0; }
+@media (min-width: 600px) { .next2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.next2 a { display: block; padding: 18px 20px; border-radius: var(--radius-s); background: var(--sheet); border: 1px solid var(--rule); color: var(--ink); text-decoration: none; }
+.next2 a:hover { border-color: var(--ink); }
+.next2 b { display: block; font-family: var(--f-disp); font-weight: 800; font-size: 18px; margin-bottom: 4px; }
+.next2 b::after { content: " →"; color: var(--sub); }
+.next2 span { font-size: 14.5px; color: var(--sub); line-height: 1.7; display: block; }
+.next2 a.warn { background: var(--red-soft); border-color: var(--red); }
+.next2 a.warn b { color: var(--red-ink); }
+
+/* 出典 */
+.srcs h3 { font-size: 16px; border: 0; padding: 0; margin: 24px 0 6px; }
+.srcs ul { list-style: none; margin: 0; padding: 0; }
+.srcs li { padding: 8px 0; border-bottom: 1px solid var(--rule); font-size: 14.5px; line-height: 1.7; }
+.srcs li a { font-weight: 700; }
+.srcs .what { display: block; font-size: 13px; color: var(--sub); }
+.srcs .n { display: inline-block; min-width: 2.6em; margin-right: .3em; font-size: 12px; color: var(--sub); font-weight: 700; }
+.srcs li:target { background: var(--blue-soft); }
+
+/* 前後の回 */
+.pager { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--rule); font-size: 15px; }
+.pager a { font-weight: 700; }
+/* 目次の時刻（07〜：動画の中の位置） */
+.toc a.tm { display: grid; grid-template-columns: 3.3em minmax(0, 1fr); }
+.toc .t { font-size: 12.5px; color: var(--sub); font-variant-numeric: tabular-nums; padding-top: .12em; }
+.toc a.is-here .t { color: var(--blue); }
+.toc__note { margin: 8px 0 0; font-size: 12.5px; color: var(--sub); line-height: 1.6; }
+@media (min-width: 600px) { .cmp.two { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へ</a>
+<header class="site-h">
+  <div class="wrap site-h__in">
+    <a class="logo" href="../../"><img src="../../img/face.webp" alt="" width="36" height="36">見積書のお姉さん</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"><span class="menu-btn__bars" aria-hidden="true"></span>メニュー</button>
+    <nav id="site-nav" class="site-nav" aria-label="サイトの中">
+      <a href="../../#keisan">計算する</a>
+      <a href="../../douga/">動画</a>
+      <a href="../../teguchi/">手口の記録</a>
+      <a href="../../kotoba/">言葉の辞典</a>
+      <a class="nav-warn" href="../../houmon/">業者が来たら</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap art-h">
+    <div class="page-h">
+      <p class="crumb"><a href="../../">トップ</a> ／ <a href="../">動画</a> ／ 床下換気扇・調湿材</p>
+      <span class="eyebrow">第7回・動画の文字版</span>
+      <h1><span class="kicker">【実際の手口3つ】</span><span class="nw">床下換気扇・調湿材、</span><span class="nw">本当はいくら？</span></h1>
+      <p class="lead">動画を見なくても中身が分かるように、話した内容を文章にしました。数字はすべて、公開されている資料から取っています。</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="doc">
+      <figure class="video">
+        <!-- 公開したら YouTube の埋め込みに差し替える -->
+        <div class="video__frame">
+          <img src="../../img/thumbs/07.webp" width="640" height="360" alt="動画のサムネイル（床下換気扇・調湿材、本当はいくら？）">
+          <span class="video__badge">動画は近日公開</span>
+        </div>
+        <figcaption>動画はまだ公開していません。公開したら、ここで見られるようにします。お知らせは <a href="https://www.youtube.com/@mitsumori_onee" target="_blank" rel="noopener">YouTubeチャンネル</a> で。</figcaption>
+      </figure>
+
+      <nav class="toc" aria-labelledby="toc-h">
+        <p class="toc__h" id="toc-h">目次</p>
+        <ol>
+          <li><a class="tm" href="#intro"><span class="t">0:00</span><span>はじめに</span></a></li>
+          <li><a class="tm" href="#about"><span class="t">1:28</span><span>このチャンネルについて</span></a></li>
+          <li><a class="tm" href="#c1"><span class="t">2:23</span><span>① 実際にあった3つの手口</span></a></li>
+          <li><a class="tm" href="#c2"><span class="t">6:12</span><span>② 見積書を1行ずつ</span></a></li>
+          <li><a class="tm" href="#c3"><span class="t">9:01</span><span>③ 対策の組み合わせで、総額はどう変わるか</span></a></li>
+          <li><a class="tm" href="#c4"><span class="t">10:52</span><span>④ 同じ床下の湿気対策でも、金額が変わる5つの条件</span></a></li>
+          <li><a class="tm" href="#c5"><span class="t">13:06</span><span>⑤ 高すぎ・安すぎの見積書の見分け方</span></a></li>
+          <li><a class="tm" href="#end"><span class="t">15:47</span><span>まとめ</span></a></li>
+          <li class="toc__sub"><a href="#mitsumori">モデル見積書（表）</a></li>
+          <li class="toc__sub"><a href="#keisan">広さと組み合わせで計算する</a></li>
+          <li class="toc__sub"><a href="#sources">出典</a></li>
+        </ol>
+        <p class="toc__note">左の時刻は、動画の中の位置です。</p>
+      </nav>
+
+      <article class="art">
+        <section class="chap" id="intro" aria-labelledby="intro-h">
+          <h2 id="intro-h">はじめに</h2>
+          <blockquote class="say">
+            <p>「法改正前に建てた住宅は点検を受けることが義務になった」</p>
+            <footer>茨城県の消費生活センターが公開している相談の事例に出てくる言葉</footer>
+          </blockquote>
+          <p>家に来た業者は、こう説明して、床下を点検しました。茨城県の消費生活センターが公開している、実際の相談の事例です。<a class="ref" href="#s1" aria-label="出典1">［1］</a></p>
+          <p>ところが、そんな法改正はありません。点検のあと、このままでは湿気で家がダメになる、と言われ、145万円の<a class="term" href="../../kotoba/#kankisen">床下換気扇</a>の工事を契約。工事は次の日で、代金は全額、現金で払いました。</p>
+          <p>その場で決めてしまう理由の1つは、工事の<a class="term" href="../../kotoba/#souba">相場</a>を知らないことです。</p>
+          <p>そこでこの回では、ネットで公開されている数字だけを使って、床下換気扇と<a class="term" href="../../kotoba/#choushitsu">調湿材</a>（ちょうしつざい）の見積書を1枚作りました。出てきた金額は、税込みで約40万円です。</p>
+          <p>ただ、この工事は「いくらか」の前に、「そもそも要るのか」が大事です。前半で実際にあった手口を3つ紹介し、後半でこの40万円を1行ずつ確かめます。</p>
+        </section>
+
+        <section class="chap" id="about" aria-labelledby="about-h">
+          <h2 id="about-h">このチャンネルについて</h2>
+          <p>このチャンネルは、工事の会社でも、換気扇や調湿材のメーカーでもありません。特定の業者や商品も、すすめません。</p>
+          <p>使う数字は、国や自治体の資料、メーカー、見積もりサイトなど、誰でも見られる公開情報だけです。出典は、このページのいちばん下に<a href="#sources">すべて載せています</a>。</p>
+        </section>
+
+        <section class="chap" id="c1" aria-labelledby="c1-h">
+          <h2 id="c1-h"><span class="num">①</span><span class="nw">実際にあった</span><span class="nw">3つの手口</span></h2>
+          <p>県や市、公的な相談窓口が公表している事例から、実際にあった手口を3つ紹介します。</p>
+
+          <h3>1つめ　「点検が義務になった」と言う手口</h3>
+          <p>冒頭の事例です。始まりは、排水管の掃除でした。業者に勧められて、1万8千円で掃除をしてもらいました。そのあとで、点検が義務になったと説明され、床下を点検。145万円の床下換気扇の工事は、次の日に終わりました。</p>
+          <p>相談したのは、契約から8日以内でした。すぐにクーリング・オフの通知を出して、契約は無条件で解除。代金は全額返ってきて、付けた換気扇を外す工事も、業者の負担でした。<a class="ref" href="#s1" aria-label="出典1">［1］</a></p>
+          <p>国民生活センターも、クーリング・オフをすれば、工事が終わっていても代金を払う必要はない、と書いています。<a class="ref" href="#s4" aria-label="出典4">［4］</a></p>
+
+          <h3>2つめ　「点検」のあいだに、今ある換気扇を外す手口</h3>
+          <p>埼玉県の桶川市（おけがわし）が公開している相談です。ページの日付は2016年です。<a class="ref" href="#s2" aria-label="出典2">［2］</a></p>
+          <p>数年前に床下換気扇を付けた家に、別の業者が、無料で点検する、と来ました。点検のあと、「カビが発生している」と、いきなり見積書を出して説明を始めます。その間に、別の作業員が、付いていた換気扇を外してしまいました。契約書は交わしていないのに、抗議しても、契約だから、と持ち帰られたそうです。</p>
+          <ul class="figs two" aria-label="桶川市の事例の見積書の金額">
+            <li><span class="k">換気扇を外す費用</span><span class="v">2万8千円</span><span class="s">見積書の金額（契約書はない）</span></li>
+            <li><span class="k">調湿剤 10袋</span><span class="v">25万円</span><span class="s">見積書の金額（契約書はない）</span></li>
+          </ul>
+          <p>市は、契約したと嘘を言って工事をさせる手口もある、と注意しています。</p>
+
+          <h3>3つめ　前の会社を「引き継いだ」と言って来る手口</h3>
+          <p>住まいの相談窓口「住まいるダイヤル」が公開している、2014年の相談です。<a class="ref" href="#s3" aria-label="出典3">［3］</a></p>
+          <p>築31年の家に、前に瓦の工事をした会社が倒産したあと、その事業を引き継いで無料でメンテナンスをしている、という業者が来ました。屋根のあとで床下も点検し、床下に活性炭を置く工事を提案。すぐに、100万円の契約をしました。</p>
+          <p>あとで家族で話し合っても、本当に必要な工事かどうか、わかりませんでした。窓口は、8日が過ぎていても、契約書に決められたことが書かれていなければ、クーリング・オフができる、と答えています。</p>
+
+          <h3>3つに共通すること</h3>
+          <p>まず別の用事で家に入ることです。国民生活センターは、目的を隠して床下を点検し、工事を勧めるのは法律違反になる、と書いています。最初の用事は、家に入るための入口です。<a class="ref" href="#s4" aria-label="出典4">［4］</a></p>
+
+          <div class="guard">
+            <h3>身を守るために（国民生活センター・消費者庁の呼びかけ）</h3>
+            <ul>
+              <li>突然来た業者を、無料の点検でも、安易に家に入れない。<a class="ref" href="#s2" aria-label="出典2">［2］</a></li>
+              <li>訪問販売で契約してしまったら、申込書か契約書を受け取った日から8日以内なら、<a class="term" href="../../kotoba/#coolingoff">クーリング・オフ</a>、つまり無条件で契約をやめる手続きができます。書面か、メールで伝えます。<a class="ref" href="#s5" aria-label="出典5">［5］</a></li>
+              <li>困ったときは、<a class="term" href="../../kotoba/#hotline">消費者ホットライン「188（いやや）」</a>に電話してください。<a class="ref" href="#s6" aria-label="出典6">［6］</a></li>
+            </ul>
+            <a class="go" href="../../houmon/">業者が来たら、まずこれ →</a>
+          </div>
+          <p>そしてもう1つ。相場を知っておくことです。ここからは、見積書を見ていきます。</p>
+        </section>
+
+        <section class="chap" id="c2" aria-labelledby="c2-h">
+          <h2 id="c2-h"><span class="num">②</span><span class="nw">見積書を1行ずつ</span></h2>
+          <div class="spec">
+            <dl>
+              <dt>家</dt><dd>木造2階建て・延べ床30坪（<a href="../04/">シロアリの回</a>と同じ家）</dd>
+              <dt>1階の床</dt><dd>50平方メートル（約15坪）</dd>
+              <dt>基礎</dt><dd>床下が土のままの「<a class="term" href="../../kotoba/#kiso">布基礎</a>（ぬのぎそ）」</dd>
+              <dt>前提</dt><dd>湿気の対策が要る、と分かった家（⑤で、もう一度話します）</dd>
+            </dl>
+          </div>
+          <ol class="lines">
+            <li><span class="ln">1行目</span><b>床下の調査</b>
+              <p>0円です。調査と見積もりは、無料の業者が多くあります。<a class="ref" href="#s8" aria-label="出典8">［8］</a><a class="ref" href="#s13" aria-label="出典13">［13］</a></p></li>
+            <li><span class="ln">2行目</span><b><a class="term" href="../../kotoba/#kankisen">床下換気扇</a></b>
+              <p>基礎の換気口に取り付ける型を3台。1台5万円で、15万円です。1台5万円は、島根県の工事会社が公開している税込み5万5千円を、税抜きに直したものです。見積もりサイトの12社の平均は、1台5万2千円です。<a class="ref" href="#s12" aria-label="出典12">［12］</a><a class="ref" href="#s13" aria-label="出典13">［13］</a></p>
+              <p>3台なのは、1階が90平方メートルまでなら2台から4台で足りる、と書く駆除業者があり、メーカーの標準のセットも3台だからです。<a class="ref" href="#s8" aria-label="出典8">［8］</a><a class="ref" href="#s9" aria-label="出典9">［9］</a></p></li>
+            <li><span class="ln">3行目</span><b>換気扇を動かすタイマー</b>
+              <p>1万円。湿った外の空気を入れると床下で結露（けつろ）するので、メーカーは、湿度の低い昼間だけ動かすようにしています。<a class="ref" href="#s10" aria-label="出典10">［10］</a></p></li>
+            <li><span class="ln">4行目</span><b><a class="term" href="../../kotoba/#choushitsu">調湿材</a>の敷き込み</b>
+              <p>湿気が多いと吸って、乾くと吐き出す材料です。50平方メートルに、1平方メートル4千円で、20万円。</p>
+              <p>公開されている値段は、幅が大きいです。見積もりサイトの12社の平均は、1平方メートル2,717円。駆除業者のサイトは、1坪あたり1万円から3万円。この見積書の4千円は、1坪あたりにすると約1万3千円で、その幅の下のほうです。<a class="ref" href="#s8" aria-label="出典8">［8］</a><a class="ref" href="#s13" aria-label="出典13">［13］</a></p></li>
+          </ol>
+          <p>ここまでで、小計36万円。<a class="term" href="../../kotoba/#shokeihi">諸経費</a>は、公開されている例が見つからなかったので、0円にしました。</p>
+          <p>税抜きで36万円。消費税を入れて、39万6千円です。</p>
+          <ul class="figs two" aria-label="換気扇と調湿材に分けた金額">
+            <li><span class="k">換気扇3台とタイマー</span><span class="v">17万6千円</span><span class="s">税込み</span></li>
+            <li><span class="k">調湿材 50平方メートル</span><span class="v">22万円</span><span class="s">税込み</span></li>
+          </ul>
+          <p>さっきの島根県の会社は、換気扇3台とタイマーのセットを、税込み17万6千円で出しています。同じ金額です。<a class="ref" href="#s12" aria-label="出典12">［12］</a></p>
+          <p>1つめの事例の145万円とは、ずいぶん違います。ただ、あの事例には、換気扇が何台だったかは書かれていません。なので、何倍とは言えません。</p>
+          <p>1枚にまとめた表は、下の<a href="#mitsumori">モデル見積書</a>にあります。</p>
+        </section>
+
+        <section class="chap" id="c3" aria-labelledby="c3-h">
+          <h2 id="c3-h"><span class="num">③</span><span class="nw">対策の組み合わせで、</span><span class="nw">総額はどう変わるか</span></h2>
+          <p>床下の湿気対策には、換気扇と調湿材のほかに、地面にシートを敷く「<a class="term" href="../../kotoba/#boushitsu">防湿シート</a>（ぼうしつシート）」もあります。島根県の工事会社の税込みの値段を税抜きに直して、組み合わせを変えてみます。<a class="ref" href="#s12" aria-label="出典12">［12］</a></p>
+          <ul class="cmp">
+            <li>
+              <p class="cmp__name">換気扇だけ</p>
+              <dl>
+                <dt>中身</dt><dd>換気扇3台＋タイマー</dd>
+                <dt>総額（税込）</dt><dd class="hl"><span>17万6千円</span></dd>
+              </dl>
+            </li>
+            <li>
+              <p class="cmp__name">防湿シートだけ</p>
+              <dl>
+                <dt>中身</dt><dd>50平方メートルに敷く</dd>
+                <dt>総額（税込）</dt><dd class="hl"><span>16万5千円</span></dd>
+              </dl>
+            </li>
+            <li>
+              <p class="cmp__name">調湿材だけ</p>
+              <dl>
+                <dt>中身</dt><dd>1坪に1袋・50平方メートル</dd>
+                <dt>総額（税込）</dt><dd class="hl"><span>22万円</span></dd>
+              </dl>
+            </li>
+          </ul>
+          <p>両方そろえたこの見積書が、39万6千円です。</p>
+          <p>もう1つ、大きく変わるのが、調湿材の量です。この見積書は1坪に1袋で計算しましたが、建材の会社の目安は1坪に2袋。島根県の会社も、2袋を標準にしています。2袋にすると、総額は61万6千円です。<a class="ref" href="#s11" aria-label="出典11">［11］</a><a class="ref" href="#s12" aria-label="出典12">［12］</a></p>
+
+          <h3>1年あたりにすると</h3>
+          <p>換気扇は、島根県の会社が「約10年前後」もつ、と書いています。換気扇3台とタイマーの17万6千円を10年で割ると、1年あたり1万7,600円。ほかに電気代が、メーカーの例で月に約107円かかります。<a class="ref" href="#s10" aria-label="出典10">［10］</a><a class="ref" href="#s12" aria-label="出典12">［12］</a></p>
+          <p>調湿材は、1年あたりに直せません。メーカーや駆除業者は「半永久的」、熊本の工事会社は「5年から10年程度」と、書き方が割れているからです。<a class="ref" href="#s8" aria-label="出典8">［8］</a><a class="ref" href="#s11" aria-label="出典11">［11］</a><a class="ref" href="#s15" aria-label="出典15">［15］</a></p>
+          <p>ただし、注意が2つあります。</p>
+          <ol class="plain">
+            <li><b>換気扇の10年も目安です。</b>不動産会社のサイトは10年から20年と書いています。<a class="ref" href="#s14" aria-label="出典14">［14］</a></li>
+            <li><b>どれが合うかは、床下の状態で変わります。</b>たくさん組み合わせれば良い、というものではありません。</li>
+          </ol>
+          <p>業者さんには、「換気扇だけ、シートだけにすると、いくらで、何が違いますか」と聞いてみてください。</p>
+        </section>
+
+        <section class="chap" id="c4" aria-labelledby="c4-h">
+          <h2 id="c4-h"><span class="num">④</span><span class="nw">同じ床下の湿気対策でも、</span><span class="nw">金額が変わる5つの条件</span></h2>
+
+          <h3>1つめ　床の広さと台数</h3>
+          <p>1階が90平方メートルまでなら、2台から4台で、10万円から30万円くらい、と書く駆除業者があります。この見積書の単価でも、タイマー込みで、2台なら税込み12万1千円、4台なら23万1千円です。<a class="ref" href="#s8" aria-label="出典8">［8］</a></p>
+
+          <h3>2つめ　換気扇の種類</h3>
+          <p>島根県の会社では、税込みで、基礎に取り付ける型が1台5万5千円、床下の空気をかき混ぜる「撹拌型（かくはんがた）」が7万7千円です。<a class="ref" href="#s12" aria-label="出典12">［12］</a></p>
+
+          <h3>3つめ　調湿材の量と種類</h3>
+          <p>同じ会社で、1平方メートルあたりの値段です。袋ではなく、マットを敷く方法もあります。<a class="ref" href="#s12" aria-label="出典12">［12］</a></p>
+          <table class="mini">
+            <caption>調湿材の量と値段（島根県の工事会社・税込み・工事費込み）</caption>
+            <tbody>
+              <tr><th scope="row">1坪に1袋</th><td>4,400円／平方メートル</td></tr>
+              <tr><th scope="row">1坪に2袋</th><td>8,800円／平方メートル</td></tr>
+              <tr><th scope="row">1坪に3袋</th><td>1万3,200円／平方メートル</td></tr>
+            </tbody>
+          </table>
+
+          <h3>4つめ　床下に入れるかどうか</h3>
+          <p>床に点検口が無い家は、作る工事が1か所平均2万2千円、という見積もりサイトの数字があります。<a class="ref" href="#s13" aria-label="出典13">［13］</a></p>
+
+          <h3>5つめ　調査をお金を払って頼むか</h3>
+          <p>報告書つきの床下の調査を、20坪まで2万2千円で受ける会社があります。工事を契約すれば、工事費から差し引く、としています。<a class="ref" href="#s12" aria-label="出典12">［12］</a></p>
+
+          <h3>相場サイトと比べると</h3>
+          <p>駆除業者のサイトは、床下換気扇を総額15万円前後、調湿剤を総額35万円前後としていて、どちらも税込みか税抜きかは書いていません。<a class="ref" href="#s8" aria-label="出典8">［8］</a></p>
+          <ul class="plain">
+            <li>この見積書の換気扇とタイマーは、税抜きで16万円。タイマーの分が入るので、税抜きでも少し上です。</li>
+            <li>調湿材は、税抜きで20万円。35万円前後より下で、熊本の工事会社の「20万円から50万円程度」でも、下の端です。<a class="ref" href="#s15" aria-label="出典15">［15］</a></li>
+          </ul>
+          <p>合計だけで決めずに、どの行が幅のどこにいるかで見てください。</p>
+        </section>
+
+        <section class="chap" id="c5" aria-labelledby="c5-h">
+          <h2 id="c5-h"><span class="num">⑤</span><span class="nw">高すぎ・安すぎの</span><span class="nw">見積書の見分け方</span></h2>
+          <p>この工事は、金額より先に、見ることがあります。4つにまとめます。</p>
+
+          <h3>1つめ　うちの床下が、土か、コンクリートか</h3>
+          <p>シロアリの協会の委員が書いた駆除業者の記事は、床下がコンクリートの家、つまり<a class="term" href="../../kotoba/#kiso">ベタ基礎</a>や土間コンクリートの家は、基本的に湿気対策を行う必要がない、としています。<a class="ref" href="#s8" aria-label="出典8">［8］</a></p>
+          <p>国の決まりの建築基準法施行令（しこうれい）は、木の床の高さを地面から45センチメートル以上にし、外壁の床下に5メートル以下ごとに300平方センチメートル以上の換気の穴を開ける、と決めています。床下をコンクリートで覆う場合は、この決まりもかかりません。法律で決まっているのは、換気扇ではなく、換気の穴です。<a class="ref" href="#s7" aria-label="出典7">［7］</a></p>
+          <p>一方でメーカーは、換気扇は床下の湿気対策に効果がある、としています。要る家と、要らない家がある、ということです。<a class="ref" href="#s9" aria-label="出典9">［9］</a></p>
+
+          <h3>2つめ　湿っている、という根拠が数字で出ているか</h3>
+          <p>さっきの記事は、床下の木の水分を測る「<a class="term" href="../../kotoba/#gansuiritsu">含水率</a>（がんすいりつ）」で、15パーセント前後なら対策は要らない、20パーセントを超えたら対策を、という目安を挙げています。「湿っている」ではなく、何パーセントかを聞いてください。<a class="ref" href="#s8" aria-label="出典8">［8］</a></p>
+
+          <h3>3つめ　台数や量が、床の広さに合っているか</h3>
+          <p>同じ記事は、取り付けて1年くらいで「湿気がまだ残っているので追加しましょう」と、さらに換気扇を勧められることがある、と書いています。<a class="ref" href="#s8" aria-label="出典8">［8］</a></p>
+
+          <h3>4つめ　基礎のコンクリートを壊す工事になっていないか</h3>
+          <p>国民生活センターの資料で一級建築士は、基礎を壊して換気扇や通気口を付けることは、建築基準法令に抵触（ていしょく）するおそれがある、と指摘しています。<a class="ref" href="#s4" aria-label="出典4">［4］</a></p>
+
+          <h3>業者さんに聞くとよい質問</h3>
+          <ul class="ask">
+            <li>「うちの床下は、土ですか、コンクリートですか。日付の入った写真で見せてもらえますか」</li>
+            <li>「床下の木の含水率は、何パーセントでしたか」</li>
+            <li>「換気扇は何台で1台いくら、調湿材は何平方メートルで1平方メートルいくらですか」</li>
+          </ul>
+          <p>答えが数字で返ってくるかどうかが、1つの目安になります。茨城県は、建築士などに状態を見てもらって、工事が要るかどうか判断しましょう、と呼びかけています。<a class="ref" href="#s1" aria-label="出典1">［1］</a></p>
+        </section>
+
+        <section class="chap" id="end" aria-labelledby="end-h">
+          <h2 id="end-h">まとめ</h2>
+          <p>この回では、実際にあった手口と、公開されている数字だけで作った、床下換気扇と調湿材の見積書を見てきました。</p>
+          <p class="say-end"><span class="mark">その場で決めない。相場を知っておく。</span>この2つで、防げることはたくさんあります。床下は、そもそも要るのかも確かめてください。</p>
+          <p>次回も、1つの工事を見積書で見ていきます。</p>
+        </section>
+
+        <section class="chap" id="mitsumori" aria-labelledby="mitsumori-h">
+          <h2 id="mitsumori-h">モデル見積書</h2>
+          <p>②で読み上げた見積書を、1枚の表にまとめました。赤い字は、その行の相場の幅です。</p>
+          <div class="est">
+            <div class="est__h">
+              <p class="est__title">御見積書</p>
+              <p class="est__cond">床下の湿気対策／木造2階・延床30坪・1階の床50㎡（約15坪）・布基礎で床下が土</p>
+            </div>
+            <table>
+              <caption>床下換気扇・調湿材のモデル見積書</caption>
+              <thead>
+                <tr><th scope="col">行</th><th scope="col">項目（数量）</th><th scope="col" class="amt">金額（円）</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="no">1</td><th scope="row" class="item"><b>床下の調査（点検・見積もり）</b><span class="calc">1回</span><span class="range">無料の業者が多い／報告書つきの有料の調査は22,000円（税の記載なし）</span></th><td class="amt">0</td></tr>
+                <tr><td class="no">2</td><th scope="row" class="item"><b>床下換気扇（基礎取付型・本体と取り付け）</b><span class="calc">3台 × 50,000円</span><span class="range">平均 52,000円／台（見積もりサイト12社・税の記載なし）</span></th><td class="amt">150,000</td></tr>
+                <tr><td class="no">3</td><th scope="row" class="item"><b>床下換気扇用のタイマー</b><span class="calc">1台 × 10,000円</span></th><td class="amt">10,000</td></tr>
+                <tr><td class="no">4</td><th scope="row" class="item"><b>床下調湿材の敷き込み（1坪あたり1袋）</b><span class="calc">50㎡ × 4,000円</span><span class="range">幅 2,717円〜約9,075円／㎡（税の記載なし）</span></th><td class="amt">200,000</td></tr>
+              </tbody>
+              <tfoot>
+                <tr class="sum"><td></td><th scope="row">小計</th><td class="amt">360,000</td></tr>
+                <tr><td></td><th scope="row">出張費・諸経費<span class="range">公開されている金額・率が見つからなかった</span></th><td class="amt">0</td></tr>
+                <tr class="sum"><td></td><th scope="row">税抜</th><td class="amt">360,000</td></tr>
+                <tr><td></td><th scope="row">消費税（10%）</th><td class="amt">36,000</td></tr>
+                <tr class="total"><td></td><th scope="row">税込</th><td class="amt"><span>396,000</span><span class="about">約40万円</span></td></tr>
+              </tfoot>
+            </table>
+            <ul class="est__notes">
+              <li>換気扇・タイマー・調湿材の単価は、島根県の工事会社の税込みの値段（換気扇1台55,000円・タイマー11,000円・調湿材4,400円／㎡）を税抜きに直したものです。<a class="ref" href="#s12" aria-label="出典12">［12］</a></li>
+              <li>行ごとの税込みは、換気扇3台とタイマーが176,000円、調湿材が220,000円です。</li>
+              <li>「床下が土で、湿気対策が要ると分かった家」の金額です。床下がコンクリートの家は、基本的に湿気対策が要らないとされています。<a class="ref" href="#s8" aria-label="出典8">［8］</a></li>
+              <li>電気の配線工事の金額は、どの出典にも分けて書かれていなかったので入れていません。</li>
+              <li>消費税は円未満を切り捨てています。</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="calc-cta" id="keisan" aria-labelledby="keisan-h">
+          <h2 id="keisan-h"><span class="nw">広さと組み合わせで</span><span class="nw">計算する</span></h2>
+          <p>床下の広さと、対策の組み合わせを選ぶと、目安の金額が出ます。この見積書と同じ単価表で計算します。</p>
+          <a class="btn" href="../../yukashita/" data-track="douga_to_calc">床下換気扇・調湿材の費用を計算する →</a>
+        </section>
+
+        <div class="next2">
+          <a href="../../teguchi/#ep07"><b>手口の記録</b><span>国民生活センターや自治体が公表している手口を、まとめて読めます。</span></a>
+          <a class="warn" href="../../houmon/"><b>業者が来たら、まずこれ</b><span>突然の訪問や電話のときに見る1枚。A4で印刷できます。</span></a>
+        </div>
+
+        <section class="chap srcs" id="sources" aria-labelledby="sources-h">
+          <h2 id="sources-h">出典</h2>
+          <p>数字と事例は、すべて次の資料から取りました（2026年10月6日に確認）。（　）は書き手です。工事会社や見積もりサイトは、自社に都合よく書くこともあるので、書き手を並べています。</p>
+          <h3>手口・相談・身を守る方法</h3>
+          <ul>
+            <li id="s1"><span class="n">［1］</span><a href="https://www.pref.ibaraki.jp/seikatsukankyo/syose/navi/case/dishonest/inspection.html" target="_blank" rel="noopener">茨城県 いばらき消費生活なび「点検商法」にご注意ください！</a><span class="what">「点検が義務になった」と説明された145万円の床下換気扇の事例とその結果・建築士などに見てもらう呼びかけ</span></li>
+            <li id="s2"><span class="n">［2］</span><a href="https://www.city.okegawa.lg.jp/soshiki/soumubu/jichishinko/shiminsoudan/shohiseikatsu/shohishamondai/1612.html" target="_blank" rel="noopener">埼玉県桶川市 相談Q&amp;A 無料点検と突然訪問してきた業者、点検商法に注意!</a><span class="what">点検のあいだに換気扇を外された事例・見積書の金額・安易に家に入れない</span></li>
+            <li id="s3"><span class="n">［3］</span><a href="https://www.chord.or.jp/case/detail/detail_7019.html" target="_blank" rel="noopener">住まいるダイヤル 相談事例</a>（住宅リフォーム・紛争処理支援センター）<span class="what">床下に活性炭を置く工事の相談（2014年）・8日を過ぎたあとのクーリング・オフ</span></li>
+            <li id="s4"><span class="n">［4］</span><a href="https://www.kokusen.go.jp/pdf/n-20180301_1.pdf" target="_blank" rel="noopener">国民生活センター 報道発表（2018年3月1日・PDF）</a><span class="what">目的を隠して床下を点検する勧誘・工事が終わっていてもクーリング・オフできる・基礎を壊す工事についての一級建築士の意見</span></li>
+            <li id="s5"><span class="n">［5］</span><a href="https://www.kokusen.go.jp/soudan_now/data/coolingoff.html" target="_blank" rel="noopener">国民生活センター クーリング・オフ</a><span class="what">クーリング・オフの日数と伝え方</span></li>
+            <li id="s6"><span class="n">［6］</span><a href="https://www.caa.go.jp/policies/policy/local_cooperation/local_consumer_administration/hotline/" target="_blank" rel="noopener">消費者庁「消費者ホットライン」</a><span class="what">188（いやや）</span></li>
+          </ul>
+          <h3>そもそも要るのか・国の決まり・メーカー</h3>
+          <ul>
+            <li id="s7"><span class="n">［7］</span><a href="https://laws.e-gov.go.jp/law/325CO0000000338" target="_blank" rel="noopener">建築基準法施行令 第22条</a>（e-Gov 法令検索）<span class="what">床の高さ45センチメートル以上・換気の穴・床下をコンクリートで覆う場合</span></li>
+            <li id="s8"><span class="n">［8］</span><a href="https://www.shiroari-ichiban.com/contents/column/moisture-conditioning/" target="_blank" rel="noopener">シロアリ1番！「床下の湿気対策は必要？不要？」</a>（駆除業者）<span class="what">台数の目安・総額の相場・調湿材の坪単価・コンクリートの家・含水率の目安・換気扇の追加の勧誘・調査無料</span></li>
+            <li id="s9"><span class="n">［9］</span><a href="https://www.jema-net.or.jp/living/kankisen/tenken.html" target="_blank" rel="noopener">日本電機工業会 換気扇専門委員会「悪質な点検商法にご注意を」</a>（メーカーの業界団体）<span class="what">標準のセット（本体3台）・床下換気扇の効果</span></li>
+            <li id="s10"><span class="n">［10］</span><a href="https://www.mitsubishielectric.co.jp/ldm/ventilationfan/others/advantage_01.html" target="_blank" rel="noopener">三菱電機 床下用換気扇</a>・<a href="https://dl.mitsubishielectric.co.jp/dl/ldg/wink/ssl/wink_doc/m_contents/doc/FREE_PARTS/Yukashita_Shokai_Chirashi_220324.pdf" target="_blank" rel="noopener">チラシ（PDF）</a>（メーカー）<span class="what">結露を防ぐ使い方・電気代（月に約107円）</span></li>
+            <li id="s11"><span class="n">［11］</span><a href="https://www.ick.co.jp/chikyugi/yukadry/" target="_blank" rel="noopener">伊藤忠建材 ユカドライ・床下名人</a>（建材メーカー）<span class="what">1坪に2袋の目安・半永久的</span></li>
+          </ul>
+          <h3>単価・相場</h3>
+          <ul>
+            <li id="s12"><span class="n">［12］</span><a href="https://house--keeper.jp/item_cost/" target="_blank" rel="noopener">ハウスキーパー 床下環境改善工事の料金表</a>（島根県の工事会社）<span class="what">換気扇・タイマー・調湿材・防湿シートの税込みの値段・約10年前後の耐久性・撹拌型・有料の調査</span></li>
+            <li id="s13"><span class="n">［13］</span><a href="https://www.sharing-tech.co.jp/shiroari/shiroari-kujo-cost/" target="_blank" rel="noopener">シェアリングテクノロジー シロアリ駆除の費用</a>（見積もりサイト）<span class="what">換気扇・調湿材の平均単価（加盟店12社・2023年10月）・点検口の新設・調査無料</span></li>
+            <li id="s14"><span class="n">［14］</span><a href="https://www.livable.co.jp/l-note/life/g17263/" target="_blank" rel="noopener">Lnote 床下換気扇の費用・寿命</a>（不動産会社のメディア）<span class="what">寿命10年から20年</span></li>
+            <li id="s15"><span class="n">［15］</span><a href="https://kumamoto-reformcenter.com/reform/humidity-control/" target="_blank" rel="noopener">熊本リフォームセンター 床下の調湿材</a>（工事会社）<span class="what">調湿材の業者施工20万円から50万円程度・5年から10年程度</span></li>
+          </ul>
+          <ul>
+            <li>動画で使った写真の題名・作者・元のページは、<a href="../../credits/07/">写真の出典</a>にまとめています。</li>
+          </ul>
+        </section>
+
+        <nav class="pager" aria-label="前後の回">
+          <a href="../06/">← 前の回：お風呂の交換</a>
+          <a href="../08/">次の回：蓄電池・太陽光 →</a>
+        </nav>
+      </article>
+    </div>
+  </div>
+</main>
+
+<footer class="site-f">
+  <div class="wrap">
+    <a class="logo" href="../../"><img src="../../img/face.webp" alt="" width="36" height="36">見積書のお姉さん</a>
+    <p class="site-f__about">家の修理・リフォームの見積書を、公開されている資料の単価から1行ずつ読み解くYouTubeチャンネルです。工事を請け負う業者ではありません。</p>
+    <div class="sns">
+      <a href="https://www.youtube.com/@mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#ff0033" d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81z"/><path fill="#fff" d="M9.55 15.57V8.43L15.82 12z"/></svg>YouTube</a>
+      <a href="https://www.instagram.com/mitsumori_onee/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+      <a href="https://x.com/mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</a>
+    </div>
+    <nav class="site-f__nav" aria-label="サイトの案内">
+      <a href="../../#keisan">計算する</a>
+      <a href="../../douga/">動画</a>
+      <a href="../../teguchi/">手口の記録</a>
+      <a href="../../kotoba/">言葉の辞典</a>
+      <a href="../../houmon/">業者が来たら</a>
+      <a href="../../about/">このサイトについて</a>
+      <a href="../../privacy/">プライバシーポリシー</a>
+      <a href="../../contact/">お問い合わせ</a>
+    </nav>
+    <p class="site-f__fine">金額はすべて、公開されている資料の単価から計算した目安です。実際の金額は家ごとに変わります。</p>
+    <p class="site-f__fine">© 2026 見積書のお姉さん</p>
+  </div>
+</footer>
+<script>
+// 目次：いま読んでいる章に色を付ける／計算ページへのボタンを数える（入力した値は送らない）
+(() => {
+  const links = [...document.querySelectorAll('.toc a[href^="#"]')];
+  const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => {
+      es.forEach(e => {
+        if (!e.isIntersecting) return;
+        links.forEach(a => a.classList.remove('is-here'));
+        const a = map.get(e.target.id);
+        if (a) a.classList.add('is-here');
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    map.forEach((a, id) => { const el = document.getElementById(id); if (el) io.observe(el); });
+  }
+  document.querySelectorAll('[data-track]').forEach(a => a.addEventListener('click', () => {
+    if (window.track) window.track(a.dataset.track, { page: 'douga_07' });
+  }));
+})();
+</script>
+</body>
+</html>
