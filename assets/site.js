@@ -12,6 +12,54 @@
   }));
 })();
 
+// 動画の公開：assets/videos.json の公開の時刻を過ぎた回は、「近日公開」を YouTube の埋め込みに替える
+// （毎日18時の公開に合わせて、見た人のブラウザで切り替える。HTML への書き込みは .github/scripts/publish_videos.py）
+(() => {
+  const src = document.currentScript && document.currentScript.src;
+  if (!src || !document.querySelector('.vid, .ep, .video__frame')) return;
+  const iframe = (id, n) => {
+    const f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + id;
+    f.title = '第' + n + '回の動画';
+    f.loading = 'lazy';
+    f.allow = 'accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    f.referrerPolicy = 'strict-origin-when-cross-origin';
+    f.allowFullscreen = true;
+    f.style.cssText = 'display:block;width:100%;height:100%;border:0';
+    return f;
+  };
+  const here = (location.pathname.match(/\/douga\/(\d{2})\/$/) || [])[1];
+  fetch(new URL('videos.json', src), { cache: 'no-cache' }).then(r => r.json()).then(videos => {
+    const now = Date.now();
+    Object.entries(videos).forEach(([nn, v]) => {
+      if (Date.parse(v.at) > now) return;
+      const n = Number(nn);
+      // トップの並び
+      const card = document.querySelector('.vid[href$="douga/' + nn + '/"] .tag');
+      if (card) card.remove();
+      // 動画の一覧
+      const ep = document.getElementById('ep' + nn);
+      if (ep) {
+        const img = ep.querySelector('.ep__thumb img');
+        if (img) img.replaceWith(iframe(v.id, n));
+        const soon = ep.querySelector('.tag-soon');
+        if (soon) soon.remove();
+      }
+      // 文字版のページ
+      if (here === nn) {
+        const frame = document.querySelector('.video__frame');
+        const img = frame && frame.querySelector('img');
+        if (img) {
+          frame.querySelectorAll('img, .video__badge').forEach(el => el.remove());
+          frame.appendChild(iframe(v.id, n));
+          const cap = frame.parentElement.querySelector('figcaption');
+          if (cap) cap.innerHTML = '<a href="https://youtu.be/' + v.id + '" target="_blank" rel="noopener">YouTube で見る</a>';
+        }
+      }
+    });
+  }).catch(() => {});
+})();
+
 // アクセス解析（Google アナリティクス 4）。測定ID（G-から始まる）をここに入れるまでは何も読み込まない
 // ★計算の条件はURLの # の後ろに入れているので、アナリティクスには送られない。track() にも入力した値を渡さない
 const GA_ID = '';
