@@ -13,7 +13,7 @@
 })();
 
 // 動画の公開：assets/videos.json の公開の時刻を過ぎた回は、「近日公開」を YouTube の埋め込みに替える
-// （毎日18時の公開に合わせて、見た人のブラウザで切り替える。HTML への書き込みは .github/scripts/publish_videos.py）
+// （毎日20時の公開に合わせて、見た人のブラウザで切り替える。HTML への書き込みは .github/scripts/publish_videos.py）
 // 計算ページへの入り口（data-gate="NN" hidden）も、その回の公開と同時に出す
 (() => {
   const src = document.currentScript && document.currentScript.src;
