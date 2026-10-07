@@ -14,9 +14,10 @@
 
 // 動画の公開：assets/videos.json の公開の時刻を過ぎた回は、「近日公開」を YouTube の埋め込みに替える
 // （毎日18時の公開に合わせて、見た人のブラウザで切り替える。HTML への書き込みは .github/scripts/publish_videos.py）
+// 計算ページへの入り口（data-gate="NN" hidden）も、その回の公開と同時に出す
 (() => {
   const src = document.currentScript && document.currentScript.src;
-  if (!src || !document.querySelector('.vid, .ep, .video__frame')) return;
+  if (!src || !document.querySelector('.vid, .ep, .video__frame, [data-gate]')) return;
   const iframe = (id, n) => {
     const f = document.createElement('iframe');
     f.src = 'https://www.youtube-nocookie.com/embed/' + id;
@@ -34,6 +35,11 @@
     Object.entries(videos).forEach(([nn, v]) => {
       if (Date.parse(v.at) > now) return;
       const n = Number(nn);
+      // 計算ページへの入り口と、計算ページそのもの
+      document.querySelectorAll('[data-gate="' + nn + '"]').forEach(el => {
+        el.hidden = false;
+        el.removeAttribute('data-soon');
+      });
       // トップの並び
       const card = document.querySelector('.vid[href$="douga/' + nn + '/"] .tag');
       if (card) card.remove();

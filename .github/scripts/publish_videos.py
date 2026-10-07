@@ -4,6 +4,7 @@
 assets/videos.json に {"NN": {"id": YouTube の動画ID, "at": 公開の時刻}} を書いておく。
 時刻ちょうどの切り替えは、見た人のブラウザで assets/site.js がやる（GitHub の自動実行も Mac も要らない）。
 これは、同じ切り替えを HTML そのものにも書き込む道具（検索エンジンや JS が切ってある人向け）。
+計算ページへの入り口（data-gate="NN" hidden）と、計算ページの「公開と同時に使えるように」のお知らせも外す。
 Claude がサイトを触るたびに動かして commit・push する。何度動かしても同じ結果になる（済んだ回は何も変えない）。
 
   python3 .github/scripts/publish_videos.py          # 時刻を過ぎた回だけ
@@ -60,6 +61,13 @@ def douga_page(html, nn, vid):
     return html
 
 
+def ungate(html, nn):
+    # 計算ページへの入り口を出し、計算ページのお知らせを消す
+    html = html.replace(f'data-gate="{nn}" hidden', f'data-gate="{nn}"')
+    return re.sub(rf'<main id="main" data-gate="{nn}" data-soon>\s*<div class="wrap soon-note">.*?</div><!-- /soon-note -->',
+                  '<main id="main">', html, count=1, flags=re.S)
+
+
 def main():
     dry = '--dry' in sys.argv
     now = datetime.datetime.now(datetime.timezone.utc)
@@ -75,6 +83,9 @@ def main():
         edit('index.html', lambda h: top(h, nn))
         edit('douga/index.html', lambda h: douga_list(h, nn, v['id']))
         edit(f'douga/{nn}/index.html', lambda h: douga_page(h, nn, v['id']))
+        for p in sorted(ROOT.glob('**/index.html')):
+            if f'data-gate="{nn}"' in p.read_text(encoding='utf-8'):
+                edit(str(p.relative_to(ROOT)), lambda h: ungate(h, nn))
 
 
 if __name__ == '__main__':
