@@ -241,12 +241,10 @@ a.ref:hover { color: var(--blue); }
   <div class="wrap">
     <div class="doc">
       <figure class="video">
-        <!-- 公開したら YouTube の埋め込みに差し替える -->
         <div class="video__frame">
-          <img src="../../img/thumbs/02.webp" width="640" height="360" alt="動画のサムネイル（屋根30坪、実際の金額は？）">
-          <span class="video__badge">動画は近日公開</span>
+          <iframe src="https://www.youtube-nocookie.com/embed/GKx6I1qwsA8" title="第2回の動画" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block;width:100%;height:100%;border:0"></iframe>
         </div>
-        <figcaption>動画はまだ公開していません。公開したら、ここで見られるようにします。お知らせは <a href="https://www.youtube.com/@mitsumori_onee" target="_blank" rel="noopener">YouTubeチャンネル</a> で。</figcaption>
+        <figcaption><a href="https://youtu.be/GKx6I1qwsA8" target="_blank" rel="noopener">YouTube で見る</a></figcaption>
       </figure>
 
       <nav class="toc" aria-labelledby="toc-h">
@@ -261,7 +259,7 @@ a.ref:hover { color: var(--blue); }
           <li><a href="#c5">⑤ 高すぎ・安すぎの見積書の見分け方</a></li>
           <li><a href="#end">まとめ</a></li>
           <li class="toc__sub"><a href="#mitsumori">モデル見積書（表）</a></li>
-          <li class="toc__sub" data-gate="02" hidden><a href="#keisan">自分の家の大きさで計算する</a></li>
+          <li class="toc__sub" data-gate="02"><a href="#keisan">自分の家の大きさで計算する</a></li>
           <li class="toc__sub"><a href="#sources">出典</a></li>
         </ol>
       </nav>
@@ -604,7 +602,7 @@ a.ref:hover { color: var(--blue); }
           </div>
         </section>
 
-        <section class="calc-cta" id="keisan" data-gate="02" hidden aria-labelledby="keisan-h">
+        <section class="calc-cta" id="keisan" data-gate="02" aria-labelledby="keisan-h">
           <h2 id="keisan-h"><span class="nw">自分の家の大きさで</span><span class="nw">計算する</span></h2>
           <p>坪数と工事の方法を選ぶと、あなたの家の目安の金額が出ます。この見積書と同じ単価で計算します。</p>
           <a class="btn" href="../../yane/" data-track="douga_to_calc">屋根の費用を計算する →</a>
