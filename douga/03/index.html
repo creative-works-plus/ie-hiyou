@@ -242,12 +242,10 @@ a.ref:hover { color: var(--blue); }
   <div class="wrap">
     <div class="doc">
       <figure class="video">
-        <!-- 公開したら YouTube の埋め込みに差し替える -->
         <div class="video__frame">
-          <img src="../../img/thumbs/03.webp" width="640" height="360" alt="動画のサムネイル（給湯器の交換）">
-          <span class="video__badge">動画は近日公開</span>
+          <iframe src="https://www.youtube-nocookie.com/embed/k5FC9YIfsC0" title="第3回の動画" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block;width:100%;height:100%;border:0"></iframe>
         </div>
-        <figcaption>動画はまだ公開していません。公開したら、ここで見られるようにします。お知らせは <a href="https://www.youtube.com/@mitsumori_onee" target="_blank" rel="noopener">YouTubeチャンネル</a> で。</figcaption>
+        <figcaption><a href="https://youtu.be/k5FC9YIfsC0" target="_blank" rel="noopener">YouTube で見る</a></figcaption>
       </figure>
 
       <nav class="toc" aria-labelledby="toc-h">
@@ -262,7 +260,7 @@ a.ref:hover { color: var(--blue); }
           <li><a href="#c5">⑤ 高すぎ・安すぎの見積書の見分け方</a></li>
           <li><a href="#end">まとめ</a></li>
           <li class="toc__sub"><a href="#mitsumori">モデル見積書（表）</a></li>
-          <li class="toc__sub" data-gate="03" hidden><a href="#keisan">号数と種類を選んで計算する</a></li>
+          <li class="toc__sub" data-gate="03"><a href="#keisan">号数と種類を選んで計算する</a></li>
           <li class="toc__sub"><a href="#sources">出典</a></li>
         </ol>
       </nav>
@@ -528,7 +526,7 @@ a.ref:hover { color: var(--blue); }
           </div>
         </section>
 
-        <section class="calc-cta" id="keisan" data-gate="03" hidden aria-labelledby="keisan-h">
+        <section class="calc-cta" id="keisan" data-gate="03" aria-labelledby="keisan-h">
           <h2 id="keisan-h"><span class="nw">号数と種類を選んで</span><span class="nw">計算する</span></h2>
           <p>号数と種類（従来型・エコジョーズ）を選ぶと、あなたの家の目安の金額が出ます。この見積書と同じ単価で計算します。</p>
           <a class="btn" href="../../kyutoki/" data-track="douga_to_calc">給湯器の交換の費用を計算する →</a>
