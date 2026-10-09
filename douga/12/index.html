@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>【実際の手口3つ】鍵開け・鍵の交換、本当はいくら？（文字版）｜見積書のお姉さん</title>
+<meta name="description" content="夜に鍵をなくして、鍵開けとディンプルキーへの交換を頼んだ見積書を、公開されている資料の単価だけで1行ずつ作りました（税込み3万8,280円）。国や自治体が公表した手口3つも紹介します。動画の文字版です。">
+<meta name="theme-color" content="#1f2d55">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="見積書のお姉さん">
+<meta property="og:title" content="【実際の手口3つ】鍵開け・鍵の交換、本当はいくら？（文字版）｜見積書のお姉さん">
+<meta property="og:description" content="鍵開け・鍵の交換の見積書を、公開されている資料の単価だけで1行ずつ作りました。「特殊な鍵だから」と言われた手口3つも紹介します。">
+<meta property="og:image" content="https://creative-works-plus.github.io/ie-hiyou/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../img/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="../../img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=BIZ+UDPMincho:wght@700&family=M+PLUS+Rounded+1c:wght@800&display=swap">
+<link rel="stylesheet" href="../../assets/site.css">
+<script src="../../assets/site.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "【実際の手口3つ】鍵開け・鍵の交換、本当はいくら？",
+  "description": "鍵開け・鍵の交換の見積書を、公開されている資料の単価だけで1行ずつ作った動画の文字版です。",
+  "inLanguage": "ja",
+  "image": "https://creative-works-plus.github.io/ie-hiyou/img/thumbs/12.webp",
+  "mainEntityOfPage": "https://creative-works-plus.github.io/ie-hiyou/douga/12/",
+  "author": { "@type": "Organization", "name": "見積書のお姉さん", "url": "https://www.youtube.com/@mitsumori_onee" },
+  "publisher": { "@type": "Organization", "name": "見積書のお姉さん" }
+}
+</script>
+<style>
+/* ── 動画の文字版（douga/01〜12 で同じ見た目）。色は site.css の変数だけを使う ── */
+.kicker { display: block; font-size: .48em; color: var(--sub); letter-spacing: .02em; margin-bottom: .35em; }
+.art-h { max-width: calc(680px + 32px); }
+.doc { display: grid; grid-template-columns: minmax(0, 1fr); max-width: 680px; margin: 0 auto; }
+@media (min-width: 1024px) {
+  .art-h { max-width: var(--wrap); }
+  .doc { max-width: none; grid-template-columns: minmax(0, 680px) 232px; justify-content: space-between; column-gap: 48px; }
+  .doc > * { grid-column: 1; }
+  .doc > .toc { grid-column: 2; grid-row: 1 / span 30; position: sticky; top: 84px; align-self: start; margin-top: 0; }
+}
+
+/* 動画の場所（公開まではサムネと「近日公開」） */
+.video { margin: 0; }
+.video__frame { position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; background: var(--tint); box-shadow: var(--shadow); max-width: 640px; }
+.video__frame img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.video__badge { position: absolute; left: 12px; top: 12px; display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 999px; background: rgba(13, 20, 34, .82); color: #fff; font-size: 13px; font-weight: 700; }
+.video__badge::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--yellow); }
+.video figcaption { margin-top: 12px; font-size: 14.5px; color: var(--sub); }
+.video figcaption a { font-weight: 700; }
+
+/* 目次 */
+.toc { margin-top: 28px; background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); padding: 18px 20px 14px; }
+.toc__h { font-family: var(--f-disp); font-weight: 800; font-size: 15px; margin: 0 0 6px; }
+.toc ol { list-style: none; margin: 0; padding: 0; counter-reset: toc; }
+.toc li { border-top: 1px solid var(--rule); }
+.toc li:first-child { border-top: 0; }
+.toc a { display: block; padding: 9px 0; color: var(--ink); text-decoration: none; font-size: 15px; line-height: 1.5; }
+.toc a:hover { color: var(--blue); }
+.toc a.is-here { color: var(--blue); font-weight: 700; }
+.toc .toc__sub a { color: var(--sub); font-size: 14px; }
+@media (min-width: 1024px) {
+  .toc { background: none; border: 0; padding: 0; border-radius: 0; }
+  .toc__h { font-size: 13px; color: var(--sub); letter-spacing: .06em; }
+  .toc a { font-size: 14px; padding: 7px 0 7px 12px; border-left: 2px solid var(--rule); }
+  .toc li { border-top: 0; }
+  .toc a.is-here { border-left-color: var(--blue); }
+}
+
+/* 本文 */
+.art { font-size: 17px; line-height: 1.95; }
+.art p, .art li { text-wrap: pretty; }
+.chap { margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--rule); }
+.chap:first-of-type { border-top: 0; padding-top: 0; margin-top: 40px; }
+.chap > h2 { font-size: clamp(23px, 5.2vw, 29px); margin: 0 0 20px; }
+.chap > h2 .num { color: var(--blue); margin-right: .25em; }
+.art h3 { font-size: 19px; line-height: 1.5; margin: 36px 0 12px; padding-left: 12px; border-left: 4px solid var(--yellow); }
+.art ol.plain, .art ul.plain { padding-left: 1.4em; margin: 0 0 1em; }
+.art ol.plain li, .art ul.plain li { margin-bottom: .5em; }
+a.term { color: inherit; text-decoration: underline dotted var(--blue); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+a.term:hover { color: var(--blue); }
+a.ref { font-size: 12px; font-weight: 700; color: var(--sub); text-decoration: none; vertical-align: super; line-height: 0; margin-left: 2px; white-space: nowrap; }
+a.ref:hover { color: var(--blue); }
+
+/* 業者の言葉（引用） */
+.say { position: relative; margin: 0 0 24px; padding: 20px 20px 16px 24px; background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); box-shadow: var(--shadow); }
+.say::before { content: ""; position: absolute; left: 0; top: 18px; bottom: 18px; width: 4px; border-radius: 0 4px 4px 0; background: var(--red); }
+.say p { font-family: "BIZ UDPMincho", "Hiragino Mincho ProN", serif; font-weight: 700; font-size: clamp(20px, 5.2vw, 25px); line-height: 1.6; margin: 0 0 8px; }
+.say footer { font-size: 13.5px; color: var(--sub); }
+
+/* 数字の囲み */
+.figs { list-style: none; margin: 24px 0; padding: 0; display: grid; gap: 10px; }
+@media (min-width: 560px) { .figs { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.figs li { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius-s); padding: 14px 16px; }
+.figs .k { display: block; font-size: 13px; color: var(--sub); }
+.figs .v { display: block; font-family: var(--f-disp); font-weight: 800; font-size: 22px; line-height: 1.4; }
+.figs .s { display: block; font-size: 13px; color: var(--sub); }
+@media (min-width: 560px) { .figs.two { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* 身を守るために */
+.guard { background: var(--blue-soft); border-radius: var(--radius); padding: 20px 20px 8px; margin: 28px 0; }
+.guard .art-h3, .guard h3 { margin: 0 0 10px; padding: 0; border: 0; }
+.guard ul { margin: 0 0 12px; padding-left: 1.2em; }
+.guard li { margin-bottom: .5em; }
+.guard .go { display: inline-block; margin: 4px 0 12px; font-weight: 700; color: var(--red-ink); }
+
+/* 家の条件 */
+.spec { background: var(--tint); border-radius: var(--radius-s); padding: 14px 18px; margin: 0 0 20px; font-size: 15.5px; line-height: 1.8; }
+.spec dl { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2px 14px; }
+.spec dt { color: var(--sub); white-space: nowrap; }
+.spec dd { margin: 0; }
+
+/* 見積書の行の読み上げ */
+.lines { list-style: none; margin: 20px 0; padding: 0; border-top: 1px solid var(--rule); }
+.lines > li { padding: 16px 0; border-bottom: 1px solid var(--rule); }
+.lines .ln { display: inline-block; font-size: 12.5px; font-weight: 700; color: var(--sub); background: var(--tint); border-radius: 999px; padding: 1px 10px; margin-right: 8px; vertical-align: 2px; }
+.lines b { font-size: 17.5px; }
+.lines p { margin: 6px 0 0; }
+
+/* 比べるカード */
+.cmp { list-style: none; margin: 24px 0; padding: 0; display: grid; gap: 12px; }
+.cmp > li { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius-s); padding: 16px; }
+.cmp__name { font-family: var(--f-disp); font-weight: 800; font-size: 19px; margin: 0 0 6px; }
+.cmp dl { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2px 12px; font-size: 14.5px; line-height: 1.7; }
+.cmp dt { color: var(--sub); }
+.cmp dd { margin: 0; text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }
+.cmp dd.hl span { background: linear-gradient(transparent 58%, var(--marker) 58%); }
+@media (min-width: 600px) {
+  .cmp { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cmp dl { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .cmp dt { font-size: 12.5px; margin-top: 6px; }
+  .cmp dd { text-align: left; font-size: 15.5px; }
+}
+
+/* 幅の物差し */
+.ruler { margin: 14px 0 20px; padding: 14px 16px 12px; background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius-s); }
+.ruler figcaption { font-size: 13.5px; color: var(--sub); margin-bottom: 30px; }
+.ruler__bar { position: relative; height: 8px; border-radius: 999px; background: var(--tint); border: 1px solid var(--rule); }
+.ruler__pin { position: absolute; left: var(--p); top: 50%; width: 16px; height: 16px; margin: -8px 0 0 -8px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 3px var(--sheet); }
+.ruler__tag { position: absolute; left: var(--p); bottom: calc(100% + 10px); transform: translateX(calc(var(--p) * -1)); white-space: nowrap; font-size: 13.5px; font-weight: 700; color: var(--ink); }
+.ruler__ends { display: flex; justify-content: space-between; gap: 12px; margin-top: 8px; font-size: 13px; color: var(--sub); font-variant-numeric: tabular-nums; }
+
+/* 小さな表（本文の中） */
+.mini { width: 100%; border-collapse: collapse; font-size: 15px; margin: 12px 0 20px; }
+.mini th, .mini td { padding: 8px 0; border-bottom: 1px solid var(--rule); text-align: left; font-weight: 400; }
+.mini td { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.mini caption { text-align: left; font-size: 13.5px; color: var(--sub); padding-bottom: 4px; }
+
+/* 質問 */
+.ask { list-style: none; margin: 16px 0 20px; padding: 0; display: grid; gap: 10px; }
+.ask li { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius-s); padding: 12px 16px 12px 44px; position: relative; font-weight: 700; }
+.ask li::before { content: "？"; position: absolute; left: 12px; top: 12px; width: 22px; height: 22px; border-radius: 50%; background: var(--blue); color: var(--blue-ink); font-size: 13px; line-height: 22px; text-align: center; }
+
+/* モデル見積書 */
+.est { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px 16px 16px; margin: 20px 0 16px; }
+@media (min-width: 600px) { .est { padding: 28px 28px 20px; } }
+.est__h { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; padding-bottom: 10px; border-bottom: 3px double var(--ink); }
+.est__title { font-family: "BIZ UDPMincho", "Hiragino Mincho ProN", serif; font-weight: 700; font-size: 22px; letter-spacing: .12em; margin: 0; }
+.est__cond { font-size: 13px; color: var(--sub); }
+.est table { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.6; }
+.est caption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.est thead th { font-size: 12.5px; font-weight: 400; color: var(--sub); text-align: left; padding: 10px 0 6px; border-bottom: 1px solid var(--ink); }
+.est thead th.amt { text-align: right; }
+.est tbody th, .est tbody td, .est tfoot th, .est tfoot td { padding: 11px 0; border-bottom: 1px solid var(--rule); vertical-align: top; text-align: left; font-weight: 400; }
+.est .no { width: 2.2em; white-space: nowrap; color: var(--sub); font-variant-numeric: tabular-nums; font-size: 13px; padding-top: 13px; }
+.est .item b { display: block; font-weight: 700; }
+.est .calc { display: block; font-size: 13.5px; color: var(--sub); font-variant-numeric: tabular-nums; }
+.est .range { display: block; font-size: 12.5px; color: var(--red-ink); }
+.est td.amt { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; padding-left: 12px; }
+.est tfoot th { font-weight: 700; }
+.est tfoot .sum td.amt { font-weight: 700; }
+.est tfoot .total th, .est tfoot .total td { border-top: 2px solid var(--ink); border-bottom: 3px double var(--ink); font-size: 18px; font-weight: 700; padding: 14px 0; }
+.est tfoot .total td.amt span:not(.about) { background: linear-gradient(transparent 58%, var(--marker) 58%); }
+.est tfoot .total .about { display: block; font-size: 13px; font-weight: 400; color: var(--sub); }
+.asb { margin-top: 20px; padding-top: 2px; border-top: 1px dashed var(--sub); }
+.asb__h { font-weight: 700; font-size: 14.5px; color: var(--red-ink); margin: 12px 0 0; }
+.est__notes { margin: 14px 0 0; padding-left: 1.2em; font-size: 13.5px; color: var(--sub); line-height: 1.8; }
+
+/* 計算ページへ */
+.calc-cta { margin: 56px 0 0; padding: 28px 20px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--navy); color: var(--on-navy); text-align: center; }
+.calc-cta h2 { font-size: clamp(22px, 5vw, 28px); margin: 0 0 8px; color: var(--on-navy); }
+.calc-cta p { color: color-mix(in srgb, var(--on-navy) 80%, transparent); margin: 0 0 20px; font-size: 15.5px; }
+.calc-cta .btn { min-height: 60px; font-size: 18px; width: 100%; max-width: 420px; background: var(--yellow); color: #14213d; }
+.calc-cta .btn:hover { filter: brightness(1.05); }
+
+/* 手口・業者が来たら */
+.next2 { display: grid; gap: 12px; margin: 16px 0 0; }
+@media (min-width: 600px) { .next2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.next2 a { display: block; padding: 18px 20px; border-radius: var(--radius-s); background: var(--sheet); border: 1px solid var(--rule); color: var(--ink); text-decoration: none; }
+.next2 a:hover { border-color: var(--ink); }
+.next2 b { display: block; font-family: var(--f-disp); font-weight: 800; font-size: 18px; margin-bottom: 4px; }
+.next2 b::after { content: " →"; color: var(--sub); }
+.next2 span { font-size: 14.5px; color: var(--sub); line-height: 1.7; display: block; }
+.next2 a.warn { background: var(--red-soft); border-color: var(--red); }
+.next2 a.warn b { color: var(--red-ink); }
+
+/* 出典 */
+.srcs h3 { font-size: 16px; border: 0; padding: 0; margin: 24px 0 6px; }
+.srcs ul { list-style: none; margin: 0; padding: 0; }
+.srcs li { padding: 8px 0; border-bottom: 1px solid var(--rule); font-size: 14.5px; line-height: 1.7; }
+.srcs li a { font-weight: 700; }
+.srcs .what { display: block; font-size: 13px; color: var(--sub); }
+.srcs .n { display: inline-block; min-width: 2.6em; margin-right: .3em; font-size: 12px; color: var(--sub); font-weight: 700; }
+.srcs li:target { background: var(--blue-soft); }
+
+/* 前後の回 */
+.pager { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--rule); font-size: 15px; }
+.pager a { font-weight: 700; }
+/* 目次の時刻（07〜：動画の中の位置） */
+.toc a.tm { display: grid; grid-template-columns: 3.3em minmax(0, 1fr); }
+.toc .t { font-size: 12.5px; color: var(--sub); font-variant-numeric: tabular-nums; padding-top: .12em; }
+.toc a.is-here .t { color: var(--blue); }
+.toc__note { margin: 8px 0 0; font-size: 12.5px; color: var(--sub); line-height: 1.6; }
+@media (min-width: 600px) { .cmp.two { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へ</a>
+<header class="site-h">
+  <div class="wrap site-h__in">
+    <a class="logo" href="../../"><img src="../../img/face.webp" alt="" width="36" height="36">見積書のお姉さん</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"><span class="menu-btn__bars" aria-hidden="true"></span>メニュー</button>
+    <nav id="site-nav" class="site-nav" aria-label="サイトの中">
+      <a href="../../#keisan">計算する</a>
+      <a href="../../douga/">動画</a>
+      <a href="../../teguchi/">手口の記録</a>
+      <a href="../../kotoba/">言葉の辞典</a>
+      <a class="nav-warn" href="../../houmon/">業者が来たら</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap art-h">
+    <div class="page-h">
+      <p class="crumb"><a href="../../">トップ</a> ／ <a href="../">動画</a> ／ 鍵開け・鍵の交換</p>
+      <span class="eyebrow">第12回・動画の文字版</span>
+      <h1><span class="kicker">【実際の手口3つ】</span><span class="nw">鍵開け・鍵の交換、</span><span class="nw">本当はいくら？</span></h1>
+      <p class="lead">動画を見なくても中身が分かるように、話した内容を文章にしました。数字はすべて、公開されている資料から取っています。</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="doc">
+      <figure class="video">
+        <!-- 公開したら YouTube の埋め込みに差し替える -->
+        <div class="video__frame">
+          <img src="../../img/thumbs/12.webp" width="640" height="360" alt="動画のサムネイル（鍵開け・鍵の交換、本当はいくら？）">
+          <span class="video__badge">動画は近日公開</span>
+        </div>
+        <figcaption>動画はまだ公開していません。公開したら、ここで見られるようにします。お知らせは <a href="https://www.youtube.com/@mitsumori_onee" target="_blank" rel="noopener">YouTubeチャンネル</a> で。</figcaption>
+      </figure>
+
+      <nav class="toc" aria-labelledby="toc-h">
+        <p class="toc__h" id="toc-h">目次</p>
+        <ol>
+          <li><a class="tm" href="#intro"><span class="t">0:00</span><span>はじめに</span></a></li>
+          <li><a class="tm" href="#about"><span class="t">1:41</span><span>このチャンネルについて</span></a></li>
+          <li><a class="tm" href="#c1"><span class="t">2:33</span><span>① 実際にあった3つの手口</span></a></li>
+          <li><a class="tm" href="#c2"><span class="t">7:00</span><span>② 見積書を1行ずつ</span></a></li>
+          <li><a class="tm" href="#c3"><span class="t">9:56</span><span>③ 鍵の種類と頼む範囲で、総額はどう変わるか</span></a></li>
+          <li><a class="tm" href="#c4"><span class="t">11:49</span><span>④ 同じ鍵でも、金額が変わる5つの条件</span></a></li>
+          <li><a class="tm" href="#c5"><span class="t">13:14</span><span>⑤ 高すぎる見積書の見分け方</span></a></li>
+          <li><a class="tm" href="#end"><span class="t">14:50</span><span>まとめ</span></a></li>
+          <li class="toc__sub"><a href="#mitsumori">モデル見積書（表）</a></li>
+          <li class="toc__sub" data-gate="12" hidden><a href="#keisan">鍵の種類と時間帯で計算する</a></li>
+          <li class="toc__sub"><a href="#sources">出典</a></li>
+        </ol>
+        <p class="toc__note">左の時刻は、動画の中の位置です。</p>
+      </nav>
+
+      <article class="art">
+        <section class="chap" id="intro" aria-labelledby="intro-h">
+          <h2 id="intro-h">はじめに</h2>
+          <blockquote class="say">
+            <p>「これは特殊な鍵だから、解錠するだけで8万円。シリンダー交換をするなら、さらに2万円かかる」</p>
+            <footer>国民生活センターが公表している相談の事例に出てくる言葉</footer>
+          </blockquote>
+          <p>深夜、自宅マンションの鍵をなくした20代の女性が、来た作業員に、鍵穴を見てすぐに言われた言葉です。国民生活センターに寄せられた相談に出てきます。</p>
+          <p>ネットで見つけたサイトには、「最も高額な作業でも8,000円から」とありました。女性は、高くても2万円か3万円くらいだろうと思って、電話をしていました。</p>
+          <p>10万円も現金はない、と言うと、「持っている金額でやってあげる」。5万円に下げられました。本当に交換も必要なのかと聞くと、「争いたいのか。こちらはあなたの個人情報を知っている」。女性は怖くなって、払ってしまいました。</p>
+          <p>夜中に、家に入れない。早く何とかしたい。そこに、鍵開けの<a class="term" href="../../kotoba/#souba">相場</a>を知らないことが重なります。そこでこの回では、公開されている数字だけで、夜の鍵開けと、鍵の交換の見積書を1枚作りました。出てきた金額は、税込みで3万8,280円です。</p>
+          <ul class="figs two" aria-label="言われた金額とモデルの金額">
+            <li><span class="k">「解錠するだけで」と言われた金額</span><span class="v">8万円</span><span class="s">交換するならさらに2万円（国民生活センターの相談事例）</span></li>
+            <li><span class="k">公開されている数字で作った見積書</span><span class="v">3万8,280円</span><span class="s">税込み・夜に開けて、ディンプルに交換まで</span></li>
+          </ul>
+        </section>
+
+        <section class="chap" id="about" aria-labelledby="about-h">
+          <h2 id="about-h">このチャンネルについて</h2>
+          <p>このチャンネルは、鍵の業者でも、錠前のメーカーでもありません。国や自治体が公表した実際の手口と、公開されている数字だけを紹介します。</p>
+          <p>数字は、国や自治体の資料、見積もりサイト、業者を紹介するサイトの記事から取っています。出典は、<a href="#sources">出典のページ</a>にまとめています。</p>
+        </section>
+
+        <section class="chap" id="c1" aria-labelledby="c1-h">
+          <h2 id="c1-h"><span class="num">①</span><span class="nw">実際にあった</span><span class="nw">3つの手口</span></h2>
+          <p>国民生活センター、東京都、消費者庁が公表している事例から、手口を3つ紹介します。</p>
+
+          <h3>1つめ　「特殊な鍵だから」と、高い料金を言う手口</h3>
+          <p>冒頭の女性の例です。鍵穴を見てすぐに、「特殊な鍵」。でも女性によると、家の鍵は、特殊なものではなかったそうです。</p>
+          <p>2018年の国民生活センターの資料にも、同じ言葉が出てきます。電話では1万4,000円だったのに、来た作業員は「特殊な鍵なので5万円」。断ると、キャンセル料4,000円。あとで別の業者に頼んだら、2万円で開けてくれたそうです。</p>
+
+          <h3>2つめ　開けるだけのつもりが、交換までされていた手口</h3>
+          <p>東京都が2026年1月に紹介した相談です。夜中に鍵をなくした30代の女性が、「鍵開け4,000円から」の業者を呼びました。来た業者は、「鍵開けで5千円から3万円。開かない場合は、鍵交換で最大10万円」。</p>
+          <p>契約書に料金は書いてなく、鍵開けで済むと思っていたのに、説明もないまま、作業のあとで、鍵の交換として19万円を請求されました。東京都では、鍵の解錠サービスの相談が、2024年度に694件。前の年度の2倍以上になりました。</p>
+
+          <h3>3つめ　クーリング・オフを「できない」と言う手口</h3>
+          <p>消費者庁が2022年に業務停止命令を出した事業者の例です。「鍵を開けたい 4,980円から」のサイトを見て電話。電話では金額を言われず、高くても2万円くらいのつもりで呼ぶと、契約は10万円以上でした。</p>
+          <p>4日後に、書面で<a class="term" href="../../kotoba/#coolingoff">クーリング・オフ</a>。ところが業者は、「クーリング・オフの方は受け付けられない形になってしまうんですが」。お金は一部しか返さず、残りを1年以上返しませんでした。消費者庁は、実際にはクーリング・オフできる契約だった、と認定しています。</p>
+
+          <h3>3つに共通すること</h3>
+          <ul class="figs" aria-label="鍵の修理・交換の相談の数字">
+            <li><span class="k">2014年度の相談（全国）</span><span class="v">329件</span></li>
+            <li><span class="k">2021年度の相談</span><span class="v">1,335件</span><span class="s">7年で約4倍</span></li>
+            <li><span class="k">平均の契約額</span><span class="v">約7万4千円</span><span class="s">約6割は広告が関わる相談</span></li>
+          </ul>
+          <p>2024年度は、12月末までの途中の数字で、もう1,334件です。3つに共通するのは、安い金額で呼ばせて、来てから高い金額を言い、困っている人にその場で決めさせることです。</p>
+
+          <div class="guard">
+            <h3>身を守るために（消費者庁・国民生活センターの呼びかけ）</h3>
+            <ul>
+              <li>まず管理会社や不動産屋に相談する。ネットで上のほうに出た業者が、信用できるとは限りません。</li>
+              <li>呼んだからといって、契約しなくてはいけないわけではありません。近くのホテルに泊まる、地域の別の業者に料金を聞く、という手もあります。</li>
+              <li>クーリング・オフは、自分で業者を呼んだ場合、認められないことがあります。ただし、ネットの安い料金を見て呼んだのに、高額な料金で契約した場合などは、通常どおり認められる、と消費者庁はしています。「あなたが呼んだのだからできません」と言われても、認められる場合があります。書面を受け取ってから8日以内に、書面かメールで。</li>
+              <li>迷ったら、<a class="term" href="../../kotoba/#hotline">消費者ホットライン「188（いやや）」</a>に電話してください。</li>
+            </ul>
+            <a class="go" href="../../houmon/">業者が来たら、まずこれ →</a>
+          </div>
+          <p>そしてもう1つ。相場を知っておくことです。ここからは、見積書を見ていきます。</p>
+        </section>
+
+        <section class="chap" id="c2" aria-labelledby="c2-h">
+          <h2 id="c2-h"><span class="num">②</span><span class="nw">見積書を1行ずつ</span></h2>
+          <div class="spec">
+            <dl>
+              <dt>家</dt><dd>持ち家の玄関。鍵は1か所</dd>
+              <dt>状況</dt><dd>鍵をなくして、夜、家に入れない</dd>
+              <dt>頼むこと</dt><dd>昔からあるギザギザの鍵を、壊さずに開けてもらい、そのままシリンダーをディンプルキーのものに交換</dd>
+            </dl>
+          </div>
+          <p><a class="term" href="../../kotoba/#cylinder">シリンダー</a>は、鍵穴の部分です。<a class="term" href="../../kotoba/#dimple">ディンプルキー</a>は、表面に丸いくぼみがたくさん並んだ鍵です。相場の記事は、どれも税込みか税抜きかを書いていないので、税抜きとして並べて、最後に消費税を足します。</p>
+          <ol class="lines">
+            <li><span class="ln">1行目</span><b><a class="term" href="../../kotoba/#shucchou">出張費</a></b>
+              <p>3,000円。見積もりサイトのミツモアは、相場を3,000円から8,000円としています。</p></li>
+            <li><span class="ln">2行目</span><b>鍵開けの作業費</b>
+              <p>8,000円。ギザギザの鍵なら、ミツモアでも、業者を紹介するサイトのくらしのマーケットでも、8,000円からが相場です。</p></li>
+            <li><span class="ln">3行目</span><b>シリンダー代</b>
+              <p>ディンプルキーのもので、1万円。部品の値段は、3,000円から1万円前後、という記事もあれば、有名メーカーのもので5,000円から1万1,000円、という記事もあります。</p></li>
+            <li><span class="ln">4行目</span><b>交換の作業費</b>
+              <p>8,800円。ディンプルのシリンダーの取り付けは、8,800円から1万2,100円です。</p></li>
+            <li><span class="ln">5行目</span><b>夜間の割増</b>
+              <p>5,000円。深夜料金は、3,000円から5,000円くらい。深夜は5割増し、という書き方もあります。</p></li>
+          </ol>
+          <p>合計は、税抜きで3万4,800円。消費税3,480円を足して、税込み3万8,280円です。</p>
+          <p>ミツモアで実際に決まった値段では、「ディンプルシリンダー交換と鍵の解錠」は、2万3,990円から3万5,020円。税込みか税抜きかは書いていませんが、税抜き3万4,800円は、この幅の中です。</p>
+
+          <h3>東京都の委員会が扱った、実際の契約書</h3>
+          <p>広告は、8,800円から。行は、出張基本料金8,000円、「特殊開錠」2万5,000円、そして「部品交換」1万円と、「部品」8,000円。消費税を足して、5万6,100円でした。作業は5分ほどだったそうです。この例では、払ったお金が全額返りました。</p>
+          <p>委員会は、この部品の2つの行を、「作業内容が重複しているように見える」と書いています。この業者は、広告の8,800円で終わる作業は2％ほどで、3万円以上が75％を超える、と説明していました。</p>
+          <p>1枚にまとめた表は、下の<a href="#mitsumori">モデル見積書</a>にあります。</p>
+        </section>
+
+        <section class="chap" id="c3" aria-labelledby="c3-h">
+          <h2 id="c3-h"><span class="num">③</span><span class="nw">鍵の種類と頼む範囲で、</span><span class="nw">総額はどう変わるか</span></h2>
+          <p>出張費と夜間の割増はそのままで、比べます（どれも税込み）。</p>
+          <ul class="figs" aria-label="鍵の種類と頼む範囲ごとの総額">
+            <li><span class="k">鍵開けだけで、交換しない</span><span class="v">1万7,600円</span><span class="s">くらしのマーケットの調べで、玄関の鍵開けは約半数が1万〜2万円</span></li>
+            <li><span class="k">開けて、ギザギザのピンシリンダーに交換</span><span class="v">3万1,482円</span><span class="s">部品8,000円・取り付け4,620円</span></li>
+            <li><span class="k">開けて、ディンプルに交換（モデル）</span><span class="v">3万8,280円</span></li>
+            <li><span class="k">防犯性の特に高いディンプルに交換</span><span class="v">5万4,780円から</span><span class="s">部品が2万5,000円から</span></li>
+            <li><span class="k">元の鍵が、もともとディンプル</span><span class="v">4万1,580円</span><span class="s">開けにくいので、鍵開けが1万1,000円から</span></li>
+          </ul>
+          <p>最初の手口を思い出してください。「解錠するだけで8万円」。公開されている相場では、開けにくいディンプルの鍵開けでも、1万1,000円から1万6,500円です。</p>
+          <p>鍵をなくしたら、交換までしないといけないのか。警備会社の記事には、鍵が見つかったあとでも、交換したほうがよい、と書かれています。なくしている間に、合鍵を作られているおそれがあるから、という理由です。</p>
+          <p>業者さんには、「部品代と作業費を、分けて書いてください。シリンダーのメーカーと品番も教えてください」と聞いてみてください。</p>
+        </section>
+
+        <section class="chap" id="c4" aria-labelledby="c4-h">
+          <h2 id="c4-h"><span class="num">④</span><span class="nw">同じ鍵でも、</span><span class="nw">金額が変わる5つの条件</span></h2>
+
+          <h3>1つめ　時間帯</h3>
+          <p>夜の割増は、3,000円から5,000円くらい。ミツモアの例では、昼に1万5,000円の作業が、夜10時から朝6時の深夜なら、2万2,500円です。</p>
+
+          <h3>2つめ　鍵の種類</h3>
+          <p>ギザギザの鍵は、プロなら、壊さずに開けられることが多い。ディンプルはピッキングに強く、ロータリーディスクという鍵は、場合によっては壊して開けることになる、と書かれています。</p>
+
+          <h3>3つめ　鍵の数</h3>
+          <p>くらしのマーケットでは、鍵開けの料金が、鍵1個あたりで決まっています。鍵が2つあれば、そのぶん高くなります。</p>
+
+          <h3>4つめ　距離</h3>
+          <p>出張費は、5キロ以内なら無料から3,000円、30キロを超えると8,000円から1万5,000円という目安があります。近くの業者ほど、出張費は抑えられます。</p>
+
+          <h3>5つめ　建物</h3>
+          <p>賃貸なら、まず管理会社か大家さんへ。東京都は、大家さんや管理会社が対応できることが多い、そして、鍵の交換には大家さんの承諾が必要、と書いています。</p>
+        </section>
+
+        <section class="chap" id="c5" aria-labelledby="c5-h">
+          <h2 id="c5-h"><span class="num">⑤</span><span class="nw">高すぎる見積書の</span><span class="nw">見分け方</span></h2>
+          <p>東京都や国民生活センターが挙げる注意点は、3つです。</p>
+          <ol class="plain">
+            <li><b>「何円から」の「から」。</b>東京都は、広告の金額は最低の金額であることが多く、深夜料金や鍵の種類などで料金が足される、と書いています。電話の段階で、鍵の種類を伝えて、出張費、キャンセル料、だいたいの総額を聞いてください。</li>
+            <li><b>作業の前に、見積書をもらう。</b>部品と作業が、分けて書いてあるか。「部品」のように、名前だけの行がないか。新しい作業が出てきたら、説明を聞いてから決めます。</li>
+            <li><b>その場で払わない。</b>東京都は、夜中で不安なら、後日の振り込みか、クレジットカード払いにしておき、翌日、消費生活センターに相談するとよい、と書いています。契約書は必ず受け取り、業者の名前と連絡先を確かめます。身の危険を感じたら、警察に連絡するのも一つの方法です。</li>
+          </ol>
+
+          <h3>業者さんに電話で聞くとよい質問</h3>
+          <ul class="ask">
+            <li>「出張費と、断った場合のキャンセル料は、いくらですか」</li>
+            <li>「この種類の鍵だと、鍵開けは、だいたいいくらですか」</li>
+            <li>「交換までしたら、部品代と作業費は、それぞれいくらですか」</li>
+          </ul>
+        </section>
+
+        <section class="chap" id="end" aria-labelledby="end-h">
+          <h2 id="end-h">まとめ</h2>
+          <p>この回では、実際にあった手口と、公開されている数字だけで作った、夜の鍵開けと鍵の交換の見積書を見てきました。</p>
+          <p class="say-end"><span class="mark">その場で決めない。相場を知っておく。</span>この2つで、防げることはたくさんあります。鍵の場合は、もう1つ。なくす前に、備えておくことです。</p>
+          <ul class="plain">
+            <li>自宅以外の場所に、合鍵を置いておく。</li>
+            <li>賃貸なら、管理会社の連絡先を控えておく。</li>
+            <li>自分の鍵の種類やメーカー、製品番号を確かめておく。</li>
+            <li>火災保険や、賃貸の付帯サービスに、鍵のトラブルの手助けが付いていないかも見ておく。ただ、無料になるのは出張料だけで、部品代や作業料金は別、という例もあります。</li>
+          </ul>
+          <p>次回も、暮らしの中の見積書を1枚、見ていきます。</p>
+        </section>
+
+        <section class="chap" id="mitsumori" aria-labelledby="mitsumori-h">
+          <h2 id="mitsumori-h">モデル見積書</h2>
+          <p>②で読み上げた見積書を、1枚の表にまとめました。赤い字は、その行の相場の幅です。</p>
+          <div class="est">
+            <div class="est__h">
+              <p class="est__title">御見積書</p>
+              <p class="est__cond">鍵開けと鍵の交換／持ち家の玄関・鍵1か所・夜・ギザギザの鍵を壊さずに開けてディンプルに交換</p>
+            </div>
+            <table>
+              <caption>鍵開け・鍵の交換のモデル見積書</caption>
+              <thead>
+                <tr><th scope="col">行</th><th scope="col">項目（数量）</th><th scope="col" class="amt">金額（円）</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="no">1</td><th scope="row" class="item"><b>出張費</b><span class="calc">1回</span><span class="range">幅 0〜8,000円</span></th><td class="amt">3,000</td></tr>
+                <tr><td class="no">2</td><th scope="row" class="item"><b>鍵開けの作業費（ギザギザの鍵・壊さずに開ける）</b><span class="calc">1か所</span><span class="range">幅 8,000〜15,000円</span></th><td class="amt">8,000</td></tr>
+                <tr><td class="no">3</td><th scope="row" class="item"><b>シリンダー代（部品・ディンプルキーのもの・鍵つき）</b><span class="calc">1個</span><span class="range">幅 3,000〜11,000円</span></th><td class="amt">10,000</td></tr>
+                <tr><td class="no">4</td><th scope="row" class="item"><b>交換の作業費（ディンプルのシリンダーの取り付け）</b><span class="calc">1か所</span><span class="range">幅 8,800〜12,100円</span></th><td class="amt">8,800</td></tr>
+                <tr><td class="no">5</td><th scope="row" class="item"><b>夜間の割増</b><span class="calc">1回</span><span class="range">幅 3,000〜5,000円</span></th><td class="amt">5,000</td></tr>
+              </tbody>
+              <tfoot>
+                <tr class="sum"><td></td><th scope="row">税抜</th><td class="amt">34,800</td></tr>
+                <tr><td></td><th scope="row">消費税（10%）</th><td class="amt">3,480</td></tr>
+                <tr class="total"><td></td><th scope="row">税込</th><td class="amt"><span>38,280</span><span class="about">3万8,280円</span></td></tr>
+              </tfoot>
+            </table>
+            <ul class="est__notes">
+              <li>相場の記事は、どれも税込みか税抜きかを書いていないので、税抜きとして並べました。</li>
+              <li>夜間の割増を抜く（昼に頼む）と、税抜29,800円・税込32,780円です。</li>
+              <li>諸経費の行はありません。賃貸の家なら、この見積書の前に管理会社・大家さんへ。</li>
+              <li>この金額で開く・交換できるという約束ではありません。</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="calc-cta" id="keisan" data-gate="12" hidden aria-labelledby="keisan-h">
+          <h2 id="keisan-h"><span class="nw">鍵の種類と時間帯で</span><span class="nw">計算する</span></h2>
+          <p>時間帯と、鍵開けだけか交換までか、開ける鍵と交換するシリンダーの種類を選ぶと、目安の金額が出ます。この見積書と同じ単価表で計算します。</p>
+          <a class="btn" href="../../kagi/" data-track="douga_to_calc">鍵開け・鍵の交換の費用を計算する →</a>
+        </section>
+
+        <div class="next2">
+          <a href="../../teguchi/#ep12"><b>手口の記録</b><span>国民生活センターや自治体が公表している手口を、まとめて読めます。</span></a>
+          <a class="warn" href="../../houmon/"><b>業者が来たら、まずこれ</b><span>突然の訪問や電話のときに見る1枚。A4で印刷できます。</span></a>
+        </div>
+
+        <section class="chap srcs" id="sources" aria-labelledby="sources-h">
+          <h2 id="sources-h">出典</h2>
+          <p>この回で使った数字と事例の出典（国民生活センター・東京都・消費者庁の資料、見積もりサイトや業者を紹介するサイトの記事など）と、動画で使った写真の出典は、<a href="../../credits/12/">出典のページ</a>にまとめています。</p>
+        </section>
+
+        <nav class="pager" aria-label="前後の回">
+          <a href="../11/">← 前の回：不用品回収</a>
+          <a href="../">動画の一覧 →</a>
+        </nav>
+      </article>
+    </div>
+  </div>
+</main>
+
+<footer class="site-f">
+  <div class="wrap">
+    <a class="logo" href="../../"><img src="../../img/face.webp" alt="" width="36" height="36">見積書のお姉さん</a>
+    <p class="site-f__about">家の修理・リフォームの見積書を、公開されている資料の単価から1行ずつ読み解くYouTubeチャンネルです。工事を請け負う業者ではありません。</p>
+    <div class="sns">
+      <a href="https://www.youtube.com/@mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#ff0033" d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81z"/><path fill="#fff" d="M9.55 15.57V8.43L15.82 12z"/></svg>YouTube</a>
+      <a href="https://www.instagram.com/mitsumori_onee/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+      <a href="https://x.com/mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</a>
+    </div>
+    <nav class="site-f__nav" aria-label="サイトの案内">
+      <a href="../../#keisan">計算する</a>
+      <a href="../../douga/">動画</a>
+      <a href="../../teguchi/">手口の記録</a>
+      <a href="../../kotoba/">言葉の辞典</a>
+      <a href="../../houmon/">業者が来たら</a>
+      <a href="../../about/">このサイトについて</a>
+      <a href="../../privacy/">プライバシーポリシー</a>
+      <a href="../../contact/">お問い合わせ</a>
+    </nav>
+    <p class="site-f__fine">金額はすべて、公開されている資料の単価から計算した目安です。実際の金額は家ごとに変わります。</p>
+    <p class="site-f__fine">© 2026 見積書のお姉さん</p>
+  </div>
+</footer>
+<script>
+// 目次：いま読んでいる章に色を付ける／計算ページへのボタンを数える（入力した値は送らない）
+(() => {
+  const links = [...document.querySelectorAll('.toc a[href^="#"]')];
+  const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => {
+      es.forEach(e => {
+        if (!e.isIntersecting) return;
+        links.forEach(a => a.classList.remove('is-here'));
+        const a = map.get(e.target.id);
+        if (a) a.classList.add('is-here');
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    map.forEach((a, id) => { const el = document.getElementById(id); if (el) io.observe(el); });
+  }
+  document.querySelectorAll('[data-track]').forEach(a => a.addEventListener('click', () => {
+    if (window.track) window.track(a.dataset.track, { page: 'douga_12' });
+  }));
+})();
+</script>
+</body>
+</html>

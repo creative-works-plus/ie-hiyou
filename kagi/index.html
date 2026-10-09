@@ -1,0 +1,1090 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>鍵開け・鍵の交換の費用計算｜見積書のお姉さん</title>
+<meta name="description" content="時間帯と、鍵開けだけか交換までか、開ける鍵と交換するシリンダーの種類を選ぶと、鍵屋さんの見積書と同じ並びで1行ずつ目安の金額を出します（合計は税込）。数字はすべて公開資料から取り、出典を載せています。">
+<meta name="theme-color" content="#1f2d55">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="見積書のお姉さん">
+<meta property="og:title" content="鍵開け・鍵の交換の費用計算｜見積書のお姉さん">
+<meta property="og:description" content="時間帯と鍵の種類を選ぶと、見積書と同じ並びで目安の金額が出ます。手元の見積書とのくらべ方も。">
+<meta property="og:image" content="https://creative-works-plus.github.io/ie-hiyou/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../img/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=BIZ+UDPMincho:wght@700&family=M+PLUS+Rounded+1c:wght@800&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<script src="../assets/site.js" defer></script>
+<script>/* JSが動くときだけ、スマホは1問ずつ・送られてきたリンクは結果から */(function (h) { h.classList.add('js'); try { if (matchMedia('(max-width: 759.98px)').matches) { h.classList.add('is-steps'); if (location.hash.indexOf('=') > 0) h.classList.add('is-result'); } } catch (e) {} })(document.documentElement);</script>
+<style>
+/* 費用計算ページだけの見た目。色は site.css の変数を使う（見積書の明朝 --f-doc だけこのページで足す）
+   並び：スマホ（760px未満）は JS が html に .is-steps を付けて1問1画面にする。付かなければ全部の問いが縦に並ぶ。
+         760〜959px は1列、960px以上は左に問い・右に結果を貼りつける。 */
+:root { --f-doc: "BIZ UDPMincho", "Hiragino Mincho ProN", "Yu Mincho", serif; --line: #06873d; }
+[hidden] { display: none !important; }
+.num { font-variant-numeric: tabular-nums; }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+h1, h2, h3 { text-wrap: pretty; }
+.vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+[tabindex="-1"]:focus { outline: none; }
+
+/* ── ページの見出し ── */
+.page-h { padding-top: 28px; padding-bottom: 4px; }
+.page-h .kicker { font-size: 13px; font-weight: 700; color: var(--blue); margin: 0 0 8px; line-height: 1.6; }
+.page-h h1 .q { color: var(--blue); }
+.page-h .lead { font-size: 15.5px; margin: 12px 0 0; }
+.promise { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 0; padding: 0; list-style: none; }
+.promise li { font-size: 12.5px; font-weight: 700; color: var(--sub); background: var(--sheet); border: 1px solid var(--rule); border-radius: 999px; padding: 2px 11px 2px 9px; line-height: 1.7; }
+.promise li::before { content: "✓"; color: var(--blue); margin-right: 5px; }
+
+/* ── 計算（問い ＋ 結果） ── */
+.calc { display: grid; gap: 32px; margin-top: 24px; align-items: start; }
+.calc > section { min-width: 0; }
+@media (min-width: 960px) {
+  .calc { grid-template-columns: minmax(0, 1fr) minmax(0, 1.04fr); gap: 32px; }
+  .res-col { position: sticky; top: 72px; max-height: calc(100vh - 84px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; padding: 2px 8px 24px; margin: -2px -8px 0;
+    -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 22px), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 22px), transparent); }
+}
+.col-h { display: flex; align-items: center; gap: 10px; font: 800 15px/1.4 var(--f-disp); color: var(--sub); letter-spacing: .04em; margin: 0 0 12px; }
+.col-h .n { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--ink); color: var(--paper); font-size: 13px; line-height: 1; }
+
+/* 問いのカード */
+#f { display: grid; gap: 12px; counter-reset: q; }
+fieldset.q { counter-increment: q; min-width: 0; margin: 0; padding: 18px 16px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--sheet); }
+@media (min-width: 760px) { fieldset.q { padding: 20px 22px; } }
+fieldset.q > legend { float: left; width: 100%; padding: 0; margin: 0 0 12px; font: 800 18px/1.45 var(--f-disp); }
+fieldset.q > legend::before { content: "Q" counter(q); display: block; font: 700 12px/1.7 var(--f-body); letter-spacing: .12em; color: var(--blue); }
+fieldset.q > legend + * { clear: both; }
+.help { font-size: 13.5px; color: var(--sub); margin: 10px 0 0; line-height: 1.7; }
+
+/* 選択肢のカード */
+.seg { display: grid; grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr)); gap: 8px; }
+.seg label { position: relative; display: block; cursor: pointer; }
+.seg input { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; opacity: 0; margin: 0; cursor: pointer; }
+.opt { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; height: 100%; min-height: 56px; padding: 10px; border: 1.5px solid var(--rule); border-radius: 12px; background: var(--sheet); line-height: 1.4; text-align: center; transition: border-color .15s, background-color .15s, box-shadow .15s; }
+.opt b { font-size: 16.5px; }
+.opt small { font-size: 12.5px; color: var(--sub); }
+.seg label:hover .opt { border-color: color-mix(in srgb, var(--blue) 50%, var(--rule)); }
+.seg input:checked + .opt { border-color: var(--blue); background: var(--blue-soft); box-shadow: inset 0 0 0 1px var(--blue); }
+.seg input:checked + .opt b { color: var(--blue); }
+.seg input:focus-visible + .opt { outline: 3px solid var(--blue); outline-offset: 2px; }
+/* 選んだ印（右上の丸） */
+.opt::after { content: "✓"; position: absolute; top: -8px; right: -8px; width: 22px; height: 22px; border-radius: 50%; background: var(--blue); color: var(--blue-ink); font: 700 12px/22px var(--f-body); text-align: center; transform: scale(0); transition: transform .2s cubic-bezier(.3, 1.6, .6, 1); }
+.seg input:checked + .opt::after { transform: scale(1); }
+/* 説明つきの選択肢は、左に丸いラジオ */
+.seg.left .opt { align-items: flex-start; text-align: left; padding: 12px 14px 12px 46px; }
+.seg.left .opt::before { content: ""; position: absolute; left: 15px; top: 50%; width: 20px; height: 20px; margin-top: -10px; border-radius: 50%; border: 2px solid var(--rule); background: var(--sheet); box-sizing: border-box; }
+.seg.left input:checked + .opt::before { border-color: var(--blue); background: var(--blue); box-shadow: inset 0 0 0 4px var(--sheet); }
+.seg.left .opt::after { display: none; }
+.opt .ico { display: block; width: 46px; height: 30px; color: var(--sub); margin: 0 0 6px; flex: none; overflow: visible; }
+.seg input:checked + .opt .ico { color: var(--blue); }
+.opt .t { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.seg.left .opt .t { align-items: flex-start; }
+
+/* 金額まで出すカード（つまりの重さ） */
+.paint .opt { align-items: flex-start; text-align: left; padding: 12px 14px; }
+.paint .price { font: 800 20px/1.3 var(--f-disp); color: var(--ink); margin-top: 4px; }
+.paint .per { font-size: 12.5px; color: var(--sub); }
+/* 列が細いとき（スマホ・PCの2段の中）は、1枚ずつ横長に */
+@media (max-width: 520px), (min-width: 960px) {
+  .paint { --cols: 1 !important; }
+  .paint .opt { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 12px; row-gap: 1px; }
+  .paint .opt > b { grid-area: 1 / 1; }
+  .paint .opt > small { grid-area: 2 / 1; }
+  .paint .price { grid-area: 1 / 2 / 3 / 3; margin: 0; text-align: right; }
+  .paint .per { grid-area: 3 / 1 / 4 / 3; margin-top: 2px; }
+}
+
+.reset { display: none; justify-self: start; font: 400 14.5px var(--f-body); color: var(--sub); background: none; border: 0; padding: 10px 0; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.js .reset { display: inline-block; }
+.reset:hover { color: var(--ink); }
+
+/* ── スマホの1問1画面 ── */
+.stepbar, .stepnav, .res-top { display: none; }
+.step-back { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 10px 0 2px; border: 0; background: none; color: var(--ink); font: 700 15px var(--f-body); cursor: pointer; }
+.step-back::before { content: ""; width: 9px; height: 9px; border-left: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); margin-left: 4px; }
+.step-back:disabled { visibility: hidden; }
+.is-steps .stepbar { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 2px 12px; margin: 0 0 18px; }
+.step-count { grid-column: 3; font: 800 15px/1 var(--f-disp); color: var(--sub); letter-spacing: .04em; }
+.step-count b { color: var(--ink); font-size: 19px; }
+.step-prog { grid-column: 1 / -1; height: 6px; border-radius: 3px; background: var(--rule); overflow: hidden; }
+.step-prog i { display: block; width: 0; height: 100%; border-radius: 3px; background: var(--blue); transition: width .3s ease; }
+.is-steps .col-h.form-h { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.is-steps #f { gap: 0; }
+.is-steps fieldset.q { display: none; padding: 0; border: 0; border-radius: 0; background: none; }
+.is-steps fieldset.q.is-current { display: block; }
+.is-steps fieldset.q > legend { font-size: 23px; line-height: 1.4; margin-bottom: 18px; }
+.is-steps fieldset.q > legend::before { display: none; }
+.is-steps .seg.left, .is-steps .paint { grid-template-columns: minmax(0, 1fr); }
+.is-steps .seg .opt { min-height: 64px; }
+.is-steps .seg.rows-sp { grid-template-columns: minmax(0, 1fr); }
+.is-steps .rows-sp .opt { flex-direction: row; justify-content: flex-start; align-items: center; gap: 16px; padding: 12px 16px; text-align: left; }
+.is-steps .rows-sp .opt .ico { width: 58px; height: 38px; margin: 0; }
+.is-steps .rows-sp .opt .t { align-items: flex-start; }
+.is-steps .seg.left .opt { min-height: 72px; }
+.is-steps .help { font-size: 14px; margin-top: 14px; }
+.is-steps .stepnav { display: block; margin-top: 24px; }
+.is-steps .reset { display: none; }
+.btn-next { width: 100%; }
+.btn-next.is-quiet { background: var(--sheet); color: var(--ink); border-color: var(--rule); }
+.btn-next.is-quiet:hover { border-color: var(--ink); filter: none; }
+.is-steps fieldset.q.in-fwd { animation: q-in .3s cubic-bezier(.2, .7, .2, 1) both; }
+.is-steps fieldset.q.in-back { animation: q-back .3s cubic-bezier(.2, .7, .2, 1) both; }
+@keyframes q-in { from { opacity: 0; transform: translateX(22px); } }
+@keyframes q-back { from { opacity: 0; transform: translateX(-22px); } }
+.is-steps .res-col { display: none; }
+.is-steps.is-result .res-col { display: block; }
+.is-steps.is-result .form-col { display: none; }
+.is-steps .res-top { display: flex; margin: -6px 0 6px; }
+.is-steps.is-result .res-col { animation: q-up .3s ease both; }
+@keyframes q-up { from { opacity: 0; transform: translateY(12px); } }
+
+/* ── 結果 ── */
+.total { position: relative; overflow: hidden; padding: 24px 18px 22px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--sheet); box-shadow: var(--shadow); text-align: center; }
+.total::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: linear-gradient(90deg, var(--ink) 0 70%, var(--yellow) 70%); }
+.total .lbl { margin: 0; font-size: 14px; color: var(--sub); }
+.total .big { margin: 6px 0 0; font: 800 clamp(50px, 14.5vw, 68px)/1.1 var(--f-disp); letter-spacing: -.01em; }
+.total .big .hl { background: linear-gradient(transparent 60%, var(--marker) 60%); padding: 0 .08em; }
+.total .big small { font-size: .4em; margin-left: .1em; }
+.total .range { margin: 10px 0 0; font-size: 15px; }
+.total .range b { font-size: 18px; }
+.total .year { margin: 4px 0 0; font-size: 14px; color: var(--sub); line-height: 1.65; }
+.total .ref { margin: 12px auto 0; max-width: 30em; padding-top: 12px; border-top: 1px dashed var(--rule); font-size: 13px; color: var(--sub); line-height: 1.65; }
+.total .ref:empty { display: none; }
+
+.blk { margin-top: 16px; }
+.blk-h { font: 800 15px/1.4 var(--f-disp); margin: 0 0 10px; }
+.blk-h small { display: block; margin-top: 2px; font: 500 13px/1.6 var(--f-body); color: var(--sub); }
+.chips-wrap { display: none; }
+.js .chips-wrap { display: block; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 12px 0 14px; border: 1.5px solid var(--rule); border-radius: 999px; background: var(--sheet); color: var(--ink); font: 700 14px var(--f-body); cursor: pointer; }
+.chip::after { content: ""; width: 6px; height: 6px; border-right: 1.5px solid var(--sub); border-top: 1.5px solid var(--sub); transform: rotate(45deg); margin-left: 2px; }
+.chip:hover { border-color: var(--blue); color: var(--blue); }
+.from-link { margin: 8px 0 0; font-size: 13px; color: var(--sub); }
+
+/* 内訳（御見積書） */
+.doc { border: 1px solid var(--rule); border-radius: var(--radius); background: var(--sheet); box-shadow: var(--shadow); }
+.doc > summary { display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 14px 18px; cursor: pointer; list-style: none; border-radius: var(--radius); }
+.doc > summary::-webkit-details-marker { display: none; }
+.doc > summary::after { content: ""; flex: none; width: 9px; height: 9px; margin: -4px 4px 0 auto; border-right: 2px solid var(--sub); border-bottom: 2px solid var(--sub); transform: rotate(45deg); transition: transform .2s; }
+.doc[open] > summary::after { transform: rotate(-135deg); margin-top: 4px; }
+.doc .sum-t { display: block; font: 700 18px/1.3 var(--f-doc); letter-spacing: .14em; }
+.doc .sum-s { display: block; font-size: 13px; color: var(--sub); }
+.doc-body { padding: 4px 16px 18px; border-top: 1px solid var(--rule); }
+@media (min-width: 400px) { .doc-body { padding: 4px 20px 20px; } }
+.doc-h { margin: 18px 0 4px; font: 700 22px/1.4 var(--f-doc); letter-spacing: .3em; text-align: center; }
+.spec { margin: 0 0 12px; font-size: 13px; color: var(--sub); text-align: center; line-height: 1.6; }
+.fnote { margin: 0 0 12px; padding: 10px 12px; border-radius: var(--radius-s); background: var(--blue-soft); font-size: 13.5px; line-height: 1.7; }
+.est-scroll { overflow-x: auto; }
+table.est { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.45; }
+table.est th, table.est td { padding: 10px 4px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+table.est thead th { padding-top: 0; border-bottom: 1.5px solid var(--ink); font-size: 12px; font-weight: 700; color: var(--sub); text-align: right; }
+table.est thead th:first-child { text-align: left; }
+table.est thead .rng-h { display: block; font-weight: 400; }
+table.est td.item b { font-weight: 700; }
+table.est td.item small { display: block; margin-top: 2px; font-size: 12.5px; color: var(--sub); }
+table.est td.amt { padding-left: 12px; text-align: right; white-space: nowrap; font-weight: 700; }
+table.est td.amt .rng { display: block; margin-top: 2px; font-size: 13px; font-weight: 400; color: var(--sub); }
+table.est tr.sum td { border-bottom: 1.5px solid var(--ink); font-weight: 700; }
+table.est tr.grand td { padding-top: 12px; border-bottom: 0; font-size: 17px; }
+table.est tr.grand td.amt { font-size: 19px; }
+table.est tr.grand td.amt .rng { font-size: 14px; }
+table.est tr.off td { color: var(--sub); }
+table.est tr.off td.amt { font-weight: 400; }
+.kw { display: inline-block; margin-left: 6px; padding: 3px 7px 2px; border: 1px solid currentColor; border-radius: 999px; font: 700 11px/1 var(--f-body); color: var(--blue); text-decoration: none; vertical-align: 2px; }
+.kw:hover { background: var(--blue-soft); }
+.doc .foot { margin: 12px 0 0; font-size: 13.5px; color: var(--sub); line-height: 1.7; }
+
+/* 手元の見積書と比べる */
+.card-s { padding: 18px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--sheet); }
+.card-s h3 { font-size: 18px; margin: 0 0 4px; }
+.card-s .hint { margin: 0 0 12px; font-size: 13.5px; color: var(--sub); line-height: 1.7; }
+.cmp .row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 10px; }
+.cmp label { font-size: 14px; font-weight: 700; }
+.cmp .in { display: inline-flex; align-items: center; gap: 8px; }
+.cmp input { width: 6.2em; font: 800 24px var(--f-disp); padding: 6px 12px; border: 2px solid var(--blue); border-radius: 12px; background: var(--sheet); color: var(--ink); text-align: right; }
+.cmp .in span { font-weight: 700; }
+.ruler { position: relative; height: 64px; margin: 18px 6px 4px; }
+.ruler.has-mine { height: 92px; }
+.ruler .track { position: absolute; left: 0; right: 0; top: 30px; height: 6px; border-radius: 3px; background: var(--rule); }
+.ruler .band { position: absolute; top: 28px; height: 10px; border: 2px solid var(--blue); border-radius: 5px; background: var(--blue-soft); }
+.ruler .tick { position: absolute; top: 44px; transform: translateX(-50%); font-size: 13px; color: var(--sub); white-space: nowrap; }
+.ruler .pin { position: absolute; top: 0; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; font-size: 13px; font-weight: 700; white-space: nowrap; }
+.ruler .pin i { display: block; width: 3px; height: 16px; margin-top: 2px; background: currentColor; }
+.ruler .pin.std { color: var(--blue); }
+.ruler .pin.mine { top: 26px; flex-direction: column-reverse; color: var(--red-ink); }
+.ruler .pin.mine i { height: 40px; margin: 0 0 2px; }
+.verdict { margin: 12px 0 0; font-size: 15px; line-height: 1.75; }
+.verdict:empty { display: none; }
+.verdict .v-pill { display: table; margin: 0 0 8px; padding: 3px 14px; border-radius: 999px; background: var(--blue-soft); color: var(--blue); font: 800 16px/1.6 var(--f-disp); }
+.verdict.out .v-pill { background: var(--marker); color: var(--ink); }
+.verdict .v-next { display: block; margin-top: 8px; }
+.verdict .v-open { display: inline-flex; align-items: center; min-height: 40px; margin-top: 6px; padding: 0 16px; border: 1.5px solid var(--blue); border-radius: 999px; background: var(--sheet); color: var(--blue); font: 700 14px var(--f-body); cursor: pointer; }
+.verdict .v-open:hover { background: var(--blue-soft); }
+.verdict small { display: block; margin-top: 8px; font-size: 13px; color: var(--sub); line-height: 1.65; }
+
+/* 家族に送る */
+.share-btns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.share-btns .btn { min-height: 50px; padding: 0 12px; font-size: 15px; }
+.btn-line { grid-column: 1 / -1; background: var(--line); color: #fff; }
+.btn-line:hover { filter: brightness(1.08); }
+.btn-line svg { width: 24px; height: 24px; flex: none; }
+.share-btns:has(#sh-native[hidden]) #sh-copy { grid-column: 1 / -1; }
+@media (max-width: 439.98px) { .share-btns { grid-template-columns: minmax(0, 1fr); } }
+.sh-url { display: inline-block; margin-top: 4px; font-size: 13px; overflow-wrap: anywhere; }
+.share .hint.foot { margin: 10px 0 0; }
+.sh-status { margin: 10px 0 0; font-size: 13.5px; color: var(--sub); }
+.sh-status:empty { display: none; }
+.next-links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 18px 0 0; font-size: 14px; }
+.next-links a { font-weight: 700; }
+.next-links a::after { content: " →"; }
+.next-links a.warn { color: var(--red-ink); }
+
+/* ── 下に出る「いまの条件の相場」の帯 ── */
+.dock { display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; align-items: center; justify-content: space-between; gap: 12px; padding: 9px 16px calc(9px + env(safe-area-inset-bottom, 0px)); background: var(--navy); color: var(--on-navy); border-top: 1px solid rgba(255, 255, 255, .1); box-shadow: 0 -10px 28px rgba(20, 33, 61, .16); transition: transform .25s ease; }
+.js .dock { display: flex; }
+.dock.away { transform: translateY(115%); }
+.is-result .dock { display: none !important; }
+.dock-in { min-width: 0; flex: 1; }
+.dock .d1 { margin: 0; font-size: 12px; line-height: 1.4; color: color-mix(in srgb, var(--on-navy) 78%, transparent); }
+.dock .d2 { margin: 0; font: 800 25px/1.2 var(--f-disp); }
+.dock .d2 small { font-size: 13px; }
+.dock .d2 .d-sub { display: inline-block; font: 400 12px var(--f-body); color: color-mix(in srgb, var(--on-navy) 78%, transparent); margin-left: 8px; }
+.dock .d3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 2px; }
+.dock .d3 > span { display: flex; flex-direction: column; min-width: 0; }
+.dock .d3 b { font: 800 18px/1.2 var(--f-disp); white-space: nowrap; }
+.dock .d3 i { font-style: normal; }
+.dock .d3 small { font: 400 11px/1.4 var(--f-body); white-space: nowrap; color: color-mix(in srgb, var(--on-navy) 78%, transparent); }
+.dock-go { flex: none; min-height: 44px; padding: 0 16px; border: 0; border-radius: 999px; background: var(--yellow); color: #14213d; font: 700 14px var(--f-body); cursor: pointer; }
+@media (max-width: 959.98px) { .js body { padding-bottom: 76px; } .js.is-result body { padding-bottom: 0; } }
+@media (min-width: 960px) { .js .dock { display: none; } }
+
+/* ── 読みもの ── */
+.read { max-width: 760px; margin-top: 72px; display: grid; gap: 52px; }
+.read > section { min-width: 0; }
+.read h2 { font-size: clamp(22px, 5.4vw, 28px); margin-bottom: 14px; }
+.read p { margin: 0 0 12px; }
+.checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: c; }
+.checks li { counter-increment: c; display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 4px 10px; }
+.checks li::before { content: counter(c); grid-row: span 2; width: 30px; height: 30px; margin-top: 2px; border-radius: 50%; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-weight: 700; font-size: 15px; line-height: 1; }
+.checks b { font-size: 17px; }
+.checks span { color: var(--sub); font-size: 15px; }
+.ask { margin: 18px 0 0; padding: 16px 18px; border-left: 4px solid var(--blue); border-radius: 0 var(--radius-s) var(--radius-s) 0; background: var(--sheet); display: grid; gap: 8px; }
+.ask p { margin: 0; font-weight: 700; }
+.ask .h { font-weight: 400; color: var(--sub); font-size: 14px; }
+.read .warn-box { padding: 0; overflow: hidden; border: 2px solid var(--red); border-radius: var(--radius); background: var(--sheet); }
+.read .warn-box .head { padding: 10px 16px; background: var(--red-ink); color: var(--sheet); font-weight: 700; font-size: 16px; }
+.read .warn-box .body { padding: 16px; display: grid; gap: 16px; }
+.case { display: grid; gap: 4px; }
+.case q { font-weight: 700; font-size: 17px; quotes: "「" "」"; }
+.case p { margin: 0; color: var(--sub); font-size: 15px; }
+.case p b { color: var(--red-ink); }
+.todo { background: var(--red-soft); border-radius: var(--radius-s); padding: 14px 16px; display: grid; gap: 8px; }
+.todo p { margin: 0; font-size: 15px; }
+.read .tel { font-family: var(--f-disp); font-weight: 800; font-size: 20px; color: var(--ink); text-decoration: none; border-bottom: 2px solid var(--ink); }
+.method { font-size: 15px; }
+.method dl { margin: 0; display: grid; gap: 10px; }
+.method dt { font-weight: 700; }
+.method dd { margin: 0; color: var(--sub); }
+ol.src { margin: 0; padding-left: 1.2em; font-size: 14px; color: var(--sub); display: grid; gap: 6px; }
+ol.src a { overflow-wrap: anywhere; }
+.src-scroll { overflow-x: auto; }
+.src-table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.55; margin: 8px 0 0; }
+.src-table th, .src-table td { text-align: left; padding: 7px 6px 7px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.src-table th { font-size: 12.5px; color: var(--sub); border-bottom: 1.5px solid var(--ink); }
+.src-table td.n { white-space: nowrap; }
+.src-table td:first-child { min-width: 7.5em; }
+.src-table td:last-child { min-width: 10em; }
+.kind { display: grid; gap: 12px; }
+.kind > div { border-left: 4px solid var(--rule); padding: 2px 0 2px 14px; }
+.kind b { display: block; }
+.kind span { color: var(--sub); font-size: 15px; }
+.kind .w { border-left-color: var(--red); }
+.page-note { max-width: 760px; margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--rule); font-size: 13.5px; color: var(--sub); }
+.page-note p { margin: 0 0 8px; }
+
+@media (prefers-reduced-motion: reduce) {
+  /* 動き（横すべり・はねる）は止める。うすく出るだけは残す */
+  .is-steps fieldset.q.in-fwd, .is-steps fieldset.q.in-back, .is-steps.is-result .res-col { animation: q-fade .16s linear both; }
+  @keyframes q-fade { from { opacity: 0; } }
+  .opt, .opt::after, .step-prog i, .dock, .doc > summary::after { transition: none; }
+}
+@media print { .dock, .stepbar, .stepnav, .share, .reset { display: none !important; } }
+
+/* ── 10〜12で足した部品（チェックの選択肢・数を入れる欄・2列の金額） ── */
+.checks-q { display: grid; gap: 8px; }
+.ck { position: relative; display: block; border: 1.5px solid var(--rule); border-radius: 12px; background: var(--sheet); transition: border-color .15s, background-color .15s; }
+.ck:has(> label input:checked) { border-color: var(--blue); background: var(--blue-soft); }
+.ck > label { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 2px 12px; align-items: start; padding: 13px 14px; cursor: pointer; line-height: 1.5; }
+.ck > label input { width: 22px; height: 22px; margin: 1px 0 0; accent-color: var(--blue); cursor: pointer; }
+.ck > label b { font-size: 16px; }
+.ck > label small { grid-column: 2; font-size: 12.5px; color: var(--sub); }
+.ck .more { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; padding: 0 14px 13px 50px; font-size: 14px; }
+.ck:not(:has(> label input:checked)) .more { display: none; }
+.field { display: inline-flex; align-items: center; gap: 6px; }
+.field input, .field select { font: 700 18px var(--f-body); padding: 6px 10px; border: 2px solid var(--rule); border-radius: 10px; background: var(--sheet); color: var(--ink); }
+.field input { width: 6.5em; text-align: right; }
+.field input.sm { width: 4.6em; }
+.field input:focus, .field select:focus { border-color: var(--blue); }
+.dims { display: grid; gap: 10px; margin-top: 12px; padding: 14px; border-radius: 12px; background: var(--tint); }
+.dims .field { justify-content: space-between; font-size: 14.5px; }
+.dims .note { margin: 0; font-size: 12.5px; color: var(--sub); line-height: 1.6; }
+/* 数を選ぶ行（品物） */
+.items { display: grid; gap: 6px; }
+.items .grp { margin: 10px 0 2px; font: 700 13px var(--f-body); color: var(--sub); letter-spacing: .04em; }
+.items .grp:first-child { margin-top: 0; }
+.it { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 4px 10px; padding: 8px 10px 8px 14px; border: 1.5px solid var(--rule); border-radius: 12px; background: var(--sheet); }
+.it.on { border-color: var(--blue); background: var(--blue-soft); }
+.it .nm { line-height: 1.45; }
+.it .nm b { font-size: 15.5px; }
+.it .nm small { display: block; font-size: 12px; color: var(--sub); }
+.stp { display: inline-flex; align-items: center; gap: 4px; }
+.stp button { width: 40px; height: 40px; border: 1.5px solid var(--rule); border-radius: 50%; background: var(--sheet); color: var(--ink); font: 700 20px/1 var(--f-body); cursor: pointer; }
+.stp button:hover { border-color: var(--blue); color: var(--blue); }
+.stp input { width: 2.6em; text-align: center; font: 800 18px var(--f-disp); border: 0; background: none; color: var(--ink); -moz-appearance: textfield; }
+.stp input::-webkit-outer-spin-button, .stp input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.items-sum { margin: 10px 0 0; font-size: 14px; font-weight: 700; }
+/* 2列の金額（見積書の金額／借りた人の分・業者／区） */
+table.est.two td.amt { width: 6.6em; }
+table.est.two thead th { vertical-align: bottom; }
+table.est.two td.amt.mine { color: var(--blue); }
+table.est.two tr.off td.amt.mine { color: var(--sub); }
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 14px; text-align: left; }
+.pair > div { padding: 10px 12px; border-radius: var(--radius-s); background: var(--tint); }
+.pair .k { display: block; font-size: 12.5px; color: var(--sub); line-height: 1.5; }
+.pair .v { display: block; font: 800 22px/1.3 var(--f-disp); }
+.pair .v small { font-size: 12px; }
+.first-box { margin: 0 0 12px; padding: 12px 14px; border-left: 4px solid var(--red); border-radius: 0 var(--radius-s) var(--radius-s) 0; background: var(--red-soft); font-size: 14.5px; line-height: 1.7; }
+.first-box b { color: var(--red-ink); }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へ</a>
+<header class="site-h">
+  <div class="wrap site-h__in">
+    <a class="logo" href="../"><img src="../img/face.webp" alt="" width="36" height="36">見積書のお姉さん</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"><span class="menu-btn__bars" aria-hidden="true"></span>メニュー</button>
+    <nav id="site-nav" class="site-nav" aria-label="サイトの中">
+      <a href="../#keisan">計算する</a>
+      <a href="../douga/">動画</a>
+      <a href="../teguchi/">手口の記録</a>
+      <a href="../kotoba/">言葉の辞典</a>
+      <a class="nav-warn" href="../houmon/">業者が来たら</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" data-gate="12" data-soon>
+  <div class="wrap soon-note">
+    <p class="crumb"><a href="../">トップ</a> ／ 鍵開け・鍵の交換の費用計算</p>
+    <h1>この計算は、動画の公開と同時に使えるようになります</h1>
+    <p>第12回「鍵開け・鍵の交換」の動画を公開したら、ここで自分の鍵の条件で計算できるようになります。</p>
+    <p><a class="btn btn-primary" href="../#keisan">いま使える計算を見る</a></p>
+  </div><!-- /soon-note -->
+  <div class="wrap page-h">
+    <p class="crumb"><a href="../">トップ</a> ／ 鍵開け・鍵の交換の費用計算</p>
+    <p class="kicker"><span class="nw">YouTube「鍵開け・鍵の交換、本当はいくら？」と</span><span class="nw">同じ単価表で計算します</span></p>
+    <h1><span class="nw">鍵開け・鍵の交換、</span><span class="nw q">相場はいくら？</span></h1>
+    <p class="lead">時間帯と、鍵開けだけか交換までか、開ける鍵と交換するシリンダー（鍵穴の部分）の種類を選ぶと、鍵屋さんの見積書と同じ並びで、1行ずつ目安の金額が出ます。数字はすべて公開されている資料から取り、出典をページの下にまとめました。</p>
+    <ul class="promise">
+      <li>鍵の業者・錠前のメーカーではない立場で作っています</li>
+      <li>入力した内容は、どこにも送られません</li>
+      <li>合計は税込（内訳の行は税抜）</li>
+    </ul>
+    <p class="first-box" style="margin-top:14px"><b>賃貸の家なら、まず管理会社・大家さんへ。</b>大家さんや管理会社が対応できることが多く、鍵の交換には大家さんの承諾が要ります（東京都消費生活総合センター）。</p>
+  </div>
+
+  <div class="wrap">
+  <div class="calc">
+    <section class="form-col" aria-labelledby="h-form">
+      <h2 class="col-h form-h" id="h-form"><span class="n">1</span>鍵のことを選ぶ</h2>
+      <div class="stepbar" id="stepbar">
+        <button type="button" class="step-back" id="step-back">もどる</button>
+        <p class="step-count num" id="step-count"><b>1</b> / 5</p>
+        <div class="step-prog" aria-hidden="true"><i id="step-fill"></i></div>
+      </div>
+      <form id="f" autocomplete="off">
+        <fieldset class="q is-current" data-step="jikan" data-kind="radio" tabindex="-1">
+          <legend>頼む時間帯</legend>
+          <div class="seg left" style="--cols:2">
+            <label><input type="radio" name="jikan" value="night" checked><span class="opt"><span class="t"><b>夜・深夜</b><small>「夜間の割増」の行が入る（相場 3,000〜5,000円）</small></span></span></label>
+            <label><input type="radio" name="jikan" value="day"><span class="opt"><span class="t"><b>昼</b><small>夜間の割増なし</small></span></span></label>
+          </div>
+          <p class="help">「22時から翌6時までの深夜帯は50％の割増料金が一般的」と書いている見積もりサイトもあります。その書き方だと、昼に1万5,000円の作業が、深夜は2万2,500円です。</p>
+        </fieldset>
+
+        <fieldset class="q" data-step="hani" data-kind="radio" tabindex="-1">
+          <legend>どこまで頼むか</legend>
+          <div class="seg left" style="--cols:2">
+            <label><input type="radio" name="hani" value="kokan" checked><span class="opt"><span class="t"><b>開けて、シリンダーも交換</b><small>動画と同じ</small></span></span></label>
+            <label><input type="radio" name="hani" value="ake"><span class="opt"><span class="t"><b>鍵開けだけ</b><small>交換はしない</small></span></span></label>
+          </div>
+          <p class="help">鍵をなくしたら、見つかったあとでも交換したほうがよい、と警備会社は書いています（なくしている間に合鍵を作られているおそれがあるため）。交換するかどうかは、自分で決めてください。</p>
+        </fieldset>
+
+        <fieldset class="q" data-step="akekagi" data-kind="radio" tabindex="-1">
+          <legend>開ける鍵の種類</legend>
+          <div class="seg left" style="--cols:2">
+            <label><input type="radio" name="akekagi" value="giza" checked><span class="opt"><span class="t"><b>ギザギザの鍵</b><small>ディスク・ピンのシリンダー。相場 8,000円〜</small></span></span></label>
+            <label><input type="radio" name="akekagi" value="dimple"><span class="opt"><span class="t"><b>ディンプルキー</b><small>表面に丸いくぼみが並んだ鍵。相場 1万1,000円〜</small></span></span></label>
+          </div>
+          <p class="help">ディンプルキーはピッキングに強く、開けるのも高くなります。ロータリーディスクという鍵は、場合によっては壊して開けることになる、と業者を紹介するサイトは書いています（この計算には入れていません）。</p>
+        </fieldset>
+
+        <fieldset class="q" data-step="cyl" data-kind="radio" tabindex="-1" id="q-cyl">
+          <legend>交換するシリンダーの種類</legend>
+          <div class="seg left" style="--cols:1">
+            <label><input type="radio" name="cyl" value="dimple" checked><span class="opt"><span class="t"><b>ディンプルのシリンダー</b><small>動画と同じ。部品 1万円＋取り付け 8,800円</small></span></span></label>
+            <label><input type="radio" name="cyl" value="pin"><span class="opt"><span class="t"><b>ギザギザ（ピン）のシリンダー</b><small>部品 8,000円＋取り付け 4,620円</small></span></span></label>
+            <label><input type="radio" name="cyl" value="high"><span class="opt"><span class="t"><b>防犯性の特に高いディンプル</b><small>部品 2万5,000円から（上限なし）＋取り付け 8,800円</small></span></span></label>
+          </div>
+          <p class="help">部品の値段は、見積もりサイトの記事の上の端、取り付けの作業費は下の端にそろえています。メーカーの希望小売価格ではありません。</p>
+        </fieldset>
+
+        <fieldset class="q" data-step="kyori" data-kind="radio" tabindex="-1">
+          <legend>業者の店からの距離<small style="display:block;font:400 13px/1.6 var(--f-body);color:var(--sub)">わからなければ、そのままで</small></legend>
+          <div class="seg left" style="--cols:2">
+            <label><input type="radio" name="kyori" value="x" checked><span class="opt"><span class="t"><b>わからない</b><small>動画と同じ。出張費 3,000円</small></span></span></label>
+            <label><input type="radio" name="kyori" value="5"><span class="opt"><span class="t"><b>5km以内</b><small>相場 0〜3,000円</small></span></span></label>
+            <label><input type="radio" name="kyori" value="10"><span class="opt"><span class="t"><b>10km以内</b><small>相場 3,000〜5,000円</small></span></span></label>
+            <label><input type="radio" name="kyori" value="20"><span class="opt"><span class="t"><b>20km以内</b><small>相場 5,000〜8,000円</small></span></span></label>
+            <label><input type="radio" name="kyori" value="30"><span class="opt"><span class="t"><b>30km以上</b><small>相場 8,000〜1万5,000円</small></span></span></label>
+          </div>
+          <p class="help">距離の目安は見積もりサイトのものです。距離を選ぶと、その幅の上の端で計算します。近くの業者ほど、出張費は抑えられます。</p>
+        </fieldset>
+
+        <div class="stepnav"><button type="button" class="btn btn-primary btn-next" id="step-next">このまま次へ</button></div>
+        <button type="button" class="reset" id="btn-reset">動画と同じ条件にもどす</button>
+      </form>
+    </section>
+
+    <section class="res-col" id="result" aria-labelledby="h-result">
+      <div class="res-top"><button type="button" class="step-back" id="res-back">もどる</button></div>
+      <h2 class="col-h" id="h-result" tabindex="-1"><span class="n">2</span>計算の結果</h2>
+      <div class="total" aria-live="polite">
+        <p class="lbl">相場の単価で計算すると（税込）</p>
+        <p class="big num"><span class="hl" id="t-std">3万8,280</span><small>円<span id="t-from"></span></small></p>
+        <p class="range" id="t-range">業者によって <b class="num"><span id="t-lo">2万5,080</span>〜<span id="t-hi">5万6,210</span>円</b></p>
+        <div class="pair num">
+          <div><span class="k" id="t-alt1k">昼なら</span><span class="v"><span id="t-alt1">3万2,780</span><small>円</small></span></div>
+          <div><span class="k" id="t-alt2k">鍵開けだけなら</span><span class="v"><span id="t-alt2">1万7,600</span><small>円</small></span></div>
+        </div>
+        <p class="ref" id="t-ref"></p>
+      </div>
+      <p class="first-box" style="margin-top:14px"><b>広告の「〇〇円〜」は、最低の金額です。</b>電話で、鍵の種類を伝えて、出張費・キャンセル料・見積もりの総額を聞いてください（東京都消費生活総合センター）。</p>
+
+      <div class="blk chips-wrap">
+        <h3 class="blk-h">この条件で計算しました</h3>
+        <div class="chips" id="chips"></div>
+        <p class="from-link" id="from-link" hidden>送られてきたリンクの条件で計算しています。</p>
+        <p class="from-link">押すと、その問いにもどって直せます。</p>
+      </div>
+
+      <details class="doc blk" id="doc" open>
+        <summary><span><span class="sum-t">見積書（内訳）</span><span class="sum-s">1行ずつの目安と、業者による幅</span></span></summary>
+        <div class="doc-body">
+          <p class="spec num" id="spec">持ち家の玄関・鍵は1か所<br>内訳の行は税抜、合計は税込</p>
+          <p class="fnote" id="fnote" hidden></p>
+          <div class="est-scroll">
+            <table class="est num">
+              <thead><tr><th scope="col">項目</th><th scope="col">目安（円）<span class="rng-h">業者による幅</span></th></tr></thead>
+              <tbody id="rows"></tbody>
+            </table>
+          </div>
+          <p class="foot">相場の記事（見積もりサイト・業者を紹介するサイト）は、どれも税込か税抜かを書いていないので、税抜として並べ、最後に消費税10%を足しました。諸経費の行はありません（鍵開けの料金の内訳は「作業料金・出張経費・深夜料金・鍵交換」と書かれています）。</p>
+        </div>
+      </details>
+
+      <div class="card-s cmp blk">
+        <h3>手元の見積書と比べる</h3>
+        <p class="hint">見積書の合計（税込）を入れると、相場の幅のどこにあるかを出します。入れた金額は、どこにも送られません。</p>
+        <div class="row"><label for="mine">見積書の合計</label><span class="in"><input type="number" id="mine" inputmode="numeric" min="0" step="100" placeholder="例 60000"><span>円</span></span></div>
+        <div class="ruler" id="ruler" aria-hidden="true">
+          <div class="track"></div>
+          <div class="band" id="r-band"></div>
+          <div class="pin std" id="r-std"><span>相場</span><i></i></div>
+          <div class="pin mine" id="r-mine" hidden><span>手元の金額</span><i></i></div>
+          <div class="tick num" id="r-lo"></div>
+          <div class="tick num" id="r-hi"></div>
+        </div>
+        <p class="verdict" id="verdict" aria-live="polite"></p>
+      </div>
+
+      <section class="card-s share blk" id="share" aria-labelledby="h-share" hidden>
+        <h3 id="h-share">家族に送る</h3>
+        <p class="hint">いま選んでいる条件のまま、同じ計算が開くリンクを送れます。</p>
+        <div class="share-btns">
+          <a class="btn btn-line" id="sh-line" href="https://line.me/R/share" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.5s5.9-3.5 8-6C21.4 14.3 22 12.7 22 11c0-4.4-4.5-8-10-8Z"/></svg>LINEで送る</a>
+          <button type="button" class="btn btn-ghost" id="sh-copy">リンクをコピー</button>
+          <button type="button" class="btn btn-ghost" id="sh-native" hidden>ほかのアプリで送る</button>
+        </div>
+        <p class="sh-status" id="sh-status" role="status"></p>
+        <p class="hint foot">送るのは、選んだ条件だけです。手元の金額は入りません。</p>
+      </section>
+
+      <p class="next-links"><a href="../douga/12/">動画の文字版を読む</a><a class="warn" href="../houmon/">業者が来たら、まずこれ</a></p>
+    </section>
+  </div>
+
+<div class="read">
+  <section aria-labelledby="h-check">
+    <h2 id="h-check"><span class="nw">頼む前と、作業の前に</span><span class="nw">確かめたい3つ</span></h2>
+    <p>東京都消費生活総合センターと国民生活センターが、注意点として挙げていることです。</p>
+    <ol class="checks">
+      <li><b>「何円から」の「から」</b><span>広告の金額は基本料金の最低の金額であることが多く、深夜料金や鍵の種類など、いろいろな名目で料金が足される、と東京都は書いています。電話の段階で、鍵の種類や状況をなるべく正確に伝え、出張費・キャンセル料・だいたいの総額を聞いてください。<a href="../kotoba/#shucchou">出張費</a></span></li>
+      <li><b>作業の前に、見積書をもらう</b><span>部品と作業が分けて書いてあるか。「部品」のように、名前だけの行がないか。新しい作業が出てきたら、説明を聞いてから頼むかどうか決めます。<a href="../kotoba/#cylinder">シリンダー</a></span></li>
+      <li><b>その場で払わない</b><span>夜中で不安なら、後日の振り込みかクレジットカード払いにしておき、翌日、消費生活センターに相談するとよい、と東京都は書いています。契約書は必ず受け取り、業者の名前と連絡先を確かめます。身の危険を感じたら、警察に連絡するのも一つの方法です（国民生活センター）。</span></li>
+    </ol>
+    <div class="ask">
+      <p class="h">業者さんに電話で聞くとよい質問</p>
+      <p>「出張費と、断った場合のキャンセル料は、いくらですか」</p>
+      <p>「この種類の鍵だと、鍵開けは、だいたいいくらですか」</p>
+      <p>「交換までしたら、部品代と作業費は、それぞれいくらですか」</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-warn">
+    <h2 id="h-warn"><span class="nw">実際にあった</span><span class="nw">3つの手口</span></h2>
+    <div class="warn-box">
+      <div class="head">国民生活センター・東京都・消費者庁の公表資料より</div>
+      <div class="body">
+        <div class="case">
+          <q>これは特殊な鍵だから解錠するだけで８万円</q>
+          <p>深夜に鍵をなくした20歳代の女性。サイトには「最も高額な作業でも8,000円～」。来た作業員は鍵穴を見てすぐに、解錠だけで8万円、シリンダー交換ならさらに2万円と言い、現金がないと言うと5万円に下げました。女性によると、家の鍵は特殊なものではなかったそうです。（国民生活センター）</p>
+        </div>
+        <div class="case">
+          <q>鍵開けで５千円～３万円、開かない場合は鍵交換で最大10 万円</q>
+          <p>「鍵開け4,000円～」の業者を呼んだ30歳代の女性。契約書に料金は書いてなく、鍵開けで済むと思っていたのに、説明もないまま、作業のあとで鍵の交換として<b>19万円</b>を請求されました。東京都の鍵の解錠サービスの相談は、2024年度に694件で、前の年度の2倍以上です。（東京都）</p>
+        </div>
+        <div class="case">
+          <q>クーリング・オフの方は受け付けられない形になってしまうんですが</q>
+          <p>「鍵を開けたい 4,980円～」のサイトから呼ぶと、契約は<b>10万円以上</b>。4日後に書面でクーリング・オフをすると、業者はこう言い、お金の一部しか返しませんでした。消費者庁は、実際にはクーリング・オフできる契約だったと認定し、2022年に業務停止命令を出しました。</p>
+        </div>
+        <div class="todo">
+          <p><b>呼んだからといって、契約しなくてはいけないわけではありません。</b>近くのホテルに泊まる、地域の別の業者に料金を聞く、という手もある、と消費者庁は書いています。</p>
+          <p>自分で業者を呼んだ場合は、<a href="../kotoba/#coolingoff">クーリング・オフ</a>が認められないことがあります。ただ消費者庁は、ネットの安い料金を見て呼んだのに高額な料金で契約した場合などは、通常どおり認められる、としています。書面を受け取ってから<b>8日以内</b>に、書面かメールで。東京都の委員会が扱った例（広告8,800円から→契約5万6,100円）では、払ったお金が全額返りました。</p>
+          <p>困ったときは <span class="nw"><a href="../kotoba/#hotline">消費者ホットライン</a> <a class="tel" href="tel:188">188</a>（いやや）</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-sonae">
+    <h2 id="h-sonae"><span class="nw">なくす前に</span><span class="nw">備えておくこと</span></h2>
+    <div class="kind">
+      <div><b>合鍵を、家の外に</b><span>自宅以外の場所に合鍵を置いておくと安心です。賃貸なら、管理会社に鍵を借りられる場合もあります（東京都）。</span></div>
+      <div><b>連絡先と、鍵の種類を控える</b><span>賃貸なら管理会社・大家さんの連絡先。自分の鍵の種類やメーカー、製品番号も確かめておきます（国民生活センター）。<a href="../kotoba/#dimple">ディンプルキー</a></span></div>
+      <div><b>保険や付帯サービスを見ておく</b><span>火災保険や賃貸の付帯サービスに、鍵のトラブルの手助けが付いていることがあります（国民生活センター）。ただ、ある損害保険会社の例では、無料になるのは出張の基本料金で、部品代や作業料金は別でした。</span></div>
+      <div class="w"><b>検索で上に出た業者</b><span>インターネット検索で上位に表示された業者が、必ずしも信用できるとは限らない、と消費者庁は書いています。</span></div>
+    </div>
+  </section>
+
+  <section class="method" aria-labelledby="h-method">
+    <h2 id="h-method"><span class="nw">計算の仕方と</span><span class="nw">出典</span></h2>
+    <dl id="method"></dl>
+    <h3 style="font-size:16px;margin:22px 0 8px">出典（2026年10月9日に確認）</h3>
+    <ol class="src">
+      <li>出張費・鍵開け・シリンダー・取り付け・深夜の割増：<a href="https://meetsmore.com/services/lock-exchange/media/115261" rel="noopener" target="_blank">ミツモア（見積もりサイト）鍵交換の費用相場</a>／<a href="https://curama.jp/magazine/1807/" rel="noopener" target="_blank">くらしのマーケット（業者を紹介するサイト）鍵開け料金の相場</a>／<a href="https://curama.jp/magazine/1720/" rel="noopener" target="_blank">同 ディンプルキー鍵開けの費用相場</a>／<a href="https://curama.jp/magazine/2856/" rel="noopener" target="_blank">同 ディンプルキーとは？</a>／<a href="https://curama.jp/unlock-door/" rel="noopener" target="_blank">同 玄関の鍵開け</a>／<a href="https://www.alsok.co.jp/person/recommend/2228/" rel="noopener" target="_blank">ALSOK（警備会社）鍵の交換に必要な費用は？</a></li>
+      <li>相談事例・身を守る方法：<a href="https://www.kokusen.go.jp/pdf/n-20211007_2.pdf" rel="noopener" target="_blank">国民生活センター（2021年10月7日）</a>／<a href="https://www.kokusen.go.jp/pdf/n-20181220_1.pdf" rel="noopener" target="_blank">国民生活センター（2018年12月20日）</a>／<a href="https://www.shouhiseikatu.metro.tokyo.lg.jp/sodan/kinkyu/documents/kagi_kaijou_service.pdf" rel="noopener" target="_blank">東京都消費生活総合センター（2026年1月28日）</a>／<a href="https://www.shouhiseikatu.metro.tokyo.lg.jp/sodan/kinkyu/documents/20230615.pdf" rel="noopener" target="_blank">同（2023年6月15日）</a>／<a href="https://www.shouhiseikatu.metro.tokyo.lg.jp/sodan/kyusai/documents/93houkokusyo.pdf" rel="noopener" target="_blank">東京都消費者被害救済委員会 報告書</a>／<a href="https://www.caa.go.jp/notice/assets/consumer_transaction_cms203_220225_02.pdf" rel="noopener" target="_blank">消費者庁「予想外に高額な請求をする鍵開け業者にご注意を！」</a>／<a href="https://www.kokusen.go.jp/soudan_now/data/coolingoff.html" rel="noopener" target="_blank">国民生活センター「クーリング・オフ」</a></li>
+      <li>動画で使った数字・事例・写真の出典は、<a href="../credits/12/">出典のページ</a>にもまとめています。</li>
+    </ol>
+  </section>
+</div>
+
+  <div class="page-note">
+  <p>このページは、鍵の業者・錠前のメーカーではない立場で、YouTubeの動画のために作っています。</p>
+  <p>金額は公開されている資料から計算した目安で、この金額で開く・交換できるという約束ではありません。鍵の数や建物、メーカー注文品の鍵かどうかで変わります。見積もりの代わりにはなりません。</p>
+  </div>
+  </div>
+</main>
+
+<div class="dock" id="dock">
+  <div class="dock-in">
+    <p class="d1">相場の単価で計算すると（税込）</p>
+    <p class="d2 num"><span id="d-std">3万8,280</span><small>円</small><span class="d-sub">業者によって <span id="d-rng">2万5,080〜5万6,210円</span></span></p>
+  </div>
+  <button type="button" class="dock-go" id="dock-go">結果へ</button>
+</div>
+
+<footer class="site-f">
+  <div class="wrap">
+    <a class="logo" href="../"><img src="../img/face.webp" alt="" width="36" height="36">見積書のお姉さん</a>
+    <p class="site-f__about">家の修理・リフォームの見積書を、公開されている資料の単価から1行ずつ読み解くYouTubeチャンネルです。工事を請け負う業者ではありません。</p>
+    <div class="sns">
+      <a href="https://www.youtube.com/@mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#ff0033" d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81z"/><path fill="#fff" d="M9.55 15.57V8.43L15.82 12z"/></svg>YouTube</a>
+      <a href="https://www.instagram.com/mitsumori_onee/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+      <a href="https://x.com/mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</a>
+    </div>
+    <nav class="site-f__nav" aria-label="サイトの案内">
+      <a href="../#keisan">計算する</a>
+      <a href="../douga/">動画</a>
+      <a href="../teguchi/">手口の記録</a>
+      <a href="../kotoba/">言葉の辞典</a>
+      <a href="../houmon/">業者が来たら</a>
+      <a href="../about/">このサイトについて</a>
+      <a href="../privacy/">プライバシーポリシー</a>
+      <a href="../contact/">お問い合わせ</a>
+    </nav>
+    <p class="site-f__fine">金額はすべて、公開されている資料の単価から計算した目安です。実際の金額は家ごとに変わります。</p>
+    <p class="site-f__fine">© 2026 見積書のお姉さん</p>
+  </div>
+</footer>
+<script>
+/* ============================================================
+   数字はすべて 12_鍵開け・鍵の交換/単価表.md の 1章・2章・3章から取る。
+   ここだけ直して、単価表と食い違わせない。
+   相場の記事はどれも税の表示が無いので、行はすべて税抜として置き、最後に消費税10%を足す（円未満切り捨て）。
+   部品代は幅の上の端、作業費は下の端（単価表 2-5 の★）。
+   ============================================================ */
+const P = {
+  // 出張費［目安, 安い側, 高い側］。x＝距離がわからない（動画と同じ）2-1・3章
+  shutcho: {
+    x: ['わからない', 3000, 0, 8000],
+    5: ['5km以内', 3000, 0, 3000],
+    10: ['10km以内', 5000, 3000, 5000],
+    20: ['20km以内', 8000, 5000, 8000],
+    30: ['30km以上', 15000, 8000, 15000],
+  },
+  // 鍵開けの作業費（壊さずに開ける）2-2
+  ake: {
+    giza: ['ギザギザの鍵', 8000, 8000, 15000],
+    dimple: ['ディンプルキー', 11000, 11000, 16500],
+  },
+  // シリンダー代（部品）と取り付けの作業費 2-3。hi が null は上限なし
+  cyl: {
+    dimple: { name: 'ディンプル', part: [10000, 3000, 11000], fit: [8800, 8800, 12100] },
+    pin: { name: 'ギザギザ（ピン）', part: [8000, 3000, 8000], fit: [4620, 4620, 6600] },
+    high: { name: '防犯性の特に高いディンプル', part: [25000, 25000, null], fit: [8800, 8800, 12100] },
+  },
+  yakan: [5000, 3000, 5000],   // 夜間の割増 2-1
+  tax: .10,
+};
+const JIKAN = { night: '夜・深夜', day: '昼' };
+
+const yen = n => Math.round(n).toLocaleString('ja-JP');
+// 1万7,600 のように「万」を入れて読む（台本の読み方とそろえる）。円は付けない
+const jp = n => { n = Math.round(n); const m = Math.floor(n / 10000), r = n % 10000; return m ? `${m}万${r ? r.toLocaleString('ja-JP') : ''}` : r.toLocaleString('ja-JP'); };
+const $ = id => document.getElementById(id);
+
+/* ── 見積書の行 ── */
+function estimate(s) {
+  const rows = [];
+  const sh = P.shutcho[s.kyori];
+  rows.push({ name: '出張費', unitText: s.kyori === 'x' ? '相場 3,000〜8,000円。5km以内なら0〜3,000円' : `${sh[0]}の目安（幅の上の端）`, std: sh[1], lo: sh[2], hi: sh[3] });
+  const ak = P.ake[s.akekagi];
+  rows.push({ name: `鍵開けの作業費（${ak[0]}・壊さずに開ける）`, unitText: '1か所', std: ak[1], lo: ak[2], hi: ak[3] });
+  let open = false;
+  if (s.hani === 'kokan') {
+    const c = P.cyl[s.cyl];
+    open = c.part[2] === null;
+    rows.push({ name: `シリンダー代（部品・${c.name}・鍵つき）`, unitText: '1個', std: c.part[0], lo: c.part[1], hi: open ? c.part[0] : c.part[2], open });
+    rows.push({ name: `交換の作業費（${s.cyl === 'pin' ? 'ギザギザ鍵用' : 'ディンプル'}のシリンダーの取り付け）`, unitText: '1か所', std: c.fit[0], lo: c.fit[1], hi: c.fit[2] });
+  } else {
+    rows.push({ name: 'シリンダー代・交換の作業費', unitText: '鍵開けだけなので、交換しない', std: 0, lo: 0, hi: 0, off: true });
+  }
+  rows.push({ name: '夜間の割増', unitText: s.jikan === 'night' ? '深夜は5割増し、という書き方もある' : '昼なので割増なし',
+    std: s.jikan === 'night' ? P.yakan[0] : 0, lo: s.jikan === 'night' ? P.yakan[1] : 0, hi: s.jikan === 'night' ? P.yakan[2] : 0, off: s.jikan !== 'night' });
+  const t = {};
+  for (const k of ['std', 'lo', 'hi']) {
+    const ex = rows.reduce((a, r) => a + r[k], 0), tax = Math.floor(ex * P.tax);
+    t[k] = { ex, tax, total: ex + tax };
+  }
+  return { rows, t, open };
+}
+
+function readState() {
+  const fd = new FormData($('f'));
+  const pick = (name, map, def) => { const v = fd.get(name); return v !== null && Object.prototype.hasOwnProperty.call(map, v) ? v : def; };
+  return {
+    jikan: pick('jikan', JIKAN, 'night'),
+    hani: pick('hani', { kokan: 1, ake: 1 }, 'kokan'),
+    akekagi: pick('akekagi', P.ake, 'giza'),
+    cyl: pick('cyl', P.cyl, 'dimple'),
+    kyori: pick('kyori', P.shutcho, 'x'),
+  };
+}
+
+let last = null;
+function render() {
+  const s = readState();
+  const e = estimate(s);
+  last = e;
+  const { t } = e;
+  $('q-cyl').hidden = s.hani !== 'kokan';
+
+  $('t-std').textContent = jp(t.std.total);
+  $('t-from').textContent = e.open ? '〜' : '';
+  $('t-range').innerHTML = e.open
+    ? `業者によって <b class="num"><span id="t-lo">${jp(t.lo.total)}</span>円〜</b>（部品に上限なし）`
+    : `業者によって <b class="num"><span id="t-lo">${jp(t.lo.total)}</span>〜<span id="t-hi">${jp(t.hi.total)}</span>円</b>`;
+  $('d-std').textContent = jp(t.std.total) + (e.open ? '〜' : '');
+  $('d-rng').textContent = e.open ? `${jp(t.lo.total)}円〜` : `${jp(t.lo.total)}〜${jp(t.hi.total)}円`;
+  const other = s.jikan === 'night' ? 'day' : 'night';
+  $('t-alt1k').textContent = s.jikan === 'night' ? '昼なら' : '夜・深夜なら';
+  $('t-alt1').textContent = jp(estimate({ ...s, jikan: other }).t.std.total) + (e.open ? '〜' : '');
+  if (s.hani === 'kokan') {
+    $('t-alt2k').textContent = '鍵開けだけなら';
+    $('t-alt2').textContent = jp(estimate({ ...s, hani: 'ake' }).t.std.total);
+  } else {
+    $('t-alt2k').textContent = 'ディンプルに交換までなら';
+    $('t-alt2').textContent = jp(estimate({ ...s, hani: 'kokan', cyl: 'dimple' }).t.std.total);
+  }
+  $('t-ref').innerHTML = s.hani === 'kokan'
+    ? '参考：見積もりサイト（ミツモア）で実際に決まった値段では、<span class="nw">「ディンプルシリンダー交換と鍵の解錠」は</span><span class="nw">2万3,990〜3万5,020円</span><span class="nw">（2024年・税の表示なし）。</span>'
+    : '参考：業者を紹介するサイト（くらしのマーケット）の調べでは、玄関の鍵開けで、<span class="nw">約半数の人が1万1円〜2万円を</span><span class="nw">払っています（税の表示なし）。</span>';
+  $('spec').innerHTML = `持ち家の玄関・鍵は1か所・${JIKAN[s.jikan]}<br>内訳の行は税抜、合計は税込`;
+  const notes = [];
+  if (e.open) notes.push('防犯性の特に高いディンプルのシリンダーは「2万5,000円〜」で、上限が書いてありません。合計も「〜」で読んでください。');
+  if (s.akekagi === 'dimple') notes.push('開けにくいディンプルの鍵開けでも、公開されている相場は1万1,000〜1万6,500円です。');
+  $('fnote').hidden = !notes.length;
+  $('fnote').textContent = notes.join(' ');
+
+  const tr = (cls, name, small, std, rng) =>
+    `<tr class="${cls}"><td class="item"><b>${name}</b>${kw(name)}${small ? `<small>${small}</small>` : ''}</td><td class="amt">${std}<span class="rng">${rng}</span></td></tr>`;
+  const hiTxt = v => e.open ? '' : yen(v);
+  let html = e.rows.map(r => tr(r.off ? 'off' : '', r.name, r.unitText, yen(r.std),
+    r.off ? '—' : r.open ? `${yen(r.lo)}〜（上限なし）` : `${yen(r.lo)}〜${yen(r.hi)}`)).join('');
+  html += tr('sum', '税抜', '', yen(t.std.ex), `${yen(t.lo.ex)}〜${hiTxt(t.hi.ex)}`);
+  html += tr('', '消費税', '10%（円未満切り捨て）', yen(t.std.tax), `${yen(t.lo.tax)}〜${hiTxt(t.hi.tax)}`);
+  html += tr('grand', '合計（税込）', '', yen(t.std.total) + (e.open ? '円〜' : '円'), `${yen(t.lo.total)}〜${hiTxt(t.hi.total)}`);
+  $('rows').innerHTML = html;
+  renderCompare();
+  afterRender(s);
+}
+
+/* 物差し：安い側〜高い側の帯に、目安と手元の金額を立てる（上限なしのときは、目安の1.5倍まで帯をのばして見せる） */
+function renderCompare() {
+  if (!last) return;
+  const lo = last.t.lo.total, std = last.t.std.total, open = last.open;
+  const hi = open ? Math.round(std * 1.5) : last.t.hi.total;
+  const raw = parseFloat($('mine').value);
+  const mine = Number.isFinite(raw) && raw > 0 ? raw : null;
+  let a = 0, b = hi * 1.08;
+  if (mine) b = Math.max(b, mine * 1.06);
+  const pct = v => ((v - a) / (b - a)) * 100;
+  const place = (el, v) => { const q = pct(v); el.style.left = `${q}%`; el.style.transform = q < 12 ? 'translateX(-1.5px)' : q > 88 ? 'translateX(calc(-100% + 1.5px))' : 'translateX(-50%)'; el.style.alignItems = q < 12 ? 'flex-start' : q > 88 ? 'flex-end' : 'center'; };
+  $('r-band').style.left = `${pct(lo)}%`;
+  $('r-band').style.width = `${((hi - lo) / (b - a)) * 100}%`;
+  place($('r-std'), std);
+  place($('r-lo'), lo); $('r-lo').textContent = `${jp(lo)}円`;
+  place($('r-hi'), hi); $('r-hi').textContent = open ? '上限なし' : `${jp(hi)}円`;
+  const pin = $('r-mine'), v = $('verdict');
+  $('ruler').classList.toggle('has-mine', !!mine);
+  if (!mine) { pin.hidden = true; v.textContent = ''; v.className = 'verdict'; return; }
+  pin.hidden = false; place(pin, mine);
+  const near = n => Math.abs(n) < 500;
+  let pill, msg, cls = 'verdict';
+  if (mine < lo && !near(mine - lo)) {
+    pill = '相場の幅より安い';
+    msg = `相場の安い側（${jp(lo)}円）より安い金額です。出張費や夜間の割増が入っているか、作業のあとで足されないかを確かめてください。`;
+  } else if (open || mine <= last.t.hi.total || near(mine - last.t.hi.total)) {
+    pill = mine <= std || near(mine - std) ? '相場の幅の中（目安に近い側）' : open ? '目安より高い（部品に上限なし）' : '相場の幅の中（高い側）';
+    msg = open
+      ? `防犯性の特に高いシリンダーは、部品の値段に上限が書いてありません。部品のメーカーと品番を聞いて、部品代と作業費が分けて書いてあるかを確かめてください。`
+      : `相場の幅（${jp(lo)}〜${jp(last.t.hi.total)}円）の中です。部品代と作業費が分けて書いてあるか、「部品」のように名前だけの行がないかを確かめてください。`;
+  } else {
+    cls += ' out';
+    pill = `相場の高い側より${jp(mine - last.t.hi.total)}円高い`;
+    msg = `この条件の相場の高い側（${jp(last.t.hi.total)}円）より高い金額です。鍵の種類と数、行の名前を1行ずつ確かめてください。その場で払わずに、困ったときは消費者ホットライン188へ。`;
+  }
+  msg += '<b class="v-next">内訳の行ごとに比べてください。</b><button type="button" class="v-open">内訳を開く</button>';
+  msg += '<small>鍵が2か所以上ある・壊して開けた・錠前ごと交換した・電子キーなど、この計算にない作業が入っている見積もりとは、そのままくらべられません。</small>';
+  v.className = cls; v.innerHTML = `<span class="v-pill">${pill}</span>${msg}`;
+}
+
+/* 計算の仕方（数字は上の設定から書き出す） */
+function renderMethod() {
+  const base = { jikan: 'night', hani: 'kokan', akekagi: 'giza', cyl: 'dimple', kyori: 'x' };
+  const d = estimate(base);
+  const c = (o) => jp(estimate({ ...base, ...o }).t.std.total);
+  $('method').innerHTML = `
+    <div><dt>見積書の行</dt><dd>動画のモデル見積書と同じです（税抜）。出張費${yen(P.shutcho.x[1])}円・鍵開けの作業費（ギザギザの鍵）${yen(P.ake.giza[1])}円・シリンダー代（ディンプル）${yen(P.cyl.dimple.part[0])}円・交換の作業費${yen(P.cyl.dimple.fit[0])}円・夜間の割増${yen(P.yakan[0])}円。持ち家の玄関・鍵は1か所・壊さずに開ける、で税込${jp(d.t.std.total)}円です。</dd></div>
+    <div><dt>ほかの選び方</dt><dd>動画と同じく、変わる行だけを変えます。鍵開けだけ${c({ hani: 'ake' })}円／ギザギザ（ピン）に交換${c({ cyl: 'pin' })}円／防犯性の特に高いディンプル${c({ cyl: 'high' })}円〜／元の鍵がディンプル${c({ akekagi: 'dimple' })}円／昼${c({ jikan: 'day' })}円。</dd></div>
+    <div><dt>単価の取り方</dt><dd>部品代は記事の幅の上の端、作業費（鍵開け・取り付け）は下の端にそろえました。ピンの部品は「3,000円〜8,000円程度」の上の端、防犯性の特に高いものは「2万5,000円〜」の下の端（上限なし）です。</dd></div>
+    <div><dt>出張の距離</dt><dd>見積もりサイトの距離の目安（5km圏内0〜3,000円・10km圏内3,000〜5,000円・20km圏内5,000〜8,000円・30km以上8,000〜1万5,000円）の上の端で計算します。「わからない」は動画と同じ${yen(P.shutcho.x[1])}円（幅0〜8,000円）です。</dd></div>
+    <div><dt>税込と税抜</dt><dd>相場の記事は、どれも税込か税抜かを書いていません。行はすべて税抜として並べ、合計で消費税10%を足しました（円未満切り捨て）。</dd></div>
+    <div><dt>入っていないもの</dt><dd>2か所目の鍵、壊して開ける作業、錠前ごとの交換、電子キー・カードキー、防犯サムターンの解錠、合鍵の追加、メーカー注文品の鍵の追加料金。キャンセル料（全国一律3,000円のサイトもあれば、1万円を超える場合もあると書かれています）。</dd></div>`;
+}
+
+/* ── 操作 ── */
+$('f').addEventListener('change', e => { if (e.target.name || e.target.id) render(); });
+$('f').addEventListener('submit', e => e.preventDefault());
+$('mine').addEventListener('input', renderCompare);
+$('btn-reset').addEventListener('click', () => { $('f').reset(); render(); });
+
+/* ── このページの設定（送る条件の書き方・チップ・辞典へのリンク） ──
+   送るリンクの例：…/kagi/#j=n&h=k&a=g&c=d&k=x */
+const CFG = {
+  page: 'kagi',
+  radios: [
+    ['j', 'jikan', { n: 'night', d: 'day' }],
+    ['h', 'hani', { k: 'kokan', a: 'ake' }],
+    ['a', 'akekagi', { g: 'giza', d: 'dimple' }],
+    ['c', 'cyl', { d: 'dimple', p: 'pin', h: 'high' }],
+    ['k', 'kyori', { x: 'x', 5: '5', 10: '10', 20: '20', 30: '30' }],
+  ],
+  toHash(s) {
+    const a = [`j=${s.jikan[0]}`, `h=${s.hani === 'kokan' ? 'k' : 'a'}`, `a=${s.akekagi[0]}`];
+    if (s.hani === 'kokan') a.push(`c=${s.cyl[0]}`);
+    a.push(`k=${s.kyori}`);
+    return a;
+  },
+  chips(s) {
+    const out = [['jikan', JIKAN[s.jikan]], ['hani', s.hani === 'kokan' ? '交換まで' : '鍵開けだけ'], ['akekagi', `${P.ake[s.akekagi][0]}を開ける`]];
+    if (s.hani === 'kokan') out.push(['cyl', `${P.cyl[s.cyl].name}に交換`]);
+    out.push(['kyori', s.kyori === 'x' ? '距離はわからない' : P.shutcho[s.kyori][0]]);
+    return out;
+  },
+  shareText() {
+    return `鍵開け・鍵の交換、この条件だと相場の単価で${jp(last.t.std.total)}円${last.open ? '〜' : ''}（税込）でした（見積書のお姉さんの計算ページ）`;
+  },
+  kw: [[/^出張費/, 'shucchou'], [/^シリンダー代/, 'cylinder'], [/^鍵開けの作業費（ディンプル/, 'dimple']],
+  kwLabel: { shucchou: '出張費', cylinder: 'シリンダー', dimple: 'ディンプルキー' },
+};
+
+/* ============================================================
+   画面の動き（ここから下は計算に関わらない）
+   スマホ（760px未満）：1問ずつ出して、最後に「結果を見る」。<html> の .is-steps / .is-result で切り替える
+   条件を送る：ボタンを押したときだけ、URLの # の後ろに条件を書いたリンクを作る（入力中は location を書き換えない）
+   アクセス解析：入力した値（選んだ条件・金額など）は渡さない。どのページで・何をしたかだけ
+   ============================================================ */
+const H = document.documentElement;
+const MQ = window.matchMedia('(max-width: 759.98px)');
+const RM = window.matchMedia('(prefers-reduced-motion: reduce)');
+const own = (o, k) => Object.prototype.hasOwnProperty.call(o, k);
+const T = (name, params) => {
+  const go = () => { try { if (typeof window.track === 'function') window.track(name, params); } catch (_) { /* 解析が動かなくても計算は止めない */ } };
+  if (typeof window.track === 'function') go(); else document.addEventListener('DOMContentLoaded', go, { once: true });
+};
+const steps = [...document.querySelectorAll('#f .q')];
+const liveSteps = () => steps.filter(el => !el.hidden);
+const isSteps = () => H.classList.contains('is-steps');
+const isResult = () => H.classList.contains('is-result');
+let curEl = steps[0], editing = false, advTimer = 0, ptrAt = 0, doneSent = false, cmpSent = false;
+
+function kw(name) {
+  for (const [re, id] of CFG.kw) {
+    if (re.test(name)) return `<a class="kw" href="../kotoba/#${id}" aria-label="${CFG.kwLabel[id]}の意味（言葉の辞典）">辞典</a>`;
+  }
+  return '';
+}
+
+function scrollToY(y, smooth) {
+  y = Math.max(0, y);
+  if (smooth && !RM.matches) { window.scrollTo({ top: y, behavior: 'smooth' }); return; }
+  const prev = H.style.scrollBehavior;
+  H.style.scrollBehavior = 'auto'; window.scrollTo(0, y); H.style.scrollBehavior = prev;
+}
+function moveTo(el, smooth = true) { scrollToY(el.getBoundingClientRect().top + window.scrollY - 72, smooth); }
+
+function paintStepbar() {
+  const live = liveSteps();
+  if (!live.includes(curEl)) curEl = live[0];
+  const i = live.indexOf(curEl), n = live.length, lastStep = i === n - 1;
+  $('step-count').innerHTML = `<b>${i + 1}</b> / ${n}`;
+  $('step-fill').style.width = `${((i + 1) / n) * 100}%`;
+  $('step-back').disabled = i === 0 && !editing;
+  const btn = $('step-next'), num = curEl.dataset.kind === 'number';
+  btn.textContent = editing ? '結果にもどる' : lastStep ? '結果を見る' : num ? '次へ' : 'このまま次へ';
+  btn.classList.toggle('is-quiet', !editing && !lastStep && !num);
+}
+
+function showStep(el, dir, focus) {
+  if (!el) return;
+  clearTimeout(advTimer);
+  const wasResult = isResult();
+  H.classList.remove('is-result');
+  for (const q of steps) q.classList.toggle('is-current', q === el);
+  el.classList.remove('in-fwd', 'in-back');
+  if (dir) { void el.offsetWidth; el.classList.add(dir > 0 ? 'in-fwd' : 'in-back'); }
+  curEl = el;
+  paintStepbar();
+  const bar = $('stepbar'), top = bar.getBoundingClientRect().top;
+  if (Math.abs(top - 72) > 6 && (dir || top < 0 || top > window.innerHeight * 0.5)) moveTo(bar, !!dir && !wasResult);
+  if (focus) {
+    const t = el.dataset.kind === 'number' ? el : (el.querySelector('input:checked') || el.querySelector('input'));
+    try { t.focus({ preventScroll: true }); } catch (_) { t.focus(); }
+  }
+}
+function nextStep() {
+  clearTimeout(advTimer);
+  const live = liveSteps(), i = live.indexOf(curEl);
+  if (editing || i >= live.length - 1) { showResult(true); return; }
+  showStep(live[i + 1], 1, true);
+}
+function prevStep() {
+  if (editing) { showResult(true); return; }
+  const live = liveSteps(), i = live.indexOf(curEl);
+  if (i > 0) showStep(live[i - 1], -1, true);
+}
+function markDone() {
+  if (doneSent) return;
+  doneSent = true;
+  T('calc_done', { page: CFG.page });
+}
+function showResult(user) {
+  clearTimeout(advTimer);
+  editing = false;
+  if (isSteps()) {
+    H.classList.add('is-result');
+    moveTo($('result'), false);
+  } else if (user) moveTo($('result'));
+  if (user) { try { $('h-result').focus({ preventScroll: true }); } catch (_) { /* 古いブラウザ */ } }
+  markDone();
+}
+
+/* 選んだ条件のチップ（押すと、その問いにもどる） */
+function paintChips(s) {
+  $('chips').innerHTML = CFG.chips(s).map(([k, label]) => `<button type="button" class="chip" data-go="${k}">${label}</button>`).join('');
+}
+function afterRender(s) {
+  paintChips(s);
+  const seen = new Set();
+  for (const a of document.querySelectorAll('#rows .kw')) { const h = a.getAttribute('href'); if (seen.has(h)) a.remove(); else seen.add(h); }
+  if (isSteps()) paintStepbar();
+}
+
+/* ── 1問ずつの操作 ── */
+$('f').addEventListener('pointerdown', () => { ptrAt = Date.now(); }, true);
+$('f').addEventListener('click', e => {
+  const r = e.target;
+  if (!isSteps() || !(r instanceof HTMLInputElement) || r.type !== 'radio') return;
+  if (r.hasAttribute('data-stay')) return;
+  const q = r.closest('.q');
+  if (q !== curEl || Date.now() - ptrAt > 1500) return;   // 矢印キーで選んだときは進めない
+  const live = liveSteps();
+  if (!editing && live.indexOf(q) === live.length - 1) return;   // 最後の問いは「結果を見る」を押してもらう
+  clearTimeout(advTimer);
+  advTimer = setTimeout(nextStep, 260);
+});
+$('f').addEventListener('keydown', e => {
+  if (e.key !== 'Enter' || !isSteps() || e.isComposing) return;
+  const t = e.target;
+  if (!(t instanceof HTMLInputElement) || !t.closest('.q')) return;
+  e.preventDefault();
+  if (t.type === 'number') t.dispatchEvent(new Event('change', { bubbles: true }));
+  nextStep();
+});
+$('step-next').addEventListener('click', nextStep);
+$('step-back').addEventListener('click', prevStep);
+$('res-back').addEventListener('click', () => { const live = liveSteps(); showStep(live[live.length - 1], -1, true); });
+$('chips').addEventListener('click', e => {
+  const b = e.target.closest('[data-go]');
+  if (!b) return;
+  const q = document.querySelector(`#f .q[data-step="${b.dataset.go}"]`);
+  if (!q || q.hidden) return;
+  if (isSteps()) { editing = true; showStep(q, 0, true); return; }
+  moveTo(q);
+  const t = q.querySelector('input:checked') || q.querySelector('input');
+  try { t.focus({ preventScroll: true }); } catch (_) { t.focus(); }
+});
+
+/* ── 下の帯 ── */
+$('dock-go').addEventListener('click', () => showResult(true));
+if ('IntersectionObserver' in window) {
+  new IntersectionObserver(([en]) => $('dock').classList.toggle('away', en.isIntersecting && !isSteps()), { threshold: 0.08 }).observe($('result'));
+}
+
+/* 広い画面：最初に条件を動かしたら「結果を見た」とする */
+const onEdit = () => { if (!isSteps()) markDone(); };
+$('f').addEventListener('change', onEdit);
+if ($('methods')) $('methods').addEventListener('change', onEdit);
+
+/* ── 手元の見積書と比べる（金額はどこにも送らない） ── */
+$('mine').addEventListener('change', () => {
+  if (cmpSent || !(parseFloat($('mine').value) > 0)) return;
+  cmpSent = true;
+  T('compare', { page: CFG.page });
+});
+$('verdict').addEventListener('click', e => {
+  if (!e.target.closest('.v-open')) return;
+  $('doc').open = true;
+  moveTo($('doc'));
+  $('doc').querySelector('summary').focus({ preventScroll: true });
+});
+
+/* ── 家族に送る ── */
+function shareURL() {
+  return location.href.replace(/[?#].*$/, '') + '#' + CFG.toHash(readState()).join('&');
+}
+function shareStatus(text, url) {
+  const st = $('sh-status');
+  st.textContent = text;
+  if (url) {
+    const a = document.createElement('a');
+    a.href = url; a.textContent = url; a.className = 'sh-url';
+    st.append(document.createElement('br'), a);
+  }
+}
+async function copyText(s) {
+  try { await navigator.clipboard.writeText(s); return true; } catch (_) { /* 下の方法で */ }
+  const ta = document.createElement('textarea');
+  ta.value = s; ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+  document.body.appendChild(ta); ta.select();
+  let ok = false;
+  try { ok = document.execCommand('copy'); } catch (_) { ok = false; }
+  ta.remove();
+  return ok;
+}
+$('sh-line').addEventListener('click', () => {
+  $('sh-line').href = 'https://line.me/R/share?text=' + encodeURIComponent(CFG.shareText() + '\n' + shareURL());
+  T('share', { page: CFG.page, method: 'line' });
+});
+$('sh-copy').addEventListener('click', async () => {
+  const url = shareURL();
+  const ok = await copyText(url);
+  if (ok) shareStatus('リンクをコピーしました。LINEやメールに貼りつけると、同じ条件の計算が開きます。');
+  else shareStatus('コピーできませんでした。下のリンクを長押しして、コピーしてください。', url);
+  T('share', { page: CFG.page, method: 'copy' });
+});
+if (typeof navigator.share === 'function') {
+  $('sh-native').hidden = false;
+  $('sh-native').addEventListener('click', async () => {
+    try {
+      await navigator.share({ title: document.title, text: CFG.shareText(), url: shareURL() });
+      T('share', { page: CFG.page, method: 'native' });
+    } catch (_) { /* 閉じただけ */ }
+  });
+}
+
+/* ── # の後ろの条件を読む（おかしな値は無視して、はじめの値のまま） ── */
+function applyHash() {
+  const raw = location.hash.slice(1);
+  if (!raw || raw.indexOf('=') < 0 || raw.length > 200) return false;
+  let sp;
+  try { sp = new URLSearchParams(raw); } catch (_) { return false; }
+  for (const [key, name, map] of CFG.radios) {
+    const v = sp.get(key);
+    if (v === null || !own(map, v)) continue;
+    const el = document.querySelector(`input[name="${name}"][value="${map[v]}"]`);
+    if (el) el.checked = true;
+  }
+  if (CFG.fromHashExtra) CFG.fromHashExtra(sp);
+  return true;
+}
+
+function setMode() {
+  H.classList.toggle('is-steps', MQ.matches);
+  if (!MQ.matches) H.classList.remove('is-result');
+  else { if (!curEl || curEl.hidden) curEl = liveSteps()[0]; for (const q of steps) q.classList.toggle('is-current', q === curEl); paintStepbar(); }
+}
+if (MQ.addEventListener) MQ.addEventListener('change', setMode); else if (MQ.addListener) MQ.addListener(setMode);
+
+/* ── はじめに ── */
+const fromHash = applyHash();
+renderMethod();
+render();
+$('share').hidden = false;
+if (fromHash) $('from-link').hidden = false;
+if (MQ.matches) $('doc').open = false;
+setMode();
+if (fromHash) { if (isSteps()) H.classList.add('is-result'); markDone(); }
+else H.classList.remove('is-result');
+</script>
+</body>
+</html>
