@@ -243,12 +243,10 @@ a.ref:hover { color: var(--blue); }
   <div class="wrap">
     <div class="doc">
       <figure class="video">
-        <!-- 公開したら YouTube の埋め込みに差し替える -->
         <div class="video__frame">
-          <img src="../../img/thumbs/05.webp" width="640" height="360" alt="動画のサムネイル（トイレのつまり修理、実際の金額は？）">
-          <span class="video__badge">動画は近日公開</span>
+          <iframe src="https://www.youtube-nocookie.com/embed/inzZEUtOCQQ" title="第5回の動画" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block;width:100%;height:100%;border:0"></iframe>
         </div>
-        <figcaption>動画はまだ公開していません。公開したら、ここで見られるようにします。お知らせは <a href="https://www.youtube.com/@mitsumori_onee" target="_blank" rel="noopener">YouTubeチャンネル</a> で。</figcaption>
+        <figcaption><a href="https://youtu.be/inzZEUtOCQQ" target="_blank" rel="noopener">YouTube で見る</a></figcaption>
       </figure>
 
       <nav class="toc" aria-labelledby="toc-h">
@@ -263,7 +261,7 @@ a.ref:hover { color: var(--blue); }
           <li><a href="#c5">⑤ 高すぎる請求の見分け方</a></li>
           <li><a href="#end">まとめ</a></li>
           <li class="toc__sub"><a href="#mitsumori">モデル請求書（表）</a></li>
-          <li class="toc__sub" data-gate="05" hidden><a href="#keisan">つまりの重さと時間帯で計算する</a></li>
+          <li class="toc__sub" data-gate="05"><a href="#keisan">つまりの重さと時間帯で計算する</a></li>
           <li class="toc__sub"><a href="#sources">出典</a></li>
         </ol>
       </nav>
@@ -526,7 +524,7 @@ a.ref:hover { color: var(--blue); }
           </div>
         </section>
 
-        <section class="calc-cta" id="keisan" data-gate="05" hidden aria-labelledby="keisan-h">
+        <section class="calc-cta" id="keisan" data-gate="05" aria-labelledby="keisan-h">
           <h2 id="keisan-h"><span class="nw">つまりの重さと時間帯で</span><span class="nw">計算する</span></h2>
           <p>つまりの重さと時間帯を選ぶと、目安の金額が出ます。この請求書と同じ単価で計算します。</p>
           <a class="btn" href="../../toilet/" data-track="douga_to_calc">トイレのつまり修理の費用を計算する →</a>
