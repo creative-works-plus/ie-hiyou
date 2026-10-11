@@ -1,0 +1,1072 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>蛇口の水漏れ修理の費用計算｜見積書のお姉さん</title>
+<meta name="description" content="直し方と、時間帯、カートリッジや新しい蛇口の値段を選ぶと、蛇口の水漏れ修理の見積書と同じ並びで1行ずつ目安の金額を出します（合計は税込）。メーカーの修理窓口の目安とも比べられます。数字はすべて公開資料から取り、出典を載せています。">
+<meta name="theme-color" content="#1f2d55">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="見積書のお姉さん">
+<meta property="og:title" content="蛇口の水漏れ修理の費用計算｜見積書のお姉さん">
+<meta property="og:description" content="部品の交換か、蛇口ごとの交換か、昼か夜かを選ぶと、蛇口の水漏れ修理の見積書と同じ並びで目安の金額が出ます。">
+<meta property="og:image" content="https://creative-works-plus.github.io/ie-hiyou/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../img/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=BIZ+UDPMincho:wght@700&family=M+PLUS+Rounded+1c:wght@800&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<script src="../assets/site.js" defer></script>
+<script>/* JSが動くときだけ、スマホは1問ずつ・送られてきたリンクは結果から */(function (h) { h.classList.add('js'); try { if (matchMedia('(max-width: 759.98px)').matches) { h.classList.add('is-steps'); if (location.hash.indexOf('=') > 0) h.classList.add('is-result'); } } catch (e) {} })(document.documentElement);</script>
+<style>
+/* 費用計算ページだけの見た目。色は site.css の変数を使う（見積書の明朝 --f-doc だけこのページで足す）
+   並び：スマホ（760px未満）は JS が html に .is-steps を付けて1問1画面にする。付かなければ全部の問いが縦に並ぶ。
+         760〜959px は1列、960px以上は左に問い・右に結果を貼りつける。 */
+:root { --f-doc: "BIZ UDPMincho", "Hiragino Mincho ProN", "Yu Mincho", serif; --line: #06873d; }
+[hidden] { display: none !important; }
+.num { font-variant-numeric: tabular-nums; }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+h1, h2, h3 { text-wrap: pretty; }
+.vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+[tabindex="-1"]:focus { outline: none; }
+
+/* ── ページの見出し ── */
+.page-h { padding-top: 28px; padding-bottom: 4px; }
+.page-h .kicker { font-size: 13px; font-weight: 700; color: var(--blue); margin: 0 0 8px; line-height: 1.6; }
+.page-h h1 .q { color: var(--blue); }
+.page-h .lead { font-size: 15.5px; margin: 12px 0 0; }
+.promise { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 0; padding: 0; list-style: none; }
+.promise li { font-size: 12.5px; font-weight: 700; color: var(--sub); background: var(--sheet); border: 1px solid var(--rule); border-radius: 999px; padding: 2px 11px 2px 9px; line-height: 1.7; }
+.promise li::before { content: "✓"; color: var(--blue); margin-right: 5px; }
+
+/* ── 計算（問い ＋ 結果） ── */
+.calc { display: grid; gap: 32px; margin-top: 24px; align-items: start; }
+.calc > section { min-width: 0; }
+@media (min-width: 960px) {
+  .calc { grid-template-columns: minmax(0, 1fr) minmax(0, 1.04fr); gap: 32px; }
+  .res-col { position: sticky; top: 72px; max-height: calc(100vh - 84px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; padding: 2px 8px 24px; margin: -2px -8px 0;
+    -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 22px), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 22px), transparent); }
+}
+.col-h { display: flex; align-items: center; gap: 10px; font: 800 15px/1.4 var(--f-disp); color: var(--sub); letter-spacing: .04em; margin: 0 0 12px; }
+.col-h .n { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--ink); color: var(--paper); font-size: 13px; line-height: 1; }
+
+/* 問いのカード */
+#f { display: grid; gap: 12px; counter-reset: q; }
+fieldset.q { counter-increment: q; min-width: 0; margin: 0; padding: 18px 16px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--sheet); }
+@media (min-width: 760px) { fieldset.q { padding: 20px 22px; } }
+fieldset.q > legend { float: left; width: 100%; padding: 0; margin: 0 0 12px; font: 800 18px/1.45 var(--f-disp); }
+fieldset.q > legend::before { content: "Q" counter(q); display: block; font: 700 12px/1.7 var(--f-body); letter-spacing: .12em; color: var(--blue); }
+fieldset.q > legend + * { clear: both; }
+.help { font-size: 13.5px; color: var(--sub); margin: 10px 0 0; line-height: 1.7; }
+
+/* 選択肢のカード */
+.seg { display: grid; grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr)); gap: 8px; }
+.seg label { position: relative; display: block; cursor: pointer; }
+.seg input { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; opacity: 0; margin: 0; cursor: pointer; }
+.opt { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; height: 100%; min-height: 56px; padding: 10px; border: 1.5px solid var(--rule); border-radius: 12px; background: var(--sheet); line-height: 1.4; text-align: center; transition: border-color .15s, background-color .15s, box-shadow .15s; }
+.opt b { font-size: 16.5px; }
+.opt small { font-size: 12.5px; color: var(--sub); }
+.seg label:hover .opt { border-color: color-mix(in srgb, var(--blue) 50%, var(--rule)); }
+.seg input:checked + .opt { border-color: var(--blue); background: var(--blue-soft); box-shadow: inset 0 0 0 1px var(--blue); }
+.seg input:checked + .opt b { color: var(--blue); }
+.seg input:focus-visible + .opt { outline: 3px solid var(--blue); outline-offset: 2px; }
+/* 選んだ印（右上の丸） */
+.opt::after { content: "✓"; position: absolute; top: -8px; right: -8px; width: 22px; height: 22px; border-radius: 50%; background: var(--blue); color: var(--blue-ink); font: 700 12px/22px var(--f-body); text-align: center; transform: scale(0); transition: transform .2s cubic-bezier(.3, 1.6, .6, 1); }
+.seg input:checked + .opt::after { transform: scale(1); }
+/* 説明つきの選択肢は、左に丸いラジオ */
+.seg.left .opt { align-items: flex-start; text-align: left; padding: 12px 14px 12px 46px; }
+.seg.left .opt::before { content: ""; position: absolute; left: 15px; top: 50%; width: 20px; height: 20px; margin-top: -10px; border-radius: 50%; border: 2px solid var(--rule); background: var(--sheet); box-sizing: border-box; }
+.seg.left input:checked + .opt::before { border-color: var(--blue); background: var(--blue); box-shadow: inset 0 0 0 4px var(--sheet); }
+.seg.left .opt::after { display: none; }
+.opt .ico { display: block; width: 46px; height: 30px; color: var(--sub); margin: 0 0 6px; flex: none; overflow: visible; }
+.seg input:checked + .opt .ico { color: var(--blue); }
+.opt .t { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.seg.left .opt .t { align-items: flex-start; }
+
+/* 金額まで出すカード（つまりの重さ） */
+.paint .opt { align-items: flex-start; text-align: left; padding: 12px 14px; }
+.paint .price { font: 800 20px/1.3 var(--f-disp); color: var(--ink); margin-top: 4px; }
+.paint .per { font-size: 12.5px; color: var(--sub); }
+/* 列が細いとき（スマホ・PCの2段の中）は、1枚ずつ横長に */
+@media (max-width: 520px), (min-width: 960px) {
+  .paint { --cols: 1 !important; }
+  .paint .opt { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 12px; row-gap: 1px; }
+  .paint .opt > b { grid-area: 1 / 1; }
+  .paint .opt > small { grid-area: 2 / 1; }
+  .paint .price { grid-area: 1 / 2 / 3 / 3; margin: 0; text-align: right; }
+  .paint .per { grid-area: 3 / 1 / 4 / 3; margin-top: 2px; }
+}
+
+.reset { display: none; justify-self: start; font: 400 14.5px var(--f-body); color: var(--sub); background: none; border: 0; padding: 10px 0; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.js .reset { display: inline-block; }
+.reset:hover { color: var(--ink); }
+
+/* ── スマホの1問1画面 ── */
+.stepbar, .stepnav, .res-top { display: none; }
+.step-back { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 10px 0 2px; border: 0; background: none; color: var(--ink); font: 700 15px var(--f-body); cursor: pointer; }
+.step-back::before { content: ""; width: 9px; height: 9px; border-left: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); margin-left: 4px; }
+.step-back:disabled { visibility: hidden; }
+.is-steps .stepbar { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 2px 12px; margin: 0 0 18px; }
+.step-count { grid-column: 3; font: 800 15px/1 var(--f-disp); color: var(--sub); letter-spacing: .04em; }
+.step-count b { color: var(--ink); font-size: 19px; }
+.step-prog { grid-column: 1 / -1; height: 6px; border-radius: 3px; background: var(--rule); overflow: hidden; }
+.step-prog i { display: block; width: 0; height: 100%; border-radius: 3px; background: var(--blue); transition: width .3s ease; }
+.is-steps .col-h.form-h { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.is-steps #f { gap: 0; }
+.is-steps fieldset.q { display: none; padding: 0; border: 0; border-radius: 0; background: none; }
+.is-steps fieldset.q.is-current { display: block; }
+.is-steps fieldset.q > legend { font-size: 23px; line-height: 1.4; margin-bottom: 18px; }
+.is-steps fieldset.q > legend::before { display: none; }
+.is-steps .seg.left, .is-steps .paint { grid-template-columns: minmax(0, 1fr); }
+.is-steps .seg .opt { min-height: 64px; }
+.is-steps .seg.rows-sp { grid-template-columns: minmax(0, 1fr); }
+.is-steps .rows-sp .opt { flex-direction: row; justify-content: flex-start; align-items: center; gap: 16px; padding: 12px 16px; text-align: left; }
+.is-steps .rows-sp .opt .ico { width: 58px; height: 38px; margin: 0; }
+.is-steps .rows-sp .opt .t { align-items: flex-start; }
+.is-steps .seg.left .opt { min-height: 72px; }
+.is-steps .help { font-size: 14px; margin-top: 14px; }
+.is-steps .stepnav { display: block; margin-top: 24px; }
+.is-steps .reset { display: none; }
+.btn-next { width: 100%; }
+.btn-next.is-quiet { background: var(--sheet); color: var(--ink); border-color: var(--rule); }
+.btn-next.is-quiet:hover { border-color: var(--ink); filter: none; }
+.is-steps fieldset.q.in-fwd { animation: q-in .3s cubic-bezier(.2, .7, .2, 1) both; }
+.is-steps fieldset.q.in-back { animation: q-back .3s cubic-bezier(.2, .7, .2, 1) both; }
+@keyframes q-in { from { opacity: 0; transform: translateX(22px); } }
+@keyframes q-back { from { opacity: 0; transform: translateX(-22px); } }
+.is-steps .res-col { display: none; }
+.is-steps.is-result .res-col { display: block; }
+.is-steps.is-result .form-col { display: none; }
+.is-steps .res-top { display: flex; margin: -6px 0 6px; }
+.is-steps.is-result .res-col { animation: q-up .3s ease both; }
+@keyframes q-up { from { opacity: 0; transform: translateY(12px); } }
+
+/* ── 結果 ── */
+.total { position: relative; overflow: hidden; padding: 24px 18px 22px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--sheet); box-shadow: var(--shadow); text-align: center; }
+.total::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: linear-gradient(90deg, var(--ink) 0 70%, var(--yellow) 70%); }
+.total .lbl { margin: 0; font-size: 14px; color: var(--sub); }
+.total .big { margin: 6px 0 0; font: 800 clamp(50px, 14.5vw, 68px)/1.1 var(--f-disp); letter-spacing: -.01em; }
+.total .big .hl { background: linear-gradient(transparent 60%, var(--marker) 60%); padding: 0 .08em; }
+.total .big small { font-size: .4em; margin-left: .1em; }
+.total .range { margin: 10px 0 0; font-size: 15px; }
+.total .range b { font-size: 18px; }
+.total .year { margin: 4px 0 0; font-size: 14px; color: var(--sub); line-height: 1.65; }
+.total .ref { margin: 12px auto 0; max-width: 30em; padding-top: 12px; border-top: 1px dashed var(--rule); font-size: 13px; color: var(--sub); line-height: 1.65; }
+.total .ref:empty { display: none; }
+
+.blk { margin-top: 16px; }
+.blk-h { font: 800 15px/1.4 var(--f-disp); margin: 0 0 10px; }
+.blk-h small { display: block; margin-top: 2px; font: 500 13px/1.6 var(--f-body); color: var(--sub); }
+.chips-wrap { display: none; }
+.js .chips-wrap { display: block; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 12px 0 14px; border: 1.5px solid var(--rule); border-radius: 999px; background: var(--sheet); color: var(--ink); font: 700 14px var(--f-body); cursor: pointer; }
+.chip::after { content: ""; width: 6px; height: 6px; border-right: 1.5px solid var(--sub); border-top: 1.5px solid var(--sub); transform: rotate(45deg); margin-left: 2px; }
+.chip:hover { border-color: var(--blue); color: var(--blue); }
+.from-link { margin: 8px 0 0; font-size: 13px; color: var(--sub); }
+
+/* 内訳（御見積書） */
+.doc { border: 1px solid var(--rule); border-radius: var(--radius); background: var(--sheet); box-shadow: var(--shadow); }
+.doc > summary { display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 14px 18px; cursor: pointer; list-style: none; border-radius: var(--radius); }
+.doc > summary::-webkit-details-marker { display: none; }
+.doc > summary::after { content: ""; flex: none; width: 9px; height: 9px; margin: -4px 4px 0 auto; border-right: 2px solid var(--sub); border-bottom: 2px solid var(--sub); transform: rotate(45deg); transition: transform .2s; }
+.doc[open] > summary::after { transform: rotate(-135deg); margin-top: 4px; }
+.doc .sum-t { display: block; font: 700 18px/1.3 var(--f-doc); letter-spacing: .14em; }
+.doc .sum-s { display: block; font-size: 13px; color: var(--sub); }
+.doc-body { padding: 4px 16px 18px; border-top: 1px solid var(--rule); }
+@media (min-width: 400px) { .doc-body { padding: 4px 20px 20px; } }
+.doc-h { margin: 18px 0 4px; font: 700 22px/1.4 var(--f-doc); letter-spacing: .3em; text-align: center; }
+.spec { margin: 0 0 12px; font-size: 13px; color: var(--sub); text-align: center; line-height: 1.6; }
+.fnote { margin: 0 0 12px; padding: 10px 12px; border-radius: var(--radius-s); background: var(--blue-soft); font-size: 13.5px; line-height: 1.7; }
+.est-scroll { overflow-x: auto; }
+table.est { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.45; }
+table.est th, table.est td { padding: 10px 4px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+table.est thead th { padding-top: 0; border-bottom: 1.5px solid var(--ink); font-size: 12px; font-weight: 700; color: var(--sub); text-align: right; }
+table.est thead th:first-child { text-align: left; }
+table.est thead .rng-h { display: block; font-weight: 400; }
+table.est td.item b { font-weight: 700; }
+table.est td.item small { display: block; margin-top: 2px; font-size: 12.5px; color: var(--sub); }
+table.est td.amt { padding-left: 12px; text-align: right; white-space: nowrap; font-weight: 700; }
+table.est td.amt .rng { display: block; margin-top: 2px; font-size: 13px; font-weight: 400; color: var(--sub); }
+table.est tr.sum td { border-bottom: 1.5px solid var(--ink); font-weight: 700; }
+table.est tr.grand td { padding-top: 12px; border-bottom: 0; font-size: 17px; }
+table.est tr.grand td.amt { font-size: 19px; }
+table.est tr.grand td.amt .rng { font-size: 14px; }
+table.est tr.off td { color: var(--sub); }
+table.est tr.off td.amt { font-weight: 400; }
+.kw { display: inline-block; margin-left: 6px; padding: 3px 7px 2px; border: 1px solid currentColor; border-radius: 999px; font: 700 11px/1 var(--f-body); color: var(--blue); text-decoration: none; vertical-align: 2px; }
+.kw:hover { background: var(--blue-soft); }
+.doc .foot { margin: 12px 0 0; font-size: 13.5px; color: var(--sub); line-height: 1.7; }
+
+/* 手元の見積書と比べる */
+.card-s { padding: 18px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--sheet); }
+.card-s h3 { font-size: 18px; margin: 0 0 4px; }
+.card-s .hint { margin: 0 0 12px; font-size: 13.5px; color: var(--sub); line-height: 1.7; }
+.cmp .row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 10px; }
+.cmp label { font-size: 14px; font-weight: 700; }
+.cmp .in { display: inline-flex; align-items: center; gap: 8px; }
+.cmp input { width: 6.2em; font: 800 24px var(--f-disp); padding: 6px 12px; border: 2px solid var(--blue); border-radius: 12px; background: var(--sheet); color: var(--ink); text-align: right; }
+.cmp .in span { font-weight: 700; }
+.ruler { position: relative; height: 64px; margin: 18px 6px 4px; }
+.ruler.has-mine { height: 92px; }
+.ruler .track { position: absolute; left: 0; right: 0; top: 30px; height: 6px; border-radius: 3px; background: var(--rule); }
+.ruler .band { position: absolute; top: 28px; height: 10px; border: 2px solid var(--blue); border-radius: 5px; background: var(--blue-soft); }
+.ruler .tick { position: absolute; top: 44px; transform: translateX(-50%); font-size: 13px; color: var(--sub); white-space: nowrap; }
+.ruler .pin { position: absolute; top: 0; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; font-size: 13px; font-weight: 700; white-space: nowrap; }
+.ruler .pin i { display: block; width: 3px; height: 16px; margin-top: 2px; background: currentColor; }
+.ruler .pin.std { color: var(--blue); }
+.ruler .pin.mine { top: 26px; flex-direction: column-reverse; color: var(--red-ink); }
+.ruler .pin.mine i { height: 40px; margin: 0 0 2px; }
+.verdict { margin: 12px 0 0; font-size: 15px; line-height: 1.75; }
+.verdict:empty { display: none; }
+.verdict .v-pill { display: table; margin: 0 0 8px; padding: 3px 14px; border-radius: 999px; background: var(--blue-soft); color: var(--blue); font: 800 16px/1.6 var(--f-disp); }
+.verdict.out .v-pill { background: var(--marker); color: var(--ink); }
+.verdict .v-next { display: block; margin-top: 8px; }
+.verdict .v-open { display: inline-flex; align-items: center; min-height: 40px; margin-top: 6px; padding: 0 16px; border: 1.5px solid var(--blue); border-radius: 999px; background: var(--sheet); color: var(--blue); font: 700 14px var(--f-body); cursor: pointer; }
+.verdict .v-open:hover { background: var(--blue-soft); }
+.verdict small { display: block; margin-top: 8px; font-size: 13px; color: var(--sub); line-height: 1.65; }
+
+/* 家族に送る */
+.share-btns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.share-btns .btn { min-height: 50px; padding: 0 12px; font-size: 15px; }
+.btn-line { grid-column: 1 / -1; background: var(--line); color: #fff; }
+.btn-line:hover { filter: brightness(1.08); }
+.btn-line svg { width: 24px; height: 24px; flex: none; }
+.share-btns:has(#sh-native[hidden]) #sh-copy { grid-column: 1 / -1; }
+@media (max-width: 439.98px) { .share-btns { grid-template-columns: minmax(0, 1fr); } }
+.sh-url { display: inline-block; margin-top: 4px; font-size: 13px; overflow-wrap: anywhere; }
+.share .hint.foot { margin: 10px 0 0; }
+.sh-status { margin: 10px 0 0; font-size: 13.5px; color: var(--sub); }
+.sh-status:empty { display: none; }
+.next-links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 18px 0 0; font-size: 14px; }
+.next-links a { font-weight: 700; }
+.next-links a::after { content: " →"; }
+.next-links a.warn { color: var(--red-ink); }
+
+/* ── 下に出る「いまの条件の相場」の帯 ── */
+.dock { display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; align-items: center; justify-content: space-between; gap: 12px; padding: 9px 16px calc(9px + env(safe-area-inset-bottom, 0px)); background: var(--navy); color: var(--on-navy); border-top: 1px solid rgba(255, 255, 255, .1); box-shadow: 0 -10px 28px rgba(20, 33, 61, .16); transition: transform .25s ease; }
+.js .dock { display: flex; }
+.dock.away { transform: translateY(115%); }
+.is-result .dock { display: none !important; }
+.dock-in { min-width: 0; flex: 1; }
+.dock .d1 { margin: 0; font-size: 12px; line-height: 1.4; color: color-mix(in srgb, var(--on-navy) 78%, transparent); }
+.dock .d2 { margin: 0; font: 800 25px/1.2 var(--f-disp); }
+.dock .d2 small { font-size: 13px; }
+.dock .d2 .d-sub { display: inline-block; font: 400 12px var(--f-body); color: color-mix(in srgb, var(--on-navy) 78%, transparent); margin-left: 8px; }
+.dock .d3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 2px; }
+.dock .d3 > span { display: flex; flex-direction: column; min-width: 0; }
+.dock .d3 b { font: 800 18px/1.2 var(--f-disp); white-space: nowrap; }
+.dock .d3 i { font-style: normal; }
+.dock .d3 small { font: 400 11px/1.4 var(--f-body); white-space: nowrap; color: color-mix(in srgb, var(--on-navy) 78%, transparent); }
+.dock-go { flex: none; min-height: 44px; padding: 0 16px; border: 0; border-radius: 999px; background: var(--yellow); color: #14213d; font: 700 14px var(--f-body); cursor: pointer; }
+@media (max-width: 959.98px) { .js body { padding-bottom: 76px; } .js.is-result body { padding-bottom: 0; } }
+@media (min-width: 960px) { .js .dock { display: none; } }
+
+/* ── 読みもの ── */
+.read { max-width: 760px; margin-top: 72px; display: grid; gap: 52px; }
+.read > section { min-width: 0; }
+.read h2 { font-size: clamp(22px, 5.4vw, 28px); margin-bottom: 14px; }
+.read p { margin: 0 0 12px; }
+.checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: c; }
+.checks li { counter-increment: c; display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 4px 10px; }
+.checks li::before { content: counter(c); grid-row: span 2; width: 30px; height: 30px; margin-top: 2px; border-radius: 50%; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-weight: 700; font-size: 15px; line-height: 1; }
+.checks b { font-size: 17px; }
+.checks span { color: var(--sub); font-size: 15px; }
+.ask { margin: 18px 0 0; padding: 16px 18px; border-left: 4px solid var(--blue); border-radius: 0 var(--radius-s) var(--radius-s) 0; background: var(--sheet); display: grid; gap: 8px; }
+.ask p { margin: 0; font-weight: 700; }
+.ask .h { font-weight: 400; color: var(--sub); font-size: 14px; }
+.read .warn-box { padding: 0; overflow: hidden; border: 2px solid var(--red); border-radius: var(--radius); background: var(--sheet); }
+.read .warn-box .head { padding: 10px 16px; background: var(--red-ink); color: var(--sheet); font-weight: 700; font-size: 16px; }
+.read .warn-box .body { padding: 16px; display: grid; gap: 16px; }
+.case { display: grid; gap: 4px; }
+.case q { font-weight: 700; font-size: 17px; quotes: "「" "」"; }
+.case p { margin: 0; color: var(--sub); font-size: 15px; }
+.case p b { color: var(--red-ink); }
+.todo { background: var(--red-soft); border-radius: var(--radius-s); padding: 14px 16px; display: grid; gap: 8px; }
+.todo p { margin: 0; font-size: 15px; }
+.read .tel { font-family: var(--f-disp); font-weight: 800; font-size: 20px; color: var(--ink); text-decoration: none; border-bottom: 2px solid var(--ink); }
+.method { font-size: 15px; }
+.method dl { margin: 0; display: grid; gap: 10px; }
+.method dt { font-weight: 700; }
+.method dd { margin: 0; color: var(--sub); }
+ol.src { margin: 0; padding-left: 1.2em; font-size: 14px; color: var(--sub); display: grid; gap: 6px; }
+ol.src a { overflow-wrap: anywhere; }
+.src-scroll { overflow-x: auto; }
+.src-table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.55; margin: 8px 0 0; }
+.src-table th, .src-table td { text-align: left; padding: 7px 6px 7px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.src-table th { font-size: 12.5px; color: var(--sub); border-bottom: 1.5px solid var(--ink); }
+.src-table td.n { white-space: nowrap; }
+.src-table td:first-child { min-width: 7.5em; }
+.src-table td:last-child { min-width: 10em; }
+.kind { display: grid; gap: 12px; }
+.kind > div { border-left: 4px solid var(--rule); padding: 2px 0 2px 14px; }
+.kind b { display: block; }
+.kind span { color: var(--sub); font-size: 15px; }
+.kind .w { border-left-color: var(--red); }
+.page-note { max-width: 760px; margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--rule); font-size: 13.5px; color: var(--sub); }
+.page-note p { margin: 0 0 8px; }
+
+@media (prefers-reduced-motion: reduce) {
+  /* 動き（横すべり・はねる）は止める。うすく出るだけは残す */
+  .is-steps fieldset.q.in-fwd, .is-steps fieldset.q.in-back, .is-steps.is-result .res-col { animation: q-fade .16s linear both; }
+  @keyframes q-fade { from { opacity: 0; } }
+  .opt, .opt::after, .step-prog i, .dock, .doc > summary::after { transition: none; }
+}
+@media print { .dock, .stepbar, .stepnav, .share, .reset { display: none !important; } }
+
+/* ── 10〜12で足した部品（チェックの選択肢・数を入れる欄・2列の金額） ── */
+.checks-q { display: grid; gap: 8px; }
+.ck { position: relative; display: block; border: 1.5px solid var(--rule); border-radius: 12px; background: var(--sheet); transition: border-color .15s, background-color .15s; }
+.ck:has(> label input:checked) { border-color: var(--blue); background: var(--blue-soft); }
+.ck > label { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 2px 12px; align-items: start; padding: 13px 14px; cursor: pointer; line-height: 1.5; }
+.ck > label input { width: 22px; height: 22px; margin: 1px 0 0; accent-color: var(--blue); cursor: pointer; }
+.ck > label b { font-size: 16px; }
+.ck > label small { grid-column: 2; font-size: 12.5px; color: var(--sub); }
+.ck .more { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; padding: 0 14px 13px 50px; font-size: 14px; }
+.ck:not(:has(> label input:checked)) .more { display: none; }
+.field { display: inline-flex; align-items: center; gap: 6px; }
+.field input, .field select { font: 700 18px var(--f-body); padding: 6px 10px; border: 2px solid var(--rule); border-radius: 10px; background: var(--sheet); color: var(--ink); }
+.field input { width: 6.5em; text-align: right; }
+.field input.sm { width: 4.6em; }
+.field input:focus, .field select:focus { border-color: var(--blue); }
+.dims { display: grid; gap: 10px; margin-top: 12px; padding: 14px; border-radius: 12px; background: var(--tint); }
+.dims .field { justify-content: space-between; font-size: 14.5px; }
+.dims .note { margin: 0; font-size: 12.5px; color: var(--sub); line-height: 1.6; }
+/* 数を選ぶ行（品物） */
+.items { display: grid; gap: 6px; }
+.items .grp { margin: 10px 0 2px; font: 700 13px var(--f-body); color: var(--sub); letter-spacing: .04em; }
+.items .grp:first-child { margin-top: 0; }
+.it { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 4px 10px; padding: 8px 10px 8px 14px; border: 1.5px solid var(--rule); border-radius: 12px; background: var(--sheet); }
+.it.on { border-color: var(--blue); background: var(--blue-soft); }
+.it .nm { line-height: 1.45; }
+.it .nm b { font-size: 15.5px; }
+.it .nm small { display: block; font-size: 12px; color: var(--sub); }
+.stp { display: inline-flex; align-items: center; gap: 4px; }
+.stp button { width: 40px; height: 40px; border: 1.5px solid var(--rule); border-radius: 50%; background: var(--sheet); color: var(--ink); font: 700 20px/1 var(--f-body); cursor: pointer; }
+.stp button:hover { border-color: var(--blue); color: var(--blue); }
+.stp input { width: 2.6em; text-align: center; font: 800 18px var(--f-disp); border: 0; background: none; color: var(--ink); -moz-appearance: textfield; }
+.stp input::-webkit-outer-spin-button, .stp input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.items-sum { margin: 10px 0 0; font-size: 14px; font-weight: 700; }
+/* 2列の金額（見積書の金額／借りた人の分・業者／区） */
+table.est.two td.amt { width: 6.6em; }
+table.est.two thead th { vertical-align: bottom; }
+table.est.two td.amt.mine { color: var(--blue); }
+table.est.two tr.off td.amt.mine { color: var(--sub); }
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 14px; text-align: left; }
+.pair > div { padding: 10px 12px; border-radius: var(--radius-s); background: var(--tint); }
+.pair .k { display: block; font-size: 12.5px; color: var(--sub); line-height: 1.5; }
+.pair .v { display: block; font: 800 22px/1.3 var(--f-disp); }
+.pair .v small { font-size: 12px; }
+.first-box { margin: 0 0 12px; padding: 12px 14px; border-left: 4px solid var(--red); border-radius: 0 var(--radius-s) var(--radius-s) 0; background: var(--red-soft); font-size: 14.5px; line-height: 1.7; }
+.first-box b { color: var(--red-ink); }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へ</a>
+<header class="site-h">
+  <div class="wrap site-h__in">
+    <a class="logo" href="../"><img src="../img/face.webp" alt="" width="36" height="36">見積書のお姉さん</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"><span class="menu-btn__bars" aria-hidden="true"></span>メニュー</button>
+    <nav id="site-nav" class="site-nav" aria-label="サイトの中">
+      <a href="../#keisan">計算する</a>
+      <a href="../douga/">動画</a>
+      <a href="../teguchi/">手口の記録</a>
+      <a href="../kotoba/">言葉の辞典</a>
+      <a class="nav-warn" href="../houmon/">業者が来たら</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" data-gate="16" data-soon>
+  <div class="wrap soon-note">
+    <p class="crumb"><a href="../">トップ</a> ／ 蛇口の水漏れ修理の費用計算</p>
+    <h1>この計算は、動画の公開と同時に使えるようになります</h1>
+    <p>第16回「蛇口の水漏れ修理」の動画を公開したら、ここで自分の家の条件で計算できるようになります。</p>
+    <p><a class="btn btn-primary" href="../#keisan">いま使える計算を見る</a></p>
+  </div><!-- /soon-note -->
+  <div class="wrap page-h">
+    <p class="crumb"><a href="../">トップ</a> ／ 蛇口の水漏れ修理の費用計算</p>
+    <p class="kicker"><span class="nw">YouTube「蛇口の水漏れ修理、本当はいくら？」と</span><span class="nw">同じ単価表で計算します</span></p>
+    <h1><span class="nw">蛇口の水漏れ修理、</span><span class="nw q">相場はいくら？</span></h1>
+    <p class="lead">直し方と、時間帯、カートリッジや新しい蛇口の値段を選ぶと、水道の修理の見積書と同じ並びで、1行ずつ目安の金額が出ます。レバーが1本の、キッチンの蛇口（シングルレバー）で計算します。数字はすべて公開されている資料から取り、出典をページの下にまとめました。</p>
+    <ul class="promise">
+      <li>水道の業者・蛇口のメーカーではない立場で作っています</li>
+      <li>入力した内容は、どこにも送られません</li>
+      <li>合計は税込（内訳の行は税抜）</li>
+    </ul>
+    <p class="first-box" style="margin-top:14px"><b>まず、止水栓を閉めてください。</b>キッチンや洗面台なら、たいていシンクの下にあります。時計回りに回すと閉まります。応急処置をして、落ち着いてから見積もりを頼みましょう（国民生活センター）。</p>
+  </div>
+
+  <div class="wrap">
+  <div class="calc">
+    <section class="form-col" aria-labelledby="h-form">
+      <h2 class="col-h form-h" id="h-form"><span class="n">1</span>直し方と時間帯を選ぶ</h2>
+      <div class="stepbar" id="stepbar">
+        <button type="button" class="step-back" id="step-back">もどる</button>
+        <p class="step-count num" id="step-count"><b>1</b> / 3</p>
+        <div class="step-prog" aria-hidden="true"><i id="step-fill"></i></div>
+      </div>
+      <form id="f" autocomplete="off">
+        <fieldset class="q is-current" data-step="naoshi" data-kind="radio" tabindex="-1">
+          <legend>直し方</legend>
+          <div class="seg left" style="--cols:1">
+            <label><input type="radio" name="naoshi" value="packing"><span class="opt"><span class="t"><b>パッキンだけ交換</b><small>蛇口の根元から漏れるときなど。部品 210円＋作業費 8,000円</small></span></span></label>
+            <label><input type="radio" name="naoshi" value="cartridge" checked><span class="opt"><span class="t"><b>カートリッジを交換</b><small>動画と同じ。レバーを閉めても先からポタポタ。部品＋作業費 8,000円</small></span></span></label>
+            <label><input type="radio" name="naoshi" value="jaguchi"><span class="opt"><span class="t"><b>蛇口ごと交換</b><small>新しい蛇口＋取り付け 1万1,000円</small></span></span></label>
+          </div>
+          <p class="help">カートリッジは、レバーの下に入っている、水を出したり止めたりする部品です。根元の漏れでも、パッキンだけで直るとは限りません（メーカーの修理窓口の目安には、ヘッドパーツの交換も並んでいます）。</p>
+        </fieldset>
+
+        <fieldset class="q" data-step="jikan" data-kind="radio" tabindex="-1">
+          <legend>時間帯</legend>
+          <div class="seg left" style="--cols:2">
+            <label><input type="radio" name="jikan" value="hiru"><span class="opt"><span class="t"><b>昼</b><small>割増なし</small></span></span></label>
+            <label><input type="radio" name="jikan" value="yoru" checked><span class="opt"><span class="t"><b>夜</b><small>動画と同じ。割増 5,000円</small></span></span></label>
+          </div>
+          <p class="help">夜の上乗せは、5,000円から1万5,000円くらい、と水道の業者の記事にあります。時間帯で料金が変わらない業者もあります。休日や夜に急いで頼むと、通常より高いことがある、と横浜市水道局も書いています。</p>
+        </fieldset>
+
+        <fieldset class="q" data-step="cart" data-kind="radio" tabindex="-1" id="q-cart">
+          <legend>カートリッジの値段（部品代）</legend>
+          <div class="seg left" style="--cols:1">
+            <label><input type="radio" name="cart" value="5000"><span class="opt"><span class="t"><b>5,000円</b><small>安い側のメーカーの部品</small></span></span></label>
+            <label><input type="radio" name="cart" value="12400" checked><span class="opt"><span class="t"><b>1万2,400円</b><small>動画と同じ</small></span></span></label>
+            <label><input type="radio" name="cart" value="13700"><span class="opt"><span class="t"><b>1万3,700円</b><small>高い側の部品</small></span></span></label>
+          </div>
+          <p class="help">大手メーカーが公式のお店で出している、シングルレバー用の部品の値段（税抜）です。メーカーや型によって、4,900円から1万3,700円まで、3倍近い差があります。蛇口に合う部品しか使えません。</p>
+        </fieldset>
+
+        <fieldset class="q" data-step="hontai" data-kind="radio" tabindex="-1" id="q-hontai" hidden>
+          <legend>新しい蛇口の値段（本体）</legend>
+          <div class="seg left" style="--cols:1">
+            <label><input type="radio" name="hontai" value="10000"><span class="opt"><span class="t"><b>1万円</b><small>シャワーなしの安い側</small></span></span></label>
+            <label><input type="radio" name="hontai" value="20000" checked><span class="opt"><span class="t"><b>2万円</b><small>動画と同じ</small></span></span></label>
+            <label><input type="radio" name="hontai" value="30000"><span class="opt"><span class="t"><b>3万円</b><small>シャワーなしの高い側</small></span></span></label>
+          </div>
+          <p class="help">キッチンのワンホール（穴が1つ）の、シャワーなしの蛇口は1万〜3万円、と業者を紹介するサイトの記事にあります。シャワー付き・浄水器付き・タッチレスなどは、もっと高くなります。</p>
+        </fieldset>
+
+        <div class="stepnav"><button type="button" class="btn btn-primary btn-next" id="step-next">このまま次へ</button></div>
+        <button type="button" class="reset" id="btn-reset">動画と同じ条件にもどす</button>
+      </form>
+    </section>
+
+    <section class="res-col" id="result" aria-labelledby="h-result">
+      <div class="res-top"><button type="button" class="step-back" id="res-back">もどる</button></div>
+      <h2 class="col-h" id="h-result" tabindex="-1"><span class="n">2</span>計算の結果</h2>
+      <div class="total" aria-live="polite">
+        <p class="lbl">相場の単価で計算すると（税込）</p>
+        <p class="big num"><span class="hl" id="t-std">3万1,240</span><small>円<span id="t-from"></span></small></p>
+        <p class="range" id="t-range">業者によって <b class="num"><span id="t-lo">1万3,640</span>〜<span id="t-hi">5万6,870</span>円</b></p>
+        <div class="pair num">
+          <div><span class="k" id="t-alt1k">昼に頼めたら</span><span class="v"><span id="t-alt1">2万5,740</span><small>円</small></span></div>
+          <div><span class="k" id="t-alt2k">蛇口ごと替えると</span><span class="v"><span id="t-alt2">4万2,900</span><small>円</small></span></div>
+        </div>
+        <p class="ref" id="t-ref"></p>
+      </div>
+      <p class="first-box" style="margin-top:14px"><b>見積もりの前に、料金がかかるかと、断ったときのキャンセル料を聞いてください。</b>見積もりだけでも有料のことがある、と横浜市水道局は書いています。その場で決めず、なるべく何社かに見積もりを頼みます。</p>
+
+      <div class="blk chips-wrap">
+        <h3 class="blk-h">この条件で計算しました</h3>
+        <div class="chips" id="chips"></div>
+        <p class="from-link" id="from-link" hidden>送られてきたリンクの条件で計算しています。</p>
+        <p class="from-link">押すと、その問いにもどって直せます。</p>
+      </div>
+
+      <details class="doc blk" id="doc" open>
+        <summary><span><span class="sum-t">見積書（内訳）</span><span class="sum-s">1行ずつの目安と、業者による幅</span></span></summary>
+        <div class="doc-body">
+          <p class="spec num" id="spec">キッチン・シングルレバーの蛇口・カートリッジを交換・夜<br>内訳の行は税抜、合計は税込</p>
+          <p class="fnote" id="fnote" hidden></p>
+          <div class="est-scroll">
+            <table class="est num">
+              <thead><tr><th scope="col">項目</th><th scope="col">目安（円）<span class="rng-h">業者による幅</span></th></tr></thead>
+              <tbody id="rows"></tbody>
+            </table>
+          </div>
+          <p class="foot">基本料金・作業費・夜間の割増・蛇口の値段と取り付けは、見積もりサイト・業者を紹介するサイト・水道の業者の記事（税の表示なし。税抜として並べました）、部品代は大手メーカーが公式のお店で出している値段（税抜）です。最後に消費税10%を足しました。幅は、それぞれの記事の下の端〜上の端です。作業費に部品代が入るかは、どの記事もはっきり書いていないので、部品代は別の行にしました。見積書に諸経費の行はありません。</p>
+        </div>
+      </details>
+
+      <div class="card-s cmp blk">
+        <h3>手元の見積書と比べる</h3>
+        <p class="hint">見積書の合計（税込）を入れると、相場の幅のどこにあるかを出します。入れた金額は、どこにも送られません。</p>
+        <div class="row"><label for="mine">見積書の合計</label><span class="in"><input type="number" id="mine" inputmode="numeric" min="0" step="100" placeholder="例 40000"><span>円</span></span></div>
+        <div class="ruler" id="ruler" aria-hidden="true">
+          <div class="track"></div>
+          <div class="band" id="r-band"></div>
+          <div class="pin std" id="r-std"><span>相場</span><i></i></div>
+          <div class="pin mine" id="r-mine" hidden><span>手元の金額</span><i></i></div>
+          <div class="tick num" id="r-lo"></div>
+          <div class="tick num" id="r-hi"></div>
+        </div>
+        <p class="verdict" id="verdict" aria-live="polite"></p>
+      </div>
+
+      <section class="card-s share blk" id="share" aria-labelledby="h-share" hidden>
+        <h3 id="h-share">家族に送る</h3>
+        <p class="hint">いま選んでいる条件のまま、同じ計算が開くリンクを送れます。</p>
+        <div class="share-btns">
+          <a class="btn btn-line" id="sh-line" href="https://line.me/R/share" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.5s5.9-3.5 8-6C21.4 14.3 22 12.7 22 11c0-4.4-4.5-8-10-8Z"/></svg>LINEで送る</a>
+          <button type="button" class="btn btn-ghost" id="sh-copy">リンクをコピー</button>
+          <button type="button" class="btn btn-ghost" id="sh-native" hidden>ほかのアプリで送る</button>
+        </div>
+        <p class="sh-status" id="sh-status" role="status"></p>
+        <p class="hint foot">送るのは、選んだ条件だけです。手元の金額は入りません。</p>
+      </section>
+
+      <p class="next-links"><a href="../douga/16/">動画の文字版を読む</a><a class="warn" href="../houmon/">業者が来たら、まずこれ</a></p>
+    </section>
+  </div>
+
+<div class="read">
+  <section aria-labelledby="h-check">
+    <h2 id="h-check"><span class="nw">業者を呼ぶ前に</span><span class="nw">確かめたい3つ</span></h2>
+    <p>国民生活センターと水道局・自治体の案内から、確かめておきたいことです。</p>
+    <ol class="checks">
+      <li><b>止水栓の場所と閉め方を知っておく</b><span>水漏れは、蛇口の下の<a href="../kotoba/#shisuisen">止水栓</a>や、水道メーターの近くの元栓を閉めると止まります（鎌倉市）。場所と閉め方を先に確かめておくと、慌てずにすみます（国民生活センター）。賃貸なら、まず大家さんや管理会社へ連絡します。</span></li>
+      <li><b>見積もりとキャンセルの料金を先に聞く</b><span>見積もりに料金がかかるか、断ったときにキャンセル料がかかるかを、先に確かめるように、と国民生活センターは書いています。メーカーの修理窓口でも、来てもらって点検だけで終わると、税込6,820円や7,920円かかる、と書いています。</span></li>
+      <li><b>部品で直るか、蛇口ごとかを聞く</b><span>同じ水漏れでも、部品の交換ですむか、蛇口ごと替えるかで金額が大きく変わります。部品代と作業費を分けて書いてもらいます。請求に納得できないときは、内訳を見せてもらいます（横浜市水道局）。</span></li>
+    </ol>
+    <div class="ask">
+      <p class="h">電話で聞くとよい質問</p>
+      <p>「見積もりと、断った場合のキャンセル料は、いくらですか」</p>
+      <p>「部品の交換で直りそうですか。部品代と作業費は、それぞれいくらですか」</p>
+      <p>「夜に来てもらうと、いくら上乗せになりますか」</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-warn">
+    <h2 id="h-warn"><span class="nw">実際にあった</span><span class="nw">3つの手口</span></h2>
+    <div class="warn-box">
+      <div class="head">国民生活センター・自治体の公表資料より</div>
+      <div class="body">
+        <div class="case">
+          <q>給水設備全体の交換が必要だ</q>
+          <p>蛇口の水漏れで「見積もり・出張無料」のチラシの業者を呼んだ70歳代の女性。業者は「水道管の内部を見る」と蛇口を外し、こう言って<b>50万円</b>の見積書を見せました。すぐには返事できないと言うと、蛇口を外したまま帰り、断ると「蛇口取り外し料金約２万円を支払ってほしい」と言われました。（国民生活センター・2018年8月受付）</p>
+        </div>
+        <div class="case">
+          <q>水回り修理200円から</q>
+          <p>キッチンの蛇口の水漏れで、こう出ていたネット広告の業者を呼んだ例。蛇口の交換だけで終わらず、給水管の修理もすすめられ、請求は<b>15万円</b>。現金で払いました。業者は「自分から呼んだのだからクーリング・オフはできない」と言いましたが、福岡市は、この例はクーリング・オフができる、としています。（福岡市の消費生活センター）</p>
+        </div>
+        <div class="case">
+          <q>工事費用は１５万円</q>
+          <p>台所の流しの下の水漏れで、電話帳で見つけた業者にこう言われて承諾。古くなったホースと蛇口を替えて直りましたが、渡された請求書は<b>25万円</b>でした。銀行でお金をおろして払ったそうです。（鎌倉市の消費生活センター）</p>
+        </div>
+        <div class="todo">
+          <p><b>水漏れや排水管のつまりの修理の相談は、2014年度の425件から、2021年度は931件に。</b>平均の契約額は約13万円です（国民生活センター）。</p>
+          <p>自分で業者を呼んだ場合、<a href="../kotoba/#coolingoff">クーリング・オフ</a>は原則として当てはまりません。ただし、はじめに頼んだ内容のほかの工事などは、対象になる、と鎌倉市は書いています。契約書を受け取ってから<b>8日間</b>、書面かメールで。</p>
+          <p>困ったときは <span class="nw"><a href="../kotoba/#hotline">消費者ホットライン</a> <a class="tel" href="tel:188">188</a>（いやや）</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-sonae">
+    <h2 id="h-sonae"><span class="nw">水漏れの前に</span><span class="nw">しておくこと</span></h2>
+    <div class="kind">
+      <div><b>止水栓と元栓の場所を見ておく</b><span>キッチンや洗面台は、シンクの下に止水栓があります。家全体の元栓は、外の水道メーターボックスの中です。どちらも時計回りで閉まります。</span></div>
+      <div><b>蛇口と型番を写真に撮っておく</b><span>今の蛇口と製造番号を写真に撮っておくと、業者に見積もりを頼むときに、合う部品や蛇口を相談しやすい、と業者を紹介するサイトの記事にあります。</span></div>
+      <div><b>頼める先を探しておく</b><span>家の中の水道の設備は、持ち主のものです。水道局は、修理の契約に入れません。水道局のホームページに、指定給水装置工事事業者の一覧があります。ただ、指定だからといって信用を保証するものではない、と国民生活センターは書いています。</span></div>
+      <div class="w"><b>「水道局から来た」という訪問</b><span>水道局の関係者を装って訪ねてくる人の情報がある、と神奈川県の水道の営業所は書いています。営業所は、家の中の水道管の修理や、作業代金の請求はしません。証明書を見せてもらい、すぐに契約やお金の支払いをしないように。</span></div>
+    </div>
+  </section>
+
+  <section class="method" aria-labelledby="h-method">
+    <h2 id="h-method"><span class="nw">計算の仕方と</span><span class="nw">出典</span></h2>
+    <dl id="method"></dl>
+    <h3 style="font-size:16px;margin:22px 0 8px">出典（2026年10月12日に確認）</h3>
+    <ol class="src">
+      <li>基本料金：<a href="https://curama.jp/toilet-remodel/magazine/761/" rel="noopener" target="_blank">くらしのマーケット（業者を紹介するサイト）トイレ修理の料金相場</a>／<a href="https://kanagawasuido.jp/blog/toilettrouble/20250508-3479/" rel="noopener" target="_blank">水道の業者の記事（トイレ詰まり修理料金）</a></li>
+      <li>作業費：<a href="https://curama.jp/water-leak-repair/" rel="noopener" target="_blank">くらしのマーケット 水道の水漏れ修理</a>／<a href="https://meetsmore.com/services/leaky-faucet-repair" rel="noopener" target="_blank">ミツモア（見積もりサイト）蛇口の水漏れ修理</a>／<a href="https://rescue-suido.com/after-hours-fee/" rel="noopener" target="_blank">水道の業者の記事（夜間の水道修理の追加料金）</a></li>
+      <li>部品の値段：<a href="https://tom-parts.jp.toto.com/webshop/products/list" rel="noopener" target="_blank">大手メーカーの部品の公式のお店</a>／<a href="https://www.kvk.co.jp/support/category/parts/parts09/" rel="noopener" target="_blank">大手メーカーのカートリッジの値段</a>／<a href="https://www.sanei.ltd/products/pu101-120x/" rel="noopener" target="_blank">大手メーカーのシングルレバー用カートリッジ</a></li>
+      <li>蛇口ごとの交換：<a href="https://curama.jp/tap-replacement/magazine/2157/" rel="noopener" target="_blank">くらしのマーケット 水道蛇口交換の費用相場</a></li>
+      <li>メーカーの修理窓口の目安：<a href="https://jp.toto.com/support/repair/meyasu_ryoukin_f/" rel="noopener" target="_blank">大手メーカーの蛇口の修理目安料金</a>／<a href="https://www.lixil.co.jp/support/repair-cost/" rel="noopener" target="_blank">大手メーカーの修理費用の目安</a></li>
+      <li>水道局の案内：<a href="https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/suido-gesui/suido/mizumore/karyurisuto-kensaku.html" rel="noopener" target="_blank">横浜市水道局 メーター下流側漏水修繕事業者リスト</a>／<a href="https://www.waterworks.metro.tokyo.lg.jp/documents/d/waterworks/105001-01-r6_11" rel="noopener" target="_blank">東京都水道局 都民の声（令和6年11月分）</a>／<a href="https://www.pref.kanagawa.jp/docs/p5m/suidouhusin.html" rel="noopener" target="_blank">神奈川県「水道局関係者を装った不審な訪問などにご注意ください」</a></li>
+      <li>相談事例・身を守る方法：<a href="https://www.kokusen.go.jp/pdf/n-20181220_1.pdf" rel="noopener" target="_blank">国民生活センター「暮らしのレスキューサービス」でのトラブル（2018年12月20日）</a>／<a href="https://www.kokusen.go.jp/c-edu/pdf/tr_rep-t_ja_lf.pdf" rel="noopener" target="_blank">国民生活センター リーフレット（止水栓の閉め方）</a>／<a href="https://www.cao.go.jp/consumer/iinkai/2025/453/doc/20250218_shiryou1-1.pdf" rel="noopener" target="_blank">消費者委員会の資料（2025年2月18日）</a>／<a href="https://www.city.fukuoka.lg.jp/shimin/shohiseikatsu/life/syouhiseikatusentauhoumupeiji/kurashinohinto_2022/kurashinohinto20221020_2.html" rel="noopener" target="_blank">福岡市「水のトラブルの格安広告」</a>／<a href="https://www.city.kamakura.kanagawa.jp/seikatu/documents/jyouhou2021_2.pdf" rel="noopener" target="_blank">鎌倉市「生活の情報」（2021年10月）</a></li>
+      <li>動画で使った数字・事例・写真の出典は、<a href="../credits/16/">出典のページ</a>にもまとめています。</li>
+    </ol>
+  </section>
+</div>
+
+  <div class="page-note">
+  <p>このページは、水道の業者・蛇口のメーカーではない立場で、YouTubeの動画のために作っています。</p>
+  <p>金額は公開されている資料から計算した目安で、この金額で直るという約束ではありません。蛇口の種類・型・漏れている場所・業者で変わります。見積もりの代わりにはなりません。</p>
+  </div>
+  </div>
+</main>
+
+<div class="dock" id="dock">
+  <div class="dock-in">
+    <p class="d1">相場の単価で計算すると（税込）</p>
+    <p class="d2 num"><span id="d-std">3万1,240</span><small>円</small><span class="d-sub">業者によって <span id="d-rng">1万3,640〜5万6,870円</span></span></p>
+  </div>
+  <button type="button" class="dock-go" id="dock-go">結果へ</button>
+</div>
+
+<footer class="site-f">
+  <div class="wrap">
+    <a class="logo" href="../"><img src="../img/face.webp" alt="" width="36" height="36">見積書のお姉さん</a>
+    <p class="site-f__about">家の修理・リフォームの見積書を、公開されている資料の単価から1行ずつ読み解くYouTubeチャンネルです。工事を請け負う業者ではありません。</p>
+    <div class="sns">
+      <a href="https://www.youtube.com/@mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#ff0033" d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81z"/><path fill="#fff" d="M9.55 15.57V8.43L15.82 12z"/></svg>YouTube</a>
+      <a href="https://www.instagram.com/mitsumori_onee/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+      <a href="https://x.com/mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</a>
+    </div>
+    <nav class="site-f__nav" aria-label="サイトの案内">
+      <a href="../#keisan">計算する</a>
+      <a href="../douga/">動画</a>
+      <a href="../teguchi/">手口の記録</a>
+      <a href="../kotoba/">言葉の辞典</a>
+      <a href="../houmon/">業者が来たら</a>
+      <a href="../about/">このサイトについて</a>
+      <a href="../privacy/">プライバシーポリシー</a>
+      <a href="../contact/">お問い合わせ</a>
+    </nav>
+    <p class="site-f__fine">金額はすべて、公開されている資料の単価から計算した目安です。実際の金額は家ごとに変わります。</p>
+    <p class="site-f__fine">© 2026 見積書のお姉さん</p>
+  </div>
+</footer>
+<script>
+/* ============================================================
+   数字はすべて 16_蛇口の水漏れ修理/単価表.md の 1章・2章・3章から取る。
+   ここだけ直して、単価表と食い違わせない。
+   相場の記事（見積もりサイト・業者を紹介するサイト・水道の業者）は税の表示なし→税抜として置く。
+   部品はメーカーの公式の値段（税抜）。最後に消費税10%を足す（円未満切り捨て）。
+   メーカーの修理窓口の目安だけは税込（2-5）。
+   ============================================================ */
+const P = {
+  kihon: [3000, 0, 8000],                 // 基本料金（出張・点検）［目安, 安い側, 高い側］2-1
+  sagyou: [8000, 7500, 15000],            // 作業費（パッキン・カートリッジの交換）2-2
+  packing: 210,                           // Uパッキン（税抜）2-3
+  cart: { 5000: '安い側のメーカーの部品', 12400: '動画と同じ部品', 13700: '高い側の部品' }, // カートリッジ（税抜）2-3
+  cartLo: 4900, cartHi: 13700,            // カートリッジの幅（税抜）2-3
+  hontai: { 10000: 'シャワーなしの安い側', 20000: '動画と同じ', 30000: 'シャワーなしの高い側' }, // 新しい蛇口 2-6
+  hontaiLo: 10000, hontaiHi: 30000,
+  toritsuke: [11000, 7000, 11000],        // 取り付け（キッチン ワンホール混合栓 7,000円〜1.1万円の上の端）2-6
+  yoru: [5000, 0, 15000],                 // 夜間の割増 2-4
+  tax: .10,
+};
+const NAOSHI = { packing: 'パッキンだけ交換', cartridge: 'カートリッジを交換', jaguchi: '蛇口ごと交換' };
+const JIKAN = { hiru: '昼', yoru: '夜' };
+
+const yen = n => Math.round(n).toLocaleString('ja-JP');
+// 1万7,600 のように「万」を入れて読む（台本の読み方とそろえる）。円は付けない
+const jp = n => { n = Math.round(n); const m = Math.floor(n / 10000), r = n % 10000; return m ? `${m}万${r ? r.toLocaleString('ja-JP') : ''}` : r.toLocaleString('ja-JP'); };
+const $ = id => document.getElementById(id);
+
+/* ── 見積書の行 ── */
+function estimate(s) {
+  const rows = [];
+  rows.push({ name: '基本料金（出張・点検）', unitText: `${yen(P.kihon[0])}円（0円〜${yen(P.kihon[2])}円と業者で幅がある）`, std: P.kihon[0], lo: P.kihon[1], hi: P.kihon[2] });
+  if (s.naoshi === 'packing') {
+    rows.push({ name: '作業費（パッキンの交換）', unitText: `${yen(P.sagyou[1])}〜${yen(P.sagyou[2])}円の幅から`, std: P.sagyou[0], lo: P.sagyou[1], hi: P.sagyou[2] });
+    rows.push({ name: '部品代（パッキン）', unitText: 'メーカーの公式の値段（税抜）', std: P.packing, lo: P.packing, hi: P.packing });
+  } else if (s.naoshi === 'cartridge') {
+    const c = +s.cart;
+    rows.push({ name: '作業費（カートリッジの交換）', unitText: `${yen(P.sagyou[1])}〜${yen(P.sagyou[2])}円の幅から`, std: P.sagyou[0], lo: P.sagyou[1], hi: P.sagyou[2] });
+    rows.push({ name: '部品代（カートリッジ）', unitText: `メーカーの公式の値段（税抜）。メーカーや型で${yen(P.cartLo)}〜${yen(P.cartHi)}円`, std: c, lo: P.cartLo, hi: P.cartHi });
+  } else {
+    const h = +s.hontai;
+    rows.push({ name: '新しい蛇口（本体）', unitText: `シャワーなしで${yen(P.hontaiLo)}〜${yen(P.hontaiHi)}円`, std: h, lo: P.hontaiLo, hi: P.hontaiHi });
+    rows.push({ name: '蛇口の取り付け', unitText: `キッチン ワンホール混合栓 ${yen(P.toritsuke[1])}〜${yen(P.toritsuke[2])}円の上の端`, std: P.toritsuke[0], lo: P.toritsuke[1], hi: P.toritsuke[2] });
+  }
+  if (s.jikan === 'yoru') rows.push({ name: '夜間の割増', unitText: `${yen(P.yoru[0])}円（時間帯で変わらない業者も）`, std: P.yoru[0], lo: P.yoru[1], hi: P.yoru[2] });
+  else rows.push({ name: '夜間の割増', unitText: '昼なので、なし', std: 0, lo: 0, hi: 0, off: true });
+  const t = {};
+  for (const k2 of ['std', 'lo', 'hi']) {
+    const ex = rows.reduce((a, r) => a + r[k2], 0), tax = Math.floor(ex * P.tax);
+    t[k2] = { ex, tax, total: ex + tax };
+  }
+  return { rows, t, open: false };
+}
+
+function readState() {
+  const fd = new FormData($('f'));
+  const pick = (name, map, def) => { const v = fd.get(name); return v !== null && Object.prototype.hasOwnProperty.call(map, v) ? v : def; };
+  return {
+    naoshi: pick('naoshi', NAOSHI, 'cartridge'),
+    jikan: pick('jikan', JIKAN, 'yoru'),
+    cart: pick('cart', P.cart, '12400'),
+    hontai: pick('hontai', P.hontai, '20000'),
+  };
+}
+
+let last = null;
+function render() {
+  const s = readState();
+  const e = estimate(s);
+  last = e;
+  const { t } = e;
+  $('q-cart').hidden = s.naoshi !== 'cartridge';
+  $('q-hontai').hidden = s.naoshi !== 'jaguchi';
+
+  $('t-std').textContent = jp(t.std.total);
+  $('t-from').textContent = '';
+  $('t-range').innerHTML = `業者によって <b class="num"><span id="t-lo">${jp(t.lo.total)}</span>〜<span id="t-hi">${jp(t.hi.total)}</span>円</b>`;
+  $('d-std').textContent = jp(t.std.total);
+  $('d-rng').textContent = `${jp(t.lo.total)}〜${jp(t.hi.total)}円`;
+  if (s.jikan === 'yoru') {
+    $('t-alt1k').textContent = '昼に頼めたら';
+    $('t-alt1').textContent = jp(estimate({ ...s, jikan: 'hiru' }).t.std.total);
+  } else {
+    $('t-alt1k').textContent = '夜に頼むと';
+    $('t-alt1').textContent = jp(estimate({ ...s, jikan: 'yoru' }).t.std.total);
+  }
+  if (s.naoshi !== 'jaguchi') {
+    $('t-alt2k').textContent = '蛇口ごと替えると';
+    $('t-alt2').textContent = jp(estimate({ ...s, naoshi: 'jaguchi' }).t.std.total);
+  } else {
+    $('t-alt2k').textContent = 'カートリッジの交換なら';
+    $('t-alt2').textContent = jp(estimate({ ...s, naoshi: 'cartridge' }).t.std.total);
+  }
+  $('t-ref').innerHTML = '参考：メーカーの修理窓口の目安（税込）は、<span class="nw">台所のシングルレバーで2万円〜（ある大手メーカー）、</span><span class="nw">「水が止まらない」のヘッドパーツの交換で</span><span class="nw">1万6,000〜3万8,000円（別の大手メーカー）。</span><span class="nw">止水栓を閉めて応急処置をすれば、</span><span class="nw">落ち着いて見積もりを頼めます。</span>';
+  $('spec').innerHTML = `キッチン・シングルレバーの蛇口・${NAOSHI[s.naoshi]}・${JIKAN[s.jikan]}<br>内訳の行は税抜、合計は税込`;
+  const notes = [];
+  if (s.naoshi === 'packing') notes.push('根元の漏れでも、パッキンだけで直るとは限りません。');
+  if (s.naoshi === 'jaguchi') notes.push('シャワー付き・浄水器付き・タッチレスなどの蛇口は、本体がもっと高くなります。');
+  if (s.jikan === 'yoru') notes.push('夜の上乗せは、5,000円から1万5,000円くらい。時間帯で料金が変わらない業者もあります。');
+  $('fnote').hidden = !notes.length;
+  $('fnote').textContent = notes.join(' ');
+
+  const tr = (cls, name, small, std, rng) =>
+    `<tr class="${cls}"><td class="item"><b>${name}</b>${kw(name)}${small ? `<small>${small}</small>` : ''}</td><td class="amt">${std}<span class="rng">${rng}</span></td></tr>`;
+  let html = e.rows.map(r => tr(r.off ? 'off' : '', r.name, r.unitText, yen(r.std),
+    r.off ? '—' : r.lo === r.hi ? yen(r.lo) : `${yen(r.lo)}〜${yen(r.hi)}`)).join('');
+  html += tr('sum', '税抜', '', yen(t.std.ex), `${yen(t.lo.ex)}〜${yen(t.hi.ex)}`);
+  html += tr('', '消費税', '10%（円未満切り捨て）', yen(t.std.tax), `${yen(t.lo.tax)}〜${yen(t.hi.tax)}`);
+  html += tr('grand', '合計（税込）', '', yen(t.std.total) + '円', `${yen(t.lo.total)}〜${yen(t.hi.total)}`);
+  $('rows').innerHTML = html;
+  renderCompare();
+  afterRender(s);
+}
+
+/* 物差し：安い側〜高い側の帯に、目安と手元の金額を立てる */
+function renderCompare() {
+  if (!last) return;
+  const lo = last.t.lo.total, std = last.t.std.total, hi = last.t.hi.total;
+  const raw = parseFloat($('mine').value);
+  const mine = Number.isFinite(raw) && raw > 0 ? raw : null;
+  let a = 0, b = hi * 1.08;
+  if (mine) b = Math.max(b, mine * 1.06);
+  const pct = v => ((v - a) / (b - a)) * 100;
+  const place = (el, v) => { const q = pct(v); el.style.left = `${q}%`; el.style.transform = q < 12 ? 'translateX(-1.5px)' : q > 88 ? 'translateX(calc(-100% + 1.5px))' : 'translateX(-50%)'; el.style.alignItems = q < 12 ? 'flex-start' : q > 88 ? 'flex-end' : 'center'; };
+  $('r-band').style.left = `${pct(lo)}%`;
+  $('r-band').style.width = `${((hi - lo) / (b - a)) * 100}%`;
+  place($('r-std'), std);
+  place($('r-lo'), lo); $('r-lo').textContent = `${jp(lo)}円`;
+  place($('r-hi'), hi); $('r-hi').textContent = `${jp(hi)}円`;
+  const pin = $('r-mine'), v = $('verdict');
+  $('ruler').classList.toggle('has-mine', !!mine);
+  if (!mine) { pin.hidden = true; v.textContent = ''; v.className = 'verdict'; return; }
+  pin.hidden = false; place(pin, mine);
+  const near = n => Math.abs(n) < 500;
+  let pill, msg, cls = 'verdict';
+  if (mine < lo && !near(mine - lo)) {
+    pill = '相場の幅より安い';
+    msg = `相場の安い側（${jp(lo)}円）より安い金額です。部品代や夜間の割増が、あとから足されないかを確かめてください。`;
+  } else if (mine <= hi || near(mine - hi)) {
+    pill = mine <= std || near(mine - std) ? '相場の幅の中（目安に近い側）' : '相場の幅の中（高い側）';
+    msg = `相場の幅（${jp(lo)}〜${jp(hi)}円）の中です。部品代と作業費が分けて書いてあるか、部品の交換で直らないかを確かめてください。`;
+  } else {
+    cls += ' out';
+    pill = `相場の高い側より${jp(mine - hi)}円高い`;
+    msg = `この条件の相場の高い側（${jp(hi)}円）より高い金額です。「給水管」「配管全体」など、頼んだ修理のほかの工事が入っていないかを確かめてください。その場で決めずに、困ったときは消費者ホットライン188へ。`;
+  }
+  msg += '<b class="v-next">内訳の行ごとに比べてください。</b><button type="button" class="v-open">内訳を開く</button>';
+  msg += '<small>給水管や排水管の工事・壁の中の水漏れ・シャワー付きなどの高い蛇口・2か所目の修理など、この計算にない作業が入っている見積もりとは、そのままくらべられません。</small>';
+  v.className = cls; v.innerHTML = `<span class="v-pill">${pill}</span>${msg}`;
+}
+
+/* 計算の仕方（数字は上の設定から書き出す） */
+function renderMethod() {
+  const base = { naoshi: 'cartridge', jikan: 'yoru', cart: '12400', hontai: '20000' };
+  const d = estimate(base);
+  const c = (o) => jp(estimate({ ...base, ...o }).t.std.total);
+  $('method').innerHTML = `
+    <div><dt>見積書の行</dt><dd>動画のモデル見積書と同じです。基本料金${yen(P.kihon[0])}円・作業費（カートリッジの交換）${yen(P.sagyou[0])}円・部品代（カートリッジ）12,400円・夜間の割増${yen(P.yoru[0])}円。持ち家のキッチンの、使って10年ほどのシングルレバーの蛇口で、夜に業者を呼んでカートリッジを交換、で税抜${yen(d.t.std.ex)}円・税込${jp(d.t.std.total)}円です。</dd></div>
+    <div><dt>ほかの選び方</dt><dd>動画と同じく、変わる行だけを変えます。昼に頼む${c({ jikan: 'hiru' })}円／パッキンだけ・夜${c({ naoshi: 'packing' })}円／パッキンだけ・昼${c({ naoshi: 'packing', jikan: 'hiru' })}円／カートリッジ5,000円・夜${c({ cart: '5000' })}円／カートリッジ1万3,700円・夜${c({ cart: '13700' })}円／蛇口ごと（2万円）・夜${c({ naoshi: 'jaguchi' })}円／蛇口ごと（2万円）・昼${c({ naoshi: 'jaguchi', jikan: 'hiru' })}円。</dd></div>
+    <div><dt>目安の取り方</dt><dd>基本料金は水道の業者の記事の幅（0〜8,000円。トイレの記事）から、作業費は業者を紹介するサイト・見積もりサイト・水道の業者の幅（7,500〜1万5,000円）から、夜間の割増は水道の業者の記事の下の端です。部品代はメーカーが公式のお店で出している値段で、業者が部品にいくら乗せるかは公開資料にありません。</dd></div>
+    <div><dt>税込と税抜</dt><dd>相場の記事には税の表示がないので、税抜として並べました。部品は税抜の値段です。合計で消費税10%を足しました（円未満切り捨て）。メーカーの修理窓口の目安は税込なので、合計（税込）と比べてください。</dd></div>
+    <div><dt>業者による幅</dt><dd>基本料金0〜8,000円・作業費7,500〜1万5,000円・カートリッジ4,900〜1万3,700円・夜間の割増0〜1万5,000円・蛇口の本体1万〜3万円・取り付け7,000〜1万1,000円です。</dd></div>
+    <div><dt>入っていないもの</dt><dd>給水管や排水管の工事、壁の中の水漏れ、2か所目の修理、シャワー付き・浄水器付き・タッチレスなどの蛇口、古い蛇口の処分、深夜の割増の上乗せ分。</dd></div>`;
+}
+
+/* ── 操作 ── */
+$('f').addEventListener('change', e => { if (e.target.name || e.target.id) render(); });
+$('f').addEventListener('submit', e => e.preventDefault());
+$('mine').addEventListener('input', renderCompare);
+$('btn-reset').addEventListener('click', () => { $('f').reset(); render(); });
+
+/* ── このページの設定（送る条件の書き方・チップ・辞典へのリンク） ──
+   送るリンクの例：…/mizumore/#n=c&j=y&c=12400 */
+const CFG = {
+  page: 'mizumore',
+  radios: [
+    ['n', 'naoshi', { p: 'packing', c: 'cartridge', j: 'jaguchi' }],
+    ['j', 'jikan', { h: 'hiru', y: 'yoru' }],
+    ['c', 'cart', { 5000: '5000', 12400: '12400', 13700: '13700' }],
+    ['h', 'hontai', { 10000: '10000', 20000: '20000', 30000: '30000' }],
+  ],
+  toHash(s) {
+    const a = [`n=${s.naoshi[0]}`, `j=${s.jikan[0]}`];
+    if (s.naoshi === 'cartridge') a.push(`c=${s.cart}`);
+    if (s.naoshi === 'jaguchi') a.push(`h=${s.hontai}`);
+    return a;
+  },
+  chips(s) {
+    const out = [['naoshi', NAOSHI[s.naoshi]], ['jikan', JIKAN[s.jikan]]];
+    if (s.naoshi === 'cartridge') out.push(['cart', `カートリッジ ${yen(+s.cart)}円`]);
+    if (s.naoshi === 'jaguchi') out.push(['hontai', `新しい蛇口 ${yen(+s.hontai)}円`]);
+    return out;
+  },
+  shareText() {
+    return `蛇口の水漏れ修理、この条件だと相場の単価で${jp(last.t.std.total)}円（税込）でした（見積書のお姉さんの計算ページ）`;
+  },
+  kw: [[/^基本料金/, 'shucchou'], [/^部品代（カートリッジ/, 'cartridge'], [/^作業費（カートリッジ/, 'cartridge']],
+  kwLabel: { shucchou: '出張費', cartridge: 'カートリッジ' },
+};
+
+/* ============================================================
+   画面の動き（ここから下は計算に関わらない）
+   スマホ（760px未満）：1問ずつ出して、最後に「結果を見る」。<html> の .is-steps / .is-result で切り替える
+   条件を送る：ボタンを押したときだけ、URLの # の後ろに条件を書いたリンクを作る（入力中は location を書き換えない）
+   アクセス解析：入力した値（選んだ条件・金額など）は渡さない。どのページで・何をしたかだけ
+   ============================================================ */
+const H = document.documentElement;
+const MQ = window.matchMedia('(max-width: 759.98px)');
+const RM = window.matchMedia('(prefers-reduced-motion: reduce)');
+const own = (o, k) => Object.prototype.hasOwnProperty.call(o, k);
+const T = (name, params) => {
+  const go = () => { try { if (typeof window.track === 'function') window.track(name, params); } catch (_) { /* 解析が動かなくても計算は止めない */ } };
+  if (typeof window.track === 'function') go(); else document.addEventListener('DOMContentLoaded', go, { once: true });
+};
+const steps = [...document.querySelectorAll('#f .q')];
+const liveSteps = () => steps.filter(el => !el.hidden);
+const isSteps = () => H.classList.contains('is-steps');
+const isResult = () => H.classList.contains('is-result');
+let curEl = steps[0], editing = false, advTimer = 0, ptrAt = 0, doneSent = false, cmpSent = false;
+
+function kw(name) {
+  for (const [re, id] of CFG.kw) {
+    if (re.test(name)) return `<a class="kw" href="../kotoba/#${id}" aria-label="${CFG.kwLabel[id]}の意味（言葉の辞典）">辞典</a>`;
+  }
+  return '';
+}
+
+function scrollToY(y, smooth) {
+  y = Math.max(0, y);
+  if (smooth && !RM.matches) { window.scrollTo({ top: y, behavior: 'smooth' }); return; }
+  const prev = H.style.scrollBehavior;
+  H.style.scrollBehavior = 'auto'; window.scrollTo(0, y); H.style.scrollBehavior = prev;
+}
+function moveTo(el, smooth = true) { scrollToY(el.getBoundingClientRect().top + window.scrollY - 72, smooth); }
+
+function paintStepbar() {
+  const live = liveSteps();
+  if (!live.includes(curEl)) curEl = live[0];
+  const i = live.indexOf(curEl), n = live.length, lastStep = i === n - 1;
+  $('step-count').innerHTML = `<b>${i + 1}</b> / ${n}`;
+  $('step-fill').style.width = `${((i + 1) / n) * 100}%`;
+  $('step-back').disabled = i === 0 && !editing;
+  const btn = $('step-next'), num = curEl.dataset.kind === 'number';
+  btn.textContent = editing ? '結果にもどる' : lastStep ? '結果を見る' : num ? '次へ' : 'このまま次へ';
+  btn.classList.toggle('is-quiet', !editing && !lastStep && !num);
+}
+
+function showStep(el, dir, focus) {
+  if (!el) return;
+  clearTimeout(advTimer);
+  const wasResult = isResult();
+  H.classList.remove('is-result');
+  for (const q of steps) q.classList.toggle('is-current', q === el);
+  el.classList.remove('in-fwd', 'in-back');
+  if (dir) { void el.offsetWidth; el.classList.add(dir > 0 ? 'in-fwd' : 'in-back'); }
+  curEl = el;
+  paintStepbar();
+  const bar = $('stepbar'), top = bar.getBoundingClientRect().top;
+  if (Math.abs(top - 72) > 6 && (dir || top < 0 || top > window.innerHeight * 0.5)) moveTo(bar, !!dir && !wasResult);
+  if (focus) {
+    const t = el.dataset.kind === 'number' ? el : (el.querySelector('input:checked') || el.querySelector('input'));
+    try { t.focus({ preventScroll: true }); } catch (_) { t.focus(); }
+  }
+}
+function nextStep() {
+  clearTimeout(advTimer);
+  const live = liveSteps(), i = live.indexOf(curEl);
+  if (editing || i >= live.length - 1) { showResult(true); return; }
+  showStep(live[i + 1], 1, true);
+}
+function prevStep() {
+  if (editing) { showResult(true); return; }
+  const live = liveSteps(), i = live.indexOf(curEl);
+  if (i > 0) showStep(live[i - 1], -1, true);
+}
+function markDone() {
+  if (doneSent) return;
+  doneSent = true;
+  T('calc_done', { page: CFG.page });
+}
+function showResult(user) {
+  clearTimeout(advTimer);
+  editing = false;
+  if (isSteps()) {
+    H.classList.add('is-result');
+    moveTo($('result'), false);
+  } else if (user) moveTo($('result'));
+  if (user) { try { $('h-result').focus({ preventScroll: true }); } catch (_) { /* 古いブラウザ */ } }
+  markDone();
+}
+
+/* 選んだ条件のチップ（押すと、その問いにもどる） */
+function paintChips(s) {
+  $('chips').innerHTML = CFG.chips(s).map(([k, label]) => `<button type="button" class="chip" data-go="${k}">${label}</button>`).join('');
+}
+function afterRender(s) {
+  paintChips(s);
+  const seen = new Set();
+  for (const a of document.querySelectorAll('#rows .kw')) { const h = a.getAttribute('href'); if (seen.has(h)) a.remove(); else seen.add(h); }
+  if (isSteps()) paintStepbar();
+}
+
+/* ── 1問ずつの操作 ── */
+$('f').addEventListener('pointerdown', () => { ptrAt = Date.now(); }, true);
+$('f').addEventListener('click', e => {
+  const r = e.target;
+  if (!isSteps() || !(r instanceof HTMLInputElement) || r.type !== 'radio') return;
+  if (r.hasAttribute('data-stay')) return;
+  const q = r.closest('.q');
+  if (q !== curEl || Date.now() - ptrAt > 1500) return;   // 矢印キーで選んだときは進めない
+  const live = liveSteps();
+  if (!editing && live.indexOf(q) === live.length - 1) return;   // 最後の問いは「結果を見る」を押してもらう
+  clearTimeout(advTimer);
+  advTimer = setTimeout(nextStep, 260);
+});
+$('f').addEventListener('keydown', e => {
+  if (e.key !== 'Enter' || !isSteps() || e.isComposing) return;
+  const t = e.target;
+  if (!(t instanceof HTMLInputElement) || !t.closest('.q')) return;
+  e.preventDefault();
+  if (t.type === 'number') t.dispatchEvent(new Event('change', { bubbles: true }));
+  nextStep();
+});
+$('step-next').addEventListener('click', nextStep);
+$('step-back').addEventListener('click', prevStep);
+$('res-back').addEventListener('click', () => { const live = liveSteps(); showStep(live[live.length - 1], -1, true); });
+$('chips').addEventListener('click', e => {
+  const b = e.target.closest('[data-go]');
+  if (!b) return;
+  const q = document.querySelector(`#f .q[data-step="${b.dataset.go}"]`);
+  if (!q || q.hidden) return;
+  if (isSteps()) { editing = true; showStep(q, 0, true); return; }
+  moveTo(q);
+  const t = q.querySelector('input:checked') || q.querySelector('input');
+  try { t.focus({ preventScroll: true }); } catch (_) { t.focus(); }
+});
+
+/* ── 下の帯 ── */
+$('dock-go').addEventListener('click', () => showResult(true));
+if ('IntersectionObserver' in window) {
+  new IntersectionObserver(([en]) => $('dock').classList.toggle('away', en.isIntersecting && !isSteps()), { threshold: 0.08 }).observe($('result'));
+}
+
+/* 広い画面：最初に条件を動かしたら「結果を見た」とする */
+const onEdit = () => { if (!isSteps()) markDone(); };
+$('f').addEventListener('change', onEdit);
+if ($('methods')) $('methods').addEventListener('change', onEdit);
+
+/* ── 手元の見積書と比べる（金額はどこにも送らない） ── */
+$('mine').addEventListener('change', () => {
+  if (cmpSent || !(parseFloat($('mine').value) > 0)) return;
+  cmpSent = true;
+  T('compare', { page: CFG.page });
+});
+$('verdict').addEventListener('click', e => {
+  if (!e.target.closest('.v-open')) return;
+  $('doc').open = true;
+  moveTo($('doc'));
+  $('doc').querySelector('summary').focus({ preventScroll: true });
+});
+
+/* ── 家族に送る ── */
+function shareURL() {
+  return location.href.replace(/[?#].*$/, '') + '#' + CFG.toHash(readState()).join('&');
+}
+function shareStatus(text, url) {
+  const st = $('sh-status');
+  st.textContent = text;
+  if (url) {
+    const a = document.createElement('a');
+    a.href = url; a.textContent = url; a.className = 'sh-url';
+    st.append(document.createElement('br'), a);
+  }
+}
+async function copyText(s) {
+  try { await navigator.clipboard.writeText(s); return true; } catch (_) { /* 下の方法で */ }
+  const ta = document.createElement('textarea');
+  ta.value = s; ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+  document.body.appendChild(ta); ta.select();
+  let ok = false;
+  try { ok = document.execCommand('copy'); } catch (_) { ok = false; }
+  ta.remove();
+  return ok;
+}
+$('sh-line').addEventListener('click', () => {
+  $('sh-line').href = 'https://line.me/R/share?text=' + encodeURIComponent(CFG.shareText() + '\n' + shareURL());
+  T('share', { page: CFG.page, method: 'line' });
+});
+$('sh-copy').addEventListener('click', async () => {
+  const url = shareURL();
+  const ok = await copyText(url);
+  if (ok) shareStatus('リンクをコピーしました。LINEやメールに貼りつけると、同じ条件の計算が開きます。');
+  else shareStatus('コピーできませんでした。下のリンクを長押しして、コピーしてください。', url);
+  T('share', { page: CFG.page, method: 'copy' });
+});
+if (typeof navigator.share === 'function') {
+  $('sh-native').hidden = false;
+  $('sh-native').addEventListener('click', async () => {
+    try {
+      await navigator.share({ title: document.title, text: CFG.shareText(), url: shareURL() });
+      T('share', { page: CFG.page, method: 'native' });
+    } catch (_) { /* 閉じただけ */ }
+  });
+}
+
+/* ── # の後ろの条件を読む（おかしな値は無視して、はじめの値のまま） ── */
+function applyHash() {
+  const raw = location.hash.slice(1);
+  if (!raw || raw.indexOf('=') < 0 || raw.length > 200) return false;
+  let sp;
+  try { sp = new URLSearchParams(raw); } catch (_) { return false; }
+  for (const [key, name, map] of CFG.radios) {
+    const v = sp.get(key);
+    if (v === null || !own(map, v)) continue;
+    const el = document.querySelector(`input[name="${name}"][value="${map[v]}"]`);
+    if (el) el.checked = true;
+  }
+  if (CFG.fromHashExtra) CFG.fromHashExtra(sp);
+  return true;
+}
+
+function setMode() {
+  H.classList.toggle('is-steps', MQ.matches);
+  if (!MQ.matches) H.classList.remove('is-result');
+  else { if (!curEl || curEl.hidden) curEl = liveSteps()[0]; for (const q of steps) q.classList.toggle('is-current', q === curEl); paintStepbar(); }
+}
+if (MQ.addEventListener) MQ.addEventListener('change', setMode); else if (MQ.addListener) MQ.addListener(setMode);
+
+/* ── はじめに ── */
+const fromHash = applyHash();
+renderMethod();
+render();
+$('share').hidden = false;
+if (fromHash) $('from-link').hidden = false;
+if (MQ.matches) $('doc').open = false;
+setMode();
+if (fromHash) { if (isSteps()) H.classList.add('is-result'); markDone(); }
+else H.classList.remove('is-result');
+</script>
+</body>
+</html>
