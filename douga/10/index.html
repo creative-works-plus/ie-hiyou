@@ -250,12 +250,10 @@ a.ref:hover { color: var(--blue); }
   <div class="wrap">
     <div class="doc">
       <figure class="video">
-        <!-- 公開したら YouTube の埋め込みに差し替える -->
         <div class="video__frame">
-          <img src="../../img/thumbs/10.webp" width="640" height="360" alt="動画のサムネイル（賃貸の退去費用、本当はいくら？）">
-          <span class="video__badge">動画は近日公開</span>
+          <iframe src="https://www.youtube-nocookie.com/embed/LaSjUfmLV-M" title="第10回の動画" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block;width:100%;height:100%;border:0"></iframe>
         </div>
-        <figcaption>動画はまだ公開していません。公開したら、ここで見られるようにします。お知らせは <a href="https://www.youtube.com/@mitsumori_onee" target="_blank" rel="noopener">YouTubeチャンネル</a> で。</figcaption>
+        <figcaption><a href="https://youtu.be/LaSjUfmLV-M" target="_blank" rel="noopener">YouTube で見る</a></figcaption>
       </figure>
 
       <nav class="toc" aria-labelledby="toc-h">
@@ -270,7 +268,7 @@ a.ref:hover { color: var(--blue); }
           <li><a class="tm" href="#c5"><span class="t">12:02</span><span>⑤ 高すぎる請求の見分け方</span></a></li>
           <li><a class="tm" href="#end"><span class="t">13:38</span><span>まとめ</span></a></li>
           <li class="toc__sub"><a href="#mitsumori">モデル見積書（表）</a></li>
-          <li class="toc__sub" data-gate="10" hidden><a href="#keisan">住んだ年数と広さで計算する</a></li>
+          <li class="toc__sub" data-gate="10"><a href="#keisan">住んだ年数と広さで計算する</a></li>
           <li class="toc__sub"><a href="#sources">出典</a></li>
         </ol>
         <p class="toc__note">左の時刻は、動画の中の位置です。</p>
@@ -482,7 +480,7 @@ a.ref:hover { color: var(--blue); }
           </div>
         </section>
 
-        <section class="calc-cta" id="keisan" data-gate="10" hidden aria-labelledby="keisan-h">
+        <section class="calc-cta" id="keisan" data-gate="10" aria-labelledby="keisan-h">
           <h2 id="keisan-h"><span class="nw">住んだ年数と広さで</span><span class="nw">計算する</span></h2>
           <p>住んだ年数と、部屋の広さ、あてはまるものを選ぶと、ガイドラインで借りた人が払う分の目安が出ます。この見積書と同じ単価表で計算します。</p>
           <a class="btn" href="../../taikyo/" data-track="douga_to_calc">賃貸の退去費用を計算する →</a>
