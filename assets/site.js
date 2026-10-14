@@ -29,12 +29,14 @@
     f.style.cssText = 'display:block;width:100%;height:100%;border:0';
     return f;
   };
+  // 見ている人に出す番号は上げた順（作った番号 10→11→12→07→08→09 の順に上げた。2026-10-14 丸藤さん）
+  const NO = { '07': 10, '08': 11, '09': 12, '10': 7, '11': 8, '12': 9 };
   const here = (location.pathname.match(/\/douga\/(\d{2})\/$/) || [])[1];
   fetch(new URL('videos.json', src), { cache: 'no-cache' }).then(r => r.json()).then(videos => {
     const now = Date.now();
     Object.entries(videos).forEach(([nn, v]) => {
       if (Date.parse(v.at) > now) return;
-      const n = Number(nn);
+      const n = NO[nn] || Number(nn);
       // 計算ページへの入り口と、計算ページそのもの
       document.querySelectorAll('[data-gate="' + nn + '"]').forEach(el => {
         el.hidden = false;

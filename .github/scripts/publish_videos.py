@@ -13,6 +13,8 @@ Claude がサイトを触るたびに動かして commit・push する。何度�
 import datetime, json, pathlib, re, sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
+# 見ている人に出す番号は上げた順（作った番号 10→11→12→07→08→09 の順に上げた。2026-10-14 丸藤さん）。URL やファイルは作った番号のまま
+NO = {'07': 10, '08': 11, '09': 12, '10': 7, '11': 8, '12': 9}
 COMMENT = '<!-- 公開したら YouTube の埋め込みに差し替える -->'
 
 
@@ -44,7 +46,7 @@ def douga_list(html, nn, vid):
     if not m:
         sys.exit(f'douga/index.html に ep{nn} が無い')
     block = m.group(0)
-    n = int(nn)
+    n = NO.get(nn, int(nn))
     block = re.sub(rf'{re.escape(COMMENT)}\s*<img [^>]*>', iframe(vid, f'第{n}回の動画'), block)
     block = block.replace('<span class="tag tag-soon">近日公開</span>', '')
     return html[:m.start()] + block + html[m.end():]
@@ -52,7 +54,7 @@ def douga_list(html, nn, vid):
 
 def douga_page(html, nn, vid):
     # 文字版のページ：上の動画の場所を埋め込みに、下の一言を YouTube へのリンクに
-    n = int(nn)
+    n = NO.get(nn, int(nn))
     html = re.sub(rf'{re.escape(COMMENT)}\s*(<div class="video__frame">)\s*<img [^>]*>\s*<span class="video__badge">[^<]*</span>',
                   lambda m: f'{m.group(1)}\n          {iframe(vid, f"第{n}回の動画")}', html, count=1)
     html = re.sub(r'<figcaption>動画はまだ公開していません。.*?</figcaption>',
