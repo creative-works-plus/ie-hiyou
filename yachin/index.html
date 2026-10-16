@@ -1,0 +1,1136 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>家賃の値上げと更新の費用計算｜見積書のお姉さん</title>
+<meta name="description" content="今の家賃と、通知に書かれた新しい家賃を入れて、更新料と事務手数料の月数を選ぶと、更新のときの請求と、2年の合計の目安を出します（税込）。数字はすべて公開資料から取り、出典を載せています。">
+<meta name="theme-color" content="#1f2d55">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="見積書のお姉さん">
+<meta property="og:title" content="家賃の値上げと更新の費用計算｜見積書のお姉さん">
+<meta property="og:description" content="今の家賃と新しい家賃、更新料と事務手数料の月数を選ぶと、更新のときの請求と2年の合計の目安が出ます。">
+<meta property="og:image" content="https://creative-works-plus.github.io/ie-hiyou/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../img/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=BIZ+UDPMincho:wght@700&family=M+PLUS+Rounded+1c:wght@800&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<script src="../assets/site.js" defer></script>
+<script>/* JSが動くときだけ、スマホは1問ずつ・送られてきたリンクは結果から */(function (h) { h.classList.add('js'); try { if (matchMedia('(max-width: 759.98px)').matches) { h.classList.add('is-steps'); if (location.hash.indexOf('=') > 0) h.classList.add('is-result'); } } catch (e) {} })(document.documentElement);</script>
+<style>
+/* 費用計算ページだけの見た目。色は site.css の変数を使う（見積書の明朝 --f-doc だけこのページで足す）
+   並び：スマホ（760px未満）は JS が html に .is-steps を付けて1問1画面にする。付かなければ全部の問いが縦に並ぶ。
+         760〜959px は1列、960px以上は左に問い・右に結果を貼りつける。 */
+:root { --f-doc: "BIZ UDPMincho", "Hiragino Mincho ProN", "Yu Mincho", serif; --line: #06873d; }
+[hidden] { display: none !important; }
+.num { font-variant-numeric: tabular-nums; }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+h1, h2, h3 { text-wrap: pretty; }
+.vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+[tabindex="-1"]:focus { outline: none; }
+
+/* ── ページの見出し ── */
+.page-h { padding-top: 28px; padding-bottom: 4px; }
+.page-h .kicker { font-size: 13px; font-weight: 700; color: var(--blue); margin: 0 0 8px; line-height: 1.6; }
+.page-h h1 .q { color: var(--blue); }
+.page-h .lead { font-size: 15.5px; margin: 12px 0 0; }
+.promise { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 0; padding: 0; list-style: none; }
+.promise li { font-size: 12.5px; font-weight: 700; color: var(--sub); background: var(--sheet); border: 1px solid var(--rule); border-radius: 999px; padding: 2px 11px 2px 9px; line-height: 1.7; }
+.promise li::before { content: "✓"; color: var(--blue); margin-right: 5px; }
+
+/* ── 計算（問い ＋ 結果） ── */
+.calc { display: grid; gap: 32px; margin-top: 24px; align-items: start; }
+.calc > section { min-width: 0; }
+@media (min-width: 960px) {
+  .calc { grid-template-columns: minmax(0, 1fr) minmax(0, 1.04fr); gap: 32px; }
+  .res-col { position: sticky; top: 72px; max-height: calc(100vh - 84px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; padding: 2px 8px 24px; margin: -2px -8px 0;
+    -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 22px), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 22px), transparent); }
+}
+.col-h { display: flex; align-items: center; gap: 10px; font: 800 15px/1.4 var(--f-disp); color: var(--sub); letter-spacing: .04em; margin: 0 0 12px; }
+.col-h .n { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--ink); color: var(--paper); font-size: 13px; line-height: 1; }
+
+/* 問いのカード */
+#f { display: grid; gap: 12px; counter-reset: q; }
+fieldset.q { counter-increment: q; min-width: 0; margin: 0; padding: 18px 16px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--sheet); }
+@media (min-width: 760px) { fieldset.q { padding: 20px 22px; } }
+fieldset.q > legend { float: left; width: 100%; padding: 0; margin: 0 0 12px; font: 800 18px/1.45 var(--f-disp); }
+fieldset.q > legend::before { content: "Q" counter(q); display: block; font: 700 12px/1.7 var(--f-body); letter-spacing: .12em; color: var(--blue); }
+fieldset.q > legend + * { clear: both; }
+.help { font-size: 13.5px; color: var(--sub); margin: 10px 0 0; line-height: 1.7; }
+
+/* 選択肢のカード */
+.seg { display: grid; grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr)); gap: 8px; }
+.seg label { position: relative; display: block; cursor: pointer; }
+.seg input { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; opacity: 0; margin: 0; cursor: pointer; }
+.opt { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; height: 100%; min-height: 56px; padding: 10px; border: 1.5px solid var(--rule); border-radius: 12px; background: var(--sheet); line-height: 1.4; text-align: center; transition: border-color .15s, background-color .15s, box-shadow .15s; }
+.opt b { font-size: 16.5px; }
+.opt small { font-size: 12.5px; color: var(--sub); }
+.seg label:hover .opt { border-color: color-mix(in srgb, var(--blue) 50%, var(--rule)); }
+.seg input:checked + .opt { border-color: var(--blue); background: var(--blue-soft); box-shadow: inset 0 0 0 1px var(--blue); }
+.seg input:checked + .opt b { color: var(--blue); }
+.seg input:focus-visible + .opt { outline: 3px solid var(--blue); outline-offset: 2px; }
+/* 選んだ印（右上の丸） */
+.opt::after { content: "✓"; position: absolute; top: -8px; right: -8px; width: 22px; height: 22px; border-radius: 50%; background: var(--blue); color: var(--blue-ink); font: 700 12px/22px var(--f-body); text-align: center; transform: scale(0); transition: transform .2s cubic-bezier(.3, 1.6, .6, 1); }
+.seg input:checked + .opt::after { transform: scale(1); }
+/* 説明つきの選択肢は、左に丸いラジオ */
+.seg.left .opt { align-items: flex-start; text-align: left; padding: 12px 14px 12px 46px; }
+.seg.left .opt::before { content: ""; position: absolute; left: 15px; top: 50%; width: 20px; height: 20px; margin-top: -10px; border-radius: 50%; border: 2px solid var(--rule); background: var(--sheet); box-sizing: border-box; }
+.seg.left input:checked + .opt::before { border-color: var(--blue); background: var(--blue); box-shadow: inset 0 0 0 4px var(--sheet); }
+.seg.left .opt::after { display: none; }
+.opt .ico { display: block; width: 46px; height: 30px; color: var(--sub); margin: 0 0 6px; flex: none; overflow: visible; }
+.seg input:checked + .opt .ico { color: var(--blue); }
+.opt .t { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.seg.left .opt .t { align-items: flex-start; }
+
+/* 金額まで出すカード（つまりの重さ） */
+.paint .opt { align-items: flex-start; text-align: left; padding: 12px 14px; }
+.paint .price { font: 800 20px/1.3 var(--f-disp); color: var(--ink); margin-top: 4px; }
+.paint .per { font-size: 12.5px; color: var(--sub); }
+/* 列が細いとき（スマホ・PCの2段の中）は、1枚ずつ横長に */
+@media (max-width: 520px), (min-width: 960px) {
+  .paint { --cols: 1 !important; }
+  .paint .opt { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 12px; row-gap: 1px; }
+  .paint .opt > b { grid-area: 1 / 1; }
+  .paint .opt > small { grid-area: 2 / 1; }
+  .paint .price { grid-area: 1 / 2 / 3 / 3; margin: 0; text-align: right; }
+  .paint .per { grid-area: 3 / 1 / 4 / 3; margin-top: 2px; }
+}
+
+.reset { display: none; justify-self: start; font: 400 14.5px var(--f-body); color: var(--sub); background: none; border: 0; padding: 10px 0; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.js .reset { display: inline-block; }
+.reset:hover { color: var(--ink); }
+
+/* ── スマホの1問1画面 ── */
+.stepbar, .stepnav, .res-top { display: none; }
+.step-back { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 10px 0 2px; border: 0; background: none; color: var(--ink); font: 700 15px var(--f-body); cursor: pointer; }
+.step-back::before { content: ""; width: 9px; height: 9px; border-left: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); margin-left: 4px; }
+.step-back:disabled { visibility: hidden; }
+.is-steps .stepbar { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 2px 12px; margin: 0 0 18px; }
+.step-count { grid-column: 3; font: 800 15px/1 var(--f-disp); color: var(--sub); letter-spacing: .04em; }
+.step-count b { color: var(--ink); font-size: 19px; }
+.step-prog { grid-column: 1 / -1; height: 6px; border-radius: 3px; background: var(--rule); overflow: hidden; }
+.step-prog i { display: block; width: 0; height: 100%; border-radius: 3px; background: var(--blue); transition: width .3s ease; }
+.is-steps .col-h.form-h { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.is-steps #f { gap: 0; }
+.is-steps fieldset.q { display: none; padding: 0; border: 0; border-radius: 0; background: none; }
+.is-steps fieldset.q.is-current { display: block; }
+.is-steps fieldset.q > legend { font-size: 23px; line-height: 1.4; margin-bottom: 18px; }
+.is-steps fieldset.q > legend::before { display: none; }
+.is-steps .seg.left, .is-steps .paint { grid-template-columns: minmax(0, 1fr); }
+.is-steps .seg .opt { min-height: 64px; }
+.is-steps .seg.rows-sp { grid-template-columns: minmax(0, 1fr); }
+.is-steps .rows-sp .opt { flex-direction: row; justify-content: flex-start; align-items: center; gap: 16px; padding: 12px 16px; text-align: left; }
+.is-steps .rows-sp .opt .ico { width: 58px; height: 38px; margin: 0; }
+.is-steps .rows-sp .opt .t { align-items: flex-start; }
+.is-steps .seg.left .opt { min-height: 72px; }
+.is-steps .help { font-size: 14px; margin-top: 14px; }
+.is-steps .stepnav { display: block; margin-top: 24px; }
+.is-steps .reset { display: none; }
+.btn-next { width: 100%; }
+.btn-next.is-quiet { background: var(--sheet); color: var(--ink); border-color: var(--rule); }
+.btn-next.is-quiet:hover { border-color: var(--ink); filter: none; }
+.is-steps fieldset.q.in-fwd { animation: q-in .3s cubic-bezier(.2, .7, .2, 1) both; }
+.is-steps fieldset.q.in-back { animation: q-back .3s cubic-bezier(.2, .7, .2, 1) both; }
+@keyframes q-in { from { opacity: 0; transform: translateX(22px); } }
+@keyframes q-back { from { opacity: 0; transform: translateX(-22px); } }
+.is-steps .res-col { display: none; }
+.is-steps.is-result .res-col { display: block; }
+.is-steps.is-result .form-col { display: none; }
+.is-steps .res-top { display: flex; margin: -6px 0 6px; }
+.is-steps.is-result .res-col { animation: q-up .3s ease both; }
+@keyframes q-up { from { opacity: 0; transform: translateY(12px); } }
+
+/* ── 結果 ── */
+.total { position: relative; overflow: hidden; padding: 24px 18px 22px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--sheet); box-shadow: var(--shadow); text-align: center; }
+.total::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: linear-gradient(90deg, var(--ink) 0 70%, var(--yellow) 70%); }
+.total .lbl { margin: 0; font-size: 14px; color: var(--sub); }
+.total .big { margin: 6px 0 0; font: 800 clamp(50px, 14.5vw, 68px)/1.1 var(--f-disp); letter-spacing: -.01em; }
+.total .big .hl { background: linear-gradient(transparent 60%, var(--marker) 60%); padding: 0 .08em; }
+.total .big small { font-size: .4em; margin-left: .1em; }
+.total .range { margin: 10px 0 0; font-size: 15px; }
+.total .range b { font-size: 18px; }
+.total .year { margin: 4px 0 0; font-size: 14px; color: var(--sub); line-height: 1.65; }
+.total .ref { margin: 12px auto 0; max-width: 30em; padding-top: 12px; border-top: 1px dashed var(--rule); font-size: 13px; color: var(--sub); line-height: 1.65; }
+.total .ref:empty { display: none; }
+
+.blk { margin-top: 16px; }
+.blk-h { font: 800 15px/1.4 var(--f-disp); margin: 0 0 10px; }
+.blk-h small { display: block; margin-top: 2px; font: 500 13px/1.6 var(--f-body); color: var(--sub); }
+.chips-wrap { display: none; }
+.js .chips-wrap { display: block; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 12px 0 14px; border: 1.5px solid var(--rule); border-radius: 999px; background: var(--sheet); color: var(--ink); font: 700 14px var(--f-body); cursor: pointer; }
+.chip::after { content: ""; width: 6px; height: 6px; border-right: 1.5px solid var(--sub); border-top: 1.5px solid var(--sub); transform: rotate(45deg); margin-left: 2px; }
+.chip:hover { border-color: var(--blue); color: var(--blue); }
+.from-link { margin: 8px 0 0; font-size: 13px; color: var(--sub); }
+
+/* 内訳（御見積書） */
+.doc { border: 1px solid var(--rule); border-radius: var(--radius); background: var(--sheet); box-shadow: var(--shadow); }
+.doc > summary { display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 14px 18px; cursor: pointer; list-style: none; border-radius: var(--radius); }
+.doc > summary::-webkit-details-marker { display: none; }
+.doc > summary::after { content: ""; flex: none; width: 9px; height: 9px; margin: -4px 4px 0 auto; border-right: 2px solid var(--sub); border-bottom: 2px solid var(--sub); transform: rotate(45deg); transition: transform .2s; }
+.doc[open] > summary::after { transform: rotate(-135deg); margin-top: 4px; }
+.doc .sum-t { display: block; font: 700 18px/1.3 var(--f-doc); letter-spacing: .14em; }
+.doc .sum-s { display: block; font-size: 13px; color: var(--sub); }
+.doc-body { padding: 4px 16px 18px; border-top: 1px solid var(--rule); }
+@media (min-width: 400px) { .doc-body { padding: 4px 20px 20px; } }
+.doc-h { margin: 18px 0 4px; font: 700 22px/1.4 var(--f-doc); letter-spacing: .3em; text-align: center; }
+.spec { margin: 0 0 12px; font-size: 13px; color: var(--sub); text-align: center; line-height: 1.6; }
+.fnote { margin: 0 0 12px; padding: 10px 12px; border-radius: var(--radius-s); background: var(--blue-soft); font-size: 13.5px; line-height: 1.7; }
+.est-scroll { overflow-x: auto; }
+table.est { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.45; }
+table.est th, table.est td { padding: 10px 4px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+table.est thead th { padding-top: 0; border-bottom: 1.5px solid var(--ink); font-size: 12px; font-weight: 700; color: var(--sub); text-align: right; }
+table.est thead th:first-child { text-align: left; }
+table.est thead .rng-h { display: block; font-weight: 400; }
+table.est td.item b { font-weight: 700; }
+table.est td.item small { display: block; margin-top: 2px; font-size: 12.5px; color: var(--sub); }
+table.est td.amt { padding-left: 12px; text-align: right; white-space: nowrap; font-weight: 700; }
+table.est td.amt .rng { display: block; margin-top: 2px; font-size: 13px; font-weight: 400; color: var(--sub); }
+table.est tr.sum td { border-bottom: 1.5px solid var(--ink); font-weight: 700; }
+table.est tr.grand td { padding-top: 12px; border-bottom: 0; font-size: 17px; }
+table.est tr.grand td.amt { font-size: 19px; }
+table.est tr.grand td.amt .rng { font-size: 14px; }
+table.est tr.off td { color: var(--sub); }
+table.est tr.off td.amt { font-weight: 400; }
+.kw { display: inline-block; margin-left: 6px; padding: 3px 7px 2px; border: 1px solid currentColor; border-radius: 999px; font: 700 11px/1 var(--f-body); color: var(--blue); text-decoration: none; vertical-align: 2px; }
+.kw:hover { background: var(--blue-soft); }
+.doc .foot { margin: 12px 0 0; font-size: 13.5px; color: var(--sub); line-height: 1.7; }
+
+/* 手元の見積書と比べる */
+.card-s { padding: 18px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--sheet); }
+.card-s h3 { font-size: 18px; margin: 0 0 4px; }
+.card-s .hint { margin: 0 0 12px; font-size: 13.5px; color: var(--sub); line-height: 1.7; }
+.cmp .row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 10px; }
+.cmp label { font-size: 14px; font-weight: 700; }
+.cmp .in { display: inline-flex; align-items: center; gap: 8px; }
+.cmp input { width: 6.2em; font: 800 24px var(--f-disp); padding: 6px 12px; border: 2px solid var(--blue); border-radius: 12px; background: var(--sheet); color: var(--ink); text-align: right; }
+.cmp .in span { font-weight: 700; }
+.ruler { position: relative; height: 64px; margin: 18px 6px 4px; }
+.ruler.has-mine { height: 92px; }
+.ruler .track { position: absolute; left: 0; right: 0; top: 30px; height: 6px; border-radius: 3px; background: var(--rule); }
+.ruler .band { position: absolute; top: 28px; height: 10px; border: 2px solid var(--blue); border-radius: 5px; background: var(--blue-soft); }
+.ruler .tick { position: absolute; top: 44px; transform: translateX(-50%); font-size: 13px; color: var(--sub); white-space: nowrap; }
+.ruler .pin { position: absolute; top: 0; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; font-size: 13px; font-weight: 700; white-space: nowrap; }
+.ruler .pin i { display: block; width: 3px; height: 16px; margin-top: 2px; background: currentColor; }
+.ruler .pin.std { color: var(--blue); }
+.ruler .pin.mine { top: 26px; flex-direction: column-reverse; color: var(--red-ink); }
+.ruler .pin.mine i { height: 40px; margin: 0 0 2px; }
+.verdict { margin: 12px 0 0; font-size: 15px; line-height: 1.75; }
+.verdict:empty { display: none; }
+.verdict .v-pill { display: table; margin: 0 0 8px; padding: 3px 14px; border-radius: 999px; background: var(--blue-soft); color: var(--blue); font: 800 16px/1.6 var(--f-disp); }
+.verdict.out .v-pill { background: var(--marker); color: var(--ink); }
+.verdict .v-next { display: block; margin-top: 8px; }
+.verdict .v-open { display: inline-flex; align-items: center; min-height: 40px; margin-top: 6px; padding: 0 16px; border: 1.5px solid var(--blue); border-radius: 999px; background: var(--sheet); color: var(--blue); font: 700 14px var(--f-body); cursor: pointer; }
+.verdict .v-open:hover { background: var(--blue-soft); }
+.verdict small { display: block; margin-top: 8px; font-size: 13px; color: var(--sub); line-height: 1.65; }
+
+/* 家族に送る */
+.share-btns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.share-btns .btn { min-height: 50px; padding: 0 12px; font-size: 15px; }
+.btn-line { grid-column: 1 / -1; background: var(--line); color: #fff; }
+.btn-line:hover { filter: brightness(1.08); }
+.btn-line svg { width: 24px; height: 24px; flex: none; }
+.share-btns:has(#sh-native[hidden]) #sh-copy { grid-column: 1 / -1; }
+@media (max-width: 439.98px) { .share-btns { grid-template-columns: minmax(0, 1fr); } }
+.sh-url { display: inline-block; margin-top: 4px; font-size: 13px; overflow-wrap: anywhere; }
+.share .hint.foot { margin: 10px 0 0; }
+.sh-status { margin: 10px 0 0; font-size: 13.5px; color: var(--sub); }
+.sh-status:empty { display: none; }
+.next-links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 18px 0 0; font-size: 14px; }
+.next-links a { font-weight: 700; }
+.next-links a::after { content: " →"; }
+.next-links a.warn { color: var(--red-ink); }
+
+/* ── 下に出る「いまの条件の相場」の帯 ── */
+.dock { display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; align-items: center; justify-content: space-between; gap: 12px; padding: 9px 16px calc(9px + env(safe-area-inset-bottom, 0px)); background: var(--navy); color: var(--on-navy); border-top: 1px solid rgba(255, 255, 255, .1); box-shadow: 0 -10px 28px rgba(20, 33, 61, .16); transition: transform .25s ease; }
+.js .dock { display: flex; }
+.dock.away { transform: translateY(115%); }
+.is-result .dock { display: none !important; }
+.dock-in { min-width: 0; flex: 1; }
+.dock .d1 { margin: 0; font-size: 12px; line-height: 1.4; color: color-mix(in srgb, var(--on-navy) 78%, transparent); }
+.dock .d2 { margin: 0; font: 800 25px/1.2 var(--f-disp); }
+.dock .d2 small { font-size: 13px; }
+.dock .d2 .d-sub { display: inline-block; font: 400 12px var(--f-body); color: color-mix(in srgb, var(--on-navy) 78%, transparent); margin-left: 8px; }
+.dock .d3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 2px; }
+.dock .d3 > span { display: flex; flex-direction: column; min-width: 0; }
+.dock .d3 b { font: 800 18px/1.2 var(--f-disp); white-space: nowrap; }
+.dock .d3 i { font-style: normal; }
+.dock .d3 small { font: 400 11px/1.4 var(--f-body); white-space: nowrap; color: color-mix(in srgb, var(--on-navy) 78%, transparent); }
+.dock-go { flex: none; min-height: 44px; padding: 0 16px; border: 0; border-radius: 999px; background: var(--yellow); color: #14213d; font: 700 14px var(--f-body); cursor: pointer; }
+@media (max-width: 959.98px) { .js body { padding-bottom: 76px; } .js.is-result body { padding-bottom: 0; } }
+@media (min-width: 960px) { .js .dock { display: none; } }
+
+/* ── 読みもの ── */
+.read { max-width: 760px; margin-top: 72px; display: grid; gap: 52px; }
+.read > section { min-width: 0; }
+.read h2 { font-size: clamp(22px, 5.4vw, 28px); margin-bottom: 14px; }
+.read p { margin: 0 0 12px; }
+.checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: c; }
+.checks li { counter-increment: c; display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 4px 10px; }
+.checks li::before { content: counter(c); grid-row: span 2; width: 30px; height: 30px; margin-top: 2px; border-radius: 50%; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-weight: 700; font-size: 15px; line-height: 1; }
+.checks b { font-size: 17px; }
+.checks span { color: var(--sub); font-size: 15px; }
+.ask { margin: 18px 0 0; padding: 16px 18px; border-left: 4px solid var(--blue); border-radius: 0 var(--radius-s) var(--radius-s) 0; background: var(--sheet); display: grid; gap: 8px; }
+.ask p { margin: 0; font-weight: 700; }
+.ask .h { font-weight: 400; color: var(--sub); font-size: 14px; }
+.read .warn-box { padding: 0; overflow: hidden; border: 2px solid var(--red); border-radius: var(--radius); background: var(--sheet); }
+.read .warn-box .head { padding: 10px 16px; background: var(--red-ink); color: var(--sheet); font-weight: 700; font-size: 16px; }
+.read .warn-box .body { padding: 16px; display: grid; gap: 16px; }
+.case { display: grid; gap: 4px; }
+.case q { font-weight: 700; font-size: 17px; quotes: "「" "」"; }
+.case p { margin: 0; color: var(--sub); font-size: 15px; }
+.case p b { color: var(--red-ink); }
+.todo { background: var(--red-soft); border-radius: var(--radius-s); padding: 14px 16px; display: grid; gap: 8px; }
+.todo p { margin: 0; font-size: 15px; }
+.read .tel { font-family: var(--f-disp); font-weight: 800; font-size: 20px; color: var(--ink); text-decoration: none; border-bottom: 2px solid var(--ink); }
+.method { font-size: 15px; }
+.method dl { margin: 0; display: grid; gap: 10px; }
+.method dt { font-weight: 700; }
+.method dd { margin: 0; color: var(--sub); }
+ol.src { margin: 0; padding-left: 1.2em; font-size: 14px; color: var(--sub); display: grid; gap: 6px; }
+ol.src a { overflow-wrap: anywhere; }
+.src-scroll { overflow-x: auto; }
+.src-table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.55; margin: 8px 0 0; }
+.src-table th, .src-table td { text-align: left; padding: 7px 6px 7px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.src-table th { font-size: 12.5px; color: var(--sub); border-bottom: 1.5px solid var(--ink); }
+.src-table td.n { white-space: nowrap; }
+.src-table td:first-child { min-width: 7.5em; }
+.src-table td:last-child { min-width: 10em; }
+.kind { display: grid; gap: 12px; }
+.kind > div { border-left: 4px solid var(--rule); padding: 2px 0 2px 14px; }
+.kind b { display: block; }
+.kind span { color: var(--sub); font-size: 15px; }
+.kind .w { border-left-color: var(--red); }
+.page-note { max-width: 760px; margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--rule); font-size: 13.5px; color: var(--sub); }
+.page-note p { margin: 0 0 8px; }
+
+@media (prefers-reduced-motion: reduce) {
+  /* 動き（横すべり・はねる）は止める。うすく出るだけは残す */
+  .is-steps fieldset.q.in-fwd, .is-steps fieldset.q.in-back, .is-steps.is-result .res-col { animation: q-fade .16s linear both; }
+  @keyframes q-fade { from { opacity: 0; } }
+  .opt, .opt::after, .step-prog i, .dock, .doc > summary::after { transition: none; }
+}
+@media print { .dock, .stepbar, .stepnav, .share, .reset { display: none !important; } }
+
+/* ── 10〜12で足した部品（チェックの選択肢・数を入れる欄・2列の金額） ── */
+.checks-q { display: grid; gap: 8px; }
+.ck { position: relative; display: block; border: 1.5px solid var(--rule); border-radius: 12px; background: var(--sheet); transition: border-color .15s, background-color .15s; }
+.ck:has(> label input:checked) { border-color: var(--blue); background: var(--blue-soft); }
+.ck > label { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 2px 12px; align-items: start; padding: 13px 14px; cursor: pointer; line-height: 1.5; }
+.ck > label input { width: 22px; height: 22px; margin: 1px 0 0; accent-color: var(--blue); cursor: pointer; }
+.ck > label b { font-size: 16px; }
+.ck > label small { grid-column: 2; font-size: 12.5px; color: var(--sub); }
+.ck .more { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; padding: 0 14px 13px 50px; font-size: 14px; }
+.ck:not(:has(> label input:checked)) .more { display: none; }
+.field { display: inline-flex; align-items: center; gap: 6px; }
+.field input, .field select { font: 700 18px var(--f-body); padding: 6px 10px; border: 2px solid var(--rule); border-radius: 10px; background: var(--sheet); color: var(--ink); }
+.field input { width: 6.5em; text-align: right; }
+.field input.sm { width: 4.6em; }
+.field input:focus, .field select:focus { border-color: var(--blue); }
+.dims { display: grid; gap: 10px; margin-top: 12px; padding: 14px; border-radius: 12px; background: var(--tint); }
+.dims .field { justify-content: space-between; font-size: 14.5px; }
+.dims .note { margin: 0; font-size: 12.5px; color: var(--sub); line-height: 1.6; }
+/* 数を選ぶ行（品物） */
+.items { display: grid; gap: 6px; }
+.items .grp { margin: 10px 0 2px; font: 700 13px var(--f-body); color: var(--sub); letter-spacing: .04em; }
+.items .grp:first-child { margin-top: 0; }
+.it { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 4px 10px; padding: 8px 10px 8px 14px; border: 1.5px solid var(--rule); border-radius: 12px; background: var(--sheet); }
+.it.on { border-color: var(--blue); background: var(--blue-soft); }
+.it .nm { line-height: 1.45; }
+.it .nm b { font-size: 15.5px; }
+.it .nm small { display: block; font-size: 12px; color: var(--sub); }
+.stp { display: inline-flex; align-items: center; gap: 4px; }
+.stp button { width: 40px; height: 40px; border: 1.5px solid var(--rule); border-radius: 50%; background: var(--sheet); color: var(--ink); font: 700 20px/1 var(--f-body); cursor: pointer; }
+.stp button:hover { border-color: var(--blue); color: var(--blue); }
+.stp input { width: 2.6em; text-align: center; font: 800 18px var(--f-disp); border: 0; background: none; color: var(--ink); -moz-appearance: textfield; }
+.stp input::-webkit-outer-spin-button, .stp input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.items-sum { margin: 10px 0 0; font-size: 14px; font-weight: 700; }
+/* 2列の金額（見積書の金額／借りた人の分・業者／区） */
+table.est.two td.amt { width: 6.6em; }
+table.est.two thead th { vertical-align: bottom; }
+table.est.two td.amt.mine { color: var(--blue); }
+table.est.two tr.off td.amt.mine { color: var(--sub); }
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 14px; text-align: left; }
+.pair > div { padding: 10px 12px; border-radius: var(--radius-s); background: var(--tint); }
+.pair .k { display: block; font-size: 12.5px; color: var(--sub); line-height: 1.5; }
+.pair .v { display: block; font: 800 22px/1.3 var(--f-disp); }
+.pair .v small { font-size: 12px; }
+.first-box { margin: 0 0 12px; padding: 12px 14px; border-left: 4px solid var(--red); border-radius: 0 var(--radius-s) var(--radius-s) 0; background: var(--red-soft); font-size: 14.5px; line-height: 1.7; }
+.first-box b { color: var(--red-ink); }
+.info-box { margin: 12px 0 0; padding: 12px 14px; border-left: 4px solid var(--blue); border-radius: 0 var(--radius-s) var(--radius-s) 0; background: var(--blue-soft); font-size: 14px; line-height: 1.7; }
+.info-box p { margin: 0; }
+.info-box p + p { margin-top: 6px; }
+.info-box b { color: var(--blue); }
+/* ── 23〜で足した部品 ── */
+.pair:empty { display: none; }
+.first-box { margin: 14px 0 0; padding: 12px 14px; border-left: 4px solid var(--red); border-radius: 0 var(--radius-s) var(--radius-s) 0; background: var(--red-soft); font-size: 14.5px; line-height: 1.7; }
+.first-box b { color: var(--red-ink); }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へ</a>
+<header class="site-h">
+  <div class="wrap site-h__in">
+    <a class="logo" href="../"><img src="../img/face.webp" alt="" width="36" height="36">見積書のお姉さん</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"><span class="menu-btn__bars" aria-hidden="true"></span>メニュー</button>
+    <nav id="site-nav" class="site-nav" aria-label="サイトの中">
+      <a href="../#keisan">計算する</a>
+      <a href="../douga/">動画</a>
+      <a href="../teguchi/">手口の記録</a>
+      <a href="../kotoba/">言葉の辞典</a>
+      <a class="nav-warn" href="../houmon/">業者が来たら</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" data-gate="24" data-soon>
+  <div class="wrap soon-note">
+    <p class="crumb"><a href="../">トップ</a> ／ 家賃の値上げと更新の費用計算</p>
+    <h1>この計算は、動画の公開と同時に使えるようになります</h1>
+    <p>第17回「家賃の値上げ」の動画を公開したら、ここで自分の部屋の条件で計算できるようになります。</p>
+    <p><a class="btn btn-primary" href="../#keisan">いま使える計算を見る</a></p>
+  </div><!-- /soon-note -->
+  <div class="wrap page-h">
+    <p class="crumb"><a href="../">トップ</a> ／ 家賃の値上げと更新の費用計算</p>
+    <p class="kicker"><span class="nw">YouTube「家賃の値上げの通知、本当はいくら？」と</span><span class="nw">同じ単価表で計算します</span></p>
+    <h1><span class="nw">家賃の値上げと更新の費用、</span><span class="nw q">相場はいくら？</span></h1>
+    <p class="lead">今の家賃と、通知に書かれた新しい家賃を入れて、更新料と事務手数料の月数を選ぶと、更新のときの請求書と同じ並びで、1行ずつ目安の金額が出ます。2年でかかる家賃の合計も出します。数字はすべて公開されている資料から取り、出典をページの下にまとめました。</p>
+    <ul class="promise">
+      <li>不動産会社でも管理会社でもない立場で作っています</li>
+      <li>入力した内容は、どこにも送られません</li>
+      <li>消費税がかかるのは事務手数料だけ（家賃・更新料・保証料・保険は非課税）</li>
+    </ul>
+  </div>
+
+  <div class="wrap">
+  <div class="calc">
+    <section class="form-col" aria-labelledby="h-form">
+      <h2 class="col-h form-h" id="h-form"><span class="n">1</span>部屋の条件を入れる</h2>
+      <div class="stepbar" id="stepbar">
+        <button type="button" class="step-back" id="step-back">もどる</button>
+        <p class="step-count num" id="step-count"><b>1</b> / 6</p>
+        <div class="step-prog" aria-hidden="true"><i id="step-fill"></i></div>
+      </div>
+      <form id="f" autocomplete="off">
+        <fieldset class="q is-current" data-step="ima" data-kind="number" tabindex="-1">
+          <legend>今の家賃（月）<small style="display:block;font:400 13px/1.6 var(--f-body);color:var(--sub)">はじめは、動画と同じ7万4千円が入っています</small></legend>
+          <div class="items" id="items-ima"></div>
+          <p class="help">7万4千円は、国土交通省の調査で、三大都市圏の民間の賃貸に入った世帯の、家賃の真ん中の値です（平均は8万3,381円）。管理費・共益費は入れずに計算します。</p>
+        </fieldset>
+
+        <fieldset class="q" data-step="shin" data-kind="number" tabindex="-1">
+          <legend>通知に書かれた新しい家賃（月）<small style="display:block;font:400 13px/1.6 var(--f-body);color:var(--sub)">はじめは、動画と同じ9万4千円（2万円の値上げ）</small></legend>
+          <div class="items" id="items-shin"></div>
+          <p class="help">家賃の変更は、貸主と借主の双方の合意で決まります（東京都）。値上げの割合を、東京都区部の民営家賃の上がり方（2.2%・2026年9月・総務省）と並べて出します。</p>
+        </fieldset>
+
+        <fieldset class="q" data-step="koushin" data-kind="radio" tabindex="-1">
+          <legend>更新料（大家さんへ）</legend>
+          <div class="seg left" style="--cols:1">
+            <label><input type="radio" name="koushin" value="nashi"><span class="opt"><span class="t"><b>なし</b><small>契約書に更新料が書いていない</small></span></span></label>
+            <label><input type="radio" name="koushin" value="m1" checked><span class="opt"><span class="t"><b>家賃の1か月分</b><small>動画と同じ</small></span></span></label>
+            <label><input type="radio" name="koushin" value="m2"><span class="opt"><span class="t"><b>家賃の2か月分</b></span></span></label>
+          </div>
+          <p class="help"><a href="../kotoba/#koushinryo">更新料</a>には、法律の決まりがありません。家計の記事のサイトでは「賃料の1か月分が主流」、別の記事では1か月分から2か月分。関西では更新料の慣習が一般にない、という記事もあります。消費税はかかりません。</p>
+        </fieldset>
+
+        <fieldset class="q" data-step="jimu" data-kind="radio" tabindex="-1">
+          <legend>更新事務手数料（管理会社へ）</legend>
+          <div class="seg left" style="--cols:2">
+            <label><input type="radio" name="jimu" value="nashi"><span class="opt"><span class="t"><b>なし</b></span></span></label>
+            <label><input type="radio" name="jimu" value="q"><span class="opt"><span class="t"><b>家賃の0.25か月分</b></span></span></label>
+            <label><input type="radio" name="jimu" value="h" checked><span class="opt"><span class="t"><b>家賃の0.5か月分</b><small>動画と同じ</small></span></span></label>
+            <label><input type="radio" name="jimu" value="one"><span class="opt"><span class="t"><b>家賃の1か月分</b></span></span></label>
+          </div>
+          <p class="help">記事では0.25か月分から0.5か月分。消費税（10%）がかかるのは、この行だけです。首都圏では、大家さんが受け取った更新料から払われることが多い、という記事もあります。契約書で、誰が払うことになっているかを見てください。</p>
+        </fieldset>
+
+        <fieldset class="q" data-step="hosho" data-kind="radio" tabindex="-1">
+          <legend>保証会社の更新保証料（1年分）</legend>
+          <div class="seg left" style="--cols:2">
+            <label><input type="radio" name="hosho" value="nashi"><span class="opt"><span class="t"><b>なし</b><small>保証会社を使っていない</small></span></span></label>
+            <label><input type="radio" name="hosho" value="ari" checked><span class="opt"><span class="t"><b>1万円</b><small>動画と同じ</small></span></span></label>
+          </div>
+          <p class="help">国土交通省の資料に「以後一年毎に１万円と設定している事業者が多い」とあります。家賃の10%で計算する会社もあります。</p>
+        </fieldset>
+
+        <fieldset class="q" data-step="hoken" data-kind="number" tabindex="-1">
+          <legend>火災保険の更新（2年分）<small style="display:block;font:400 13px/1.6 var(--f-body);color:var(--sub)">はじめは、動画と同じ2万円</small></legend>
+          <div class="items" id="items-hoken"></div>
+          <p class="help">不動産会社の記事で、2年間で1万〜3万円が目安です。保険に入ることが契約の条件なら、入る必要があります。指定の保険は、今の保険と中身を比べてから相談を（国土交通省の事例集）。</p>
+        </fieldset>
+
+        <div class="stepnav"><button type="button" class="btn btn-primary btn-next" id="step-next">このまま次へ</button></div>
+        <button type="button" class="reset" id="btn-reset">動画と同じ条件にもどす</button>
+      </form>
+    </section>
+
+    <section class="res-col" id="result" aria-labelledby="h-result">
+      <div class="res-top"><button type="button" class="step-back" id="res-back">もどる</button></div>
+      <h2 class="col-h" id="h-result" tabindex="-1"><span class="n">2</span>計算の結果</h2>
+      <div class="total" aria-live="polite">
+        <p class="lbl" id="t-lbl">更新のときの請求の目安（税込）</p>
+        <p class="big num"><span class="hl" id="t-std">17万5,700</span><small>円<span id="t-from"></span></small></p>
+        <p class="range" id="t-range"></p>
+        <div class="pair num" id="t-pair"></div>
+        <p class="ref" id="t-ref"></p>
+      </div>
+      <p class="first-box"><b>すぐに署名しない。今の家賃は払い続ける。</b>値上げに納得できないときは、直ちに応じる必要はありません（東京都）。全く払わないと、契約を解除されるおそれがあります。</p>
+
+      <div class="blk chips-wrap">
+        <h3 class="blk-h">この条件で計算しました</h3>
+        <div class="chips" id="chips"></div>
+        <p class="from-link" id="from-link" hidden>送られてきたリンクの条件で計算しています。</p>
+        <p class="from-link">押すと、その問いにもどって直せます。</p>
+      </div>
+
+      <details class="doc blk" id="doc" open>
+        <summary><span><span class="sum-t">更新のときの請求書（内訳）</span><span class="sum-s">1行ずつの目安</span></span></summary>
+        <div class="doc-body">
+          <p class="spec num" id="spec"></p>
+          <p class="fnote" id="fnote" hidden></p>
+          <div class="est-scroll">
+            <table class="est num">
+              <thead><tr><th scope="col">項目</th><th scope="col">目安（円）<span class="rng-h"></span></th></tr></thead>
+              <tbody id="rows"></tbody>
+            </table>
+          </div>
+          <p class="foot">更新料・事務手数料は、新しい家賃をもとに計算しています（どちらの家賃で計算するかは、契約書の書き方によります）。住まいの家賃・更新料・保証料・保険料には消費税がかからないので、事務手数料にだけ10%を足しました（円未満切り捨て）。諸経費の行は置いていません。</p>
+        </div>
+      </details>
+
+      <div class="card-s cmp blk">
+        <h3>手元の請求書と比べる</h3>
+        <p class="hint">届いた更新の請求書の合計（税込）を入れると、この条件の目安とくらべます。入れた金額は、どこにも送られません。</p>
+        <div class="row"><label for="mine">請求書の合計</label><span class="in"><input type="number" id="mine" inputmode="numeric" min="0" step="100" placeholder="例 180000"><span>円</span></span></div>
+        <div class="ruler" id="ruler" aria-hidden="true">
+          <div class="track"></div>
+          <div class="band" id="r-band"></div>
+          <div class="pin std" id="r-std"><span>目安</span><i></i></div>
+          <div class="pin mine" id="r-mine" hidden><span>手元の金額</span><i></i></div>
+          <div class="tick num" id="r-lo"></div>
+          <div class="tick num" id="r-hi"></div>
+        </div>
+        <p class="verdict" id="verdict" aria-live="polite"></p>
+      </div>
+
+      <section class="card-s share blk" id="share" aria-labelledby="h-share" hidden>
+        <h3 id="h-share">家族に送る</h3>
+        <p class="hint">いま選んでいる条件のまま、同じ計算が開くリンクを送れます。</p>
+        <div class="share-btns">
+          <a class="btn btn-line" id="sh-line" href="https://line.me/R/share" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.5s5.9-3.5 8-6C21.4 14.3 22 12.7 22 11c0-4.4-4.5-8-10-8Z"/></svg>LINEで送る</a>
+          <button type="button" class="btn btn-ghost" id="sh-copy">リンクをコピー</button>
+          <button type="button" class="btn btn-ghost" id="sh-native" hidden>ほかのアプリで送る</button>
+        </div>
+        <p class="sh-status" id="sh-status" role="status"></p>
+        <p class="hint foot">送るのは、選んだ条件だけです。手元の金額は入りません。</p>
+      </section>
+
+      <p class="next-links"><a href="../douga/24/">動画の文字版を読む</a><a class="warn" href="../houmon/">業者が来たら、まずこれ</a></p>
+    </section>
+  </div>
+
+<div class="read">
+<section aria-labelledby="h-check">
+    <h2 id="h-check"><span class="nw">値上げの通知が届いたら、</span><span class="nw">見るところ4つ</span></h2>
+    <p>東京都・国土交通省の資料と、この単価表からです。</p>
+    <ol class="checks">
+      <li><b>値上げの理由が書いてあるか</b><span>東京都は例として、近くの家賃の相場と比べて合わなくなった、税金や建物の維持管理の費用が増えた、物価が大きく変わった、を挙げています。理由と金額の根拠を、具体的に説明してもらいましょう。</span></li>
+      <li><b>近くの同じような部屋の家賃</b><span>募集の家賃は、新しく借りる人向けの家賃で、今住んでいる人の家賃とは違います。</span></li>
+      <li><b>契約書の約束</b><span>一定の期間は値上げしない、という約束があれば、それに従います。一方的に値上げできる、と書いた約束もあるので、よく読みましょう（国土交通省）。</span></li>
+      <li><b>普通の借家か、定期借家か</b><span><a href="../kotoba/#teikishakka">定期借家</a>は、期間が来たら終わります。</span></li>
+    </ol>
+    <div class="ask">
+      <p class="h">貸主や管理会社に聞くとよい質問</p>
+      <p>「値上げの理由と、金額の根拠を、書面で教えてください」</p>
+      <p>「更新料と事務手数料は、契約書のどこに書いてありますか。今の家賃と新しい家賃の、どちらで計算していますか」</p>
+      <p>「この契約は、普通の借家契約ですか。定期借家契約ですか」</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-warn">
+    <h2 id="h-warn"><span class="nw">家賃の値上げで、</span><span class="nw">実際にあった3つの相談</span></h2>
+    <div class="warn-box">
+      <div class="head">東京都・国民生活センターの公表資料より</div>
+      <div class="body">
+        <div class="case">
+          <q>現在の倍以上の賃料値上げ</q>
+          <p>部屋の持ち主が変わり、新しい貸主から一方的に求められた、という相談です。東京都の答えは「借主には、値上げに応じる義務はありません」。貸主は、裁判所に訴えて、増額を認めてもらう必要があります。</p>
+        </div>
+        <div class="case">
+          <q>今回の賃料見直しに応じなければ、契約の更新をしない</q>
+          <p>更新の時期に、貸主から言われた相談です。東京都によると、値上げに応じないことを理由に、貸主は更新を断ることはできません。更新を断るには「正当事由」が要ります。</p>
+        </div>
+        <div class="case">
+          <q>家賃を約10万円に値上げする</q>
+          <p>家を売って、そのまま借りて住む「リースバック」の相談です（国民生活センター・2026年8月）。70歳代の女性は、6年前にマンションを約1000万円で売り、<b>家賃7万円</b>で借りて住んでいました。値上げに不満なら退去するように、と迫られたそうです。</p>
+        </div>
+        <div class="todo">
+          <p><b>すぐに署名しない。今の家賃は払い続ける。</b>一度、値上げに同意して契約書に署名すると、後から変えることは難しくなります（東京都）。</p>
+          <p>貸主が受け取ってくれないときは、<a href="../kotoba/#kyoutaku">供託</a>という方法があります（法務省）。話し合いでまとまらないときは、裁判所の民事調停で話し合えます。</p>
+          <p>困ったときは <span class="nw"><a href="../kotoba/#hotline">消費者ホットライン</a> <a class="tel" href="tel:188">188</a>（いやや）</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-kawaru">
+    <h2 id="h-kawaru"><span class="nw">同じ部屋の更新でも、</span><span class="nw">金額が変わる5つの条件</span></h2>
+    <div class="kind">
+      <div><b>値上げに合意するかどうか</b><span>今の家賃で計算すると、モデルの更新の請求は3万1千円下がります。2年の合計では51万1千円の差です。</span></div>
+      <div><b>更新料の月数</b><span>更新料がなければ9万4千円下がり、2か月分なら9万4千円上がります。</span></div>
+      <div><b>事務手数料</b><span>なければ5万1,700円、0.25か月分なら2万5,850円下がります。</span></div>
+      <div><b>保証会社の決め方</b><span>1年ごとに1万円の会社が多いですが、家賃の10%の会社なら、新しい家賃で9,400円です。</span></div>
+      <div class="w"><b>火災保険</b><span>2年で1万円なら1万円下がり、3万円なら1万円上がります。</span></div>
+    </div>
+  </section>
+
+  <section class="method" aria-labelledby="h-method">
+    <h2 id="h-method"><span class="nw">計算の仕方と</span><span class="nw">出典</span></h2>
+    <dl id="method"></dl>
+    <h3 style="font-size:16px;margin:22px 0 8px">出典（2026年10月16日に確認）</h3>
+    <ol class="src">
+<li>決まり：<a href="https://laws.e-gov.go.jp/law/403AC0000000090" rel="noopener" target="_blank">借地借家法（e-Gov 法令検索）</a>／<a href="https://www.mlit.go.jp/jutakukentiku/house/content/001399558.pdf" rel="noopener" target="_blank">国土交通省 民間賃貸住宅に関する相談対応事例集</a>／<a href="https://www.moj.go.jp/MINJI/minji06_00055.html" rel="noopener" target="_blank">法務省 供託Ｑ＆Ａ</a>／<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6225.htm" rel="noopener" target="_blank">国税庁 土地や住宅の貸付け</a>／<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6201.htm" rel="noopener" target="_blank">国税庁 非課税となる取引</a></li>
+      <li>家賃の統計：<a href="https://www.mlit.go.jp/report/press/content/002012180.pdf" rel="noopener" target="_blank">国土交通省 令和7年度 住宅市場動向調査</a>／<a href="https://www.stat.go.jp/data/jyutaku/2023/pdf/kihon_gaiyou.pdf" rel="noopener" target="_blank">総務省 令和5年住宅・土地統計調査</a>／<a href="https://www.stat.go.jp/data/cpi/sokuhou/tsuki/pdf/kubu.pdf" rel="noopener" target="_blank">総務省 消費者物価指数 東京都区部</a>／<a href="https://www.stat.go.jp/data/cpi/sokuhou/tsuki/pdf/zenkoku.pdf" rel="noopener" target="_blank">総務省 消費者物価指数 全国</a>／<a href="https://www.athome.co.jp/corporate/wp-content/themes/news/pdf/chintai-yachin-202608/chintai-yachin-202608.pdf" rel="noopener" target="_blank">不動産情報サイト 募集家賃の動向</a></li>
+      <li>更新の費用：<a href="https://money-lifehack.com/home/rent/17208" rel="noopener" target="_blank">家計の記事のサイト 更新料・事務手数料・保証料</a>／<a href="https://allabout.co.jp/gm/gc/30561/" rel="noopener" target="_blank">暮らしの記事のサイト 更新料の相場</a>／<a href="https://www.mlit.go.jp/common/001153371.pdf" rel="noopener" target="_blank">国土交通省 家賃債務保証の現状</a>／<a href="https://www.livable.co.jp/l-note/?p=32427" rel="noopener" target="_blank">不動産会社の記事 賃貸の火災保険</a></li>
+      <li>相談事例・相談先：<a href="https://www.shouhiseikatu.metro.tokyo.lg.jp/sodan/kinkyu/20260303.html" rel="noopener" target="_blank">東京都消費生活総合センター 賃貸住宅の家賃値上げトラブルに注意！</a>／<a href="https://www.juutakuseisaku.metro.tokyo.lg.jp/fudosan/chinryouneage" rel="noopener" target="_blank">東京都住宅政策本部 オーナーチェンジを契機とした家賃値上げトラブル</a>／<a href="http://www.juutakuseisaku.metro.tokyo.lg.jp/documents/d/juutakuseisaku/gaiyo2511_02" rel="noopener" target="_blank">東京都住宅政策本部 相談の概要（令和6年度）</a>／<a href="https://www.kokusen.go.jp/news/data/n-20260804_1.html" rel="noopener" target="_blank">国民生活センター 自宅の「リースバック」トラブルにご注意！</a>／<a href="https://www.houterasu.or.jp/" rel="noopener" target="_blank">法テラス</a></li>
+      <li>動画で使った数字・事例・写真の出典は、<a href="../credits/24/">出典のページ</a>にもまとめています。</li>
+    </ol>
+  </section>
+</div>
+
+  <div class="page-note">
+  <p>このページは、不動産会社でも管理会社でもない立場で、YouTubeの動画のために作っています。</p>
+  <p>金額は公開されている資料から計算した目安で、この金額で請求されるという約束ではありません。更新料・事務手数料・保証料・保険は、契約書に何が書いてあるかで決まります。法律の相談の代わりにはなりません。</p>
+  </div>
+  </div>
+</main>
+
+<div class="dock" id="dock">
+  <div class="dock-in">
+    <p class="d1">更新のときの請求（税込）</p>
+    <p class="d2 num"><span id="d-std">17万5,700</span><small>円</small><span class="d-sub" id="d-rng"></span></p>
+  </div>
+  <button type="button" class="dock-go" id="dock-go">結果へ</button>
+</div>
+
+<footer class="site-f">
+  <div class="wrap">
+    <a class="logo" href="../"><img src="../img/face.webp" alt="" width="36" height="36">見積書のお姉さん</a>
+    <p class="site-f__about">家の修理・リフォームの見積書を、公開されている資料の単価から1行ずつ読み解くYouTubeチャンネルです。工事を請け負う業者ではありません。</p>
+    <div class="sns">
+      <a href="https://www.youtube.com/@mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#ff0033" d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81z"/><path fill="#fff" d="M9.55 15.57V8.43L15.82 12z"/></svg>YouTube</a>
+      <a href="https://www.instagram.com/mitsumori_onee/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+      <a href="https://x.com/mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</a>
+    </div>
+    <nav class="site-f__nav" aria-label="サイトの案内">
+      <a href="../#keisan">計算する</a>
+      <a href="../douga/">動画</a>
+      <a href="../teguchi/">手口の記録</a>
+      <a href="../kotoba/">言葉の辞典</a>
+      <a href="../houmon/">業者が来たら</a>
+      <a href="../about/">このサイトについて</a>
+      <a href="../privacy/">プライバシーポリシー</a>
+      <a href="../contact/">お問い合わせ</a>
+    </nav>
+    <p class="site-f__fine">金額はすべて、公開されている資料の単価から計算した目安です。実際の金額は家ごとに変わります。</p>
+    <p class="site-f__fine">© 2026 見積書のお姉さん</p>
+  </div>
+</footer>
+<script>
+/* 問いの表（gen.py が書き出す）：step＝name、key＝送るリンクの記号、opts＝{ 値: [記号, チップの言葉] } */
+const QS = [{"step": "ima", "key": "i", "kind": "number"}, {"step": "shin", "key": "s", "kind": "number"}, {"step": "koushin", "key": "k", "kind": "radio", "def": "m1", "opts": {"nashi": ["n", "更新料なし"], "m1": ["1", "更新料 1か月分"], "m2": ["2", "更新料 2か月分"]}}, {"step": "jimu", "key": "j", "kind": "radio", "def": "h", "opts": {"nashi": ["n", "事務手数料なし"], "q": ["q", "事務手数料 0.25か月分"], "h": ["h", "事務手数料 0.5か月分"], "one": ["1", "事務手数料 1か月分"]}}, {"step": "hosho", "key": "g", "kind": "radio", "def": "ari", "opts": {"nashi": ["n", "保証料なし"], "ari": ["y", "保証料 1万円"]}}, {"step": "hoken", "key": "h", "kind": "number"}];
+const RADIOS = QS.filter(q => q.kind === 'radio').map(q => [q.key, q.step, Object.fromEntries(Object.entries(q.opts).map(([v, [c]]) => [c, v]))]);
+const LBL = Object.fromEntries(QS.filter(q => q.opts).map(q => [q.step, Object.fromEntries(Object.entries(q.opts).map(([v, [, l]]) => [v, l]))]));
+
+/* ============================================================
+   数字はすべて 24_家賃の値上げ/単価表.md の 1章・2章・3章から取る。
+   ここだけ直して、単価表と食い違わせない。
+   更新料＝新しい家賃×月数／事務手数料＝新しい家賃×月数（円未満切り捨て）、消費税＝事務手数料×10%（円未満切り捨て）
+   合計＝更新料＋事務手数料＋消費税＋保証料＋保険。「今の家賃のまま」は同じ式を今の家賃で
+   既定（74,000→94,000円・更新料1か月・事務手数料0.5か月・保証料1万円・保険2万円）＝税込175,700円／2年の合計 2,431,700円
+   ============================================================ */
+const P = {
+  koushin: { nashi: 0, m1: 1, m2: 2 },
+  jimu: { nashi: 0, q: 0.25, h: 0.5, one: 1 },
+  hosho: { nashi: 0, ari: 10000 },
+  tax: 0.10,
+  ku: 2.2,            // 東京都区部の民営家賃の上がり方（2026年9月・前年同月比・総務省）
+};
+const NUM = {
+  ima: { def: 74000, min: 10000, max: 500000, step: 1000, name: '今の家賃', sub: '月・管理費は入れない', unit: '円', fmt: v => `${jp(v)}円` },
+  shin: { def: 94000, min: 10000, max: 500000, step: 1000, name: '新しい家賃', sub: '月・通知に書かれた額', unit: '円', fmt: v => `${jp(v)}円` },
+  hoken: { def: 20000, min: 0, max: 100000, step: 1000, name: '火災保険（2年分）', chip: '火災保険', sub: '0円なら行を消す', unit: '円', fmt: v => `${jp(v)}円` },
+};
+function bill(s, rent) {
+  const rows = [], off = [];
+  const km = P.koushin[s.koushin], jm = P.jimu[s.jimu];
+  const kr = Math.floor(rent * km), jr = Math.floor(rent * jm);
+  if (km) rows.push(row('更新料（大家さんへ）', `家賃${jp(rent)}円×${km}か月分（非課税）`, kr)); else off.push(['更新料', 'なし']);
+  if (jm) rows.push(row('更新事務手数料（管理会社へ）', `家賃${jp(rent)}円×${jm}か月分（この行だけ課税）`, jr)); else off.push(['更新事務手数料', 'なし']);
+  if (P.hosho[s.hosho]) rows.push(row('保証会社の更新保証料（1年分）', '1年ごとに1万円（非課税）', P.hosho[s.hosho])); else off.push(['保証会社の更新保証料', 'なし']);
+  if (s.hoken) rows.push(row('火災保険の更新（2年分）', '家財・借りた人の賠償（非課税）', s.hoken)); else off.push(['火災保険の更新', 'なし']);
+  const sub = rows.reduce((x, r) => x + r.std, 0), tax = Math.floor(jr * P.tax), total = sub + tax;
+  const t = { std: { sub, ex: sub, tax, total } };
+  t.lo = t.std; t.hi = t.std;
+  return { rows, off, t, tax: 'add', subLabel: '小計（消費税の前）', taxNote: `事務手数料${yen(jr)}円の10%だけ（円未満切り捨て）` };
+}
+function estimate(s) {
+  const e = bill(s, s.shin);
+  const k = bill(s, s.ima);
+  e.keep = k.t.std.total;
+  e.two = s.shin * 24 + e.t.std.total;
+  e.twoKeep = s.ima * 24 + k.t.std.total;
+  e.pct = s.ima ? (s.shin - s.ima) / s.ima * 100 : 0;
+  return e;
+}
+function readState() { return readRadios(); }
+
+const pctTxt = p => `${(Math.round(p * 10) / 10).toFixed(1)}%`;
+const UI = {
+  rangeLabel: '',
+  noRange: (s, e) => s.shin === s.ima ? '新しい家賃が今の家賃と同じなので、値上げはありません' : `今の家賃のまま計算すると <b class="num">${jp(e.keep)}円</b>（差 ${jp(e.t.std.total - e.keep)}円）`,
+  pair: (s, e) => `<div><span class="k">2年の合計（新しい家賃×24か月＋更新の請求）</span><span class="v">${jp(e.two)}<small>円</small></span></div>`
+    + `<div><span class="k">今の家賃のままなら</span><span class="v">${jp(e.twoKeep)}<small>円</small></span></div>`,
+  ref: (s, e) => `${s.shin !== s.ima ? `値上げの割合は<b>${pctTxt(e.pct)}</b>（東京都区部の民営家賃の上がり方は${P.ku}%・2026年9月・総務省）。2年の差は${jp(e.two - e.twoKeep)}円です。<br>` : ''}家賃の変更は、貸主と借主の双方の合意で決まります。値上げに納得できないときは、直ちに応じる必要はなく、従来どおりの家賃を払っていれば住み続けられます（東京都）。ただし、話し合い・調停・裁判で上がることはあります。`,
+  dockRange: '',
+  spec: s => `今の家賃 ${jp(s.ima)}円 → 新しい家賃 ${jp(s.shin)}円／${LBL.koushin[s.koushin]}／${LBL.jimu[s.jimu]}／${LBL.hosho[s.hosho]}／火災保険 ${jp(s.hoken)}円`,
+  notes: s => {
+    const n = [];
+    if (s.shin < s.ima) n.push('新しい家賃が今の家賃より低くなっています。入れた金額を確かめてください。');
+    return n;
+  },
+  grandLabel: '更新の請求の合計（税込）',
+  verdict: {
+    low: (lo, mine) => ['この条件の目安より安い', `この条件の目安（${jp(lo)}円）より安い請求です。どちらの家賃で計算しているか、月数が契約書と合っているかを確かめてください。`],
+    mid: () => ['この条件の目安とほぼ同じ', 'この条件の目安とほぼ同じです。更新料と事務手数料が、今の家賃と新しい家賃のどちらで計算されているかを見てください。'],
+    high: (hi, mine) => [`目安より${jp(mine - hi)}円高い`, `この条件の目安（${jp(hi)}円）より高い請求です。月数が契約書と合っているか、契約書に書いていない行が入っていないかを、貸主や管理会社に書面で聞いてください。困ったときは消費者ホットライン188へ。`],
+    small: '更新料・事務手数料・保証料・保険は、契約書に何が書いてあるかで決まります。管理費・共益費・駐車場代などは入っていません。',
+  },
+};
+
+function renderMethod() {
+  const base = { ima: 74000, shin: 94000, koushin: 'm1', jimu: 'h', hosho: 'ari', hoken: 20000 };
+  const d = estimate(base);
+  const c = o => `${jp(estimate({ ...base, ...o }).t.std.total)}円`;
+  const b = estimate({ ...base, shin: 75628 });
+  $('method').innerHTML = `
+    <div><dt>請求書の行</dt><dd>動画のモデルと同じです。三大都市圏の民間の賃貸マンションで、2年ごとに更新する普通の借家契約。今の家賃は月7万4千円で、更新の2か月前に「更新から家賃を2万円値上げする」という書面と、新しい家賃9万4千円で計算した更新の請求書が届いた形です。更新料（1か月分）9万4,000円、更新事務手数料（0.5か月分）4万7,000円、保証会社の更新保証料 1万円、火災保険の更新（2年分）2万円で、小計${jp(d.t.std.sub)}円。事務手数料の消費税${jp(d.t.std.tax)}円を足して、<b>税込${jp(d.t.std.total)}円</b>です。今の家賃のまま計算すると${jp(d.keep)}円で、差は${jp(d.t.std.total - d.keep)}円です。</dd></div>
+    <div><dt>2年の合計</dt><dd>通知どおりに合意すると、家賃9万4千円の24か月分と更新の請求で${jp(d.two)}円。今の家賃のままなら${jp(d.twoKeep)}円で、差は${jp(d.two - d.twoKeep)}円です。たとえば話し合いで、東京都区部の民営家賃の上がり方と同じ2.2%だけ上がったら（7万5,628円）、${jp(b.two)}円です。2.2%は目安として並べたもので、物価と同じだけしか上げてはいけない、という決まりではありません。今の家賃のままでいられるのは、話し合いや裁判で決まるまでです。あとで裁判で値上げが正しいと決まれば、足りなかった分に年1割の利息を付けて払います。</dd></div>
+    <div><dt>ほかの選び方</dt><dd>更新料なし：${c({ koushin: 'nashi' })}／更新料2か月分：${c({ koushin: 'm2' })}／事務手数料なし：${c({ jimu: 'nashi' })}／0.25か月分：${c({ jimu: 'q' })}／火災保険1万円：${c({ hoken: 10000 })}／3万円：${c({ hoken: 30000 })}（どれも更新の請求・税込）。</dd></div>
+    <div><dt>消費税</dt><dd>住宅の貸付けの家賃・更新料、保証料、保険料には、消費税がかかりません（国税庁）。かかるのは管理会社に払う事務手数料だけなので、その行にだけ10%を足しました（円未満切り捨て）。</dd></div>
+    <div><dt>入っていないもの</dt><dd>管理費・共益費・駐車場代・鍵の交換・家賃の10%で計算する保証会社の保証料・定期借家契約の再契約の費用。</dd></div>`;
+}
+
+const CFG = {
+  page: 'yachin',
+  radios: RADIOS,
+  toHash: radioHash,
+  fromHashExtra: numFromHash,
+  chips: autoChips,
+  shareText() { return `家賃の値上げと更新、この条件だと更新の請求は${jp(last.t.std.total)}円（税込）、2年の合計は${jp(last.two)}円でした（見積書のお姉さんの計算ページ）`; },
+  kw: [[/^更新料/, 'koushinryo']],
+  kwLabel: { koushinryo: '更新料' },
+};
+
+/* ── ここから下は、23〜の計算ページで同じ（表の書き出し・物差し・操作） ──
+   各回の上の部分で決めるもの：P（単価）・NUM（数の欄）・estimate(s)・readState()・UI（言葉）・renderMethod()・CFG
+   estimate(s) の返り値：
+     rows  … 小計の上に並べる行 { name, unitText, std, lo, hi, minus }（minus は引く行。金額は正で入れる）
+     off   … 0円の行 [名前, 説明]
+     after … 消費税のあとに足す行（消費税がかからないもの）
+     t     … { std, lo, hi } それぞれ { ex（税抜の小計）, tax, total }
+     tax   … 'add'＝税抜の行に消費税を足す／'in'＝行がすでに税込（消費税の行を出さない）／'none'＝消費税がかからない */
+const yen = n => Math.round(n).toLocaleString('ja-JP');
+// 1万7,600 のように「万」を入れて読む（台本の読み方とそろえる）。円は付けない
+const jp = n => { n = Math.round(n); const neg = n < 0; n = Math.abs(n); const m = Math.floor(n / 10000), r = n % 10000; const s = m ? `${m}万${r ? r.toLocaleString('ja-JP') : ''}` : r.toLocaleString('ja-JP'); return (neg ? '−' : '') + s; };
+const $ = id => document.getElementById(id);
+
+/* 数の欄を書き出す（はじめの数は value に入れて、reset で戻るようにする） */
+if (typeof NUM !== 'undefined') for (const [k, c] of Object.entries(NUM)) {
+  const box = $(`items-${k}`);
+  if (!box) continue;
+  box.innerHTML = `<div class="it on" data-it="${k}"><span class="nm"><b>${c.name}</b>${c.sub ? `<small>${c.sub}</small>` : ''}</span>`
+    + `<span class="stp"><button type="button" data-d="-${c.step}" aria-label="${c.name}を${c.step}${c.unit}減らす">−</button>`
+    + `<input type="number" id="n-${k}" inputmode="numeric" min="${c.min}" max="${c.max}" step="${c.step}" value="${c.def}" aria-label="${c.name}（${c.unit}）">`
+    + `<button type="button" data-d="${c.step}" aria-label="${c.name}を${c.step}${c.unit}増やす">＋</button></span></div>`;
+  box.addEventListener('click', e => {
+    const b = e.target.closest('button[data-d]');
+    if (!b) return;
+    const inp = b.parentNode.querySelector('input');
+    inp.value = String(Math.min(c.max, Math.max(c.min, (parseFloat(inp.value) || 0) + Number(b.dataset.d))));
+    render();
+  });
+}
+const numOf = k => { const c = NUM[k], v = parseFloat($(`n-${k}`).value); return Number.isFinite(v) ? Math.min(c.max, Math.max(c.min, v)) : c.def; };
+
+let last = null;
+function render() {
+  const s = readState();
+  const e = estimate(s);
+  last = e;
+  const { t } = e;
+  const ranged = t.lo.total !== t.hi.total;
+  $('t-std').textContent = jp(t.std.total);
+  $('t-from').textContent = '';
+  $('t-range').innerHTML = ranged
+    ? `${UI.rangeLabel} <b class="num"><span id="t-lo">${jp(t.lo.total)}</span>〜<span id="t-hi">${jp(t.hi.total)}</span>円</b>`
+    : (UI.noRange ? UI.noRange(s, e) : '');
+  $('t-pair').innerHTML = UI.pair ? UI.pair(s, e) : '';
+  $('t-ref').innerHTML = UI.ref ? UI.ref(s, e) : '';
+  $('d-std').textContent = jp(t.std.total);
+  $('d-rng').textContent = ranged ? `${UI.dockRange} ${jp(t.lo.total)}〜${jp(t.hi.total)}円` : '';
+  $('spec').innerHTML = UI.spec(s, e);
+  const notes = UI.notes ? UI.notes(s, e) : [];
+  $('fnote').hidden = !notes.length;
+  $('fnote').textContent = notes.join(' ');
+
+  const tr = (cls, name, small, std, rng) =>
+    `<tr class="${cls}"><td class="item"><b>${name}</b>${kw(name)}${small ? `<small>${small}</small>` : ''}</td><td class="amt">${std}<span class="rng">${rng}</span></td></tr>`;
+  const amt = (r, v) => (r.minus ? '−' : '') + yen(v);
+  const rng = r => r.lo !== r.hi ? `${amt(r, r.lo)}〜${amt(r, r.hi)}` : '';
+  let html = e.rows.map(r => tr(r.minus ? 'minus' : '', r.name, r.unitText, amt(r, r.std), rng(r))).join('');
+  html += (e.off || []).map(([n, sm]) => tr('off', n, sm, '—', '—')).join('');
+  const both = (k) => ranged ? `${yen(t.lo[k])}〜${yen(t.hi[k])}` : '';
+  if (e.tax === 'add') {
+    html += tr('sum', e.subLabel || '小計（税抜）', '', yen(t.std.ex), both('ex'));
+    html += tr('', '消費税', e.taxNote || '10%（円未満切り捨て）', yen(t.std.tax), both('tax'));
+  } else if (e.after && e.after.length) {
+    html += tr('sum', e.tax === 'in' ? '小計（税込）' : '小計', '', yen(t.std.ex), both('ex'));
+  }
+  html += (e.after || []).map(r => tr(r.minus ? 'minus' : '', r.name, r.unitText, amt(r, r.std), rng(r))).join('');
+  html += tr('grand', UI.grandLabel || '合計（税込）', '', yen(t.std.total) + '円', both('total'));
+  $('rows').innerHTML = html;
+  renderCompare();
+  afterRender(s);
+}
+
+/* 物差し：安い側〜高い側の帯に、目安と手元の金額を立てる */
+function renderCompare() {
+  if (!last) return;
+  const lo = last.t.lo.total, std = last.t.std.total, hi = last.t.hi.total;
+  const raw = parseFloat($('mine').value);
+  const mine = Number.isFinite(raw) && raw > 0 ? raw : null;
+  let a = lo * 0.6, b = hi * 1.25;
+  if (mine) { a = Math.min(a, mine * 0.94); b = Math.max(b, mine * 1.06); }
+  if (b <= a) b = a + 1;
+  const pct = v => ((v - a) / (b - a)) * 100;
+  const place = (el, v) => { const q = pct(v); el.style.left = `${q}%`; el.style.transform = q < 12 ? 'translateX(-1.5px)' : q > 88 ? 'translateX(calc(-100% + 1.5px))' : 'translateX(-50%)'; el.style.alignItems = q < 12 ? 'flex-start' : q > 88 ? 'flex-end' : 'center'; };
+  $('r-band').style.left = `${pct(lo)}%`;
+  $('r-band').style.width = `${Math.max(0.6, ((hi - lo) / (b - a)) * 100)}%`;
+  place($('r-std'), std);
+  const same = lo === hi;
+  $('r-lo').hidden = same; $('r-hi').hidden = same;
+  place($('r-lo'), lo); $('r-lo').textContent = `${jp(lo)}円`;
+  place($('r-hi'), hi); $('r-hi').textContent = `${jp(hi)}円`;
+  const pin = $('r-mine'), v = $('verdict');
+  $('ruler').classList.toggle('has-mine', !!mine);
+  if (!mine) { pin.hidden = true; v.textContent = ''; v.className = 'verdict'; return; }
+  pin.hidden = false; place(pin, mine);
+  const tol = Math.max(300, std * 0.005);
+  const near = n => Math.abs(n) < tol;
+  const V = UI.verdict;
+  let pill, msg, cls = 'verdict';
+  if (mine < lo && !near(mine - lo)) {
+    [pill, msg] = V.low(lo, mine); if (V.lowBad) cls += ' out';
+  } else if (mine <= hi || near(mine - hi)) {
+    [pill, msg] = V.mid(lo, hi, mine);
+  } else {
+    [pill, msg] = V.high(hi, mine); if (!V.lowBad) cls += ' out';
+  }
+  msg += '<b class="v-next">内訳の行ごとに比べてください。</b><button type="button" class="v-open">内訳を開く</button>';
+  if (V.small) msg += `<small>${V.small}</small>`;
+  v.className = cls; v.innerHTML = `<span class="v-pill">${pill}</span>${msg}`;
+}
+
+/* ── 操作 ── */
+$('f').addEventListener('change', e => { if (e.target.name || e.target.id) render(); });
+$('f').addEventListener('input', e => { if (e.target.type === 'number') render(); });
+$('f').addEventListener('submit', e => e.preventDefault());
+$('mine').addEventListener('input', renderCompare);
+$('btn-reset').addEventListener('click', () => { $('f').reset(); render(); });
+
+/* ── 23〜の共通の道具（問いの表 QS から、読む・送る・チップを作る） ── */
+const row = (name, unitText, std, lo = std, hi = std, minus = false) => ({ name, unitText, std, lo, hi, minus });
+// 行を足して、諸経費（keihi の率・円未満切り捨て）と消費税（tax の率・円未満切り捨て）を出す。after は消費税のあとに足す行
+function withTax(rows, o = {}) {
+  const keihi = o.keihi || 0, rate = o.tax === undefined ? 0.10 : o.tax, after = o.after || [];
+  const kr = keihi ? row('諸経費', `小計の${Math.round(keihi * 100)}%（円未満切り捨て）`, 0) : null;
+  const t = {};
+  for (const k of ['std', 'lo', 'hi']) {
+    const sub = rows.reduce((x, r) => x + (r.minus ? -r[k] : r[k]), 0);
+    const kh = Math.floor(sub * keihi);
+    if (kr) kr[k] = kh;
+    const ex = sub + kh, tx = Math.floor(ex * rate);
+    const af = after.reduce((x, r) => x + (r.minus ? -r[k] : r[k]), 0);
+    t[k] = { sub, ex, tax: tx, total: ex + tx + af };
+  }
+  return { rows: kr ? rows.concat([kr]) : rows, t, after, tax: o.taxMode || (rate ? 'add' : 'none') };
+}
+function readRadios() {
+  const s = {};
+  for (const q of QS) {
+    if (q.kind === 'number') { s[q.step] = numOf(q.step); continue; }
+    const el = document.querySelector(`input[name="${q.step}"]:checked`);
+    s[q.step] = el && Object.prototype.hasOwnProperty.call(q.opts, el.value) ? el.value : q.def;
+  }
+  return s;
+}
+function radioHash(s) { return QS.map(q => `${q.key}=${q.kind === 'number' ? s[q.step] : q.opts[s[q.step]][0]}`); }
+function numFromHash(sp) {
+  for (const q of QS) {
+    if (q.kind !== 'number') continue;
+    const v = sp.get(q.key), c = NUM[q.step];
+    if (v !== null && /^\d{1,6}(\.\d{1,2})?$/.test(v) && Number(v) >= c.min && Number(v) <= c.max) $(`n-${q.step}`).value = String(Number(v));
+  }
+}
+function autoChips(s) {
+  return QS.filter(q => !document.querySelector(`#f .q[data-step="${q.step}"]`).hidden)
+    .map(q => [q.step, q.kind === 'number' ? `${NUM[q.step].chip || NUM[q.step].name} ${NUM[q.step].fmt ? NUM[q.step].fmt(s[q.step]) : s[q.step] + NUM[q.step].unit}` : LBL[q.step][s[q.step]]]);
+}
+
+/* ============================================================
+   画面の動き（ここから下は計算に関わらない）
+   スマホ（760px未満）：1問ずつ出して、最後に「結果を見る」。<html> の .is-steps / .is-result で切り替える
+   条件を送る：ボタンを押したときだけ、URLの # の後ろに条件を書いたリンクを作る（入力中は location を書き換えない）
+   アクセス解析：入力した値（選んだ条件・金額など）は渡さない。どのページで・何をしたかだけ
+   ============================================================ */
+const H = document.documentElement;
+const MQ = window.matchMedia('(max-width: 759.98px)');
+const RM = window.matchMedia('(prefers-reduced-motion: reduce)');
+const own = (o, k) => Object.prototype.hasOwnProperty.call(o, k);
+const T = (name, params) => {
+  const go = () => { try { if (typeof window.track === 'function') window.track(name, params); } catch (_) { /* 解析が動かなくても計算は止めない */ } };
+  if (typeof window.track === 'function') go(); else document.addEventListener('DOMContentLoaded', go, { once: true });
+};
+const steps = [...document.querySelectorAll('#f .q')];
+const liveSteps = () => steps.filter(el => !el.hidden);
+const isSteps = () => H.classList.contains('is-steps');
+const isResult = () => H.classList.contains('is-result');
+let curEl = steps[0], editing = false, advTimer = 0, ptrAt = 0, doneSent = false, cmpSent = false;
+
+function kw(name) {
+  for (const [re, id] of CFG.kw) {
+    if (re.test(name)) return `<a class="kw" href="../kotoba/#${id}" aria-label="${CFG.kwLabel[id]}の意味（言葉の辞典）">辞典</a>`;
+  }
+  return '';
+}
+
+function scrollToY(y, smooth) {
+  y = Math.max(0, y);
+  if (smooth && !RM.matches) { window.scrollTo({ top: y, behavior: 'smooth' }); return; }
+  const prev = H.style.scrollBehavior;
+  H.style.scrollBehavior = 'auto'; window.scrollTo(0, y); H.style.scrollBehavior = prev;
+}
+function moveTo(el, smooth = true) { scrollToY(el.getBoundingClientRect().top + window.scrollY - 72, smooth); }
+
+function paintStepbar() {
+  const live = liveSteps();
+  if (!live.includes(curEl)) curEl = live[0];
+  const i = live.indexOf(curEl), n = live.length, lastStep = i === n - 1;
+  $('step-count').innerHTML = `<b>${i + 1}</b> / ${n}`;
+  $('step-fill').style.width = `${((i + 1) / n) * 100}%`;
+  $('step-back').disabled = i === 0 && !editing;
+  const btn = $('step-next'), num = curEl.dataset.kind === 'number';
+  btn.textContent = editing ? '結果にもどる' : lastStep ? '結果を見る' : num ? '次へ' : 'このまま次へ';
+  btn.classList.toggle('is-quiet', !editing && !lastStep && !num);
+}
+
+function showStep(el, dir, focus) {
+  if (!el) return;
+  clearTimeout(advTimer);
+  const wasResult = isResult();
+  H.classList.remove('is-result');
+  for (const q of steps) q.classList.toggle('is-current', q === el);
+  el.classList.remove('in-fwd', 'in-back');
+  if (dir) { void el.offsetWidth; el.classList.add(dir > 0 ? 'in-fwd' : 'in-back'); }
+  curEl = el;
+  paintStepbar();
+  const bar = $('stepbar'), top = bar.getBoundingClientRect().top;
+  if (Math.abs(top - 72) > 6 && (dir || top < 0 || top > window.innerHeight * 0.5)) moveTo(bar, !!dir && !wasResult);
+  if (focus) {
+    const t = el.dataset.kind === 'number' ? el : (el.querySelector('input:checked') || el.querySelector('input'));
+    try { t.focus({ preventScroll: true }); } catch (_) { t.focus(); }
+  }
+}
+function nextStep() {
+  clearTimeout(advTimer);
+  const live = liveSteps(), i = live.indexOf(curEl);
+  if (editing || i >= live.length - 1) { showResult(true); return; }
+  showStep(live[i + 1], 1, true);
+}
+function prevStep() {
+  if (editing) { showResult(true); return; }
+  const live = liveSteps(), i = live.indexOf(curEl);
+  if (i > 0) showStep(live[i - 1], -1, true);
+}
+function markDone() {
+  if (doneSent) return;
+  doneSent = true;
+  T('calc_done', { page: CFG.page });
+}
+function showResult(user) {
+  clearTimeout(advTimer);
+  editing = false;
+  if (isSteps()) {
+    H.classList.add('is-result');
+    moveTo($('result'), false);
+  } else if (user) moveTo($('result'));
+  if (user) { try { $('h-result').focus({ preventScroll: true }); } catch (_) { /* 古いブラウザ */ } }
+  markDone();
+}
+
+/* 選んだ条件のチップ（押すと、その問いにもどる） */
+function paintChips(s) {
+  $('chips').innerHTML = CFG.chips(s).map(([k, label]) => `<button type="button" class="chip" data-go="${k}">${label}</button>`).join('');
+}
+function afterRender(s) {
+  paintChips(s);
+  const seen = new Set();
+  for (const a of document.querySelectorAll('#rows .kw')) { const h = a.getAttribute('href'); if (seen.has(h)) a.remove(); else seen.add(h); }
+  if (isSteps()) paintStepbar();
+}
+
+/* ── 1問ずつの操作 ── */
+$('f').addEventListener('pointerdown', () => { ptrAt = Date.now(); }, true);
+$('f').addEventListener('click', e => {
+  const r = e.target;
+  if (!isSteps() || !(r instanceof HTMLInputElement) || r.type !== 'radio') return;
+  if (r.hasAttribute('data-stay')) return;
+  const q = r.closest('.q');
+  if (q !== curEl || Date.now() - ptrAt > 1500) return;   // 矢印キーで選んだときは進めない
+  const live = liveSteps();
+  if (!editing && live.indexOf(q) === live.length - 1) return;   // 最後の問いは「結果を見る」を押してもらう
+  clearTimeout(advTimer);
+  advTimer = setTimeout(nextStep, 260);
+});
+$('f').addEventListener('keydown', e => {
+  if (e.key !== 'Enter' || !isSteps() || e.isComposing) return;
+  const t = e.target;
+  if (!(t instanceof HTMLInputElement) || !t.closest('.q')) return;
+  e.preventDefault();
+  if (t.type === 'number') t.dispatchEvent(new Event('change', { bubbles: true }));
+  nextStep();
+});
+$('step-next').addEventListener('click', nextStep);
+$('step-back').addEventListener('click', prevStep);
+$('res-back').addEventListener('click', () => { const live = liveSteps(); showStep(live[live.length - 1], -1, true); });
+$('chips').addEventListener('click', e => {
+  const b = e.target.closest('[data-go]');
+  if (!b) return;
+  const q = document.querySelector(`#f .q[data-step="${b.dataset.go}"]`);
+  if (!q || q.hidden) return;
+  if (isSteps()) { editing = true; showStep(q, 0, true); return; }
+  moveTo(q);
+  const t = q.querySelector('input:checked') || q.querySelector('input');
+  try { t.focus({ preventScroll: true }); } catch (_) { t.focus(); }
+});
+
+/* ── 下の帯 ── */
+$('dock-go').addEventListener('click', () => showResult(true));
+if ('IntersectionObserver' in window) {
+  new IntersectionObserver(([en]) => $('dock').classList.toggle('away', en.isIntersecting && !isSteps()), { threshold: 0.08 }).observe($('result'));
+}
+
+/* 広い画面：最初に条件を動かしたら「結果を見た」とする */
+const onEdit = () => { if (!isSteps()) markDone(); };
+$('f').addEventListener('change', onEdit);
+if ($('methods')) $('methods').addEventListener('change', onEdit);
+
+/* ── 手元の見積書と比べる（金額はどこにも送らない） ── */
+$('mine').addEventListener('change', () => {
+  if (cmpSent || !(parseFloat($('mine').value) > 0)) return;
+  cmpSent = true;
+  T('compare', { page: CFG.page });
+});
+$('verdict').addEventListener('click', e => {
+  if (!e.target.closest('.v-open')) return;
+  $('doc').open = true;
+  moveTo($('doc'));
+  $('doc').querySelector('summary').focus({ preventScroll: true });
+});
+
+/* ── 家族に送る ── */
+function shareURL() {
+  return location.href.replace(/[?#].*$/, '') + '#' + CFG.toHash(readState()).join('&');
+}
+function shareStatus(text, url) {
+  const st = $('sh-status');
+  st.textContent = text;
+  if (url) {
+    const a = document.createElement('a');
+    a.href = url; a.textContent = url; a.className = 'sh-url';
+    st.append(document.createElement('br'), a);
+  }
+}
+async function copyText(s) {
+  try { await navigator.clipboard.writeText(s); return true; } catch (_) { /* 下の方法で */ }
+  const ta = document.createElement('textarea');
+  ta.value = s; ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+  document.body.appendChild(ta); ta.select();
+  let ok = false;
+  try { ok = document.execCommand('copy'); } catch (_) { ok = false; }
+  ta.remove();
+  return ok;
+}
+$('sh-line').addEventListener('click', () => {
+  $('sh-line').href = 'https://line.me/R/share?text=' + encodeURIComponent(CFG.shareText() + '\n' + shareURL());
+  T('share', { page: CFG.page, method: 'line' });
+});
+$('sh-copy').addEventListener('click', async () => {
+  const url = shareURL();
+  const ok = await copyText(url);
+  if (ok) shareStatus('リンクをコピーしました。LINEやメールに貼りつけると、同じ条件の計算が開きます。');
+  else shareStatus('コピーできませんでした。下のリンクを長押しして、コピーしてください。', url);
+  T('share', { page: CFG.page, method: 'copy' });
+});
+if (typeof navigator.share === 'function') {
+  $('sh-native').hidden = false;
+  $('sh-native').addEventListener('click', async () => {
+    try {
+      await navigator.share({ title: document.title, text: CFG.shareText(), url: shareURL() });
+      T('share', { page: CFG.page, method: 'native' });
+    } catch (_) { /* 閉じただけ */ }
+  });
+}
+
+/* ── # の後ろの条件を読む（おかしな値は無視して、はじめの値のまま） ── */
+function applyHash() {
+  const raw = location.hash.slice(1);
+  if (!raw || raw.indexOf('=') < 0 || raw.length > 200) return false;
+  let sp;
+  try { sp = new URLSearchParams(raw); } catch (_) { return false; }
+  for (const [key, name, map] of CFG.radios) {
+    const v = sp.get(key);
+    if (v === null || !own(map, v)) continue;
+    const el = document.querySelector(`input[name="${name}"][value="${map[v]}"]`);
+    if (el) el.checked = true;
+  }
+  if (CFG.fromHashExtra) CFG.fromHashExtra(sp);
+  return true;
+}
+
+function setMode() {
+  H.classList.toggle('is-steps', MQ.matches);
+  if (!MQ.matches) H.classList.remove('is-result');
+  else { if (!curEl || curEl.hidden) curEl = liveSteps()[0]; for (const q of steps) q.classList.toggle('is-current', q === curEl); paintStepbar(); }
+}
+if (MQ.addEventListener) MQ.addEventListener('change', setMode); else if (MQ.addListener) MQ.addListener(setMode);
+
+/* ── はじめに ── */
+const fromHash = applyHash();
+renderMethod();
+render();
+$('share').hidden = false;
+if (fromHash) $('from-link').hidden = false;
+if (MQ.matches) $('doc').open = false;
+setMode();
+if (fromHash) { if (isSteps()) H.classList.add('is-result'); markDone(); }
+else H.classList.remove('is-result');
+</script>
+</body>
+</html>
