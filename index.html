@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="assets/site.css">
 <script src="assets/site.js" defer></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","name":"見積書のお姉さん","url":"https://creative-works-plus.github.io/ie-hiyou/","inLanguage":"ja","description":"家の修理・リフォームの見積書を、公開されている資料の単価から1行ずつ読み解くYouTubeチャンネルのサイト","sameAs":["https://www.youtube.com/@mitsumori_onee","https://www.instagram.com/mitsumori_onee/","https://x.com/mitsumori_onee"]}
+{"@context":"https://schema.org","@type":"WebSite","name":"見積書のお姉さん","url":"https://creative-works-plus.github.io/ie-hiyou/","inLanguage":"ja","description":"家の修理・リフォームの見積書を、公開されている資料の単価から1行ずつ読み解くYouTubeチャンネルのサイト","sameAs":["https://www.youtube.com/@mitsumori_onee","https://www.instagram.com/mitsumori_onee/","https://www.tiktok.com/@mitsumori_onee","https://x.com/mitsumori_onee"]}
 </script>
 <style>
 /* トップ：見積書の紙（方眼）の上に、赤ペンで丸をつけるお姉さん。署名は「赤ペンの丸」と「蛍光ペンの線」 */
@@ -76,6 +76,22 @@ a.calc:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
 .soon-row ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
 .soon-row li { border: 1.5px dashed var(--rule); border-radius: 999px; padding: 3px 12px; }
 
+/* 計算する：分類ごとに折りたたむ */
+.cats { display: grid; gap: 10px; }
+.cat { background: var(--sheet); border: 1.5px solid var(--rule); border-radius: var(--radius); box-shadow: var(--shadow); }
+.cat > summary { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 2px 12px; padding: 16px 18px; cursor: pointer; list-style: none; }
+.cat > summary::-webkit-details-marker { display: none; }
+.cat > summary::after { content: ""; grid-column: 3; grid-row: 1 / span 2; width: 10px; height: 10px; margin: 0 4px 4px; border-right: 2.5px solid var(--blue); border-bottom: 2.5px solid var(--blue); transform: rotate(45deg); transition: transform .2s; }
+.cat[open] > summary::after { transform: rotate(-135deg); margin: 4px 4px 0; }
+.cat__name { font: 800 20px/1.4 var(--f-disp); }
+.cat__n { grid-column: 2; grid-row: 1 / span 2; font-size: 13px; font-weight: 700; color: var(--sub); white-space: nowrap; }
+.cat__n b { font: 800 18px var(--f-disp); color: var(--ink); }
+.cat__ex { grid-column: 1; font-size: 13px; color: var(--sub); line-height: 1.5; }
+.cat .calc-list { padding: 0 12px 14px; }
+.cat .calc { box-shadow: none; }
+@media (max-width: 480px) { .cat .calc { padding: 14px 12px; gap: 4px 10px; } .cat .calc__name { font-size: 18px; } }
+.cat > summary:hover .cat__name { color: var(--blue); }
+
 /* 動画 */
 .vids { display: grid; grid-auto-flow: column; grid-auto-columns: min(78%, 300px); gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 16px 12px; margin: 0 -16px; list-style: none; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
 .vids > li { scroll-snap-align: start; min-width: 0; }
@@ -87,6 +103,15 @@ a.calc:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
 .vid__title { display: block; font-weight: 700; font-size: 15px; line-height: 1.55; margin-top: 10px; }
 .vid__meta { display: block; font-size: 13px; color: var(--sub); margin-top: 2px; }
 a.vid:hover .vid__title { color: var(--blue); }
+.fold { margin-top: 18px; }
+.fold > summary { display: flex; align-items: center; justify-content: center; gap: 10px; max-width: 420px; margin: 0 auto; padding: 12px 18px; background: var(--sheet); border: 1.5px solid var(--rule); border-radius: 999px; color: var(--blue); font-weight: 700; cursor: pointer; list-style: none; }
+.fold > summary::-webkit-details-marker { display: none; }
+.fold > summary::after { content: ""; width: 8px; height: 8px; margin-bottom: 4px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); transition: transform .2s; }
+.fold[open] > summary::after { transform: rotate(-135deg); margin: 4px 0 0; }
+.fold[open] .fold__closed, .fold:not([open]) .fold__opened { display: none; }
+.vids--all { grid-auto-flow: row; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 12px; overflow: visible; padding: 0; margin: 18px 0 0; }
+.vids--all .vid__title { font-size: 13.5px; }
+@media (min-width: 760px) { .vids--all { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px 14px; } .vids--all .vid__title { font-size: 15px; } }
 
 /* 業者が来たら */
 .alert { display: grid; gap: 18px; background: var(--red-soft); border: 1.5px solid var(--red); border-radius: var(--radius); padding: 24px 20px; }
@@ -152,7 +177,7 @@ a.vid:hover .vid__title { color: var(--blue); }
 
 .head-row { display: flex; align-items: end; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
 .head-row a { font-weight: 700; text-decoration: none; white-space: nowrap; font-size: 15px; }
-@media (prefers-reduced-motion: reduce) { a.calc, a.calc:hover { transition: none; transform: none; } }
+@media (prefers-reduced-motion: reduce) { a.calc, a.calc:hover { transition: none; transform: none; } .cat > summary::after, .fold > summary::after { transition: none; } }
 </style>
 </head>
 <body>
@@ -208,42 +233,72 @@ a.vid:hover .vid__title { color: var(--blue); }
     <div class="wrap">
       <span class="eyebrow">計算する</span>
       <h2 class="section-h" id="keisan-h">自分の家の大きさで、相場を出す</h2>
-      <p class="section-sub">動画と同じ単価表で、見積書と同じ並びに1行ずつ出します。スマホなら1問ずつ答えるだけです。</p>
-      <ul class="calc-list">
-        <li data-gate="01"><a class="calc" href="gaiheki/"><span class="calc__no">No.<b>01</b></span><span><span class="calc__name">外壁塗装</span><span class="calc__ex">30坪・2階・シリコンで <strong class="nw">約111万円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="02"><a class="calc" href="yane/"><span class="calc__no">No.<b>02</b></span><span><span class="calc__name">屋根</span><span class="calc__ex">30坪で 塗り直し <strong class="nw">約55万円</strong>から</span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="03"><a class="calc" href="kyutoki/"><span class="calc__no">No.<b>03</b></span><span><span class="calc__name">給湯器の交換</span><span class="calc__ex">24号・エコジョーズで <strong class="nw">約22万6千円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="04"><a class="calc" href="shiroari/"><span class="calc__no">No.<b>04</b></span><span><span class="calc__name">シロアリ駆除</span><span class="calc__ex">30坪・バリア工法で <strong class="nw">約12万円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="05"><a class="calc" href="toilet/"><span class="calc__no">No.<b>05</b></span><span><span class="calc__name">トイレのつまり修理</span><span class="calc__ex">軽いつまり・夜で <strong class="nw">1万7,600円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="06"><a class="calc" href="ofuro/"><span class="calc__no">No.<b>06</b></span><span><span class="calc__name">お風呂の交換</span><span class="calc__ex">1坪・中級で <strong class="nw">約97万円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="10"><a class="calc" href="taikyo/"><span class="calc__no">No.<b>07</b></span><span><span class="calc__name">賃貸の退去費用</span><span class="calc__ex">1K・6畳・4年で 借りた人の分 <strong class="nw">4,400円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="11"><a class="calc" href="fuyohin/"><span class="calc__no">No.<b>08</b></span><span><span class="calc__name">不用品回収</span><span class="calc__ex">9点・軽トラック積み放題で <strong class="nw">2万6,840円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="12"><a class="calc" href="kagi/"><span class="calc__no">No.<b>09</b></span><span><span class="calc__name">鍵開け・鍵の交換</span><span class="calc__ex">夜・ディンプルに交換で <strong class="nw">3万8,280円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="07"><a class="calc" href="yukashita/"><span class="calc__no">No.<b>10</b></span><span><span class="calc__name">床下換気扇・調湿材</span><span class="calc__ex">15坪・換気扇3台と調湿材で <strong class="nw">約40万円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="08"><a class="calc" href="chikudenchi/"><span class="calc__no">No.<b>11</b></span><span><span class="calc__name">蓄電池・太陽光</span><span class="calc__ex">7キロワットアワーで <strong class="nw">約141万円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="09"><a class="calc" href="amadoi/"><span class="calc__no">No.<b>12</b></span><span><span class="calc__name">雨どい修理</span><span class="calc__ex">2階建て・全部取り替えで <strong class="nw">約43万円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="14"><a class="calc" href="kujo/"><span class="calc__no">No.<b>13</b></span><span><span class="calc__name">ハチの巣の駆除</span><span class="calc__ex">軒下のスズメバチの巣1つで <strong class="nw">2万5,300円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="18" hidden><a class="calc" href="mado/"><span class="calc__no">No.<b>14</b></span><span><span class="calc__name">窓の断熱リフォーム</span><span class="calc__ex">内窓4か所・補助金を引いて <strong class="nw">35万3,000円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="20" hidden><a class="calc" href="sentei/"><span class="calc__no">No.<b>15</b></span><span><span class="calc__name">庭木の剪定・草刈り</span><span class="calc__ex">木3本・草刈り50㎡で <strong class="nw">3万7,895円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="23" hidden><a class="calc" href="oukyu/"><span class="calc__no">No.<b>16</b></span><span><span class="calc__name">地震のあとの屋根の応急修理</span><span class="calc__ex">瓦屋根30坪・ブルーシートと棟10mで <strong class="nw">48万3,945円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="24" hidden><a class="calc" href="yachin/"><span class="calc__no">No.<b>17</b></span><span><span class="calc__name">家賃の値上げと更新</span><span class="calc__ex">7万4千円→9万4千円の更新の請求 <strong class="nw">17万5,700円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="25" hidden><a class="calc" href="ecocute/"><span class="calc__no">No.<b>18</b></span><span><span class="calc__name">エコキュートの交換</span><span class="calc__ex">電気温水器から370L・フルオートで <strong class="nw">51万7,000円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="19" hidden><a class="calc" href="taishin/"><span class="calc__no">No.<b>19</b></span><span><span class="calc__name">耐震補強工事</span><span class="calc__ex">木造2階・壁8か所で <strong class="nw">140万6,876円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="26" hidden><a class="calc" href="taikyo2/"><span class="calc__no">No.<b>20</b></span><span><span class="calc__name">退去費用（タバコ・ペット・壁の穴）</span><span class="calc__ex">6年住んだ1K・ガイドラインどおりで <strong class="nw">5万1,701円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="27" hidden><a class="calc" href="kaitori/"><span class="calc__no">No.<b>21</b></span><span><span class="calc__name">金の買い取り（訪問購入）</span><span class="calc__ex">K18のネックレスと指輪15gで <strong class="nw">23万1,165円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="16" hidden><a class="calc" href="mizumore/"><span class="calc__no">No.<b>22</b></span><span><span class="calc__name">蛇口の水漏れ修理</span><span class="calc__ex">夜・カートリッジの交換で <strong class="nw">3万1,240円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="28" hidden><a class="calc" href="kyutoki-shuri/"><span class="calc__no">No.<b>23</b></span><span><span class="calc__name">給湯器の修理か交換か</span><span class="calc__ex">燃焼系の部品1つの修理で <strong class="nw">3万6,300円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="21" hidden><a class="calc" href="josuiki/"><span class="calc__no">No.<b>24</b></span><span><span class="calc__name">浄水器</span><span class="calc__ex">一体型の水栓・3〜4人で10年 <strong class="nw">27万6,650円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="17" hidden><a class="calc" href="kitchen/"><span class="calc__no">No.<b>25</b></span><span><span class="calc__name">キッチンの交換</span><span class="calc__ex">I型255cm・同じ位置で入れ替えで <strong class="nw">130万4,160円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="13" hidden><a class="calc" href="aircon/"><span class="calc__no">No.<b>26</b></span><span><span class="calc__name">エアコンの取り付け</span><span class="calc__ex">2階から1階の地面へ・処分ありで <strong class="nw">5万4,230円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="29" hidden><a class="calc" href="ihin/"><span class="calc__no">No.<b>27</b></span><span><span class="calc__name">遺品整理・実家の片付け</span><span class="calc__ex">2DK・アパートの2階で <strong class="nw">20万4,820円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="30" hidden><a class="calc" href="shoki/"><span class="calc__no">No.<b>28</b></span><span><span class="calc__name">賃貸の入居の初期費用</span><span class="calc__ex">家賃7万円の1Kで <strong class="nw">43万4,500円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="31" hidden><a class="calc" href="cleaning/"><span class="calc__no">No.<b>29</b></span><span><span class="calc__name">ハウスクリーニング（水回り）</span><span class="calc__ex">水回り5か所の5点セットで <strong class="nw">3万7,400円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="15" hidden><a class="calc" href="hikkoshi/"><span class="calc__no">No.<b>30</b></span><span><span class="calc__name">引っ越し</span><span class="calc__ex">単身・県内20キロ・エアコンありで <strong class="nw">7万4,096円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="32" hidden><a class="calc" href="touketsu/"><span class="calc__no">No.<b>31</b></span><span><span class="calc__name">水道管の凍結・破裂の修理</span><span class="calc__ex">むき出しの管を一部交換して <strong class="nw">3万1,900円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="33" hidden><a class="calc" href="aircon-clean/"><span class="calc__no">No.<b>32</b></span><span><span class="calc__name">エアコンクリーニング</span><span class="calc__ex">壁掛け2台（お掃除機能付き1台）で <strong class="nw">4万5,650円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-        <li data-gate="22" hidden><a class="calc" href="shokaki/"><span class="calc__no">No.<b>33</b></span><span><span class="calc__name">火災警報器・消火器</span><span class="calc__ex">警報器3個・消火器1本で <strong class="nw">5万5,000円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
-      </ul>
+      <p class="section-sub">動画と同じ単価表で、見積書と同じ並びに1行ずつ出します。スマホなら1問ずつ答えるだけです。調べたい工事の分類を押すと開きます。</p>
+      <div class="cats">
+        <details class="cat" id="cat-soto">
+          <summary><span class="cat__name">屋根・外壁・庭</span><span class="cat__ex">外壁塗装／屋根／雨どい修理</span><span class="cat__n"><b>3</b>件</span></summary>
+          <ul class="calc-list">
+            <li data-gate="01"><a class="calc" href="gaiheki/"><span class="calc__no">No.<b>01</b></span><span><span class="calc__name">外壁塗装</span><span class="calc__ex">30坪・2階・シリコンで <strong class="nw">約111万円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+            <li data-gate="02"><a class="calc" href="yane/"><span class="calc__no">No.<b>02</b></span><span><span class="calc__name">屋根</span><span class="calc__ex">30坪で 塗り直し <strong class="nw">約55万円</strong>から</span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+            <li data-gate="09"><a class="calc" href="amadoi/"><span class="calc__no">No.<b>12</b></span><span><span class="calc__name">雨どい修理</span><span class="calc__ex">2階建て・全部取り替えで <strong class="nw">約43万円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+            <li data-gate="23" hidden><a class="calc" href="oukyu/"><span class="calc__no">No.<b>16</b></span><span><span class="calc__name">地震のあとの屋根の応急修理</span><span class="calc__ex">瓦屋根30坪・ブルーシートと棟10mで <strong class="nw">48万3,945円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+            <li data-gate="20" hidden><a class="calc" href="sentei/"><span class="calc__no">No.<b>15</b></span><span><span class="calc__name">庭木の剪定・草刈り</span><span class="calc__ex">木3本・草刈り50㎡で <strong class="nw">3万7,895円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+          </ul>
+        </details>
+        <details class="cat" id="cat-mizu">
+          <summary><span class="cat__name">水まわり</span><span class="cat__ex">トイレのつまり修理／お風呂の交換</span><span class="cat__n"><b>2</b>件</span></summary>
+          <ul class="calc-list">
+            <li data-gate="05"><a class="calc" href="toilet/"><span class="calc__no">No.<b>05</b></span><span><span class="calc__name">トイレのつまり修理</span><span class="calc__ex">軽いつまり・夜で <strong class="nw">1万7,600円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+            <li data-gate="06"><a class="calc" href="ofuro/"><span class="calc__no">No.<b>06</b></span><span><span class="calc__name">お風呂の交換</span><span class="calc__ex">1坪・中級で <strong class="nw">約97万円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+            <li data-gate="16" hidden><a class="calc" href="mizumore/"><span class="calc__no">No.<b>22</b></span><span><span class="calc__name">蛇口の水漏れ修理</span><span class="calc__ex">夜・カートリッジの交換で <strong class="nw">3万1,240円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+            <li data-gate="17" hidden><a class="calc" href="kitchen/"><span class="calc__no">No.<b>25</b></span><span><span class="calc__name">キッチンの交換</span><span class="calc__ex">I型255cm・同じ位置で入れ替えで <strong class="nw">130万4,160円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+            <li data-gate="32" hidden><a class="calc" href="touketsu/"><span class="calc__no">No.<b>31</b></span><span><span class="calc__name">水道管の凍結・破裂の修理</span><span class="calc__ex">むき出しの管を一部交換して <strong class="nw">3万1,900円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+            <li data-gate="21" hidden><a class="calc" href="josuiki/"><span class="calc__no">No.<b>24</b></span><span><span class="calc__name">浄水器</span><span class="calc__ex">一体型の水栓・3〜4人で10年 <strong class="nw">27万6,650円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+            <li data-gate="31" hidden><a class="calc" href="cleaning/"><span class="calc__no">No.<b>29</b></span><span><span class="calc__name">ハウスクリーニング（水回り）</span><span class="calc__ex">水回り5か所の5点セットで <strong class="nw">3万7,400円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+          </ul>
+        </details>
+        <details class="cat" id="cat-setsubi">
+          <summary><span class="cat__name">給湯器・エアコン・省エネ</span><span class="cat__ex">給湯器の交換／蓄電池・太陽光／窓の断熱リフォーム</span><span class="cat__n"><b>3</b>件</span></summary>
+          <ul class="calc-list">
+            <li data-gate="03"><a class="calc" href="kyutoki/"><span class="calc__no">No.<b>03</b></span><span><span class="calc__name">給湯器の交換</span><span class="calc__ex">24号・エコジョーズで <strong class="nw">約22万6千円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+            <li data-gate="28" hidden><a class="calc" href="kyutoki-shuri/"><span class="calc__no">No.<b>23</b></span><span><span class="calc__name">給湯器の修理か交換か</span><span class="calc__ex">燃焼系の部品1つの修理で <strong class="nw">3万6,300円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+            <li data-gate="25" hidden><a class="calc" href="ecocute/"><span class="calc__no">No.<b>18</b></span><span><span class="calc__name">エコキュートの交換</span><span class="calc__ex">電気温水器から370L・フルオートで <strong class="nw">51万7,000円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+            <li data-gate="08"><a class="calc" href="chikudenchi/"><span class="calc__no">No.<b>11</b></span><span><span class="calc__name">蓄電池・太陽光</span><span class="calc__ex">7キロワットアワーで <strong class="nw">約141万円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+            <li data-gate="13" hidden><a class="calc" href="aircon/"><span class="calc__no">No.<b>26</b></span><span><span class="calc__name">エアコンの取り付け</span><span class="calc__ex">2階から1階の地面へ・処分ありで <strong class="nw">5万4,230円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+            <li data-gate="33" hidden><a class="calc" href="aircon-clean/"><span class="calc__no">No.<b>32</b></span><span><span class="calc__name">エアコンクリーニング</span><span class="calc__ex">壁掛け2台（お掃除機能付き1台）で <strong class="nw">4万5,650円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+            <li data-gate="18"><a class="calc" href="mado/"><span class="calc__no">No.<b>14</b></span><span><span class="calc__name">窓の断熱リフォーム</span><span class="calc__ex">内窓4か所・補助金を引いて <strong class="nw">35万3,000円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+          </ul>
+        </details>
+        <details class="cat" id="cat-mamori">
+          <summary><span class="cat__name">虫・床下・耐震・防災</span><span class="cat__ex">シロアリ駆除／ハチの巣の駆除／床下換気扇・調湿材</span><span class="cat__n"><b>3</b>件</span></summary>
+          <ul class="calc-list">
+            <li data-gate="04"><a class="calc" href="shiroari/"><span class="calc__no">No.<b>04</b></span><span><span class="calc__name">シロアリ駆除</span><span class="calc__ex">30坪・バリア工法で <strong class="nw">約12万円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+            <li data-gate="14"><a class="calc" href="kujo/"><span class="calc__no">No.<b>13</b></span><span><span class="calc__name">ハチの巣の駆除</span><span class="calc__ex">軒下のスズメバチの巣1つで <strong class="nw">2万5,300円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+            <li data-gate="07"><a class="calc" href="yukashita/"><span class="calc__no">No.<b>10</b></span><span><span class="calc__name">床下換気扇・調湿材</span><span class="calc__ex">15坪・換気扇3台と調湿材で <strong class="nw">約40万円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+            <li data-gate="19" hidden><a class="calc" href="taishin/"><span class="calc__no">No.<b>19</b></span><span><span class="calc__name">耐震補強工事</span><span class="calc__ex">木造2階・壁8か所で <strong class="nw">140万6,876円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+            <li data-gate="22" hidden><a class="calc" href="shokaki/"><span class="calc__no">No.<b>33</b></span><span><span class="calc__name">火災警報器・消火器</span><span class="calc__ex">警報器3個・消火器1本で <strong class="nw">5万5,000円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+          </ul>
+        </details>
+        <details class="cat" id="cat-chintai">
+          <summary><span class="cat__name">賃貸・引っ越し</span><span class="cat__ex">賃貸の退去費用</span><span class="cat__n"><b>1</b>件</span></summary>
+          <ul class="calc-list">
+            <li data-gate="10"><a class="calc" href="taikyo/"><span class="calc__no">No.<b>07</b></span><span><span class="calc__name">賃貸の退去費用</span><span class="calc__ex">1K・6畳・4年で 借りた人の分 <strong class="nw">4,400円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+            <li data-gate="26" hidden><a class="calc" href="taikyo2/"><span class="calc__no">No.<b>20</b></span><span><span class="calc__name">退去費用（タバコ・ペット・壁の穴）</span><span class="calc__ex">6年住んだ1K・ガイドラインどおりで <strong class="nw">5万1,701円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+            <li data-gate="30" hidden><a class="calc" href="shoki/"><span class="calc__no">No.<b>28</b></span><span><span class="calc__name">賃貸の入居の初期費用</span><span class="calc__ex">家賃7万円の1Kで <strong class="nw">43万4,500円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+            <li data-gate="24" hidden><a class="calc" href="yachin/"><span class="calc__no">No.<b>17</b></span><span><span class="calc__name">家賃の値上げと更新</span><span class="calc__ex">7万4千円→9万4千円の更新の請求 <strong class="nw">17万5,700円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+            <li data-gate="15" hidden><a class="calc" href="hikkoshi/"><span class="calc__no">No.<b>30</b></span><span><span class="calc__name">引っ越し</span><span class="calc__ex">単身・県内20キロ・エアコンありで <strong class="nw">7万4,096円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+          </ul>
+        </details>
+        <details class="cat" id="cat-katazuke">
+          <summary><span class="cat__name">片付け・買い取り・鍵</span><span class="cat__ex">不用品回収／鍵開け・鍵の交換</span><span class="cat__n"><b>2</b>件</span></summary>
+          <ul class="calc-list">
+            <li data-gate="11"><a class="calc" href="fuyohin/"><span class="calc__no">No.<b>08</b></span><span><span class="calc__name">不用品回収</span><span class="calc__ex">9点・軽トラック積み放題で <strong class="nw">2万6,840円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+            <li data-gate="29" hidden><a class="calc" href="ihin/"><span class="calc__no">No.<b>27</b></span><span><span class="calc__name">遺品整理・実家の片付け</span><span class="calc__ex">2DK・アパートの2階で <strong class="nw">20万4,820円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+            <li data-gate="27" hidden><a class="calc" href="kaitori/"><span class="calc__no">No.<b>21</b></span><span><span class="calc__name">金の買い取り（訪問購入）</span><span class="calc__ex">K18のネックレスと指輪15gで <strong class="nw">23万1,165円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+            <li data-gate="12"><a class="calc" href="kagi/"><span class="calc__no">No.<b>09</b></span><span><span class="calc__name">鍵開け・鍵の交換</span><span class="calc__ex">夜・ディンプルに交換で <strong class="nw">3万8,280円</strong></span></span><span class="calc__go" aria-hidden="true">→</span></a></li>
+          </ul>
+        </details>
+      </div>
     </div>
   </section>
 
@@ -251,44 +306,49 @@ a.vid:hover .vid__title { color: var(--blue); }
     <div class="wrap">
       <div class="head-row">
         <div><span class="eyebrow">動画</span><h2 class="section-h" id="douga-h">新しい動画</h2></div>
-        <a href="douga/">すべて見る →</a>
+        <a href="douga/">動画の一覧 →</a>
       </div>
-      <!-- 公開したら、各カードのリンクを動画の文字版（douga/NN/）かYouTubeへ差し替える -->
-      <ul class="vids">
-        <li><a class="vid" href="douga/01/"><span class="vid__thumb"><img src="img/thumbs/01.webp" alt="" width="640" height="360" loading="lazy"></span><span class="vid__title">【実際の手口3つ】外壁塗装30坪、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/02/"><span class="vid__thumb"><img src="img/thumbs/02.webp" alt="" width="640" height="360" loading="lazy"></span><span class="vid__title">【実際の手口3つ】屋根30坪、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/03/"><span class="vid__thumb"><img src="img/thumbs/03.webp" alt="" width="640" height="360" loading="lazy"></span><span class="vid__title">【実際の手口3つ】給湯器の交換、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/04/"><span class="vid__thumb"><img src="img/thumbs/04.webp" alt="" width="640" height="360" loading="lazy"></span><span class="vid__title">【実際の手口3つ】シロアリ駆除30坪、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/05/"><span class="vid__thumb"><img src="img/thumbs/05.webp" alt="" width="640" height="360" loading="lazy"></span><span class="vid__title">【実際の手口3つ】トイレのつまり修理、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/06/"><span class="vid__thumb"><img src="img/thumbs/06.webp" alt="" width="640" height="360" loading="lazy"></span><span class="vid__title">【実際の手口3つ】お風呂の交換、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/10/"><span class="vid__thumb"><img src="img/thumbs/10.webp" alt="" width="640" height="360" loading="lazy"></span><span class="vid__title">【実際の手口3つ】賃貸の退去費用、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/11/"><span class="vid__thumb"><img src="img/thumbs/11.webp" alt="" width="640" height="360" loading="lazy"></span><span class="vid__title">【実際の手口3つ】不用品回収、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/12/"><span class="vid__thumb"><img src="img/thumbs/12.webp" alt="" width="640" height="360" loading="lazy"></span><span class="vid__title">【実際の手口3つ】鍵開け・鍵の交換、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/07/"><span class="vid__thumb"><img src="img/thumbs/07.webp" alt="" width="640" height="360" loading="lazy"></span><span class="vid__title">【実際の手口3つ】床下換気扇・調湿材、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/08/"><span class="vid__thumb"><img src="img/thumbs/08.webp" alt="" width="640" height="360" loading="lazy"></span><span class="vid__title">【実際の手口3つ】蓄電池、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/09/"><span class="vid__thumb"><img src="img/thumbs/09.webp" alt="" width="640" height="360" loading="lazy"></span><span class="vid__title">【実際の手口3つ】雨どい修理、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
+      <!-- 並びは publish_videos.py と assets/site.js が直す（公開した新しい順に3本・残りは「すべて見る」の中・まだの回は hidden） -->
+      <ul class="vids" id="vids-new">
+        <li><a class="vid" href="douga/18/"><span class="vid__thumb"><img src="img/thumbs/18.webp" alt="" width="640" height="360" loading="lazy"></span><span class="vid__title">【実際の手口3つ】窓の断熱リフォーム、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
         <li><a class="vid" href="douga/14/"><span class="vid__thumb"><img src="img/thumbs/14.webp" alt="" width="640" height="360" loading="lazy"></span><span class="vid__title">【実際の手口3つ】ハチの巣の駆除、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/18/"><span class="vid__thumb"><img src="img/thumbs/18.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】窓の断熱リフォーム、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/20/"><span class="vid__thumb"><img src="img/thumbs/20.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】庭木の剪定・草刈り、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/23/"><span class="vid__thumb"><img src="img/thumbs/23.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】地震のあとの屋根の応急修理の相場、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/24/"><span class="vid__thumb"><img src="img/thumbs/24.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】家賃の値上げと更新料の相場、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/25/"><span class="vid__thumb"><img src="img/thumbs/25.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】エコキュート交換の相場、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/19/"><span class="vid__thumb"><img src="img/thumbs/19.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】耐震補強工事、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/26/"><span class="vid__thumb"><img src="img/thumbs/26.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】タバコ・ペット・壁の穴の退去費用、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/27/"><span class="vid__thumb"><img src="img/thumbs/27.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】訪問購入（押し買い）の相場、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/16/"><span class="vid__thumb"><img src="img/thumbs/16.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】蛇口の水漏れ修理、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/28/"><span class="vid__thumb"><img src="img/thumbs/28.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】給湯器の修理の相場、本当はいくら？ 修理か交換かで比べた費用</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/21/"><span class="vid__thumb"><img src="img/thumbs/21.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】浄水器・水道の点検、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/17/"><span class="vid__thumb"><img src="img/thumbs/17.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】キッチンの交換、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/13/"><span class="vid__thumb"><img src="img/thumbs/13.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】エアコンの取り付け、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/29/"><span class="vid__thumb"><img src="img/thumbs/29.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】遺品整理の相場、本当はいくら？ 2DKの実家の片付けの費用</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/30/"><span class="vid__thumb"><img src="img/thumbs/30.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】賃貸の入居の初期費用、本当はいくら？ 家賃7万円の見積書の中身</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/31/"><span class="vid__thumb"><img src="img/thumbs/31.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】ハウスクリーニングの相場、本当はいくら？ 年末の水回り5か所の費用</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/15/"><span class="vid__thumb"><img src="img/thumbs/15.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】引っ越し、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/32/"><span class="vid__thumb"><img src="img/thumbs/32.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】水道管の凍結・破裂の修理の相場、本当はいくら？ 解氷・一部交換・保温材の費用</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/33/"><span class="vid__thumb"><img src="img/thumbs/33.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】エアコンクリーニングの相場、本当はいくら？ お掃除機能付きの費用</span><span class="vid__meta">文字で読めます</span></a></li>
-        <li><a class="vid" href="douga/22/"><span class="vid__thumb"><img src="img/thumbs/22.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】消火器・火災警報器、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
+        <li><a class="vid" href="douga/09/"><span class="vid__thumb"><img src="img/thumbs/09.webp" alt="" width="640" height="360" loading="lazy"></span><span class="vid__title">【実際の手口3つ】雨どい修理、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
       </ul>
+      <details class="fold" id="vids-more">
+        <summary><span class="fold__closed">すべて見る（ほか<b class="fold__n">11</b>本）</span><span class="fold__opened">閉じる</span></summary>
+        <ul class="vids vids--all">
+          <li><a class="vid" href="douga/08/"><span class="vid__thumb"><img src="img/thumbs/08.webp" alt="" width="640" height="360" loading="lazy"></span><span class="vid__title">【実際の手口3つ】蓄電池、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li><a class="vid" href="douga/07/"><span class="vid__thumb"><img src="img/thumbs/07.webp" alt="" width="640" height="360" loading="lazy"></span><span class="vid__title">【実際の手口3つ】床下換気扇・調湿材、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li><a class="vid" href="douga/12/"><span class="vid__thumb"><img src="img/thumbs/12.webp" alt="" width="640" height="360" loading="lazy"></span><span class="vid__title">【実際の手口3つ】鍵開け・鍵の交換、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li><a class="vid" href="douga/11/"><span class="vid__thumb"><img src="img/thumbs/11.webp" alt="" width="640" height="360" loading="lazy"></span><span class="vid__title">【実際の手口3つ】不用品回収、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li><a class="vid" href="douga/10/"><span class="vid__thumb"><img src="img/thumbs/10.webp" alt="" width="640" height="360" loading="lazy"></span><span class="vid__title">【実際の手口3つ】賃貸の退去費用、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li><a class="vid" href="douga/06/"><span class="vid__thumb"><img src="img/thumbs/06.webp" alt="" width="640" height="360" loading="lazy"></span><span class="vid__title">【実際の手口3つ】お風呂の交換、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li><a class="vid" href="douga/05/"><span class="vid__thumb"><img src="img/thumbs/05.webp" alt="" width="640" height="360" loading="lazy"></span><span class="vid__title">【実際の手口3つ】トイレのつまり修理、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li><a class="vid" href="douga/04/"><span class="vid__thumb"><img src="img/thumbs/04.webp" alt="" width="640" height="360" loading="lazy"></span><span class="vid__title">【実際の手口3つ】シロアリ駆除30坪、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li><a class="vid" href="douga/03/"><span class="vid__thumb"><img src="img/thumbs/03.webp" alt="" width="640" height="360" loading="lazy"></span><span class="vid__title">【実際の手口3つ】給湯器の交換、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li><a class="vid" href="douga/02/"><span class="vid__thumb"><img src="img/thumbs/02.webp" alt="" width="640" height="360" loading="lazy"></span><span class="vid__title">【実際の手口3つ】屋根30坪、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li><a class="vid" href="douga/01/"><span class="vid__thumb"><img src="img/thumbs/01.webp" alt="" width="640" height="360" loading="lazy"></span><span class="vid__title">【実際の手口3つ】外壁塗装30坪、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li hidden><a class="vid" href="douga/20/"><span class="vid__thumb"><img src="img/thumbs/20.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】庭木の剪定・草刈り、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li hidden><a class="vid" href="douga/23/"><span class="vid__thumb"><img src="img/thumbs/23.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】地震のあとの屋根の応急修理の相場、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li hidden><a class="vid" href="douga/24/"><span class="vid__thumb"><img src="img/thumbs/24.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】家賃の値上げと更新料の相場、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li hidden><a class="vid" href="douga/25/"><span class="vid__thumb"><img src="img/thumbs/25.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】エコキュート交換の相場、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li hidden><a class="vid" href="douga/19/"><span class="vid__thumb"><img src="img/thumbs/19.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】耐震補強工事、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li hidden><a class="vid" href="douga/26/"><span class="vid__thumb"><img src="img/thumbs/26.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】タバコ・ペット・壁の穴の退去費用、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li hidden><a class="vid" href="douga/27/"><span class="vid__thumb"><img src="img/thumbs/27.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】訪問購入（押し買い）の相場、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li hidden><a class="vid" href="douga/16/"><span class="vid__thumb"><img src="img/thumbs/16.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】蛇口の水漏れ修理、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li hidden><a class="vid" href="douga/28/"><span class="vid__thumb"><img src="img/thumbs/28.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】給湯器の修理の相場、本当はいくら？ 修理か交換かで比べた費用</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li hidden><a class="vid" href="douga/21/"><span class="vid__thumb"><img src="img/thumbs/21.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】浄水器・水道の点検、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li hidden><a class="vid" href="douga/17/"><span class="vid__thumb"><img src="img/thumbs/17.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】キッチンの交換、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li hidden><a class="vid" href="douga/13/"><span class="vid__thumb"><img src="img/thumbs/13.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】エアコンの取り付け、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li hidden><a class="vid" href="douga/29/"><span class="vid__thumb"><img src="img/thumbs/29.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】遺品整理の相場、本当はいくら？ 2DKの実家の片付けの費用</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li hidden><a class="vid" href="douga/30/"><span class="vid__thumb"><img src="img/thumbs/30.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】賃貸の入居の初期費用、本当はいくら？ 家賃7万円の見積書の中身</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li hidden><a class="vid" href="douga/31/"><span class="vid__thumb"><img src="img/thumbs/31.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】ハウスクリーニングの相場、本当はいくら？ 年末の水回り5か所の費用</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li hidden><a class="vid" href="douga/15/"><span class="vid__thumb"><img src="img/thumbs/15.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】引っ越し、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li hidden><a class="vid" href="douga/32/"><span class="vid__thumb"><img src="img/thumbs/32.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】水道管の凍結・破裂の修理の相場、本当はいくら？ 解氷・一部交換・保温材の費用</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li hidden><a class="vid" href="douga/33/"><span class="vid__thumb"><img src="img/thumbs/33.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】エアコンクリーニングの相場、本当はいくら？ お掃除機能付きの費用</span><span class="vid__meta">文字で読めます</span></a></li>
+          <li hidden><a class="vid" href="douga/22/"><span class="vid__thumb"><img src="img/thumbs/22.webp" alt="" width="640" height="360" loading="lazy"><span class="tag">近日公開</span></span><span class="vid__title">【実際の手口3つ】消火器・火災警報器、本当はいくら？</span><span class="vid__meta">文字で読めます</span></a></li>
+        </ul>
+      </details>
     </div>
   </section>
 
@@ -363,6 +423,7 @@ a.vid:hover .vid__title { color: var(--blue); }
         <div class="sns">
             <a href="https://www.youtube.com/@mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#ff0033" d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81z"/><path fill="#fff" d="M9.55 15.57V8.43L15.82 12z"/></svg>YouTube</a>
             <a href="https://www.instagram.com/mitsumori_onee/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+            <a href="https://www.tiktok.com/@mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>TikTok</a>
             <a href="https://x.com/mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</a>
         </div>
       </div>
@@ -377,6 +438,7 @@ a.vid:hover .vid__title { color: var(--blue); }
     <div class="sns">
       <a href="https://www.youtube.com/@mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#ff0033" d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81z"/><path fill="#fff" d="M9.55 15.57V8.43L15.82 12z"/></svg>YouTube</a>
       <a href="https://www.instagram.com/mitsumori_onee/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+      <a href="https://www.tiktok.com/@mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>TikTok</a>
       <a href="https://x.com/mitsumori_onee" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</a>
     </div>
     <nav class="site-f__nav" aria-label="サイトの案内">

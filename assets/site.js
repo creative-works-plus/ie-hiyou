@@ -66,6 +66,27 @@
         }
       }
     });
+    // トップの「新しい動画」：公開した新しい順に NEW 本を上、残りを「すべて見る」の中へ（publish_videos.py の arrange と同じ）
+    const NEW = 3;
+    const top = document.getElementById('vids-new'), fold = document.getElementById('vids-more');
+    const more = fold && fold.querySelector('.vids--all');
+    if (top && more) {
+      const at = li => { const v = videos[(li.querySelector('a.vid').getAttribute('href').match(/douga\/(\d{2})\//) || [])[1]]; return v ? Date.parse(v.at) : NaN; };
+      const cards = [...top.children, ...more.children];
+      const pub = cards.filter(li => at(li) <= now).sort((a, b) => at(b) - at(a));
+      pub.forEach((li, i) => { li.hidden = false; (i < NEW ? top : more).appendChild(li); });
+      cards.filter(li => !pub.includes(li)).forEach(li => { li.hidden = true; more.appendChild(li); });
+      const n = fold.querySelector('.fold__n');
+      if (n) n.textContent = Math.max(0, pub.length - NEW);
+      fold.hidden = pub.length <= NEW;
+    }
+    // 「計算する」の分類ごとの件数と名前（publish_videos.py の cats と同じ）
+    document.querySelectorAll('.cat').forEach(cat => {
+      const names = [...cat.querySelectorAll('.calc-list > li:not([hidden]) .calc__name')].map(el => el.textContent);
+      const ex = cat.querySelector('.cat__ex'), n = cat.querySelector('.cat__n');
+      if (ex) ex.textContent = names.join('／');
+      if (n) n.innerHTML = '<b>' + names.length + '</b>件';
+    });
   }).catch(() => {});
 })();
 

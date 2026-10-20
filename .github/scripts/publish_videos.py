@@ -5,6 +5,7 @@ assets/videos.json に {"NN": {"id": YouTube の動画ID, "at": 公開の時刻}
 時刻ちょうどの切り替えは、見た人のブラウザで assets/site.js がやる（GitHub の自動実行も Mac も要らない）。
 これは、同じ切り替えを HTML そのものにも書き込む道具（検索エンジンや JS が切ってある人向け）。
 計算ページへの入り口（data-gate="NN" hidden）と、計算ページの「公開と同時に使えるように」のお知らせも外す。
+トップの「新しい動画」は公開した新しい順に3本、残りは「すべて見る」の中へ並べ直し、「計算する」の分類ごとの件数と中身の名前も数え直す（同じことを site.js も見た人のブラウザでやる）。
 Claude がサイトを触るたびに動かして commit・push する。何度動かしても同じ結果になる（済んだ回は何も変えない）。
 
   python3 .github/scripts/publish_videos.py          # 時刻を過ぎた回だけ
@@ -71,6 +72,39 @@ def ungate(html, nn):
                   '<main id="main">', html, count=1, flags=re.S)
 
 
+NEW = 3  # トップの「新しい動画」に出す本数（残りは「すべて見る」の中。site.js の NEW と合わせる）
+
+
+def arrange(html, videos, now):
+    # トップの動画の並び：公開した新しい順に NEW 本を上、残りを「すべて見る」の中、まだの回は hidden で最後に
+    m = re.search(r'(<ul class="vids" id="vids-new">\n)(.*?)(      </ul>\n      <details class="fold" id="vids-more">\n.*?<ul class="vids vids--all">\n)(.*?)(        </ul>\n      </details>)', html, re.S)
+    if not m:
+        sys.exit('index.html に vids-new / vids-more が無い')
+    cards = re.findall(r'<li[^>]*><a class="vid" href="douga/(\d{2})/">.*?</li>', m.group(2) + m.group(4))
+    body = {nn: re.search(rf'<li[^>]*>(<a class="vid" href="douga/{nn}/">.*?</li>)', m.group(2) + m.group(4)).group(1) for nn in cards}
+    at = lambda nn: datetime.datetime.fromisoformat(videos[nn]['at'])
+    pub = sorted((nn for nn in cards if nn in videos and at(nn) <= now), key=at, reverse=True)
+    rest = [nn for nn in cards if nn not in pub]
+    top = ''.join(f'        <li>{body[nn]}\n' for nn in pub[:NEW])
+    more = ''.join(f'          <li>{body[nn]}\n' for nn in pub[NEW:]) + ''.join(f'          <li hidden>{body[nn]}\n' for nn in rest)
+    head = re.sub(r'<b class="fold__n">\d*</b>', f'<b class="fold__n">{len(pub[NEW:])}</b>', m.group(3))
+    head = head.replace('<details class="fold" id="vids-more" hidden>', '<details class="fold" id="vids-more">')
+    if not pub[NEW:]:
+        head = head.replace('<details class="fold" id="vids-more">', '<details class="fold" id="vids-more" hidden>')
+    return html[:m.start()] + m.group(1) + top + head + more + m.group(5) + html[m.end():]
+
+
+def cats(html):
+    # 「計算する」の分類ごとに、使える（hidden でない）計算の件数と名前を書き込む
+    def one(m):
+        block = m.group(0)
+        names = re.findall(r'<li data-gate="\d{2}"><a class="calc"[^>]*>.*?<span class="calc__name">([^<]*)</span>', block)
+        block = re.sub(r'<span class="cat__ex">[^<]*</span>', f'<span class="cat__ex">{"／".join(names)}</span>', block, count=1)
+        block = re.sub(r'<span class="cat__n">.*?</span></summary>', f'<span class="cat__n"><b>{len(names)}</b>件</span></summary>', block, count=1)
+        return block
+    return re.sub(r'<details class="cat" id="cat-[a-z]+">.*?</details>', one, html, flags=re.S)
+
+
 def main():
     dry = '--dry' in sys.argv
     now = datetime.datetime.now(datetime.timezone.utc)
@@ -89,6 +123,8 @@ def main():
         for p in sorted(ROOT.glob('**/index.html')):
             if f'data-gate="{nn}"' in p.read_text(encoding='utf-8'):
                 edit(str(p.relative_to(ROOT)), lambda h: ungate(h, nn))
+    if not dry:
+        edit('index.html', lambda h: cats(arrange(h, videos, now)))
 
 
 if __name__ == '__main__':
