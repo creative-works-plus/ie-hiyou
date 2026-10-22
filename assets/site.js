@@ -92,7 +92,7 @@
 
 // アクセス解析（Google アナリティクス 4）。測定ID（G-から始まる）をここに入れるまでは何も読み込まない
 // ★計算の条件はURLの # の後ろに入れているので、アナリティクスには送られない。track() にも入力した値を渡さない
-const GA_ID = '';
+const GA_ID = 'G-7NTFPTP6YK';
 window.dataLayer = window.dataLayer || [];
 function gtag() { window.dataLayer.push(arguments); }
 window.track = (name, params) => { if (GA_ID) gtag('event', name, params || {}); };
