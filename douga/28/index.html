@@ -255,12 +255,10 @@ a.ref:hover { color: var(--blue); }
   <div class="wrap">
     <div class="doc">
       <figure class="video">
-        <!-- 公開したら YouTube の埋め込みに差し替える -->
         <div class="video__frame">
-          <img src="../../img/thumbs/28.webp" width="640" height="360" alt="動画のサムネイル（給湯器の修理か交換か、本当はいくら？）">
-          <span class="video__badge">動画は近日公開</span>
+          <iframe src="https://www.youtube-nocookie.com/embed/TVQWZp20Rh0" title="第23回の動画" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block;width:100%;height:100%;border:0"></iframe>
         </div>
-        <figcaption>動画はまだ公開していません。公開したら、ここで見られるようにします。お知らせは <a href="https://www.youtube.com/@mitsumori_onee" target="_blank" rel="noopener">YouTubeチャンネル</a> で。</figcaption>
+        <figcaption><a href="https://youtu.be/TVQWZp20Rh0" target="_blank" rel="noopener">YouTube で見る</a></figcaption>
       </figure>
 
       <nav class="toc" aria-labelledby="toc-h">
@@ -275,7 +273,7 @@ a.ref:hover { color: var(--blue); }
           <li><a class="tm" href="#c5"><span class="t">14:15</span><span>⑤ 見積書の見分け方と、冬の前にできること</span></a></li>
           <li><a class="tm" href="#end"><span class="t">16:22</span><span>まとめ</span></a></li>
           <li class="toc__sub"><a href="#mitsumori">モデルの見積書2枚（表）</a></li>
-          <li class="toc__sub" data-gate="28" hidden><a href="#keisan">壊れた所と機種で計算する</a></li>
+          <li class="toc__sub" data-gate="28"><a href="#keisan">壊れた所と機種で計算する</a></li>
           <li class="toc__sub"><a href="#sources">出典</a></li>
         </ol>
         <p class="toc__note">左の時刻は、動画の中の位置です。</p>
@@ -476,7 +474,7 @@ a.ref:hover { color: var(--blue); }
           </div>
         </section>
 
-        <section class="calc-cta" id="keisan" data-gate="28" hidden aria-labelledby="keisan-h">
+        <section class="calc-cta" id="keisan" data-gate="28" aria-labelledby="keisan-h">
           <h2 id="keisan-h"><span class="nw">壊れた所と機種で、</span><span class="nw">修理と交換を計算する</span></h2>
           <p>作られてからの年数、壊れた所、交換するなら選ぶ機種を選ぶと、修理と交換の目安の金額と、修理が交換の何%かが出ます。この見積書と同じ単価表で計算します。</p>
           <a class="btn" href="../../kyutoki-shuri/" data-track="douga_to_calc">給湯器の修理と交換の費用を計算する →</a>
