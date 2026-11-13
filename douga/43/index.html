@@ -255,12 +255,10 @@ a.ref:hover { color: var(--blue); }
   <div class="wrap">
     <div class="doc">
       <figure class="video">
-        <!-- 公開したら YouTube の埋め込みに差し替える -->
         <div class="video__frame">
-          <img src="../../img/thumbs/43.webp" width="640" height="360" alt="動画のサムネイル（給料ファクタリング、7万円受け取り給料日に12万円）">
-          <span class="video__badge">動画は近日公開</span>
+          <iframe src="https://www.youtube-nocookie.com/embed/hnYcFt81rU0" title="第38回の動画" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block;width:100%;height:100%;border:0"></iframe>
         </div>
-        <figcaption>動画はまだ公開していません。公開したら、ここで見られるようにします。お知らせは <a href="https://www.youtube.com/@mitsumori_onee" target="_blank" rel="noopener">YouTubeチャンネル</a> で。</figcaption>
+        <figcaption><a href="https://youtu.be/hnYcFt81rU0" target="_blank" rel="noopener">YouTube で見る</a></figcaption>
       </figure>
 
       <nav class="toc" aria-labelledby="toc-h">
@@ -275,7 +273,7 @@ a.ref:hover { color: var(--blue); }
           <li><a class="tm" href="#c5"><span class="t">13:33</span><span>⑤ 見分け方と、5万円の答え合わせ</span></a></li>
           <li><a class="tm" href="#end"><span class="t">16:57</span><span>まとめ</span></a></li>
           <li class="toc__sub"><a href="#mitsumori">手数料の明細（表）</a></li>
-          <li class="toc__sub" data-gate="43" hidden><a href="#keisan">受け取る金額と返す金額で計算する</a></li>
+          <li class="toc__sub" data-gate="43"><a href="#keisan">受け取る金額と返す金額で計算する</a></li>
           <li class="toc__sub"><a href="#sources">出典</a></li>
         </ol>
         <p class="toc__note">左の時刻は、動画の中の位置です。</p>
@@ -480,7 +478,7 @@ a.ref:hover { color: var(--blue); }
         </section>
 
 
-        <section class="calc-cta" id="keisan" data-gate="43" hidden aria-labelledby="keisan-h">
+        <section class="calc-cta" id="keisan" data-gate="43" aria-labelledby="keisan-h">
           <h2 id="keisan-h"><span class="nw">受け取る金額と、返す金額と、</span><span class="nw">日数で計算する</span></h2>
           <p>受け取る金額と、返す金額と、日数を入れると、年の利率と、年20パーセントの上限の利息が出ます。</p>
           <a class="btn" href="../../kyuryo-factoring/" data-track="douga_to_calc">年の利率を計算する →</a>
